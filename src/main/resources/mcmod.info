@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "thaumic_arcana",
+    "name": "Thaumic Arcana",
+    "description": "A thaumcraft addon extending on biothaumaturgy, and the manipulation of the environment",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Frontrider"
+    ],
+    "credits": "The MMD Discord",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
