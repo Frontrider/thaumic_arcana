@@ -520,7 +520,8 @@
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
             "thaumcraft:salis_mundus"
           ]
-        }, {
+        },
+        {
           "text": "research.thaumic_arcana.self_enchantment.stage.2",
           "warp": 4
         }

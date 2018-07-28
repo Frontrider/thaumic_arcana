@@ -85,5 +85,9 @@ item.creature_enchanter.name=Creature Enchanter
 item.incubated_egg.name=Incubated Egg
 item.fertiliser.name=Arcane Fertiliser
 
-potion.effect.sweet_relief=Sweet Relief
+potion.effect.sweet_relief=Potion of Sweet Relief
+splash_potion.effect.sweet_relief=Splash potion of Sweet Relief
+lingering_potion.effect.sweet_relief=Lingering potion of Sweet Relief
+
+
 potion.sweet_relief=Sweet Relief
