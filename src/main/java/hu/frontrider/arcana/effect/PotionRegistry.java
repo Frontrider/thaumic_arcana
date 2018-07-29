@@ -18,13 +18,13 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 @Mod.EventBusSubscriber
 public class PotionRegistry {
 
-    static PotionType relief;
+    private static PotionType relief;
 
     @SubscribeEvent
     public static void register(RegistryEvent.Register<PotionType> event) {
 
         SweetRelief.instance = new SweetRelief();
-        PotionEffect reliefEffect = new PotionEffect(SweetRelief.instance, 3600, 0, false, false);
+        PotionEffect reliefEffect = new PotionEffect(SweetRelief.instance, 3600, 1, false, false);
         reliefEffect.addCurativeItem(new ItemStack(Items.GOLDEN_CARROT));
 
         PotionEffect wardingEffect = new PotionEffect(PotionWarpWard.instance, 3600, 0, false, false);

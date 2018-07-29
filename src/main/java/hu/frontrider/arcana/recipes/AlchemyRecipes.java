@@ -249,6 +249,17 @@ public class AlchemyRecipes {
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "grow_chicken"), recipe);
         }
+
+        {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    KEY,
+                    new ItemStack(ItemRegistry.nutrient_mix),
+                    new ItemStack(Items.SUGAR),
+                    new AspectList().add(Aspect.LIFE, 3).add(Aspect.PLANT, 2).add(Aspect.MAGIC, 2)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "nutrient_mix"), recipe);
+        }
+
     }
 
     private static void initHardenFleshToLeather() {

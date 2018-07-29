@@ -57,6 +57,9 @@ research.thaumic_arcana.self_enchantment.title=Self Enchantment
 research.thaumic_arcana.self_enchantment.stage.1=I can put enchantments on all kinds of creatures. But what if I could put them on myself? I must try it out!
 research.thaumic_arcana.self_enchantment.stage.2=Total failure. My body is still weak and shaking. I can't handle the process, about halfway through, I started to feel sick, than I was shaking violently, and was unable to pronounce the incantations.<BR/> I have experienced similar reactions when I first did this to animals, but I didn't expected this. <LINE> If I could mitigate the resistance of my body, than I could move forward with it.
 
+research.thaumic_arcana.nutrient_mix.title=Nutrient Mix
+research.thaumic_arcana.nutrient_mix.stage.1=Knowing how to grow fresh meat is good, but what If I still need the whole animal? Could I increase the growth, so I don't need to wait for that long?
+research.thaumic_arcana.nutrient_mix.stage.2=I created a recipe for a special kind of mixture, that is able to speed up the growth of any animal.
 
 ##########
 #Theories#
@@ -81,9 +84,14 @@ enchant.thaumic_arcana.creature_enchant.strength=Strength
 ########
 #Itmems#
 ########
+itemGroup.thaumic_arcana=Thaumic Arcana
+
 item.creature_enchanter.name=Creature Enchanter
 item.incubated_egg.name=Incubated Egg
 item.fertiliser.name=Arcane Fertiliser
+item.relief_item.name=Raw Relief
+item.nutrient_mix.name=Nutrient Mix
+
 
 potion.effect.sweet_relief=Potion of Sweet Relief
 splash_potion.effect.sweet_relief=Splash potion of Sweet Relief

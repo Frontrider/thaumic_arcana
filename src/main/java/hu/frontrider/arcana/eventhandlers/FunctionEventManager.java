@@ -5,6 +5,7 @@ import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.capabilities.IRelief;
 import hu.frontrider.arcana.effect.SweetRelief;
 import hu.frontrider.arcana.items.EnchantmentAttempt;
+import hu.frontrider.arcana.items.ItemRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
@@ -12,6 +13,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -19,6 +21,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -98,6 +101,23 @@ public class FunctionEventManager {
                 ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
                 if (capability.getName().equals(CreatureEnchant.ENCHANTS.RESPIRATION.toString())) {
                     entity.setAir(300);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    static void entityRightClick(PlayerInteractEvent.EntityInteract event) {
+
+        Entity target = event.getTarget();
+        if (target instanceof EntityAgeable) {
+            if (((EntityAgeable) target).isChild()) {
+                EntityPlayer player = event.getEntityPlayer();
+                ItemStack itemStack = player.getHeldItemMainhand();
+                Item item = itemStack.getItem();
+                if (item.equals(ItemRegistry.nutrient_mix)) {
+                    itemStack.shrink(1);
+                    ((EntityAgeable) target).addGrowth(30000);
                 }
             }
         }

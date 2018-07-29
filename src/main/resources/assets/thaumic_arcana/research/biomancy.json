@@ -466,8 +466,8 @@
       ],
       "category": "BIOMANCY",
       "location": [
-        6,
-        1
+        5,
+        0
       ],
       "parents": [
         "CREATURE_ENCHANT"
@@ -524,6 +524,46 @@
         {
           "text": "research.thaumic_arcana.self_enchantment.stage.2",
           "warp": 4
+        }
+      ]
+    },
+    {
+      "key": "NUTRINET_MIX",
+      "name": "research.thaumic_arcana.nutrient_mix.title",
+      "icons": [
+        "thaumix_arcana:nutrient_mix"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "FLESH_GROWTH"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        6,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.nutrient_mix.stage.1",
+          "required_item": [
+            "minecraft:beef",
+            "minecraft:sugar",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;1",
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;2"
+          ],
+          "warp": 0
+        },
+        {
+          "text": "research.thaumic_arcana.nutrient_mix.stage.2",
+          "recipes": [
+            "thaumic_arcana:nutrient_mix"
+          ]
         }
       ]
     }
