@@ -44,8 +44,14 @@ public class FunctionEventManager {
         EntityLivingBase entity = event.getEntityLiving();
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
-            if (capability.getName().equals(PROTECTION.toString()))
-                event.setAmount(event.getAmount() / capability.getLevel());
+            if (capability.getName().equals(PROTECTION.toString())) {
+                float amount = event.getAmount() / capability.getLevel();
+                System.out.println("event amount = " + event.getAmount());
+                System.out.println("amount = " + amount);
+                if (amount < 1 && entity.world.rand.nextBoolean())
+                    amount = 1;
+                event.setAmount(amount);
+            }
         }
 
         DamageSource source = event.getSource();

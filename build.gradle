@@ -38,7 +38,7 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:clasthasifier"
     //compile "some.group:artifact:version"
-      compile files("lib/Thaumcraft-1.12.2-6.1.BETA19-deobf.jar","lib/Baubles-1.12-1.5.2.jar")
+     // compile files("lib/Thaumcraft-1.12.2-6.1.BETA19-deobf.jar","lib/Baubles-1.12-1.5.2.jar")
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env

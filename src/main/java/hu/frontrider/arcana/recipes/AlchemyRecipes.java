@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.recipes;
 
 import hu.frontrider.arcana.items.ItemRegistry;
+import hu.frontrider.arcana.items.PlantBall;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -208,6 +209,23 @@ public class AlchemyRecipes {
     private static void initGrowingAdvanced() {
         String KEY = "PLANT_GROWTH_ADVANCED";
 
+        String[] woods = new String[]{
+                "oak", "sprouce", "birch", "jungle"
+        };
+        int meta = 0;
+
+        Item sapling = Item.REGISTRY.getObject(new ResourceLocation("minecraft:sapling"));
+        Item log = Item.REGISTRY.getObject(new ResourceLocation("minecraft:log"));
+        for (String wood : woods) {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    KEY,
+                    PlantBall.getBallFor(new ItemStack(sapling, 2, meta), new ItemStack(log, 5, meta)),
+                    new ItemStack(sapling, 1, meta),
+                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "grow_" + wood), recipe);
+            meta++;
+        }
     }
 
     private static void initGrowingFlesh() {
@@ -268,7 +286,7 @@ public class AlchemyRecipes {
                     "FLESH_TO_LEATHER",
                     new ItemStack(Items.LEATHER, 1),
                     new ItemStack(Items.BEEF),
-                    new AspectList().add(Aspect.EXCHANGE, 1)
+                    new AspectList().add(Aspect.EXCHANGE, 1).merge(Aspect.CRAFT, 1)
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "beef_to_leather"), recipe);
         }
@@ -301,6 +319,33 @@ public class AlchemyRecipes {
                     new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4)
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertiliser_recipe"), recipe);
+        }
+        {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    "ARCANE_FERTILISER",
+                    new ItemStack(ItemRegistry.fertiliser, 4),
+                    ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 4),
+                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 2)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertiliser_recipe_2"), recipe);
+        }
+        {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    "ARCANE_FERTILISER",
+                    new ItemStack(ItemRegistry.fertiliser, 16),
+                    ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
+                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 10)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertiliser_recipe_3"), recipe);
+        }
+        {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    "ARCANE_FERTILISER",
+                    new ItemStack(ItemRegistry.fertiliser, 64),
+                    ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
+                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 40)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertiliser_recipe_4"), recipe);
         }
         {
             CrucibleRecipe recipe = new CrucibleRecipe(

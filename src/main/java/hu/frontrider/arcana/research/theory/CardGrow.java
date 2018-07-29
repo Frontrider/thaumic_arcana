@@ -9,9 +9,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.items.ItemGenericEssentiaContainer;
+import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.research.theorycraft.ResearchTableData;
 import thaumcraft.api.research.theorycraft.TheorycraftCard;
-import thaumcraft.common.items.consumables.ItemPhial;
 
 import java.util.Random;
 
@@ -39,9 +41,11 @@ public class CardGrow extends TheorycraftCard {
 
     @Override
     public ItemStack[] getRequiredItems() {
+        ItemStack stack = new ItemStack(ItemsTC.phial, 1, 0);
+        ((ItemGenericEssentiaContainer) ItemsTC.crystalEssence).setAspects(stack, new AspectList().add(Aspect.WATER, 1));
+
         return new ItemStack[]{
-                new ItemStack(itemStack.getItem(), 1),
-                ItemPhial.makeFilledPhial(Aspect.WATER)
+                new ItemStack(itemStack.getItem(), 1), stack
         };
     }
 

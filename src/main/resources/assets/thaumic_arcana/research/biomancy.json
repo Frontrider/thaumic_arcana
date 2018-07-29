@@ -187,6 +187,57 @@
       ]
     },
     {
+      "key": "PLANT_GROWTH_ADVANCED",
+      "name": "research.thaumic_arcana.tree.title",
+      "icons": [
+        "minecraft:sapling"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "PLANT_GROWTH"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "location": [
+        0,
+        5
+      ],
+      "required_knowledge": [
+        "THEORY;ALCHEMY;2",
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.tree.stage.1",
+          "required_item": [
+            "minecraft:sapling",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;4"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.tree.stage.2",
+          "recipes": [
+            "thaumic_arcana:grow_oak",
+            "thaumic_arcana:grow_birch",
+            "thaumic_arcana:grow_sprouce",
+            "thaumic_arcana:grow_acacia",
+            "thaumic_arcana:grow_big_oak"
+          ]
+        }
+      ]
+    },
+
+    {
       "key": "FLESH_GROWTH",
       "name": "research.thaumic_arcana.flesh_growth.title",
       "icons": [
@@ -255,7 +306,7 @@
       ],
       "location": [
         4,
-        1
+        4
       ],
       "required_knowledge": [
         "THEORY;ALCHEMY;2",
@@ -281,8 +332,78 @@
         },
         {
           "text": "research.thaumic_arcana.fertiliser.stage.2",
+          "required_item": [
+            "minecraft:bone_meal",
+            "minecraft:seeds",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
+          ],
           "recipes": [
             "thaumic_arcana:fertiliser_recipe"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.fertiliser.stage.3",
+          "required_item": [
+            "minecraft:bone_meal",
+            "minecraft:seeds",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
+          ],
+          "recipes": [
+            "thaumic_arcana:fertiliser_recipe_2"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.fertiliser.stage.4",
+          "required_item": [
+            "thaumic_arcana:fertiliser",
+            "minecraft:seeds",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
+          ],
+          "recipes": [
+            "thaumic_arcana:fertiliser_recipe_3"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.fertiliser.stage.5",
+          "required_item": [
+            "thaumic_arcana:fertiliser",
+            "minecraft:seeds",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
+          ],
+          "recipes": [
+            "thaumic_arcana:fertiliser_recipe_4"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;1"
           ]
         }
       ]
@@ -345,7 +466,7 @@
       ],
       "location": [
         6,
-        0
+        -2
       ],
       "required_knowledge": [
         "THEORY;INFUSION;2",
@@ -466,8 +587,8 @@
       ],
       "category": "BIOMANCY",
       "location": [
-        5,
-        0
+        6,
+        -3
       ],
       "parents": [
         "CREATURE_ENCHANT"
@@ -503,8 +624,8 @@
       ],
       "category": "BIOMANCY",
       "location": [
-        7,
-        2
+        8,
+        -2
       ],
       "parents": [
         "CREATURE_ENCHANT_ADVANCED"
@@ -531,7 +652,7 @@
       "key": "NUTRINET_MIX",
       "name": "research.thaumic_arcana.nutrient_mix.title",
       "icons": [
-        "thaumix_arcana:nutrient_mix"
+        "thaumic_arcana:nutrient_mix"
       ],
       "category": "BIOMANCY",
       "parents": [
@@ -542,7 +663,7 @@
       ],
       "location": [
         6,
-        -2
+        0
       ],
       "stages": [
         {
@@ -563,6 +684,48 @@
           "text": "research.thaumic_arcana.nutrient_mix.stage.2",
           "recipes": [
             "thaumic_arcana:nutrient_mix"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "FLESH_TO_LEATHER",
+      "name": "research.thaumic_arcana.leather.title",
+      "icons": [
+        "minecraft:leather"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "FLESH_GROWTH"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        5,
+        -1
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.leather.stage.1",
+          "required_item": [
+            "minecraft:beef",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'perditio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'permutatio'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;1",
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;2"
+          ],
+          "warp": 0
+        },
+        {
+          "text": "research.thaumic_arcana.leather.stage.2",
+          "recipes": [
+            "thaumic_arcana:beef_to_leather",
+            "thaumic_arcana:pork_to_leather",
+            "thaumic_arcana:mutton_to_leather"
           ]
         }
       ]

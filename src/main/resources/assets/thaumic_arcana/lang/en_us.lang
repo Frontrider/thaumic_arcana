@@ -32,9 +32,10 @@ research.thaumic_arcana.flesh_growth.stage.1=Now that I observed how essentia af
 research.thaumic_arcana.flesh_growth.stage.2=Complete success. Now I am able to farm meat, whitout growing the whole animal, and interestingly enough, I only need victus to do so. I'll take note on that.
 
 research.thaumic_arcana.fertiliser.stage.1=Now that I know how adding essentia to plants affect them, I can try to create a different application. I'm going to create a more potent fertiliser. I was thinking about bone meal, but it might fizzle if I add too much essentia. Instead of that, I'm going to take my experience from the time I made a focus.<BR/>I'm going to try to use an Herba crystal to absorb the aspects required to trigger growth. It should also help to make sure that my substance is actually compatible with plants.
-research.thaumic_arcana.fertiliser.stage.2=Complete success. I created a new fertiliser, that I can aqquire more asily than traditional substances.
+research.thaumic_arcana.fertiliser.stage.2=Complete success. I created a new fertiliser, that I can aqquire more easily than traditional substances.
 research.thaumic_arcana.fertiliser.stage.3=Now I can make it more efficiently.
-research.thaumic_arcana.fertiliser.stage.4=After further experiments, I reached the peek of my efficiency. I can not get more our of this essence.
+research.thaumic_arcana.fertiliser.stage.4=The substance reached the point where I can use it for further experiments. The quality should be improved further.
+research.thaumic_arcana.fertiliser.stage.5=After more trial and error, I reached the peek of my efficiency. I can not get more our of this essence.
 research.thaumic_arcana.fertiliser.title=Alchemical Fertilising
 
 research.thaumic_arcana.creature_enchant.title=Creature Enchantments
@@ -60,6 +61,10 @@ research.thaumic_arcana.self_enchantment.stage.2=Total failure. My body is still
 research.thaumic_arcana.nutrient_mix.title=Nutrient Mix
 research.thaumic_arcana.nutrient_mix.stage.1=Knowing how to grow fresh meat is good, but what If I still need the whole animal? Could I increase the growth, so I don't need to wait for that long?
 research.thaumic_arcana.nutrient_mix.stage.2=I created a recipe for a special kind of mixture, that is able to speed up the growth of any animal.
+
+research.thaumic_arcana.leather.title=Leather Processing
+research.thaumic_arcana.leather.stage.1=Now that I can make flesh, I want to figure how to make leather. In theory I should be able to make the meat growthe hide on itself.
+research.thaumic_arcana.leather.stage.2=I failed to grow the hide, but found something else. I can make the flesh harden into a leather like substance, and the process is similar to what I used on rotten flesh.
 
 ##########
 #Theories#
@@ -91,7 +96,6 @@ item.incubated_egg.name=Incubated Egg
 item.fertiliser.name=Arcane Fertiliser
 item.relief_item.name=Raw Relief
 item.nutrient_mix.name=Nutrient Mix
-
 
 potion.effect.sweet_relief=Potion of Sweet Relief
 splash_potion.effect.sweet_relief=Splash potion of Sweet Relief

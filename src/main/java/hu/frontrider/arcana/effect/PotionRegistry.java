@@ -8,10 +8,10 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.potion.PotionType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import thaumcraft.common.lib.potions.PotionWarpWard;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
@@ -26,8 +26,8 @@ public class PotionRegistry {
         SweetRelief.instance = new SweetRelief();
         PotionEffect reliefEffect = new PotionEffect(SweetRelief.instance, 3600, 1, false, false);
         reliefEffect.addCurativeItem(new ItemStack(Items.GOLDEN_CARROT));
-
-        PotionEffect wardingEffect = new PotionEffect(PotionWarpWard.instance, 3600, 0, false, false);
+        Potion warpWard = Potion.REGISTRY.getObject(new ResourceLocation("thaumcraft:warpward"));
+        PotionEffect wardingEffect = new PotionEffect(warpWard, 3600, 0, false, false);
         relief = new PotionType(reliefEffect, wardingEffect);
         relief.setRegistryName(MODID, "sweet_relief");
 
