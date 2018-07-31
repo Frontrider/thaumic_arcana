@@ -4,69 +4,69 @@
 tc.research_category.BIOMANCY=Biomancy
 
 research.thaumic_arcana.metal_transmutation.title=Metal Transmutation
-research.thaumic_arcana.metal_transmutation.stage.1=I've been grown tired of constantly going deeper into the mines to gather the resources that I need. After heavily researching different metals, I realised that even tough they have different properties, fundamentally they are the same. I need to investigate it further.
-research.thaumic_arcana.metal_transmutation.stage.2=I DID IT! Iron is the most simple among all metals, so it can serve as a "blank slate" for all the other metals. Going from there, I only need to add other aspects to it for it to transform. Also, I can only use nuggets for the process, because otherwise I can't get the essentia to penetrate the metal correctly. <BR/>Even tough it's only iron that can be transmuted, it's still going to walk a long way towards fulfilling my needs.
+research.thaumic_arcana.metal_transmutation.stage.1=I've been grown tired of constantly going deeper into the mines to gather the resources that I need. After heavily researching different metals, I realized that even though they have different properties, fundamentally they are the same. I need to investigate further.
+research.thaumic_arcana.metal_transmutation.stage.2=I DID IT! Iron is the most simple among all metals, so it can serve as a "blank slate" for all other metals. Going from there, I only need to add other aspects to it for it to transform. Also, I can only use nuggets for the process; otherwise I can't get the essentia to penetrate the metal correctly. <BR/>Even though it's only iron that can be transmuted, it's still going to walk a long way towards fulfilling my needs.
 
 research.thaumic_arcana.biomancy.title=Biomancy
-research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a big success at harnesing organic substances to create new devices. Ever since that I was toying with the idea of applying more magic to organic matter.
+research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a major success at harnessing organic substances to create new devices. Ever since then, I was toying with the idea of applying more magic to organic matter.
 
-research.thaumic_arcana.plantlife.title=Plantlife
-research.thaumic_arcana.plantlife.stage.1=The first thing I should study, is how plants react to magic. I know it for sure, that plantlife can absorb magical energies, since there are magical plants around me.
+research.thaumic_arcana.plantlife.title=Plant-life
+research.thaumic_arcana.plantlife.stage.1=The first thing I should study is how plants react to magic. I know for sure that plant-life can absorb magical energies, since there are magical plants around me.
 
 research.thaumic_arcana.creatures.title=Living Creatures
-research.thaumic_arcana.creatures.stage.1=Working with the living proves to be harder. Breathing organisms seem to actively resist magic, which makes these studies significantly harder.
+research.thaumic_arcana.creatures.stage.1=Working with the living proves to be harder. Breathing organisms seem to actively resist magic, which makes them significantly harder to enchant.
 
 research.thaumic_arcana.wheat.title=Plant growth
-research.thaumic_arcana.wheat.stage.1=I have a theory, that the aspects creating the elements that plants need to grow, should be able to create a reacton that will cause the plant to grow. Either that, or it will blow it up.
-research.thaumic_arcana.wheat.stage.2=The first steps are promising. Using alchemic principles, I was able to trigger rapid growth in seeds. Unfortunatly, the resulting plant did not yielded anything to repeat the process. I need to try it on other plants
-research.thaumic_arcana.wheat.stage.3=Other plants are reacting much better than weat, resulting in a net gain. The methodology is still not perfect, but the results look edible.
-research.thaumic_arcana.wheat.stage.4=I have to see if what happens when I use different breeds of plants. Maybe that ca give me answers.
-research.thaumic_arcana.wheat.stage.6=Now I can grow alchemically grow my food on demand.The infertility problem of some plants proves to be harder to get rid of than I anticipated.
+research.thaumic_arcana.wheat.stage.1=I believe that the aspects creating the elements that plants need to grow should be able to create a reaction that grows the plant instantaneously... or explode on the spot.
+research.thaumic_arcana.wheat.stage.2=The first steps are promising: using alchemical principles, I was able to trigger rapid growth in seeds. Unfortunately, the resulting plant did not yield anything to repeat the process. I must try it on other plants.
+research.thaumic_arcana.wheat.stage.3=Other plants are reacting much better than wheat, resulting in a net gain. The methodology is still not perfect, but the results look edible.
+research.thaumic_arcana.wheat.stage.4=I have to see what happens when I use different breeds of plants. Maybe that can give me answers.
+research.thaumic_arcana.wheat.stage.6=Now I can alchemically grow my food on demand. The infertility problem of some plants proves to be harder to get rid of than I anticipated.
 
 research.thaumic_arcana.incubated_egg.title=Incubated Egg
-research.thaumic_arcana.incubated_egg.stage.1=I think I've gone far enough with plants to attempt to apply the same principles to animals. AS a starting point, I'm going to apply heat and life energy to an egg, in an attempt at supporting it's growth.
-research.thaumic_arcana.incubated_egg.stage.2=The egg responded the way I expected. After a few attempts with half grown animals, I managed to find the ratios of essentia I need to get an egg, that will hatch a chicken every single time.<LINE> I also have to note, that the shell of the egg became harder (I have no idea why), so throwing the egg around is inadvised, because it can damage the embrio.
+research.thaumic_arcana.incubated_egg.stage.1=I think I've gone far enough with plants to attempt to apply the same fundamental principles to animals. As a starting point, I'm going to apply heat and life energy to an egg in an attempt at supporting it's growth.
+research.thaumic_arcana.incubated_egg.stage.2=The egg responded the way I expected. After a few attempts with disturbing half grown animals, I managed to find the ratios of essentia I need to get an egg that will hatch a chicken every single time.<LINE> I also have to note that the shell of the egg became harder (I have no idea why), so throwing the egg around is inadvisable because it can damage the embryo.
 
 research.thaumic_arcana.flesh_growth.title=Fleshing it out
-research.thaumic_arcana.flesh_growth.stage.1=Now that I observed how essentia affects the growth of an animal, I could apply it in a different fashion. I have a theory, that I can use victus to trigger the growth of meat, outside the animal. I'm going to add some beastia as well, just in case the tissue needs a more familiar environment.
-research.thaumic_arcana.flesh_growth.stage.2=Complete success. Now I am able to farm meat, whitout growing the whole animal, and interestingly enough, I only need victus to do so. I'll take note on that.
+research.thaumic_arcana.flesh_growth.stage.1=Now that I observed how essentia effects the growth of an animal, I can apply it in a different fashion. Theoretically, I can use Victus to trigger the growth of meat outside the animal. I'm going to add some Beastia as well, just in case the tissue needs a more familiar environment.
+research.thaumic_arcana.flesh_growth.stage.2=The experiment was a complete success. Now I am able to farm meat without growing the whole animal, and interestingly enough, I only need Victus to do so. I'll take note on that.
 
-research.thaumic_arcana.fertiliser.stage.1=Now that I know how adding essentia to plants affect them, I can try to create a different application. I'm going to create a more potent fertiliser. I was thinking about bone meal, but it might fizzle if I add too much essentia. Instead of that, I'm going to take my experience from the time I made a focus.<BR/>I'm going to try to use an Herba crystal to absorb the aspects required to trigger growth. It should also help to make sure that my substance is actually compatible with plants.
-research.thaumic_arcana.fertiliser.stage.2=Complete success. I created a new fertiliser, that I can aqquire more easily than traditional substances.
-research.thaumic_arcana.fertiliser.stage.3=Now I can make it more efficiently.
-research.thaumic_arcana.fertiliser.stage.4=The substance reached the point where I can use it for further experiments. The quality should be improved further.
+research.thaumic_arcana.fertiliser.title=Alchemical Fertilization
+research.thaumic_arcana.fertiliser.stage.1=Now that I know how adding essentia to plants affect them, I can try to create a different application. I'm going to create a more potent fertilizer. I was thinking about bone meal, but it might fizzle if I add too much essentia. Instead of that, I'm going to take my experience from the time I made a focus.<BR/>I'm going to try to use an Herba crystal to absorb the aspects required to trigger growth. It should also help to make sure that my substance is actually compatible with plants.
+research.thaumic_arcana.fertiliser.stage.2=This experiment was a resounding success. I created a new fertilizer that I can acquire more easily than traditional substances(bone meal, bone meal, and... oh, just bone meal).
+research.thaumic_arcana.fertiliser.stage.3=Now I can make this substance more efficiently.
+research.thaumic_arcana.fertiliser.stage.4=The substance reached the point where I can use it for further experiments. Its quality should be improved further.
 research.thaumic_arcana.fertiliser.stage.5=After more trial and error, I reached the peek of my efficiency. I can not get more our of this essence.
-research.thaumic_arcana.fertiliser.title=Alchemical Fertilising
 
 research.thaumic_arcana.creature_enchant.title=Creature Enchantments
-research.thaumic_arcana.creature_enchant.stage.1=My studies on infusion enchantment and biomancy lead me to the idea that with the right metodology, I could enchant living flesh, as I would enchant a regular tool.<BR/>I can't just put animals under the infusion altar though. Living and breating creatures have a tendency towards rejecting magic, something I've been experiencing even more while working with remains.<LINE> But, potions give a different perspective on the topic. They can infuse living creatures with magical abilities, which means that my attempts are not futile.<LINE> Going back to the enchantment route, I belive I could create a book, that contains the right incantations to apply enchantments to animals. If it's possible than I'll need some salis mundus to carry the magic along, since I will not have the ability to hammer it into my subject.
-research.thaumic_arcana.creature_enchant.stage.2=The first enchantment I created is a very basic one. it boosts the reproductive ability of any animal that I apply it to. One extra per parent. <br> Altough, if I want to go further than amplifying basic functions I'll need to focus my research a little more.<LINE> Applying the enchantment is quite simple. I need to right click the creature with the book to apply it's effect. I do note some disturbance in them for a while after the process.
-research.thaumic_arcana.creature_enchant.stage.3=So, now I see how I can amplify the power of the enchantments. I need more research. There must be some more that I can do.
+research.thaumic_arcana.creature_enchant.stage.1=My studies on infusion enchantment and Biomancy lead me to the idea that, with the right methodology, I could enchant living flesh as I would enchant a regular tool.<BR/>I can't just put animals under the infusion altar though. Living and berating creatures have a tendency to reject magic, something I've been experiencing even more while working with remains.<LINE> That being said, potions give a different perspective on the topic. They can infuse living creatures with magical abilities, which means that my attempts are not futile.<LINE> Going back to the enchantment route, I believe that I could create a book that contains the right incantations to apply enchantments to animals. If it's possible, I'll need some salis mundus to carry the magic along, since I will not have the ability to hammer it into my subject.
+research.thaumic_arcana.creature_enchant.stage.2=The first enchantment I created is a very basic one. it boosts the reproductive ability of any animal that I apply it to. One extra offspring is created per parent. <br> Although, if I want to go further than amplifying basic functions, I'll need to focus my research a little more.
+research.thaumic_arcana.creature_enchant.stage.3=Now I see how I can amplify the power of the enchantments. I need more research. There must be something more that I can do.
 research.thaumic_arcana.creature_enchant.stage.4=
-research.thaumic_arcana.creature_enchant.stage.5=That is it for now. I created powerfull enchantments that I can apply to living beings. I think I can move forward to attempting more in Biothaumaturgy now that I understand more about the interaction of flesh and magic.
+research.thaumic_arcana.creature_enchant.stage.5=That is it for now. I created powerful enchantments that I can apply to living beings. I think I can move forward to attempting more in Biomancy now that I understand more about the interaction of flesh and magic.
 
 research.thaumic_arcana.creature_enchant_advanced.title=Advanced Creature enchants
 research.thaumic_arcana.creature_enchant_advanced.stage.1=There must be more for me to do. I prepared some things for more advanced enchantments.
-research.thaumic_arcana.creature_enchant_advanced.stage.2=Increasing the creature's strength was a little harder. I can't just make it stronger, íI also have to prepare the enchantments that will make it's body handle the increased stress. Otherwise, the limbs will fall off, or the body will injure itself from within as it can not handle the power.
+research.thaumic_arcana.creature_enchant_advanced.stage.2=Increasing the creature's strength was a little harder. I can't just make it stronger, I also have to prepare the enchantments that will make it's body handle the increased stress. Without them, its limbs will fall off, or its body will injure itself from within as it can not handle the enchantment.
 
-research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra.
-research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchatment is very straightforward: every level will devide the damage that the enchanted creature will recive.
+research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby.
+research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
 research.thaumic_arcana.creature_enchant.creature_enchanter_respiration=The respiration enchantment allows the enchanted creature to breath underwater.
 research.thaumic_arcana.creature_enchant.creature_enchanter_strength=The strength enchanter multiplies the attack damage of the enchanted entity.
 
 research.thaumic_arcana.self_enchantment.title=Self Enchantment
 research.thaumic_arcana.self_enchantment.stage.1=I can put enchantments on all kinds of creatures. But what if I could put them on myself? I must try it out!
-research.thaumic_arcana.self_enchantment.stage.2=Total failure. My body is still weak and shaking. I can't handle the process, about halfway through, I started to feel sick, than I was shaking violently, and was unable to pronounce the incantations.<BR/> I have experienced similar reactions when I first did this to animals, but I didn't expected this. <LINE> If I could mitigate the resistance of my body, than I could move forward with it.
+research.thaumic_arcana.self_enchantment.stage.2=This was a painful failure indeed! My body is still weak and trembling from the attempt. I cannot handle the process, as about halfway through, I started to feel sick, then I was shaking violently and was unable to pronounce the incantations.<BR/> I have experienced similar reactions when I first did this to animals, but I didn't expect this. <LINE> If I could mitigate the resistance of my body, than I could move forward with it.
 research.thaumic_arcana.self_enchantment.stage.3=Ahh, the bath salts.Always able to clear my mind, even when I'm waking from a nightmare.I think it could also reduce the severity of the reaction that my flesh is having while applying the enchants.
 research.thaumic_arcana.self_enchantment.stage.4=Something is still missing. My hands are still shaking a bit. Maybe I could use some of my spellcasting tools to help with the process.
 research.thaumic_arcana.self_enchantment.stage.5=The traditional gauntlets are unfit for this task, so I designed a set of wands, and scepters. They can be used more delicatly, and I can also ballance them out in a way that they can steady my shaking hands.
 
 research.thaumic_arcana.nutrient_mix.title=Nutrient Mix
-research.thaumic_arcana.nutrient_mix.stage.1=Knowing how to grow fresh meat is good, but what If I still need the whole animal? Could I increase the growth, so I don't need to wait for that long?
-research.thaumic_arcana.nutrient_mix.stage.2=I created a recipe for a special kind of mixture, that is able to speed up the growth of any animal.
+research.thaumic_arcana.nutrient_mix.stage.1=Knowing how to grow fresh meat is good, but what If I still need the whole animal? Could I increase its growth, so I don't need to wait for very long to get a new animal?
+research.thaumic_arcana.nutrient_mix.stage.2=I created a recipe for a special kind of mixture that is able to speed up the growth of any animal.
 
 research.thaumic_arcana.leather.title=Leather Processing
-research.thaumic_arcana.leather.stage.1=Now that I can make flesh, I want to figure how to make leather. In theory I should be able to make the meat growthe hide on itself.
+research.thaumic_arcana.leather.stage.1=Now that I can make flesh, I want to figure how to make leather. In theory, I should be able to make the meat grow the hide on itself.
 research.thaumic_arcana.leather.stage.2=I failed to grow the hide, but found something else. I can make the flesh harden into a leather like substance, and the process is similar to what I used on rotten flesh.
 
 ##########
@@ -75,11 +75,11 @@ research.thaumic_arcana.leather.stage.2=I failed to grow the hide, but found som
 card.thaumic_arcana.study_plants.name=Study %1$s
 card.thaumic_arcana.study_plants.text=Studying %1$s can give you a deeper understanding of plants. Gain 10 Biomancy.
 
-card.thaumic_arcana.study_flesh.name=Disect %1$s
-card.thaumic_arcana.study_flesh.text=Disecting animals %1$s can give you a deeper understanding of how they work. Gain 15 Biomancy.
+card.thaumic_arcana.study_flesh.name=Dissect %1$s
+card.thaumic_arcana.study_flesh.text=Dissecting animals %1$s can give you a deeper understanding of how they work. Gain 15 Biomancy.
 
 card.thaumic_arcana.study_dead_flesh.name=Dissect the dead
-card.thaumic_arcana.study_dead_flesh.text=Disecting %1$s can give you a deeper understanding of their structure. Even tough, it's a bit more gross than fresh tissue. Gain 25 Biomancy.
+card.thaumic_arcana.study_dead_flesh.text=Dissecting %1$s can give you a deeper understanding of their structure, even though it's a bit more gross than fresh tissue. Gain 25 Biomancy.
 
 ###################
 #Creature Enchants#
@@ -90,13 +90,13 @@ enchant.thaumic_arcana.creature_enchant.protection=Protection
 enchant.thaumic_arcana.creature_enchant.strength=Strength
 
 ########
-#Itmems#
+#Items#
 ########
 itemGroup.thaumic_arcana=Thaumic Arcana
 
 item.creature_enchanter.name=Creature Enchanter
 item.incubated_egg.name=Incubated Egg
-item.fertiliser.name=Arcane Fertiliser
+item.fertiliser.name=Arcane Fertilizer
 item.relief_item.name=Raw Relief
 item.nutrient_mix.name=Nutrient Mix
 item.plant_ball.name=Plant Ball
