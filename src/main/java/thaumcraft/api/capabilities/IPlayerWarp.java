@@ -7,15 +7,17 @@ import net.minecraftforge.common.util.INBTSerializable;
 import javax.annotation.Nonnull;
 
 /**
+ * 
  * @author Azanor
- * <p>
- * Unless there are specific tasks you need to perform, you are better off using <b>addWarpToPlayer</b>
- * from the <b>IInternalMethodHandler</b>. It does most of the heavy lifting for you.
+ *
+ * Unless there are specific tasks you need to perform, you are better off using <b>addWarpToPlayer</b> 
+ * from the <b>IInternalMethodHandler</b>. It does most of the heavy lifting for you. 
+ *
  */
 public interface IPlayerWarp extends INBTSerializable<NBTTagCompound> {
 
     /**
-     * Clears all warp.
+     * Clears all warp. 
      */
     void clear();
 
@@ -27,13 +29,13 @@ public interface IPlayerWarp extends INBTSerializable<NBTTagCompound> {
     int get(@Nonnull EnumWarpType type);
 
     /**
-     * @param type   The type of warp to set
+     * @param type The type of warp to set
      * @param amount how much to set it to
      */
     void set(@Nonnull EnumWarpType type, int amount);
 
     /**
-     * @param type   The type of warp to add
+     * @param type The type of warp to add
      * @param amount how much to add
      * @return the new total
      */
@@ -41,7 +43,7 @@ public interface IPlayerWarp extends INBTSerializable<NBTTagCompound> {
 
 
     /**
-     * @param type   The type of warp to reduce
+     * @param type The type of warp to reduce
      * @param amount how much to reduce
      * @return the new total
      */
@@ -57,13 +59,13 @@ public interface IPlayerWarp extends INBTSerializable<NBTTagCompound> {
      */
     int getCounter();
 
-    /**
-     * @param amount how much to set the counter it to
-     */
-    void setCounter(int amount);
-
     enum EnumWarpType {
         PERMANENT, NORMAL, TEMPORARY
     }
 
+    /**
+     * @param amount how much to set the counter it to
+     */
+    void setCounter(int amount);
+	
 }

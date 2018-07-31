@@ -13,9 +13,10 @@ import thaumcraft.api.damagesource.DamageSourceThaumcraft;
 import thaumcraft.api.entities.ITaintedMob;
 
 public class PotionFluxTaint extends Potion {
-    static final ResourceLocation rl = new ResourceLocation("thaumcraft", "textures/misc/potions.png");
     public static Potion instance = null; // will be instantiated at runtime
     private int statusIconIndex = -1;
+
+    static final ResourceLocation rl = new ResourceLocation("thaumcraft", "textures/misc/potions.png");
 
     public PotionFluxTaint(boolean par2, int par3) {
         super(par2, par3);

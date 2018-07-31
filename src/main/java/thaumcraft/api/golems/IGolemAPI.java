@@ -29,7 +29,6 @@ public interface IGolemAPI {
     /**
      * Causes the golem to remove an itemstack it is holding. It does not actually drop the item in the
      * world or place it anywhere - that is up to whatever is calling this method.
-     *
      * @param stack the itemstack that the golem will drop. If null is supplied the golem will drop whatever it is holding
      * @return the stack it 'dropped'
      */
@@ -38,8 +37,7 @@ public interface IGolemAPI {
 
     /**
      * Checks if the golem has carrying capacity for the given stack
-     *
-     * @param stack   the stack the golem has room for - can be null
+     * @param stack the stack the golem has room for - can be null
      * @param partial does the golem only need to have room for part of the stack?
      * @return
      */
@@ -51,7 +49,6 @@ public interface IGolemAPI {
 
     /**
      * Gives the golem xp towards increasing its rank rating. Default is usually 1 for completing a task.
-     *
      * @param xp
      */
     void addRankXp(int xp);

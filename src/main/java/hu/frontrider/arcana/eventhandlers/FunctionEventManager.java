@@ -64,12 +64,6 @@ public class FunctionEventManager {
                 }
             }
         }
-
-        if (entity.hasCapability(RELIEF_CAPABILITY, null)) {
-            IRelief capability = entity.getCapability(RELIEF_CAPABILITY, null);
-            capability.addHealthStore(event.getAmount());
-            event.setCanceled(true);
-        }
     }
 
     @SubscribeEvent

@@ -4,9 +4,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /**
+ * 
  * @author Azanor
- * <p>
- * Blocks that implement this interface act as infusion crafting stabilisers like candles and skulls
+ *
+ * Blocks that implement this interface act as infusion crafting stabilisers like candles and skulls 
+ *
  */
 public interface IInfusionStabiliser {
 

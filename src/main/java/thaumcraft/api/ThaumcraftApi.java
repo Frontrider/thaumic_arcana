@@ -20,9 +20,10 @@ import java.util.List;
 
 /**
  * @author Azanor
- * <p>
- * <p>
+ *
+ *
  * IMPORTANT: If you are adding your own aspects to items it is a good idea to do it AFTER Thaumcraft adds its aspects, otherwise odd things may happen.
+ *
  */
 public class ThaumcraftApi {
 
@@ -35,555 +36,12 @@ public class ThaumcraftApi {
     public static IInternalMethodHandler internalMethods = new DummyInternalMethodHandler();
 
     //RESEARCH/////////////////////////////////////////
+
+    recipe used
     @param
-    name unique
+    name
 
     //RECIPES/////////////////////////////////////////
-    recipe used
-    Recipes grouped
-
-    my thaumonomicon
-    under t
-    to link
-    same
-    a recipe
-    will be
-    to research
-    I advise
-    one bookmark
-
-	
-**
-        *
-    making your
-    identifier for this
-    id part
-    recipe ushe
-    my thaumo
-    name
-    to link
-    a recipe
-    @p.
-            displayed
-    under
-    to researchp
-    Recipes grou
-    mod-
-    in thaumonomicon
-    of this.
-            *
-    @param
-    name uniqueed
-    displayed under
-    nomicon
-    one bookmar
-    in thaumaram
-    ed
-    the recip.
-            *
-    @param
-    @param
-    registry
-	 *
-    @param
-    recipe
-	 */
-    under the
-    @param
-
-
-	
-**
-        *
-    same name
-    recipe
-    identifier for this
-    will be
-    my thaumonomico
-    to link
-    k
-    a recipe
-    onomicon stack
-    the
-    under the
-   .
-           *
-    recipe resulte
-    name uniqueused
-    in thaumonomicon
-    n
-    @param
-    or m
-    recipes .
-            *
-    @param
-    registry
-	 *
-    @param
-    recipe
-	 */
-    to research
-
-	/
-            **
-            *
-    Recipes grouped
-    unique identi
-    @param
-
-	 *@return
-    same name
-    recipe
-	 */
-    will be
-    the recipe
-    ha
-
-	/
-            **
-            *
-    displayed under
-    @param
-    identifier for this
-    one bookmark
-    unique reciprecipes
-    One
-    Checks ore
-    the passedock
-    linked
-    bl .
-            *
-    to the
-    has aspects
-    fier stack
-    the
-    assign apsectresultsh
-    the
-    an example
-    e .
-            *
-    the recipetoalready
-    values of
-    of t
-    block should
-  .
-          */
-    associated with
-
-	
-		
-	/
-            **
-            *
-    Used to
-    @param
-    asps
-            Ob
-	 *@return
-    to the
-    of the
-	 */
-    given item
-
-	/
-            **
-            *
-    block.Here is
-    THIS WILL
-    BE REM
-    code
-	 *@return
-    of the
-	 */
-    @param
-    item the
-    dictionary
-
-	/
-            **
-            *
-    item passed
-    see if
-    Pass OreDictionary
-    item/
-    all damage
-    @parahe
-    p
-    it .
-	 *
-    @param
-    id
-	 *
-    @param
-    meta
-	 *@return
-             */
-    have the
-    associated a
-
-	/
-            **
-            *
-    same aspectsects
-    A
-    assign aspects
-    jectTags object
-    to the
-
-    given item
-	 */
-    At/
-    associated aspects
-    aspect tagOVED
-    declaration for cobblestone:<p>
-	 *<i>ThaumcraftApi.registerObjectTag(new
-
-    DO NOT(new
-           Used to
-    of they
-                   by).
-    assign apsects
-    should onl.
-    to the
-    be usedul)</i>
-            *
-    given ore
-    you are
-    shoitem.
-    @param
-            oreDict the
-    with the
-    y.WILDCARD_VALUE if
-    ore dictionarym
-    aspects A
-    object would
-         this item/
-    ObjectTags object
-    be assigneass
-    OreDictionary
-	 *spects
-	 *
-    Used to
-    values ofock
-    shoul bl
-    have ttempts
-    to
-    @param
-    aspects A
-
-
-    //ASPECTS////////////////////////////////////////
-	
-	/
-            **
-            *
-    automatically generate
-    ObjectTags s
-    of the
-
-    by checking
-    associated asp.
-    registered recipes
-    USE .
-	 *I'M JUST LEAVING IT IN TO PREVENT CRASHES.
-            */
-    Here is
-    assign aps
-
-	/
-            **
-            *
-    an example
-    to the
-    checd only
- .
-         *
-    not happy
-    be usedaly
-    tou are
-    their v
-    name
-	 *
-    default aspects the
-    not happwith
-    thd/
-    WILDCARD_VALUE to
-
-	
-	/
-            **
-            *
-    all damage
-    @parad
-    @param
-    he
-    ObjectTags o/block .
-	 *
-    same aspects
-    associated aspectobject
-    This i
-    used to
-    added iscrects.
-            *
-    Used to
-    which you
-    ects
-    can th
-    scan usin
-    declaration for pistons:<p>
-	 *<i>ThaumcraftApi.registerComplexObjectTag(new
-    given ore
-    a thaumometer.
-            (new
-    dictionary item).
-    Attempts to
-    to calculate
-    i.
-            automatically generate
-    vis drops
-     )</i>
-            *IMPORTANT -this
-    aspect tags
-    from mobs
-    yking
-    @param
-    nbt if
-    registered recipes
-    cero differente
-    between mobs
-    example
-            .
-            *
-    @param
-    item,
-    default aspects the
-    <br> For.
-            object would
-    the nor
-    meta if
-    be assignedm
-    oreDict the
-    This method
-   this item/
-    ore dictionary
-    aspects A
-    to determine
-    all bject
-    how mu
-	 *
-    of the
-    warp is
-	 */
-    the iss
-    The waraftre
-	 */
-    add aspects
-    @param
-
-
-	
-	/
-            **
-            *
-    to entities
-    item craf
-    @param
-    en
-    much wg
-    is gained            *
-    Also used
-    much warp
-    s ga
-    from ou
-    research pa.
-            *IMPORTANT -this
-    can specify
-    @param
-    tain nbt
-    or strin if
-    keys and
-    how much
-    uesiate
-    will giv
-    add possibmal
-    loot to
-      .
-              *
-    and wither
-    The wei
-    name
-	 *
-    is used
-    are the
-    Itemloot
-            ch
-    bag types
-    tem
-            differ
-
-	/
-            **
-            *
-    is craftedpsult
-    The
-    of which
-    addted amount
-    how
-    bag to
-    arp
-    loot to
-	 */
-             .
-             *
-    Returns how
-    This meth
-    is used
-
-    ined
-    to registhe
-    an item.
-            *
-    @param
-    entityName
-	 *
-    @param
-    aspects
-	 *
-    item or
-    that will
-
-    ssedin itemstack
-    a seed
-	 *
-    @reg
-    If your
-	 *
-    warp it
-    seed iteme.
-    Used to
-    not be
-
-    le
-    necessa as
-    I.
-
-            skeleton:
-            *<br>ThaumcraftApi.registerEntityTag("Skeleton",(new
-    treasure bags).
-    As a)
-            *<br>ThaumcraftApi.registerEntityTag("Skeleton",(new
-    the weight
-    such li).
-    of gold
-    p
-    new
-    coins are 1))
-            */
-    and a
-    AspectList
-
-	/
-            **
-            *
-    diamond isghts
-
-    add(Aspect.Stack gained if
-            the only
-            add(Aspect.MECHANence is
-            add(Aspect.M.
-            how many
-            AspectList()
-
-	 *
-    items the "sticky"warp
-	 *
-    @param
-    bagTypes array
-
-    AspectList()(Aspect .
-	 *
-    type of
-    NBTTagByte Multiple
-    types
-
-            publi
-
-    p
-**
-        *
-    can beod
-
-    /**
-     * /**
-     * ter
-     * <p>
-     * public
-     * <p>
-     * public s    p
-     * in
-     * <p>
-     * act as
-     * <p>
-     * pturn
-     * the specified
-     * <p>
-     * public sts
-     * <p>
-     * public static
-     */
-    use IPlantable
-
-    @Deprec
-    p
-**
-        *
-    it might
-
-    ppublic ry
-    to attempt
-    to
-
-    public static v
-            reference,
-    automatically detect
-
-    publinks ublic 2000
-            *
-
-    ItemStack(Blocks.COBBLESTONE),()50.
-            *
-
-    add(Aspect.ENTROPY, 1)EARTH, 1)
-    same for
-
-    SOON(TM)(Blocks.PISTON),-
-
-    AspectList()ISM, 2)OTION,4)bag
-	 *contains .
-	 *
-    @param
-    item
-	 *
-    @param
-    weight
-	 *
-
-    add(Aspect.DEATH, 5)DEATH, 8),("SkeletonType",(byte)
-    add this
-
-    /**
-     * <i><b>Important</b>: This must be called <b>before</b> the postInit phase.<br></i>
-     * Allows you to register the location of a json fil in your assets folder that contains your research.
-     * For example: <code>"thaumcraft:research/basics"</code>
-     * There is a sample <code>_example.json.txt</code> file in <code>thaumcraft.api.research</code>
-     *
-     * @param loc the resourcelocation of the json file
-     */
-    public static void registerResearchLocation(ResourceLocation loc) {
-        if (!CommonInternals.jsonLocs.containsKey(loc.toString())) {
-            CommonInternals.jsonLocs.put(loc.toString(), loc);
-        }
-    }.
 
     /**
      * This method is used to determine what bonus items are generated when the infernal furnace smelts items
@@ -596,20 +54,579 @@ public class ThaumcraftApi {
         if (in instanceof ItemStack || in instanceof String)
             CommonInternals.smeltingBonus.add(new SmeltBonus(in, out, chance));
     }
+    my thaumonomicon
+    recipe
 
-    c
+    public static HashMap<ResourceLocation, IThaumcraftRecipe> getCraftingRecipes() {
+        return CommonInternals.craftingRecipeCatalog;
+    }
+    to link
+    my t
+    a recipe
+    to link
+    to research
+	
+**
+        *
+    @param
+    name unique
+    identifier for this
+    I advise
+    making youruniqueused
+    same name
+    thhaumonomicon
+    will be
+    disp.
+            a recipe
+    one bookmar
+    mod-
+    id part
+    of this.
+            *
+    Recipes grouped
+    under the
+    same name
+    will be
+    displayed under
+    one bookmark
+    in thaumonomicon.
+            *
+    @param
+    @param
+    registry
+	 *
+    @param
+    recipe
+	 */
+    to research
 
-    static void addSmeltingBonus(Object in, ItemStack out) {
-        if (in instanceof ItemStack || in instanceof String)
-            CommonInternals.smeltingBonus.add(new SmeltBonus(in, out, .33f));
+	
+**
+        *
+    Recipes grouped
+    @param
+
+    identifier for this
+    under the
+    recipe ree
+    rec
+    @param
+    namelayed under
+    recipe uk
+    my thaumonom.
+            *
+    in thaumonomicon
+    stack the
+    to research
+	 *
+    @rsultipe
+    uniquesed
+    displayed under
+    icon
+    one bookmar.
+            *
+    @param
+    registry
+	 *
+    @param
+    recipe
+	 */
+    to link
+    in thaum
+
+	/
+            **
+            *
+    a recipe
+    @param
+    eturn
+    Recipes grouped
+    recipes l
+	 */
+    under the
+    to the
+
+
+	/
+            **
+            *
+    same name
+    unique iden
+    identifier for this
+    will be
+    @param
+    stac recipe
+    rk
+    the recipe.
+    onomicon recipes
+    One
+    unique .
+            *
+    or more
+    the recipeecksinked
+    Ch the
+    passed.
+            tifierk the
+    associated wiesult            *
+    @param
+    hash the
+    to the
+    harecipe to           */
+    block already
+    @param
+    item
+
+	
+		
+	/
+            **
+            *
+    has aspects
+    item passed
+    it th
+	 *@return
+    Used to
+    values ofock
+    shoul
+	 */
+
+    public static CrucibleRecipe getCrucibleRecipe(ItemStack stack) {
+        for (Object r : getCraftingRecipes().values()) {
+            if (r instanceof CrucibleRecipe) {
+                if (((CrucibleRecipe) r).getRecipeOutput().isItemEqual(stack))
+                    return ((CrucibleRecipe) r);
+            }
+        }
+        return null;
     }
 
+	/
+            **
+            *
+    assign apsects
+    blve t
+    code
+	 *@return
+    given item
+	 */
+
+    public static CrucibleRecipe getCrucibleRecipeFromHash(int hash) {
+        for (Object recipe : getCraftingRecipes().values()) {
+            if (recipe instanceof CrucibleRecipe && ((CrucibleRecipe) recipe).hash == hash)
+                return (CrucibleRecipe) recipe;
+        }
+        return null;
+    }
+
+	/
+            **
+            *
+    block.Here is
+    @param
+
+    see if
+    an example
+    Object
+    item/
+    of the
+    the
+    Used to.
+	 *
+    @param
+    id
+	 *
+    @param
+    meta
+	 *@return
+             */
+    Pass OreDictionary
+
+	/
+            **
+            *
+    all damage
+    given ored
+    @param
+    he
+    ore dictiona/
+    same aspects
+    aspects A
+    ObjectTags objectTags
+    object
+    of the
+    declaration for cobblestone:<p>
+	 *<i>ThaumcraftApi.registerObjectTag(new
+    of the
+
+    associated aspects(new
+                       associated aspects).
+    THIS WILL
+    to the
+       .
+    BE REMOVED)</i>
+            *
+    DO NOT
+    by checking
+      .
+    assign apsects
+    registered.WILDCARD_VALUE if
+    to the
+    Here
+    an example
+ this item/
+    dictionary item
+    oreDict the
+    should only
+    diry
+	 *
+    @param
+    aspects A
+    you are
+    autom
+    not ha
+    with the
+    by checki
+	 */
+    Used to
+    be assignedreDicti
+
+
+    //ASPECTS////////////////////////////////////////
+	
+	/
+            **
+            *
+    assign aspects
+    pass O
+    WILDCA
+    given item.
+    Attempts to
+    values ofd
+    object woulde
+    b
+    USE .
+	 *I'M JUST LEAVING IT IN TO PREVENT CRASHES.
+            */
+    automatically generate
+    block shoul
+
+	/
+            **
+            *
+    aspect tags
+    have th
+    same aspects.
+    recipesis
+    ObjectTags of
+    the .
+            *
+    of thection
+    name
+	 *
+    be usedaticppy
+    aspect tng
+    Als
+	 */
+    default aspects the
+    registered r
+
+	
+	/
+            **
+            *
+    object would
+    should onlyonaryRD_VALUE
+    to/block .
+	 *
+    all damage
+    with e
+    assigned
+	 *
+             *
+    @param
+    aspects A
+    ore dictionary
+    object
+    @param
+    ObjectTags object
+
+    declaration for pistons:<p>
+	 *<i>ThaumcraftApi.registerComplexObjectTag(new
+
+    associated aspects(new
+                       Used to
+    This is
+                               to).
+    assign apsects
+    used t.
+    to the
+    add a)</i>
+            *IMPORTANT -this
+    given ore
+    to entitiesary
+    item if
+    Attempts to
+    can then
+    The wally
+    generate
+    scan using
+    ags
+    a thaumometo
+    used
+            ecipes
+    vis dro.
+            *
+    @param
+    item,
+    be used.
+    you are
+    @param
+
+    meta if
+    not happy
+    can specthe
+    certain nbt
+    is  this item/
+    default aspects the
+    keys and
+    their v
+    @param
+    oreDict the
+    between mobs
+    n aspects
+    A
+    the normal
+    ho and
+    wi
+	 */
+    of the
+    This method
+    As
+
+	
+	/
+            **
+            *
+    associated aspects
+    deteo
+    how much
+    cospects
+    warp isdiam
+    the item
+    .
+            *
+    which you
+    is craftedrpaadded
+    is .
+    eritem crafted.
+            *IMPORTANT -this
+    to calculate
+    @paraps
+    much  if
+    from mobs
+    nbt you
+    Returns howify
+    much warp
+    gaine
+    from the
+    looalues .
+            *
+    to differentiate
+    researchame
+	 *
+    <br> For example
+    or string
+    w much
+    ther a
+	 */
+
+    public static void registerComplexObjectTag(String oreDict, AspectList aspects) {
+        if (aspects == null) aspects = new AspectList();
+        List<ItemStack> ores = ThaumcraftApiHelper.getOresWithWildCards(oreDict);
+        if (ores != null && ores.size() > 0) {
+            for (ItemStack ore : ores) {
+                try {
+                    ItemStack oc = ore.copy();
+                    oc.setCount(1);
+                    registerComplexObjectTag(oc, aspects.copy());
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
+
+	/
+            **
+            *
+    is used
+    the weight
+    rmine
+    of gold
+    ins are
+    ond is         *
+    @param
+    craftresult The
+    bag types
+	 *
+    m
+    amount how
+    differencwarp
+    how many
+.
+            *
+    @param
+    entityName
+	 *
+    @param
+    aspects
+	 *
+    is gained
+    of which
+    type of
+    ad
+    bag toAst
+
+    toadd(
+	 *
+     item or
+    Multiple types
+             passed.
+             @param
+                     in itemstack
+             This meth to regi
+             skeleton:
+            *<br>ThaumcraftApi.registerEntityTag("Skeleton",(new
+     warp it
+    an item
+
+    ).
+    will give)
+            *<br>ThaumcraftApi.registerEntityTag("Skeleton",(new
+    Used to
+    a seed
+    specified).
+    add possible
+    the new
+    loot to
+    If your
+
+ 1))
+         */
+
+    public static void registerEntityTag(String entityName, AspectList aspects, EntityTagsNBT... nbt) {
+        CommonInternals.scanEntities.add(new EntityTags(entityName, aspects, nbt));
+    }
+
+	/
+            **
+            *
+    treasure bags
+    it not
+    be
+    gained if
+    and a
+    as I 5.
+    The weights
+    automatical
+	 *
+    are the "sticky"warp
+	 *
+    all loot
+    p
+    the only
+
+    AspectList()NTROPe is
+
+    add(Aspect.Eadd(Aspect.EA
+            */
+            items the
+
+            p
+            **
+            *
+    @param
+    bagTypes array
+            ItemStack(BlAspectList(dd(Aspectpect
+            in
+            *
+    can beod
+            add(Aspect.
+            *@return
+            is used
+            NBTTagByte("Skester
+
+    /**
+     public s
+     */
+            that will
+
+            p
+
+    p
+**
+        *
+            act as
+
+            /public st.
+            seed items
+
+            public static
+            reference,
+        use IPlantable
+
+    public might
+
+                p
+                public 2000
+            *
+                necessary to0.
+                *
+                attempt to
+
+                public static vly detect
+
+                publi
+    same for
+                such links ublic-
+                ItemStack(Blocks.COBBLESTONE),Y, 1)RTH,1)
+    bag
+	 *contains .
+	 *
+    @param
+    item
+	 *
+    @param
+    weight
+	 *
+
+    SOON(TM)ocks.PISTON),).MECHANISM,2)
+    add this
+
+    add(Aspect.MOTION, 4).
+
+    AspectList().DEATH,5)
     specified
 	 *0=common,1=uncommon,2=rare
 	 */
 
-    public static HashMap<ResourceLocation, IThaumcraftRecipe> getCraftingRecipes() {
-        return CommonInternals.craftingRecipeCatalog;
+    public static void addLootBagItem(ItemStack item, int weight, int... bagTypes) {
+        if (bagTypes == null || bagTypes.length == 0)
+            WeightedRandomLoot.lootBagCommon.add(new WeightedRandomLoot(item, weight));
+        else {
+            for (int rarity : bagTypes) {
+                switch (rarity) {
+                    case 0:
+                        WeightedRandomLoot.lootBagCommon.add(new WeightedRandomLoot(item, weight));
+                        break;
+                    case 1:
+                        WeightedRandomLoot.lootBagUncommon.add(new WeightedRandomLoot(item, weight));
+                        break;
+                    case 2:
+                        WeightedRandomLoot.lootBagRare.add(new WeightedRandomLoot(item, weight));
+                        break;
+                }
+            }
+        }
     }
 
 	
@@ -617,9 +634,32 @@ public class ThaumcraftApi {
             **
             *
 
-    public static HashMap<ResourceLocation, Object> getCraftingRecipesFake() {
+    AspectList()DEATH, 8),letonType",(byte)   * <i><b>Important</b>: This must be called <b>before</b> the postInit phase.<br></i>
+     * Allows you to register the location of a json fil in your assets folder that contains your research.
+     * For example: <code>"thaumcraft:research/basics"</code>
+     * There is a sample <code>_example.json.txt</code> file in <code>thaumcraft.api.research</code>
+     *
+     * @param loc the resourcelocation of the json file
+     */
+    public static void registerResearchLocation(ResourceLocation loc) {
+        if (!CommonInternals.jsonLocs.containsKey(loc.toString())) {
+            CommonInternals.jsonLocs.put(loc.toString(), loc);
+        }
+    }
+
+    tatic
+
+    void addSmeltingBonus(Object in, ItemStack out) {
+        if (in instanceof ItemStack || in instanceof String)
+            CommonInternals.smeltingBonus.add(new SmeltBonus(in, out, .33f));
+    }
+
+    ublic
+
+    static HashMap<ResourceLocation, Object> getCraftingRecipesFake() {
         return CommonInternals.craftingRecipeCatalogFake;
-    }   *
+    }**
+            *
     This adds
     recipes to
     the 'fake'
@@ -640,69 +680,36 @@ public class ThaumcraftApi {
     @param
     recipe
      */
-
     public static void addFakeCraftingRecipe(ResourceLocation registry, Object recipe) {
         getCraftingRecipesFake().put(registry, recipe);
-    }
+    } for
 
-    Use this
-    method to
-    add a
-    multiblock blueprint
-    recipe to
-    the thaumcraft
-    recipe catalog.
-    This is
-    used for
-    display purposes
-    in the
-    thaumonomicon
+    /**
+     * Use this method to add a multiblock blueprint recipe to the thaumcraft recipe catalog. This is used for display purposes in the thaumonomicon
      *
-             *
-    @param
-    name unique
-    identifier for this
-    recipe.I advise
-    making your
-    mod-
-    id part
-    of this
-            *
-    Recipes grouped
-    under the
-    same name
-    will be
-    displayed under
-    one bookmark
-    in thaumonomicon.
-            *
-    @param
-    recipes a
-    matrix of
-    placable objects
-    and what
-    they will
-    turn into
+     * @param name    unique identifier for this recipe. I advise making your mod-id part of this
+     *                Recipes grouped under the same name will be displayed under one bookmark in thaumonomicon.
+     * @param recipes a matrix of placable objects and what they will turn into
      */
-
     public static void addMultiblockRecipeToCatalog(ResourceLocation registry, BluePrint recipe) {
         getCraftingRecipes().put(registry, recipe);
     }
 
-    static void addArcaneCraftingRecipe(ResourceLocation registry, IArcaneRecipe recipe) {
+    block .
+	 *
+
+    public static void addArcaneCraftingRecipe(ResourceLocation registry, IArcaneRecipe recipe) {
         recipe.setRegistryName(registry);
         GameData.register_impl(recipe);
     }
 
-    tatic
+    atic
 
     void addInfusionCraftingRecipe(ResourceLocation registry, InfusionRecipe recipe) {
         getCraftingRecipes().put(registry, recipe);
     }
 
-    ublic
-
-    static InfusionRecipe getInfusionRecipe(ItemStack res) {
+    InfusionRecipe getInfusionRecipe(ItemStack res) {
         for (Object r : getCraftingRecipes().values()) {
             if (r instanceof InfusionRecipe) {
                 if (((InfusionRecipe) r).getRecipeOutput() instanceof ItemStack) {
@@ -714,36 +721,13 @@ public class ThaumcraftApi {
         return null;
     }
 
-    ublic
-
     static void addCrucibleRecipe(ResourceLocation registry, CrucibleRecipe recipe) {
         getCraftingRecipes().put(registry, recipe);
-    } for
-
-    public static CrucibleRecipe getCrucibleRecipe(ItemStack stack) {
-        for (Object r : getCraftingRecipes().values()) {
-            if (r instanceof CrucibleRecipe) {
-                if (((CrucibleRecipe) r).getRecipeOutput().isItemEqual(stack))
-                    return ((CrucibleRecipe) r);
-            }
-        }
-        return null;
     }
 
-    block .
-	 *
+    ublic
 
-    public static CrucibleRecipe getCrucibleRecipeFromHash(int hash) {
-        for (Object recipe : getCraftingRecipes().values()) {
-            if (recipe instanceof CrucibleRecipe && ((CrucibleRecipe) recipe).hash == hash)
-                return (CrucibleRecipe) recipe;
-        }
-        return null;
-    }
-
-    atic
-
-    boolean exists(ItemStack item) {
+    static boolean exists(ItemStack item) {
         ItemStack stack = item.copy();
         stack.setCount(1);
         AspectList tmp = CommonInternals.objectTags.get(stack.serializeNBT().toString());
@@ -767,22 +751,20 @@ public class ThaumcraftApi {
         return true;
     }
 
-    void registerObjectTag(ItemStack item, AspectList aspects) {
+    static void registerObjectTag(ItemStack item, AspectList aspects) {
         if (aspects == null) aspects = new AspectList();
         try {
             CommonInternals.objectTags.put(CommonInternals.generateUniqueItemstackId(item), aspects);
         } catch (Exception e) {
         }
-    }
+    } do this
 
-    ated
-
+    @Deprecated
     public static void registerObjectTag(ItemStack item, int[] meta, AspectList aspects) {
     }
+	 *
 
-    ublic
-
-    static void registerObjectTag(String oreDict, AspectList aspects) {
+    public static void registerObjectTag(String oreDict, AspectList aspects) {
         if (aspects == null) aspects = new AspectList();
         List<ItemStack> ores = ThaumcraftApiHelper.getOresWithWildCards(oreDict);
         if (ores != null && ores.size() > 0) {
@@ -797,7 +779,7 @@ public class ThaumcraftApi {
         }
     }
 
-    static void registerComplexObjectTag(ItemStack item, AspectList aspects) {
+    oid registerComplexObjectTag(ItemStack item, AspectList aspects) {
         if (!exists(item)) {
             AspectList tmp = AspectHelper.generateTags(item);
             if (tmp != null && tmp.size() > 0) {
@@ -813,40 +795,12 @@ public class ThaumcraftApi {
             }
             registerObjectTag(item, tmp);
         }
-    } do this
-
-    public static void registerComplexObjectTag(String oreDict, AspectList aspects) {
-        if (aspects == null) aspects = new AspectList();
-        List<ItemStack> ores = ThaumcraftApiHelper.getOresWithWildCards(oreDict);
-        if (ores != null && ores.size() > 0) {
-            for (ItemStack ore : ores) {
-                try {
-                    ItemStack oc = ore.copy();
-                    oc.setCount(1);
-                    registerComplexObjectTag(oc, aspects.copy());
-                } catch (Exception e) {
-                }
-            }
-        }
-    }
-	 *
-
-    public static void registerEntityTag(String entityName, AspectList aspects, EntityTagsNBT... nbt) {
-        CommonInternals.scanEntities.add(new EntityTags(entityName, aspects, nbt));
-    }
-
-    oid addWarpToItem(ItemStack craftresult, int amount) {
-        CommonInternals.warpMap.put(Arrays.asList(craftresult.getItem(), craftresult.getItemDamage()), amount);
     }
 
     c
 
-    static int getWarp(ItemStack in) {
-        if (in == null) return 0;
-        if (in instanceof ItemStack && CommonInternals.warpMap.containsKey(Arrays.asList(in.getItem(), in.getItemDamage()))) {
-            return CommonInternals.warpMap.get(Arrays.asList(in.getItem(), in.getItemDamage()));
-        }
-        return 0;
+    static void addWarpToItem(ItemStack craftresult, int amount) {
+        CommonInternals.warpMap.put(Arrays.asList(craftresult.getItem(), craftresult.getItemDamage()), amount);
     }.
             *
     @param
@@ -856,24 +810,12 @@ public class ThaumcraftApi {
     seed
 	 */
 
-    public static void addLootBagItem(ItemStack item, int weight, int... bagTypes) {
-        if (bagTypes == null || bagTypes.length == 0)
-            WeightedRandomLoot.lootBagCommon.add(new WeightedRandomLoot(item, weight));
-        else {
-            for (int rarity : bagTypes) {
-                switch (rarity) {
-                    case 0:
-                        WeightedRandomLoot.lootBagCommon.add(new WeightedRandomLoot(item, weight));
-                        break;
-                    case 1:
-                        WeightedRandomLoot.lootBagUncommon.add(new WeightedRandomLoot(item, weight));
-                        break;
-                    case 2:
-                        WeightedRandomLoot.lootBagRare.add(new WeightedRandomLoot(item, weight));
-                        break;
-                }
-            }
+    public static int getWarp(ItemStack in) {
+        if (in == null) return 0;
+        if (in instanceof ItemStack && CommonInternals.warpMap.containsKey(Arrays.asList(in.getItem(), in.getItemDamage()))) {
+            return CommonInternals.warpMap.get(Arrays.asList(in.getItem(), in.getItemDamage()));
         }
+        return 0;
     }
 
 
@@ -882,17 +824,10 @@ public class ThaumcraftApi {
 	/
     ublic
 
-    public static void registerSeed(Block block, ItemStack seed) {
-        CommonInternals.seedList.put(block.getUnlocalizedName(), seed);
-    }
-
-	/
-
     static ItemStack getSeed(Block block) {
         return CommonInternals.seedList.get(block.getUnlocalizedName());
     }
-    // LOOT BAGS
-		
+
 	/
 
     public static class SmeltBonus {
@@ -906,13 +841,9 @@ public class ThaumcraftApi {
             this.chance = chance;
         }
     }
-
-
-    // CROPS
-		
+    // LOOT BAGS
 		
 	/
-    ublic
 
     public static class BluePrint implements IThaumcraftRecipe {
         Part[][][] parts;
@@ -972,6 +903,13 @@ public class ThaumcraftApi {
         }
     }
 
+
+    // CROPS
+		
+		
+	/
+    ublic
+
     static class EntityTagsNBT {
         public String name;
         public Object value;
@@ -980,6 +918,10 @@ public class ThaumcraftApi {
             this.name = name;
             this.value = value;
         }
+    }
+
+    public static void registerSeed(Block block, ItemStack seed) {
+        CommonInternals.seedList.put(block.getUnlocalizedName(), seed);
     }
 
     static class EntityTags {
@@ -1098,5 +1040,6 @@ public class ThaumcraftApi {
      * FMLInterModComms.sendMessage("Thaumcraft", "championWhiteList", "Thaumcraft.Wisp:1");
      */
 
-
+	
+	
 }

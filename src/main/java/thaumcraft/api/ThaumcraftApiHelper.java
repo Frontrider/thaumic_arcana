@@ -406,5 +406,5 @@ public class ThaumcraftApiHelper {
         }
         return true;
     }
-
+		
 }

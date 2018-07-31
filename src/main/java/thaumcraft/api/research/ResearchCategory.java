@@ -20,26 +20,20 @@ public class ResearchCategory {
      */
     public int minDisplayRow;
 
-    /**
-     * Is the biggest column used on the GUI.
-     */
+    /** Is the biggest column used on the GUI. */
     public int maxDisplayColumn;
 
-    /**
-     * Is the biggest row used on the GUI.
-     */
+    /** Is the biggest row used on the GUI. */
     public int maxDisplayRow;
 
-    /**
-     * display variables
-     **/
+    /** display variables **/
     public ResourceLocation icon;
     public ResourceLocation background;
     public ResourceLocation background2;
-
+    
     public String researchKey;
     public String key;
-
+    
     public AspectList formula;
     //Research
     public Map<String, ResearchEntry> research = new HashMap<String, ResearchEntry>();
@@ -86,7 +80,7 @@ public class ResearchCategory {
             total += (mod * mod) * as.getAmount(aspect) * (formula.getAmount(aspect) / 10d);
         }
         if (total > 0) total = Math.sqrt(total);
-        return MathHelper.ceil(total);
-    }
-
+        return MathHelper.ceil( total );
+	}
+	
 }

@@ -40,7 +40,7 @@ research.thaumic_arcana.fertiliser.title=Alchemical Fertilising
 
 research.thaumic_arcana.creature_enchant.title=Creature Enchantments
 research.thaumic_arcana.creature_enchant.stage.1=My studies on infusion enchantment and biomancy lead me to the idea that with the right metodology, I could enchant living flesh, as I would enchant a regular tool.<BR/>I can't just put animals under the infusion altar though. Living and breating creatures have a tendency towards rejecting magic, something I've been experiencing even more while working with remains.<LINE> But, potions give a different perspective on the topic. They can infuse living creatures with magical abilities, which means that my attempts are not futile.<LINE> Going back to the enchantment route, I belive I could create a book, that contains the right incantations to apply enchantments to animals. If it's possible than I'll need some salis mundus to carry the magic along, since I will not have the ability to hammer it into my subject.
-research.thaumic_arcana.creature_enchant.stage.2=The first enchantment I created is a very basic one. it boosts the reproductive ability of any animal that I apply it to. One extra per parent. <br> Altough, if I want to go further than amplifying basic functions I'll need to focus my research a little more.
+research.thaumic_arcana.creature_enchant.stage.2=The first enchantment I created is a very basic one. it boosts the reproductive ability of any animal that I apply it to. One extra per parent. <br> Altough, if I want to go further than amplifying basic functions I'll need to focus my research a little more.<LINE> Applying the enchantment is quite simple. I need to right click the creature with the book to apply it's effect. I do note some disturbance in them for a while after the process.
 research.thaumic_arcana.creature_enchant.stage.3=So, now I see how I can amplify the power of the enchantments. I need more research. There must be some more that I can do.
 research.thaumic_arcana.creature_enchant.stage.4=
 research.thaumic_arcana.creature_enchant.stage.5=That is it for now. I created powerfull enchantments that I can apply to living beings. I think I can move forward to attempting more in Biothaumaturgy now that I understand more about the interaction of flesh and magic.
@@ -57,6 +57,9 @@ research.thaumic_arcana.creature_enchant.creature_enchanter_strength=The strengt
 research.thaumic_arcana.self_enchantment.title=Self Enchantment
 research.thaumic_arcana.self_enchantment.stage.1=I can put enchantments on all kinds of creatures. But what if I could put them on myself? I must try it out!
 research.thaumic_arcana.self_enchantment.stage.2=Total failure. My body is still weak and shaking. I can't handle the process, about halfway through, I started to feel sick, than I was shaking violently, and was unable to pronounce the incantations.<BR/> I have experienced similar reactions when I first did this to animals, but I didn't expected this. <LINE> If I could mitigate the resistance of my body, than I could move forward with it.
+research.thaumic_arcana.self_enchantment.stage.3=Ahh, the bath salts.Always able to clear my mind, even when I'm waking from a nightmare.I think it could also reduce the severity of the reaction that my flesh is having while applying the enchants.
+research.thaumic_arcana.self_enchantment.stage.4=Something is still missing. My hands are still shaking a bit. Maybe I could use some of my spellcasting tools to help with the process.
+research.thaumic_arcana.self_enchantment.stage.5=The traditional gauntlets are unfit for this task, so I designed a set of wands, and scepters. They can be used more delicatly, and I can also ballance them out in a way that they can steady my shaking hands.
 
 research.thaumic_arcana.nutrient_mix.title=Nutrient Mix
 research.thaumic_arcana.nutrient_mix.stage.1=Knowing how to grow fresh meat is good, but what If I still need the whole animal? Could I increase the growth, so I don't need to wait for that long?
@@ -73,7 +76,7 @@ card.thaumic_arcana.study_plants.name=Study %1$s
 card.thaumic_arcana.study_plants.text=Studying %1$s can give you a deeper understanding of plants. Gain 10 Biomancy.
 
 card.thaumic_arcana.study_flesh.name=Disect %1$s
-card.thaumic_arcana.study_flesh.text=Disecting animals (%1$s) can give you a deeper understanding of how they work. Gain 15 Biomancy.
+card.thaumic_arcana.study_flesh.text=Disecting animals %1$s can give you a deeper understanding of how they work. Gain 15 Biomancy.
 
 card.thaumic_arcana.study_dead_flesh.name=Dissect the dead
 card.thaumic_arcana.study_dead_flesh.text=Disecting %1$s can give you a deeper understanding of their structure. Even tough, it's a bit more gross than fresh tissue. Gain 25 Biomancy.
@@ -96,6 +99,8 @@ item.incubated_egg.name=Incubated Egg
 item.fertiliser.name=Arcane Fertiliser
 item.relief_item.name=Raw Relief
 item.nutrient_mix.name=Nutrient Mix
+item.plant_ball.name=Plant Ball
+item.plant_ball.contains=Contains:
 
 potion.effect.sweet_relief=Potion of Sweet Relief
 splash_potion.effect.sweet_relief=Splash potion of Sweet Relief

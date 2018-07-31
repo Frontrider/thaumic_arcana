@@ -3,10 +3,12 @@ package thaumcraft.api.crafting;
 import net.minecraft.item.ItemStack;
 
 /**
+ * 
  * @author Azanor
- * <p>
+ * 
  * Used as a placeholder recipe for the thaumonomicon. Currently only used for smelting recipes.
  * Will always be considered a 'fake' recipe.
+ *
  */
 public class RecipeMisc {
 

@@ -13,8 +13,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author Azanor
- * <p>
+ *
  * Internal variables and methods used by Thaumcraft and the api that should normally not be accessed directly by addon mods.
+ *
  */
 public class CommonInternals {
 
