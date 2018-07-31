@@ -51,7 +51,6 @@ public class InfusionRecipe implements IThaumcraftRecipe {
 
     /**
      * Used to check if a recipe matches current crafting inventory
-     *
      * @param player
      */
     public boolean matches(List<ItemStack> input, ItemStack central, World world, EntityPlayer player) {

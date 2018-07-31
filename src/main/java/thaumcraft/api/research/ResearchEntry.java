@@ -46,9 +46,9 @@ public class ResearchEntry {
     int displayRow;
 
     /**
-     * the icon to be used for this research
+     * the icon to be used for this research 
      */
-    Object[] icons;
+    Object[] icons;    
 
     /**
      * special meta-data tags that indicate how this research must be handled
@@ -64,14 +64,6 @@ public class ResearchEntry {
      * knowledge the player will receive on completion of this research
      */
     Knowledge[] rewardKnow;
-    /**
-     * The various stages present in this research entry
-     */
-    ResearchStage[] stages;
-    /**
-     * The various addena present in this research entry
-     */
-    ResearchAddendum[] addenda;
 
     /**
      * @return the key
@@ -79,6 +71,16 @@ public class ResearchEntry {
     public String getKey() {
         return key;
     }
+    
+    /**
+     * The various stages present in this research entry
+     */
+    ResearchStage[] stages;
+
+    /**
+     * The various addena present in this research entry
+     */
+    ResearchAddendum[] addenda;
 
     /**
      * @param key the key to set

@@ -20,11 +20,10 @@ public class ItemRegistry {
     public static Item fertiliser = new ItemFertiliser();
     public static Item incubated_egg = new IncubatedEgg();
     public static Item creature_enchanter = new CreatureEnchanter();
-    public static Item relief_item = new Item().setRegistryName(MODID, "relief_item").setUnlocalizedName("relief_item");
     public static Item plant_ball = new PlantBall();
 
     public static Item[] items = new Item[]{
-            fertiliser, incubated_egg, creature_enchanter, relief_item, nutrient_mix, plant_ball
+            fertiliser, incubated_egg, creature_enchanter, nutrient_mix, plant_ball
     };
 
 

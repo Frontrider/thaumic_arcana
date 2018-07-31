@@ -8,8 +8,9 @@ import java.util.Arrays;
 
 /**
  * See CardAnalyze for an example
- *
+ * 
  * @author Azanor
+ *
  */
 public abstract class TheorycraftCard {
 

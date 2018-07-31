@@ -16,8 +16,9 @@ import java.util.List;
  * This class serves a similar function to IInteractWithCaster in that it allows casters to interact
  * with object in the world. In this case it is most useful for adding interaction with non-mod
  * blocks where you can't control what happens in their code.
- *
+ * 
  * @author azanor
+ *
  */
 public class CasterTriggerRegistry {
 
@@ -132,5 +133,5 @@ public class CasterTriggerRegistry {
             this.event = event;
         }
     }
-
+		
 }

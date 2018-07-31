@@ -7,7 +7,9 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 import javax.annotation.Nonnull;
 
 /**
+ * 
  * @author Azanor
+ *
  */
 public class ThaumcraftCapabilities {
 

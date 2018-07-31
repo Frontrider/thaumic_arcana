@@ -40,7 +40,6 @@ public interface IDustTrigger {
     /**
      * The operation to perfom if the location is valid.
      * This is performed on client and server
-     *
      * @param world
      * @param player
      * @param pos
@@ -75,6 +74,6 @@ public interface IDustTrigger {
             this.facing = facing;
         }
     }
-
-
+	
+	
 }

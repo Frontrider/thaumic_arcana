@@ -9,9 +9,11 @@ import net.minecraft.world.World;
 import thaumcraft.api.aura.AuraHelper;
 
 /**
+ * 
  * @author Azanor
- * <p>
+ * 
  * Helper methods to manipulate charge in items that use IRechargable.
+ * 
  */
 public class RechargeHelper {
 

@@ -6,9 +6,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
 /**
+ * 
  * @author Azanor
- * <p>
+ * 
  * Tile entities or blocks that extend this interface can have jar labels applied to them
+ *
  */
 public interface ILabelable {
 

@@ -1,9 +1,10 @@
 package thaumcraft.api.crafting;
-
 /**
+ * 
  * @author Azanor
- * <p>
+ * 
  * Part used in multiblock crafting
+ *
  */
 public class Part {
     private Object source; // can be a block, itemstack or material

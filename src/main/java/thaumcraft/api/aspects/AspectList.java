@@ -259,7 +259,6 @@ public class AspectList implements Serializable {
 
     /**
      * Writes the list of aspects to nbt
-     *
      * @param nbttagcompound
      * @return
      */

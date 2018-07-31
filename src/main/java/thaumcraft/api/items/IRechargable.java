@@ -4,12 +4,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
 /**
+ * 
  * @author Azanor
- * <p>
+ * 
  * Items with this interface can be recharged in wand pedestals and similar devices.
- * All values are automatically stored in the items nbt data.
- * <p>
+ * All values are automatically stored in the items nbt data. 
+ * 
  * See RechargableItemHelper for methods to handle actualy recharging of the item.
+ * 
  */
 public interface IRechargable {
 
@@ -36,5 +38,5 @@ public interface IRechargable {
      * PERIODIC = whenever charge changes to 0%, 25%, 50%, 75% or 100%
      *
      */
-
+		
 }

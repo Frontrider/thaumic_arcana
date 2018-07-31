@@ -9,13 +9,22 @@ A thaumcraft addon, currently featuring a school of biomancy, containign ways to
 
 ### Growth
 
-Apply alchemical prinicples to farm ptoducts in order to make more of them.
+Apply alchemical prinicples to farm ptoducts in order to make more of them. This includes:
+* beef, port, mutton (no fish)
+* wheat, potatoes, carrots, beet
+* pumpkins and melons
+* all vanilla trees
 
 More options for leather farming.
 
 ### Enchanting
 
 Create a new type of enchantment, that can be applied to living creatures (including yourself), instead of inanimate objects.
+types:
+* fertile: increases birthrates
+* protection
+* strength
+* respiration
 
 ### Misc
 

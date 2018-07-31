@@ -14,7 +14,9 @@ import thaumcraft.api.golems.tasks.Task;
 import thaumcraft.api.research.ResearchCategory;
 
 /**
+ * 
  * @author Azanor
+ *
  * @see IInternalMethodHandler#addKnowledge
  * @see IInternalMethodHandler#progressResearch
  * @see IInternalMethodHandler#completeResearch
@@ -34,7 +36,7 @@ import thaumcraft.api.research.ResearchCategory;
  * @see IInternalMethodHandler#registerSeal
  * @see IInternalMethodHandler#getSeal
  * @see IInternalMethodHandler#getSealEntity
- * @see IInternalMethodHandler#addGolemTask
+ * @see IInternalMethodHandler#addGolemTask 
  * @see IInternalMethodHandler#getSealStack
  */
 public interface IInternalMethodHandler {
@@ -66,7 +68,6 @@ public interface IInternalMethodHandler {
      * Completes research with all the proper bells and whistles (popups, sounds, warp, etc)
      * This automatically sets all its stages as complete.
      * Most of the time you should probably use progressResearch instead.
-     *
      * @param player
      * @param researchkey
      * @return if operation succeeded
@@ -82,7 +83,6 @@ public interface IInternalMethodHandler {
 
     /**
      * Adds warp with all the proper bells and whistles (text, sounds, etc)
-     *
      * @param player
      * @param researchkey
      * @return
@@ -91,7 +91,6 @@ public interface IInternalMethodHandler {
 
     /**
      * The total of the players normal + permanent warp. NOT temporary warp.
-     *
      * @param player
      * @return
      */
@@ -111,7 +110,6 @@ public interface IInternalMethodHandler {
 
     /**
      * returns the aura and flux in a chunk added together
-     *
      * @param world
      * @param pos
      * @return
@@ -136,5 +134,13 @@ public interface IInternalMethodHandler {
 
     ItemStack getSealStack(String key);
 
+	
 
+	
+
+	
+
+	
+	
+	
 }
