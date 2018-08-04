@@ -85,5 +85,5 @@ public class ShapelessArcaneRecipe extends ShapelessOreRecipe implements IArcane
     public AspectList getCrystals() {
         return crystals;
     }
-
+	
 }

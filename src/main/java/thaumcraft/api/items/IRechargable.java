@@ -26,7 +26,7 @@ public interface IRechargable {
      * @param stack
      * @param player
      * @return when the charge will be displayed in the built-in hud display for chargable items
-     */
+	 */
     EnumChargeDisplay showInHud(ItemStack stack, EntityLivingBase player);
 
     enum EnumChargeDisplay {
@@ -36,7 +36,7 @@ public interface IRechargable {
      * NEVER = never
      * NORMAL = whenever the charge changes
      * PERIODIC = whenever charge changes to 0%, 25%, 50%, 75% or 100%
-     *
-     */
+	 * 
+	 */
 		
 }

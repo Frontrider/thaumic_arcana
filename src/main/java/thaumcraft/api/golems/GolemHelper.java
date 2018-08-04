@@ -143,6 +143,7 @@ public class GolemHelper {
                         seal.getSealPos().face.getFrontOffsetY() == 0 ? seal.getArea().getY() - 1 : 0,
                         seal.getSealPos().face.getFrontOffsetZ() == 0 ? seal.getArea().getZ() - 1 : 0);
     }
-
+	
+	
 
 }

@@ -78,6 +78,6 @@ public class CardNotation extends TheorycraftCard {
         data.addTotal(cat2, lVal / 2 + MathHelper.getInt(player.getRNG(), 0, lVal / 2));
         return true;
     }
-
-
+	
+	
 }

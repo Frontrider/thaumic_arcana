@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 /**
  * 
  * @author Azanor
- *
+ * 
  * Blocks that implement this interface act as infusion crafting stabilisers like candles and skulls 
  *
  */

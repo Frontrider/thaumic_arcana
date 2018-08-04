@@ -45,6 +45,6 @@ public class CardPonder extends TheorycraftCard {
         data.bonusDraws++;
         return a != 20;
     }
-
-
+	
+	
 }

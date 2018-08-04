@@ -22,7 +22,7 @@ public interface IScanThing {
      * @param object
      * @param player
      * @return the research key linked to this 'thing'.
-     */
+	 */
     String getResearchKey(EntityPlayer player, Object object);
 
 
@@ -32,6 +32,6 @@ public interface IScanThing {
      * @return the research key linked to this 'thing'
      */
     default void onSuccess(EntityPlayer player, Object object) {
-
-    }
+		
+	}
 }

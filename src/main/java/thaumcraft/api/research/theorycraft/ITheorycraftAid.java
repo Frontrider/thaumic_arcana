@@ -23,8 +23,8 @@ public interface ITheorycraftAid {
      * Once drawn the card is removed from the Aid list.
      * Each card is added once, but you can add the card
      * more than once by simply adding it to the array multiple times.
-     * @return
-     */
+	 * @return
+	 */
     Class<TheorycraftCard>[] getCards();
 
 }

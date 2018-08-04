@@ -174,6 +174,15 @@ public class ItemsTC {
      * use GolemHelper.getSealStack to return an itemstack of a specific seal
      **/
     public static Item seals;
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

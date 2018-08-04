@@ -196,7 +196,7 @@ public class Aspect {
 
     public void setChatcolor(String chatcolor) {
         this.chatcolor = chatcolor;
-    }
+	}
 		
 		
 }

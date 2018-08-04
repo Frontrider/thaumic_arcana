@@ -65,6 +65,6 @@ public class GolemMaterial {
     public String getLocalizedDescription() {
         return I18n.translateToLocal("golem.material.text." + this.key.toLowerCase());
     }
-
-
+	
+	
 }

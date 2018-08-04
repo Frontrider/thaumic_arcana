@@ -14,5 +14,6 @@ public class AidBookshelf implements ITheorycraftAid {
         return new Class[]{CardBalance.class, CardNotation.class, CardNotation.class, CardStudy.class, CardStudy.class, CardStudy.class};
     }
 
+	
 
 }

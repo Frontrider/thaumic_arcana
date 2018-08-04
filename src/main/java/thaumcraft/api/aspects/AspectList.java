@@ -239,7 +239,7 @@ public class AspectList implements Serializable {
         for (int j = 0; j < tlist.tagCount(); j++) {
             NBTTagCompound rs = tlist.getCompoundTagAt(j);
             if (rs.hasKey("key")) {
-                add(Aspect.getAspect(rs.getString("key")),
+				add(	Aspect.getAspect(rs.getString("key")),
                         rs.getInteger("amount"));
             }
         }
@@ -253,11 +253,11 @@ public class AspectList implements Serializable {
             if (rs.hasKey("key")) {
                 add(Aspect.getAspect(rs.getString("key")),
                         rs.getInteger("amount"));
-            }
-        }
+			}
+		}
     }
-
-    /**
+	
+	/**
      * Writes the list of aspects to nbt
      * @param nbttagcompound
      * @return
@@ -269,7 +269,7 @@ public class AspectList implements Serializable {
             if (aspect != null) {
                 NBTTagCompound f = new NBTTagCompound();
                 f.setString("key", aspect.getTag());
-                f.setInteger("amount", getAmount(aspect));
+				f.setInteger("amount", getAmount(aspect));
                 tlist.appendTag(f);
             }
     }
@@ -279,11 +279,11 @@ public class AspectList implements Serializable {
         nbttagcompound.setTag(label, tlist);
         for (Aspect aspect : getAspects())
             if (aspect != null) {
-                NBTTagCompound f = new NBTTagCompound();
-                f.setString("key", aspect.getTag());
-                f.setInteger("amount", getAmount(aspect));
-                tlist.appendTag(f);
-            }
+				NBTTagCompound f = new NBTTagCompound();
+				f.setString("key", aspect.getTag());
+				f.setInteger("amount", getAmount(aspect));
+				tlist.appendTag(f);
+			}
     }
-
+	
 }

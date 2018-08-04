@@ -34,6 +34,6 @@ public class CardExperimentation extends TheorycraftCard {
         }
         return true;
     }
-
-
+	
+	
 }

@@ -13,5 +13,5 @@ public interface ICasterTriggerManager {
      */
     boolean performTrigger(World world, ItemStack casterStack, EntityPlayer player,
                            BlockPos pos, EnumFacing side, int event);
-
+	
 }

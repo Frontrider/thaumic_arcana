@@ -52,33 +52,33 @@ public interface IEssentiaTransport {
      * Returns the strength of suction this block is applying.
      * @param loc
      * 		the location from where the suction is being checked
-     * @return
+	 * @return
      */
     int getSuctionAmount(EnumFacing face);
 
     /**
      * remove the specified amount of essentia from this transport tile
-     * @return how much was actually taken
-     */
+	 * @return how much was actually taken
+	 */
     int takeEssentia(Aspect aspect, int amount, EnumFacing face);
 
     /**
      * add the specified amount of essentia to this transport tile
-     * @return how much was actually added
-     */
+	 * @return how much was actually added
+	 */
     int addEssentia(Aspect aspect, int amount, EnumFacing face);
 
     /**
      * What type of essentia this contains
-     * @param face
-     * @return
+	 * @param face
+	 * @return
      */
     Aspect getEssentiaType(EnumFacing face);
 
     /**
      * How much essentia this block contains
-     * @param face
-     * @return
+	 * @param face
+	 * @return
      */
     int getEssentiaAmount(EnumFacing face);
 
@@ -86,9 +86,10 @@ public interface IEssentiaTransport {
     /**
      * Essentia will not be drawn from this container unless the suction exceeds this amount.
      * @return the amount
-     */
+	 */
     int getMinimumSuction();
 
-
+	
+	
 }
 

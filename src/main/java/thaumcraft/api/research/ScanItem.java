@@ -33,6 +33,7 @@ public class ScanItem implements IScanThing {
     public String getResearchKey(EntityPlayer player, Object object) {
         return research;
     }
-
-
+	
+	
+	
 }

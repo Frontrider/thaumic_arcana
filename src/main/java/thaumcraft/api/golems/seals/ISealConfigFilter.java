@@ -22,5 +22,5 @@ public interface ISealConfigFilter {
     void setBlacklist(boolean black);
 
     boolean hasStacksizeLimiters();
-
+	
 }

@@ -181,6 +181,39 @@ public class BlocksTC {
     public static Block placeholderAnvil;
     public static Block placeholderCauldron;
     public static Block placeholderTable;
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
 
 }

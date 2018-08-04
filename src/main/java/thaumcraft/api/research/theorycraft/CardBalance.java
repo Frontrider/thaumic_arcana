@@ -50,6 +50,6 @@ public class CardBalance extends TheorycraftCard {
         data.penaltyStart++;
         return true;
     }
-
-
+	
+	
 }

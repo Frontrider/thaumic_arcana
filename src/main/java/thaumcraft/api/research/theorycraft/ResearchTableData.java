@@ -369,7 +369,7 @@ public class ResearchTableData {
                     " selected:" + selected;
         }
     }
-
-
+	
+	
 }
 

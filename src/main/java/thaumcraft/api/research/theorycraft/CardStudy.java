@@ -64,6 +64,6 @@ public class CardStudy extends TheorycraftCard {
         data.addTotal(cat, MathHelper.getInt(player.getRNG(), 15, 25));
         return true;
     }
-
-
+	
+	
 }

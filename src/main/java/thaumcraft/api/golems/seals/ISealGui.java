@@ -8,5 +8,5 @@ public interface ISealGui {
     int CAT_TAGS = 4;
 
     int[] getGuiCategories();
-
+	
 }

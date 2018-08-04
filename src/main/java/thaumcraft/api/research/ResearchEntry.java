@@ -28,13 +28,13 @@ public class ResearchEntry {
      * This links to any research that needs to be completed before this research can be discovered or learnt.
      */
     String[] parents;
-
+        
     /**
      * any research linked to this that will be unlocked automatically when this research is complete
      */
     String[] siblings;
-
-
+    
+	
     /**
      * the horizontal position of the research icon
      */
@@ -44,7 +44,7 @@ public class ResearchEntry {
      * the vertical position of the research icon
      */
     int displayRow;
-
+    
     /**
      * the icon to be used for this research 
      */
@@ -54,12 +54,12 @@ public class ResearchEntry {
      * special meta-data tags that indicate how this research must be handled
      */
     EnumResearchMeta[] meta;
-
+    
     /**
      * items the player will receive on completion of this research
      */
     ItemStack[] rewardItem;
-
+    
     /**
      * knowledge the player will receive on completion of this research
      */
@@ -69,14 +69,14 @@ public class ResearchEntry {
      * @return the key
      */
     public String getKey() {
-        return key;
-    }
+		return key;
+	}
     
     /**
      * The various stages present in this research entry
      */
     ResearchStage[] stages;
-
+    
     /**
      * The various addena present in this research entry
      */
@@ -303,11 +303,12 @@ public class ResearchEntry {
     public enum EnumResearchMeta {
         ROUND,
         SPIKY,//these also grant .5 bonus inspiration for theorycrafting
-        REVERSE,
-        HIDDEN,//these also grant .1 bonus inspiration for theorycrafting
-        AUTOUNLOCK,
-        HEX
+    	REVERSE,
+    	HIDDEN,//these also grant .1 bonus inspiration for theorycrafting
+    	AUTOUNLOCK,
+    	HEX
     }
-
-
+    
+    
+	
 }

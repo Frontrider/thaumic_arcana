@@ -65,5 +65,5 @@ public class ScanAspect implements IScanThing {
     public String getResearchKey(EntityPlayer player, Object object) {
         return research;
     }
-
+	
 }

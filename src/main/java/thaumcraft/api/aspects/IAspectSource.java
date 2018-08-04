@@ -17,5 +17,5 @@ public interface IAspectSource extends IAspectContainer {
      * @return
      */
     boolean isBlocked();
-
+	
 }

@@ -76,5 +76,5 @@ public class GolemArm {
 
         EntityAIAttackRanged getRangedAttackAI(IRangedAttackMob golem);
     }
-
+	
 }

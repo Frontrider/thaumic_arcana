@@ -20,5 +20,5 @@ public interface ILabelable {
      * @return if true then label will be subtracted from player inventory
      */
     boolean applyLabel(EntityPlayer player, BlockPos pos, EnumFacing side, ItemStack labelstack);
-
+	
 }

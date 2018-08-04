@@ -85,7 +85,7 @@ public interface IPlayerKnowledge extends INBTSerializable<NBTTagCompound> {
      */
     @Nonnull
     Set<String> getResearchList();
-
+    
     /**
      * @param research the research to update
      * @param flag the flag to set.
@@ -93,17 +93,18 @@ public interface IPlayerKnowledge extends INBTSerializable<NBTTagCompound> {
     boolean setResearchFlag(@Nonnull String research, @Nonnull EnumResearchFlag flags);
 
     /**
-     * @param research the research to update
-     * @param flag the flag you wish to clear.
-     */
-    boolean clearResearchFlag(@Nonnull String research, @Nonnull EnumResearchFlag flag);
-
-    /**
      * @param research the research for which you want to check the flag status
      * @param flag the flag you wish to check.
      */
     boolean hasResearchFlag(@Nonnull String research, @Nonnull EnumResearchFlag flag);
 
+
+    /**
+     * @param research the research to update
+     * @param flag     the flag you wish to clear.
+     */
+    boolean clearResearchFlag(@Nonnull String research, @Nonnull EnumResearchFlag flag);
+    
     /**
      * In nearly ALL circumstances <code>IInternalMethodHandler.addKnowledge</code>
      * should be used instead of this method.
@@ -135,7 +136,7 @@ public interface IPlayerKnowledge extends INBTSerializable<NBTTagCompound> {
      * @param player the player to sync
      */
     void sync(EntityPlayerMP player);
-
+	
     enum EnumResearchStatus {
         UNKNOWN, COMPLETE, IN_PROGRESS
     }
@@ -183,5 +184,8 @@ public interface IPlayerKnowledge extends INBTSerializable<NBTTagCompound> {
         POPUP
     }
 
+	
 
+	
+	
 }

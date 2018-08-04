@@ -53,5 +53,5 @@ public class ResearchAddendum {
     public void setResearch(String[] research) {
         this.research = research;
     }
-
+	
 }

@@ -170,5 +170,5 @@ public class ResearchStage {
             return null;
         }
     }
-
+	
 }

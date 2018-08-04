@@ -42,7 +42,7 @@ public interface ISeal {
     /**
      * @return icon used to render the seal in world. Usually the same as your seal placer item icon.
      * If it is not the same you will have to manually stitch it into the texture atlas.
-     */
+	 */
     ResourceLocation getSealIcon();
 
     void onRemoval(World world, BlockPos pos, EnumFacing side);
@@ -55,5 +55,5 @@ public interface ISeal {
     EnumGolemTrait[] getRequiredTags();
 
     EnumGolemTrait[] getForbiddenTags();
-
+	
 }

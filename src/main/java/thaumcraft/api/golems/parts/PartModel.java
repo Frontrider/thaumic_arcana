@@ -4,13 +4,15 @@ import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.golems.IGolemAPI;
 
 /**
- * This class is used to define a model used by a part. The model needs to be in the .obj format and you may have to provide a texture.
+ *
+ * This class is used to define a model used by a part. The model needs to be in the .obj format and you may have to provide a texture. 
  * You can specify which model parts use your texture and which should use the material texture.
- * <p>
- * You can also specify an attachment point for the entire model.
- * HANDS will render the model twice - one at the end of each arm.
- * LEGS will render the model twice (once for each leg) and will apply the normal walking animation tranforms to them
- * BODY and HEAD should be fairly obvious
+ *
+ * You can also specify an attachment point for the entire model. 
+ * 	HANDS will render the model twice - one at the end of each arm.
+ * 	LEGS will render the model twice (once for each leg) and will apply the normal walking animation tranforms to them
+ * 	BODY and HEAD should be fairly obvious
+ *
  */
 public class PartModel {
 

@@ -4,7 +4,7 @@ package thaumcraft.api.aspects;
 /**
  * 
  * @author azanor
- *
+ * 
  * Used by blocks like the crucible and alembic to hold their aspects. 
  * Tiles extending this interface will have their aspects show up when viewed by goggles of revealing
  *
@@ -29,7 +29,7 @@ public interface IAspectContainer {
      * @param tag
      * @param amount
      * @return the amount of aspect left over that could not be added.
-     */
+	 */
     int addToContainer(Aspect tag, int amount);
 
     /**
@@ -37,7 +37,7 @@ public interface IAspectContainer {
      * @param tag
      * @param amount
      * @return true if that amount of aspect was available and was removed
-     */
+	 */
     boolean takeFromContainer(Aspect tag, int amount);
 
     /**
@@ -46,16 +46,16 @@ public interface IAspectContainer {
      * @return true if all the aspects and their amounts were available and successfully removed
      *
      * Going away in the next major patch
-     */
-    @Deprecated
+	 */
+	@Deprecated
     boolean takeFromContainer(AspectList ot);
 
     /**
      * Checks if the tile entity contains the listed amount (or more) of the aspect
      * @param tag
      * @param amount
-     * @return
-     */
+	 * @return
+	 */
     boolean doesContainerContainAmount(Aspect tag, int amount);
 
     /**
@@ -64,17 +64,17 @@ public interface IAspectContainer {
      * @return
      *
      * Going away in the next major patch
-     */
-    @Deprecated
+	 */
+	@Deprecated
     boolean doesContainerContain(AspectList ot);
 
     /**
      * Returns how much of the aspect this tile entity contains
      * @param tag
      * @return the amount of that aspect found
-     */
+	 */
     int containerContains(Aspect tag);
-
+	
 }
 
 

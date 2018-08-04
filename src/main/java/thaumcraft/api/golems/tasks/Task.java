@@ -121,7 +121,7 @@ public class Task {
         if (!(o instanceof Task)) {
             return false;
         } else {
-            Task t = (Task) o;
+            Task t = (Task)o;
             return t.id == this.id;
         }
     }
@@ -158,7 +158,7 @@ public class Task {
 
     public void setLinkedProvision(ProvisionRequest linkedProvision) {
         this.linkedProvision = linkedProvision;
-    }
+	}
 
 	
 	

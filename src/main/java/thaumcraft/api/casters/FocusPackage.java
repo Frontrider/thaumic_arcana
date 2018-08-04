@@ -236,5 +236,14 @@ public class FocusPackage implements IFocusElement {
         return s.hashCode();
     }
 
+	
+	
+	
+
+	
+	
+	
+	
+	
 
 }

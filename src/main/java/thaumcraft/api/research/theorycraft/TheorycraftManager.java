@@ -22,6 +22,6 @@ public class TheorycraftManager {
         if (!cards.containsKey(key))
             cards.put(key, cardClass);
     }
-
+	
 
 }

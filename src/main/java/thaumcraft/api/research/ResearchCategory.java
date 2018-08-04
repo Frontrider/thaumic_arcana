@@ -15,9 +15,7 @@ public class ResearchCategory {
      */
     public int minDisplayColumn;
 
-    /**
-     * Is the smallest row used on the GUI.
-     */
+    /** Is the smallest row used on the GUI. */
     public int minDisplayRow;
 
     /** Is the biggest column used on the GUI. */
@@ -25,7 +23,7 @@ public class ResearchCategory {
 
     /** Is the biggest row used on the GUI. */
     public int maxDisplayRow;
-
+    
     /** display variables **/
     public ResourceLocation icon;
     public ResourceLocation background;

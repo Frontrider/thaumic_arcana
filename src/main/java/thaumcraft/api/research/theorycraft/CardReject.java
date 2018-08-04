@@ -60,6 +60,6 @@ public class CardReject extends TheorycraftCard {
         data.categoriesBlocked.add(cat1);
         return true;
     }
-
-
+	
+	
 }

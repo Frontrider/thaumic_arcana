@@ -80,6 +80,6 @@ public class CardAnalyze extends TheorycraftCard {
         }
         return false;
     }
-
-
+	
+	
 }

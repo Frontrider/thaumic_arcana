@@ -67,6 +67,7 @@ public class RecipeMisc {
     public enum MiscRecipeType {
         SMELTING
     }
-
-
+	
+	
+	
 }

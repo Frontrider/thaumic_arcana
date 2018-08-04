@@ -43,9 +43,9 @@ public interface IDustTrigger {
      * @param world
      * @param player
      * @param pos
-     * @param placement
-     * @param side
-     */
+	 * @param placement
+	 * @param side
+	 */
     void execute(World world, EntityPlayer player, BlockPos pos, Placement placement, EnumFacing side);
 
     /**
@@ -71,9 +71,9 @@ public interface IDustTrigger {
             this.xOffset = xOffset;
             this.yOffset = yOffset;
             this.zOffset = zOffset;
-            this.facing = facing;
-        }
-    }
+			this.facing = facing;
+		}
+	}
 	
 	
 }

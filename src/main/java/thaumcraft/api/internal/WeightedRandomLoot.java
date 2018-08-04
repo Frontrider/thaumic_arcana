@@ -16,9 +16,10 @@ public class WeightedRandomLoot extends WeightedRandom.Item {
      */
     public ItemStack item;
 
-    public WeightedRandomLoot(ItemStack stack, int weight) {
+    public WeightedRandomLoot(ItemStack stack, int weight)
+    {
         super(weight);
         this.item = stack;
     }
-
+    
 }

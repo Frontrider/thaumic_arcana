@@ -53,5 +53,5 @@ public class ScanEntity implements IScanThing {
     public String getResearchKey(EntityPlayer player, Object object) {
         return research;
     }
-
+	
 }

@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 /**
  * 
  * @author Azanor
- *
+ * 
  * Unless there are specific tasks you need to perform, you are better off using <b>addWarpToPlayer</b> 
  * from the <b>IInternalMethodHandler</b>. It does most of the heavy lifting for you. 
  *

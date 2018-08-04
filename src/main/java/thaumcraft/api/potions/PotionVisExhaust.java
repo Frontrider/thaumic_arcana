@@ -36,6 +36,6 @@ public class PotionVisExhaust extends Potion {
     public void performEffect(EntityLivingBase target, int par2) {
 
     }
-
-
+    
+    
 }

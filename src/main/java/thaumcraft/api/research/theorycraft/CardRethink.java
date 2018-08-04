@@ -51,6 +51,6 @@ public class CardRethink extends TheorycraftCard {
         data.addTotal("BASICS", MathHelper.getInt(player.getRNG(), 1, 10));
         return true;
     }
-
-
+	
+	
 }

@@ -25,6 +25,6 @@ public abstract class FocusMedium extends FocusNode {
     public boolean execute(Trajectory trajectory) {
         return true;
     }
-
-
+	
+	
 }

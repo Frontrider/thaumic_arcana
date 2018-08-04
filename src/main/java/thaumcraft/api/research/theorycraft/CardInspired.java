@@ -67,6 +67,6 @@ public class CardInspired extends TheorycraftCard {
         data.addTotal(cat, amt);
         return true;
     }
-
-
+	
+	
 }

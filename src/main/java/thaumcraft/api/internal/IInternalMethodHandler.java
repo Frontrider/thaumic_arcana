@@ -71,7 +71,7 @@ public interface IInternalMethodHandler {
      * @param player
      * @param researchkey
      * @return if operation succeeded
-     */
+	 */
     boolean completeResearch(EntityPlayer player, String researchkey);
 
     /**
@@ -83,15 +83,15 @@ public interface IInternalMethodHandler {
 
     /**
      * Adds warp with all the proper bells and whistles (text, sounds, etc)
-     * @param player
-     * @param researchkey
-     * @return
-     */
+	 * @param player
+	 * @param researchkey
+	 * @return
+	 */
     void addWarpToPlayer(EntityPlayer player, int amount, EnumWarpType type);
 
     /**
      * The total of the players normal + permanent warp. NOT temporary warp.
-     * @param player
+	 * @param player
      * @return
      */
     int getActualWarp(EntityPlayer player);
@@ -110,8 +110,8 @@ public interface IInternalMethodHandler {
 
     /**
      * returns the aura and flux in a chunk added together
-     * @param world
-     * @param pos
+	 * @param world
+	 * @param pos
      * @return
      */
     float getTotalAura(World world, BlockPos pos);
@@ -131,8 +131,7 @@ public interface IInternalMethodHandler {
     void addGolemTask(int dim, Task task);
 
     boolean shouldPreserveAura(World world, EntityPlayer player, BlockPos pos);
-
-    ItemStack getSealStack(String key);
+	ItemStack getSealStack(String key);
 
 	
 

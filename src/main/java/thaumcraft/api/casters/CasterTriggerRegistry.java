@@ -128,10 +128,10 @@ public class CasterTriggerRegistry {
         int event;
 
         public Trigger(ICasterTriggerManager manager, int event) {
-            super();
-            this.manager = manager;
-            this.event = event;
-        }
-    }
+			super();
+			this.manager = manager;
+			this.event = event;
+		}
+	}
 		
 }

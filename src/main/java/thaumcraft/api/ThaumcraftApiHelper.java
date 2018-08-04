@@ -108,7 +108,7 @@ public class ThaumcraftApiHelper {
         else
             return null;
     }
-
+    
     public static TileEntity getConnectableTile(IBlockAccess world, BlockPos pos, EnumFacing face) {
         TileEntity te = world.getTileEntity(pos.offset(face));
         if (te instanceof IEssentiaTransport && ((IEssentiaTransport) te).isConnectable(face.getOpposite()))
@@ -384,7 +384,8 @@ public class ThaumcraftApiHelper {
     public static boolean areItemStackTagsEqualRelaxed(ItemStack prime, ItemStack other) {
         if (prime.isEmpty() && other.isEmpty()) {
             return true;
-        } else if (!prime.isEmpty() && !other.isEmpty()) {
+        } else if (!prime.isEmpty() && !other.isEmpty())
+	    {
 //	        if (prime.getTagCompound() == null && other.getTagCompound() != null)
 //	        {
 //	            return false;
@@ -401,10 +402,10 @@ public class ThaumcraftApiHelper {
     public static boolean compareTagsRelaxed(NBTTagCompound prime, NBTTagCompound other) {
         for (String key : prime.getKeySet()) {
             if (!other.hasKey(key) || !prime.getTag(key).equals(other.getTag(key))) {
-                return false;
-            }
-        }
-        return true;
-    }
+				return false;
+			}
+		}		
+		return true;
+	}
 		
 }

@@ -143,6 +143,6 @@ public abstract class TheorycraftCard {
         if (nbt == null) return;
         seed = nbt.getLong("seed");
     }
-
-
+	
+	
 }
