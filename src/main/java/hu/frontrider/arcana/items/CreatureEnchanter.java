@@ -9,7 +9,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
@@ -23,13 +22,15 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
 import static net.minecraft.util.EnumActionResult.FAIL;
 import static net.minecraft.util.EnumActionResult.SUCCESS;
 
-public class CreatureEnchanter extends Item {
+public class CreatureEnchanter extends ItemBase {
 
     public CreatureEnchanter() {
+        super();
         setRegistryName(MODID, "creature_enchanter");
         setUnlocalizedName("creature_enchanter");
         this.setMaxStackSize(1);
@@ -108,7 +109,7 @@ public class CreatureEnchanter extends Item {
     @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (tab == ItemRegistry.TABARCANA) {
+        if (tab == TABARCANA) {
             {
                 ItemStack enchanter = new ItemStack(ItemRegistry.creature_enchanter, 1);
                 NBTTagCompound nbtTagCompound = new NBTTagCompound();
@@ -144,4 +145,6 @@ public class CreatureEnchanter extends Item {
             }
         }
     }
+
+
 }

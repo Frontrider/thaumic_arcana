@@ -15,13 +15,15 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.CrucibleRecipe;
 
+import java.util.List;
+
 import static hu.frontrider.arcana.Configuration.enablePlatinum;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static net.minecraft.init.Items.*;
 
 public class AlchemyRecipes {
 
-    static void register() {
+    public static void register() {
         initMetalTransmutation();
         initGrowingBasic();
         initRecipes();
@@ -208,24 +210,28 @@ public class AlchemyRecipes {
 
     private static void initGrowingAdvanced() {
         String KEY = "PLANT_GROWTH_ADVANCED";
+        PlantBall ball = (PlantBall) ItemRegistry.plant_ball;
 
-        String[] woods = new String[]{
-                "oak", "sprouce", "birch", "jungle"
-        };
-        int meta = 0;
+        List<ItemStack> treeItems = PlantBall.getTreeItems();
+        int index = 0;
+        for (ItemStack treeItem : treeItems) {
+            ItemStack seedItem = PlantBall.getProductByIndex(treeItem, 0);
 
-        Item sapling = Item.REGISTRY.getObject(new ResourceLocation("minecraft:sapling"));
-        Item log = Item.REGISTRY.getObject(new ResourceLocation("minecraft:log"));
-        for (String wood : woods) {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     KEY,
-                    PlantBall.getBallFor(new ItemStack(sapling, 2, meta), new ItemStack(log, 5, meta)),
-                    new ItemStack(sapling, 1, meta),
-                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2)
+                    treeItem,
+                    new ItemStack(seedItem.getItem(), 1, seedItem.getMetadata()),
+                    new AspectList()
+                            .add(Aspect.LIGHT, 5)
+                            .merge(Aspect.EARTH, 10)
+                            .merge(Aspect.WATER, 12)
+                            .merge(Aspect.VOID, 5)
             );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "grow_" + wood), recipe);
-            meta++;
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "tree_" + index
+            ), recipe);
+            index++;
         }
+
     }
 
     private static void initGrowingFlesh() {

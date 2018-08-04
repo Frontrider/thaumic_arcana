@@ -4,7 +4,6 @@ import hu.frontrider.arcana.capabilities.CreatureEnchant;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.capabilities.IRelief;
 import hu.frontrider.arcana.effect.SweetRelief;
-import hu.frontrider.arcana.items.EnchantmentAttempt;
 import hu.frontrider.arcana.items.ItemRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -12,11 +11,8 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -83,14 +79,7 @@ public class FunctionEventManager {
                 player.performHurtAnimation();
             }
         }
-        InventoryPlayer inventory = player.inventory;
-        EnchantmentAttempt enchantmentAttempt = new EnchantmentAttempt();
-        if (inventory.hasItemStack(new ItemStack(enchantmentAttempt))) {
-            player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("nausea"), 20));
-            player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("wither"), 30));
-            player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("unluck"), 100));
-            inventory.clearMatchingItems(enchantmentAttempt, 0, 100, null);
-        }
+
     }
 
     @SubscribeEvent
