@@ -11,10 +11,10 @@ import net.minecraft.world.World;
  *
  */
 public interface IInfusionStabiliser {
-
-    /**
-     * returns true if the block can stabilise things
-     */
+	
+	/**
+	 * returns true if the block can stabilise things
+	 */
     boolean canStabaliseInfusion(World world, BlockPos pos);
 
 }
