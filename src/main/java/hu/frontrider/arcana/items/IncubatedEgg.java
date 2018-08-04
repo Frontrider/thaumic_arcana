@@ -2,7 +2,6 @@ package hu.frontrider.arcana.items;
 
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -12,9 +11,10 @@ import net.minecraft.world.World;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
-public class IncubatedEgg extends Item {
+public class IncubatedEgg extends ItemBase {
 
     IncubatedEgg() {
+        super();
         setRegistryName(MODID, "incubated_egg");
         setMaxStackSize(16);
         setUnlocalizedName("incubated_egg");

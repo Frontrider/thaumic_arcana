@@ -18,7 +18,7 @@ import static thaumcraft.api.items.ItemsTC.salisMundus;
 
 public class InfusionRecipes {
 
-    static void register() {
+    public static void register() {
         registerCreatureEnchants();
         registerAdvancedCreatureEnchants();
         registerCreatureCurses();
