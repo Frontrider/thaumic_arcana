@@ -53,13 +53,14 @@ research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertilit
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
 research.thaumic_arcana.creature_enchant.creature_enchanter_respiration=The respiration enchantment allows the enchanted creature to breath underwater.
 research.thaumic_arcana.creature_enchant.creature_enchanter_strength=The strength enchanter multiplies the attack damage of the enchanted entity.
+research.thaumic_arcana.creature_enchant.creature_enchanter_none=to create the book that serves as a base for any further creature enchanting, I need to cast a special binding, using salis mundus, above an enchanting table. <LINE> I need to right click an enchanting table, with salis mundus in my main hand, while holding a book in my offhand.
 
 research.thaumic_arcana.self_enchantment.title=Self Enchantment
 research.thaumic_arcana.self_enchantment.stage.1=I can put enchantments on all kinds of creatures. But what if I could put them on myself? I must try it out!
 research.thaumic_arcana.self_enchantment.stage.2=This was a painful failure indeed! My body is still weak and trembling from the attempt. I cannot handle the process, as about halfway through, I started to feel sick, then I was shaking violently and was unable to pronounce the incantations.<BR/> I have experienced similar reactions when I first did this to animals, but I didn't expect this. <LINE> If I could mitigate the resistance of my body, than I could move forward with it.
 research.thaumic_arcana.self_enchantment.stage.3=Ahh, the bath salts.Always able to clear my mind, even when I'm waking from a nightmare.I think it could also reduce the severity of the reaction that my flesh is having while applying the enchants.
 research.thaumic_arcana.self_enchantment.stage.4=Something is still missing. My hands are still shaking a bit. Maybe I could use some of my spellcasting tools to help with the process.
-research.thaumic_arcana.self_enchantment.stage.5=The traditional gauntlets are unfit for this task, so I designed a set of wands, and scepters. They can be used more delicatly, and I can also ballance them out in a way that they can steady my shaking hands.
+research.thaumic_arcana.self_enchantment.stage.5=Using a simple gauntlet is enough for the task. To cast enchantments on myself, I need to be using an enchantment table to stabilise the magic, use a gauntlet because it can channel some vis to power the process and provide some support for my hand. I also need to be under the effects of warp ward, to keep my mind clear. That way I can apply any enchantments to myself, as long as they are compatible.
 
 research.thaumic_arcana.nutrient_mix.title=Nutrient Mix
 research.thaumic_arcana.nutrient_mix.stage.1=Knowing how to grow fresh meat is good, but what If I still need the whole animal? Could I increase its growth, so I don't need to wait for very long to get a new animal?
@@ -71,7 +72,7 @@ research.thaumic_arcana.leather.stage.2=I failed to grow the hide, but found som
 
 research.thaumic_arcana.tree.title=Bush Alchemy
 research.thaumic_arcana.tree.stage.1=When I was growing plants, it wasn't too hard to add too much essencia, which sometimes cause the growth to go out of control, which was able to mutilate the plant. <LINE> This can be usefull. If I don't care about the deformaties than some new applications could emerge, namely to grow trees this way.
-research.thaumic_arcana.tree.stage.2=The tree, is more of a bush, but it is able to give me wood.I also need to add some vacuos to the formula, so I can improve the spatial conditions in there for long enough so that it won't get stuck in my cauldron, or thaumatorium.
+research.thaumic_arcana.tree.stage.2=The tree, is more of a bush, but it is able to give me wood.I also need to add some vacuos to the formula, so I can improve the spatial conditions in there for long enough so that it won't get stuck in my cauldron, or thaumatorium. <LINE>The leaves overgrew, and became so hard that I need to crack it open by smashing it to a wall.
 ##########
 #Theories#
 ##########
@@ -92,6 +93,8 @@ enchant.thaumic_arcana.creature_enchant.respiration=Respiration
 enchant.thaumic_arcana.creature_enchant.protection=Protection
 enchant.thaumic_arcana.creature_enchant.strength=Strength
 
+
+
 ########
 #Items#
 ########
@@ -104,6 +107,10 @@ item.relief_item.name=Raw Relief
 item.nutrient_mix.name=Nutrient Mix
 item.plant_ball.name=Plant Ball
 item.plant_ball.contains=Contains:
+item.enchanting_powder.name=Enchanting Powder
+item.enchanting_powder_basic.name=Basic Enchant Upgrade Powder
+item.enchanting_powder_advanced.name=Advanced Enchant Upgrade Powder
+item.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
 
 potion.effect.sweet_relief=Potion of Sweet Relief
 splash_potion.effect.sweet_relief=Splash potion of Sweet Relief

@@ -493,7 +493,6 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.2",
           "recipes": [
-            "thaumic_arcana:create_creature_enchanter",
             "thaumic_arcana:creature_enchanter_fertile"
           ],
           "required_item": [
@@ -511,7 +510,6 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.3",
           "recipes": [
-            "thaumic_arcana:create_creature_enchanter",
             "thaumic_arcana:creature_enchanter_fertile",
             "thaumic_arcana:creature_enchanter_protection_1"
           ],
@@ -531,7 +529,6 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.4",
           "recipes": [
-            "thaumic_arcana:create_creature_enchanter",
             "thaumic_arcana:creature_enchanter_fertile",
             "thaumic_arcana:creature_enchanter_respiration",
             "thaumic_arcana:creature_enchanter_protection_1",
@@ -551,7 +548,6 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.5",
           "recipes": [
-            "thaumic_arcana:create_creature_enchanter",
             "thaumic_arcana:creature_enchanter_fertile",
             "thaumic_arcana:creature_enchanter_respiration",
             "thaumic_arcana:creature_enchanter_protection_1",
@@ -562,6 +558,12 @@
         }
       ],
       "addenda": [
+        {
+          "text": "research.thaumic_arcana.creature_enchant.creature_enchanter_none",
+          "required_research": [
+            "CREATURE_ENCHANT@1"
+          ]
+        },
         {
           "text": "research.thaumic_arcana.creature_enchant.creature_enchanter_fertile",
           "required_research": [
@@ -648,6 +650,36 @@
         {
           "text": "research.thaumic_arcana.self_enchantment.stage.2",
           "warp": 4
+        },
+        {
+          "text": "research.thaumic_arcana.self_enchantment.stage.3",
+          "required_research":[
+            "BATHSALTS"
+          ],
+          "required_item": [
+            "thaumic_arcana:creature_enchanter",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
+            "thaumcraft:salis_mundus",
+            "tbaumcraft:bath-salts",
+            "minecraft:water_bucket"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.self_enchantment.stage.4",
+          "required_research":[
+            "BASEAUROMANCY"
+          ],
+          "required_item": [
+            "thaumic_arcana:creature_enchanter",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
+            "thaumcraft:salis_mundus",
+            "tbaumcraft:bath-salts",
+            "minecraft:water_bucket",
+            "thaumcraft:caster_basic"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.self_enchantment.stage.5"
         }
       ]
     },

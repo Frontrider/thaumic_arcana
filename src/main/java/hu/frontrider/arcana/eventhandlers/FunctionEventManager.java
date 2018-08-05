@@ -1,99 +1,42 @@
 package hu.frontrider.arcana.eventhandlers;
 
-import hu.frontrider.arcana.capabilities.CreatureEnchant;
-import hu.frontrider.arcana.capabilities.ICreatureEnchant;
-import hu.frontrider.arcana.capabilities.IRelief;
-import hu.frontrider.arcana.effect.SweetRelief;
 import hu.frontrider.arcana.items.ItemRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
-
-import java.util.stream.Collectors;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.capabilities.CreatureEnchant.ENCHANTS.PROTECTION;
-import static hu.frontrider.arcana.capabilities.CreatureEnchant.ENCHANTS.STRENGTH;
-import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
-import static hu.frontrider.arcana.capabilities.ReliefProvider.RELIEF_CAPABILITY;
 
 @SuppressWarnings("ConstantConditions")
 @Mod.EventBusSubscriber(modid = MODID)
 public class FunctionEventManager {
 
-    @SubscribeEvent
-    static void entityHurt(LivingHurtEvent event) {
+    @GameRegistry.ObjectHolder("thaumcraft:salis_mundus")
+    private static final Item sal_mundi = null;
 
-        EntityLivingBase entity = event.getEntityLiving();
-        if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
-            if (capability.getName().equals(PROTECTION.toString())) {
-                float amount = event.getAmount() / capability.getLevel();
-                System.out.println("event amount = " + event.getAmount());
-                System.out.println("amount = " + amount);
-                if (amount < 1 && entity.world.rand.nextBoolean())
-                    amount = 1;
-                event.setAmount(amount);
-            }
-        }
+    @GameRegistry.ObjectHolder("minecraft:book")
+    private static final Item book = null;
 
-        DamageSource source = event.getSource();
-        if (source.getTrueSource() != null) {
-            Entity trueSource = source.getTrueSource();
-            if (trueSource.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-                ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
-                if (capability.getName().equals(STRENGTH.toString())) {
-                    event.setAmount(event.getAmount() + capability.getLevel() * 3);
-                }
-            }
-        }
-    }
+    @GameRegistry.ObjectHolder("thaumic_arcana:creature_enchanter")
+    private static final Item enchant_book = null;
 
-    @SubscribeEvent
-    static void playerTick(TickEvent.PlayerTickEvent event) {
-        EntityPlayer player = event.player;
-
-        if (player.getActivePotionEffects()
-                .stream()
-                .filter(potionEffect -> !(potionEffect.getPotion() instanceof SweetRelief))
-                .collect(Collectors.toList())
-                .size() > 0) {
-
-            if (player.hasCapability(RELIEF_CAPABILITY, null)) {
-
-                IRelief capability = player.getCapability(RELIEF_CAPABILITY, null);
-                player.setHealth(player.getHealth() - capability.getHealthStore());
-                player.performHurtAnimation();
-            }
-        }
-
-    }
-
-    @SubscribeEvent
-    static void entityTick(LivingEvent.LivingUpdateEvent event) {
-        EntityLivingBase entity = event.getEntityLiving();
-        if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            if (entity.isInWater()) {
-                ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
-                if (capability.getName().equals(CreatureEnchant.ENCHANTS.RESPIRATION.toString())) {
-                    entity.setAir(300);
-                }
-            }
-        }
-    }
+    @GameRegistry.ObjectHolder("minecraft:enchanting_table")
+    private static Block enchanting_table = null;
 
     @SubscribeEvent
     static void entityRightClick(PlayerInteractEvent.EntityInteract event) {
@@ -112,34 +55,44 @@ public class FunctionEventManager {
         }
     }
 
-
     @SubscribeEvent
-    static void babyEntitySpawn(BabyEntitySpawnEvent entitySpawnEvent) {
-        EntityAnimal parentA = (EntityAnimal) entitySpawnEvent.getParentA();
-        EntityAnimal parentB = (EntityAnimal) entitySpawnEvent.getParentB();
+    static void createBook(PlayerInteractEvent.RightClickBlock event) {
+        World world = event.getWorld();
+        if (world.isRemote)
+            return;
 
-        if (parentIsFertile(parentA)) {
-            createChild(parentA, parentB);
-        }
-        if (parentIsFertile(parentB)) {
-            createChild(parentB, parentA);
-        }
-    }
+        EntityPlayer player = event.getEntityPlayer();
 
-    static boolean parentIsFertile(EntityLiving parent) {
-        if (parent.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            ICreatureEnchant capability = parent.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
-            if (capability.getName().equals(CreatureEnchant.ENCHANTS.FERTILE.toString())) {
-                return capability.getLevel() > 0;
+        ItemStack itemMainhand = player.getHeldItemMainhand();
+        ItemStack itemOffhand = player.getHeldItemOffhand();
+
+        if (world.getBlockState(event.getPos()).getBlock() == enchanting_table &&
+                itemMainhand.getItem() == sal_mundi &&
+                itemOffhand.getItem() == book) {
+            itemMainhand.shrink(1);
+            itemOffhand.shrink(1);
+            BlockPos pos = event.getPos().up();
+
+            EntityItem entityItem = new EntityItem(world);
+            entityItem.setPosition(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
+            entityItem.setItem(new ItemStack(enchant_book));
+
+            world.spawnEntity(entityItem);
+
+            SoundEvent sound = new SoundEvent(new ResourceLocation("thaumcraft:dust"));
+            world.playSound(null, pos, sound, SoundCategory.AMBIENT, 1, 1.5f);
+
+            for (int i = 0; i < 50; i++) {
+                world.spawnParticle(EnumParticleTypes.FIREWORKS_SPARK,
+                        pos.getX() + .5,
+                        pos.getY() + .5,
+                        pos.getZ() + .5,
+                        0, 0, 0
+                );
             }
-        }
-        return false;
-    }
 
-    static void createChild(EntityAnimal parentA, EntityAnimal parentB) {
-        EntityAgeable child = parentA.createChild(parentB);
-        child.setPosition(parentA.posX, parentA.posY, parentA.posZ);
-        child.setGrowingAge(-24000);
-        parentA.world.spawnEntity(child);
+            event.setUseBlock(Event.Result.DENY);
+        }
+
     }
 }

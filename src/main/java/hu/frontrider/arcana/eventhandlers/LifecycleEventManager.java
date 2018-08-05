@@ -2,7 +2,6 @@ package hu.frontrider.arcana.eventhandlers;
 
 import hu.frontrider.arcana.capabilities.CreatureEnchantProvider;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
-import hu.frontrider.arcana.capabilities.ReliefProvider;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,8 +28,7 @@ public class LifecycleEventManager {
             EntityPlayer player = event.getEntityPlayer();
             ICreatureEnchant creatureEnchant = player.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null);
             ICreatureEnchant oldCreatureEnchant = original.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null);
-            creatureEnchant.setLevel(oldCreatureEnchant.getLevel());
-            creatureEnchant.setName(oldCreatureEnchant.getName());
+            creatureEnchant.setStore(oldCreatureEnchant.getStore());
         }
     }
 
@@ -42,7 +40,6 @@ public class LifecycleEventManager {
         }
         if (object instanceof EntityPlayer) {
             event.addCapability(CREATURE_ENCHANT, new CreatureEnchantProvider());
-            event.addCapability(RELIEF, new ReliefProvider());
         }
     }
 }

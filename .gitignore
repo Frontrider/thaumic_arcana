@@ -25,3 +25,5 @@ classes
 .
 /lib
 *.jar
+
+gradle.properties
