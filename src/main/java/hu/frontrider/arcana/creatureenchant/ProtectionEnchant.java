@@ -13,7 +13,6 @@ public class ProtectionEnchant extends CreatureEnchant<LivingHurtEvent> {
         super(LivingHurtEvent.class);
     }
 
-    @Override
     @SubscribeEvent
     public void handleEvent(LivingHurtEvent event) {
         EntityLivingBase entity = event.getEntityLiving();

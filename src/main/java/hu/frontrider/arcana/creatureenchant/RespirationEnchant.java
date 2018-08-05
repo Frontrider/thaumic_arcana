@@ -6,7 +6,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.RESPIRATION;
 
 public class RespirationEnchant extends CreatureEnchant<LivingEvent.LivingUpdateEvent> {
@@ -14,18 +13,15 @@ public class RespirationEnchant extends CreatureEnchant<LivingEvent.LivingUpdate
         super(LivingEvent.LivingUpdateEvent.class);
     }
 
-    @Override
     @SubscribeEvent
     public void handleEvent(LivingEvent.LivingUpdateEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
-        if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             if (entity.isInWater()) {
                 int enchantLevel = getEnchantLevel(entity, RESPIRATION);
                 if (enchantLevel >0) {
                     entity.setAir(300);
                 }
             }
-        }
     }
 
     @Override

@@ -15,7 +15,6 @@ public class FertileEnchant extends CreatureEnchant<BabyEntitySpawnEvent> {
         super(BabyEntitySpawnEvent.class);
     }
 
-    @Override
     @SubscribeEvent
     public void handleEvent(BabyEntitySpawnEvent event) {
         EntityAnimal parentA = (EntityAnimal) event.getParentA();

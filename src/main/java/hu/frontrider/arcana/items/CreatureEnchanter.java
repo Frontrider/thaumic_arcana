@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
@@ -61,9 +62,9 @@ public class CreatureEnchanter extends ItemBase {
 
                 if (capability == null)
                     return false;
-
-                NBTTagList creature_enchants = tagCompound.getTagList("creature_enchants", 9);
-                creature_enchants.iterator().forEachRemaining((enchant) -> {
+                System.out.println("tagCompound = " + tagCompound);
+                NBTBase creature_enchants = tagCompound.getTag("creature_enchants");
+                ((NBTTagList) creature_enchants).iterator().forEachRemaining((enchant) -> {
                     EnchantmentData enchantmentData = nbtToEnchantment((NBTTagCompound) enchant);
                     capability.putEnchant(enchantmentData.enchantment, enchantmentData.level);
                 });

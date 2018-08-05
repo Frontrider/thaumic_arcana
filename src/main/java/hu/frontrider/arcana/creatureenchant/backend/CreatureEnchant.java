@@ -4,7 +4,6 @@ import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +40,6 @@ public abstract class CreatureEnchant<T extends Event> {
     public static List<CreatureEnchant> getCreatureEnchants() {
         return creatureEnchants;
     }
-
-    @SubscribeEvent
-    public abstract void handleEvent(T event);
 
     public abstract ResourceLocation getIcon();
 
