@@ -227,11 +227,14 @@
         {
           "text": "research.thaumic_arcana.tree.stage.2",
           "recipes": [
-            "thaumic_arcana:grow_oak",
-            "thaumic_arcana:grow_birch",
-            "thaumic_arcana:grow_sprouce",
-            "thaumic_arcana:grow_acacia",
-            "thaumic_arcana:grow_big_oak"
+            "thaumic_arcana:tree_0",
+            "thaumic_arcana:tree_1",
+            "thaumic_arcana:tree_2",
+            "thaumic_arcana:tree_3",
+            "thaumic_arcana:tree_4",
+            "thaumic_arcana:tree_5",
+            "thaumic_arcana:tree_6",
+            "thaumic_arcana:tree_7"
           ]
         }
       ]
