@@ -6,6 +6,8 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.FERTILE;
 
@@ -31,6 +33,17 @@ public class FertileEnchant extends CreatureEnchant<BabyEntitySpawnEvent> {
     @Override
     public ResourceLocation getIcon() {
         return null;
+    }
+
+    @Override
+    public AspectList formula() {
+        return new AspectList()
+                .merge(Aspect.LIFE,20)
+                .merge(Aspect.DESIRE,30)
+                .merge(Aspect.FIRE,5)
+                .merge(Aspect.ORDER,3)
+                .merge(Aspect.EXCHANGE,20)
+                .merge(Aspect.MAGIC,50);
     }
 
     void createChild(EntityAnimal parentA, EntityAnimal parentB) {

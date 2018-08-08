@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thaumic_arcana:experiment_table"
+    },
+    "facing=south": {
+      "model": "thaumic_arcana:experiment_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thaumic_arcana:experiment_table",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "thaumic_arcana:experiment_table",
+      "y": 90
+    },
+    "inventory": {
+      "model": "thaumic_arcana:experiment_table"
+    }
+  }
+}

@@ -1,12 +1,18 @@
 package hu.frontrider.arcana.proxy;
 
+import hu.frontrider.arcana.client.EnchantRenderer;
 import hu.frontrider.arcana.items.ItemRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -27,5 +33,20 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent event) {
         super.init(event);
         initClient(Minecraft.getMinecraft().getRenderItem().getItemModelMesher());
+        EnchantRenderer enchantRenderer = new EnchantRenderer();
+
+        ForgeRegistries.ENTITIES.getEntries().forEach(resourceLocationEntityEntryEntry -> {
+            Class<? extends Entity> entityClass = resourceLocationEntityEntryEntry.getValue().getEntityClass();
+            Render<Entity> renderer =  Minecraft.getMinecraft().getRenderManager().getEntityClassRenderObject(entityClass);
+
+            if (renderer instanceof RenderLivingBase) {
+                ((RenderLivingBase<?>) renderer).addLayer(enchantRenderer);
+            }
+        });
+
+        for (RenderPlayer playerRender : Minecraft.getMinecraft().getRenderManager().getSkinMap().values()) {
+
+            playerRender.addLayer(enchantRenderer);
+        }
     }
 }

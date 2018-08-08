@@ -66,3 +66,10 @@ processResources {
         exclude 'mcmod.info'
     }
 }
+jar {
+
+    manifest {
+
+        attributes 'FMLAT': "${modid}.cfg"
+    }
+}

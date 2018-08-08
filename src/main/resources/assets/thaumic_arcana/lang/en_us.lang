@@ -53,7 +53,7 @@ research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertilit
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
 research.thaumic_arcana.creature_enchant.creature_enchanter_respiration=The respiration enchantment allows the enchanted creature to breath underwater.
 research.thaumic_arcana.creature_enchant.creature_enchanter_strength=The strength enchanter multiplies the attack damage of the enchanted entity.
-research.thaumic_arcana.creature_enchant.creature_enchanter_none=to create the book that serves as a base for any further creature enchanting, I need to cast a special binding, using salis mundus, above an enchanting table. <LINE> I need to right click an enchanting table, with salis mundus in my main hand, while holding a book in my offhand.
+research.thaumic_arcana.creature_enchant.creature_enchanter_none=To create the book that serves as a base for any further creature enchanting, I need to cast a special binding, using salis mundus, above an enchanting table. <LINE> I need to right click an enchanting table, with salis mundus in my main hand, while holding a book in my offhand.
 
 research.thaumic_arcana.self_enchantment.title=Self Enchantment
 research.thaumic_arcana.self_enchantment.stage.1=I can put enchantments on all kinds of creatures. But what if I could put them on myself? I must try it out!
@@ -81,9 +81,9 @@ card.thaumic_arcana.study_plants.name=Study %1$s
 card.thaumic_arcana.study_plants.text=Studying %1$s can give you a deeper understanding of plants. Gain 10 Biomancy.
 
 card.thaumic_arcana.study_flesh.name=Dissect %1$s
-card.thaumic_arcana.study_flesh.text=Dissecting animals %1$s can give you a deeper understanding of how they work. Gain 15 Biomancy.
+card.thaumic_arcana.study_flesh.text=Dissecting animals (%1$s) can give you a deeper understanding of how they work. Gain 15 Biomancy.
 
-card.thaumic_arcana.study_dead_flesh.name=Dissect the dead
+card.thaumic_arcana.study_dead_flesh.name=Dissect remains
 card.thaumic_arcana.study_dead_flesh.text=Dissecting %1$s can give you a deeper understanding of their structure, even though it's a bit more gross than fresh tissue. Gain 25 Biomancy.
 
 ###################
@@ -111,8 +111,20 @@ item.enchanting_powder_basic.name=Basic Enchant Upgrade Powder
 item.enchanting_powder_advanced.name=Advanced Enchant Upgrade Powder
 item.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
 
+item.stabilizer.name=Magical Mixture
+item.stabiliser.stable=Excellent
+item.stabiliser.unstable=Unstable
+item.stabiliser.normal=Stable
+
 potion.effect.sweet_relief=Potion of Sweet Relief
 splash_potion.effect.sweet_relief=Splash potion of Sweet Relief
 lingering_potion.effect.sweet_relief=Lingering potion of Sweet Relief
 
 potion.sweet_relief=Sweet Relief
+
+########
+#Blocks#
+########
+
+tile.experiment_table.name=Experiment Table
+

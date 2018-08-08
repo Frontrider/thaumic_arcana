@@ -5,6 +5,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.STRENGTH;
 
@@ -28,5 +30,15 @@ public class StrengthEnchant extends CreatureEnchant<LivingHurtEvent> {
     @Override
     public ResourceLocation getIcon() {
         return null;
+    }
+
+    @Override
+    public AspectList formula() {
+        return new AspectList()
+                .merge(Aspect.LIFE,20)
+                .merge(Aspect.ENERGY,200)
+                .merge(Aspect.FIRE,50)
+                .merge(Aspect.ORDER,300)
+                .merge(Aspect.MAGIC,50);
     }
 }

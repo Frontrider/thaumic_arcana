@@ -176,7 +176,6 @@ public class PlantBall extends ItemBase implements Initialisable {
 
     @Override
     public void init() {
-        System.out.println("initialising plant ball");
         treeItems= getTreeVariants();
         seedItems = getSeedVariants();
     }

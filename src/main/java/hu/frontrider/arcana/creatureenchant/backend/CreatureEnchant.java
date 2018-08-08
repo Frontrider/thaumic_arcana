@@ -4,6 +4,7 @@ import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.eventhandler.Event;
+import thaumcraft.api.aspects.AspectList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,5 +43,7 @@ public abstract class CreatureEnchant<T extends Event> {
     }
 
     public abstract ResourceLocation getIcon();
+
+    public abstract AspectList formula();
 
 }
