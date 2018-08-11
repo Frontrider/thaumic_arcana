@@ -37,6 +37,10 @@ public class ItemRegistry {
             .setUnlocalizedName("enchanting_powder_magical")
             .setCreativeTab(TABARCANA);
 
+    public static Item wood_pulp = new Item()
+            .setRegistryName(MODID, "wood_pulp")
+            .setUnlocalizedName("wood_pulp")
+            .setCreativeTab(TABARCANA);
 
     public static Item fertiliser = new ItemFertiliser();
     public static Item incubated_egg = new IncubatedEgg();
@@ -46,7 +50,8 @@ public class ItemRegistry {
     public static Item[] items = new Item[]{
             fertiliser, incubated_egg, creature_enchanter, nutrient_mix, plant_ball,
             enchanting_powder_basic,enchanting_powder_advanced,enchanting_powder_magical,
-            new ItemBlock(experiment_table).setCreativeTab(TABARCANA).setRegistryName(experiment_table.getRegistryName())
+            new ItemBlock(experiment_table).setCreativeTab(TABARCANA).setRegistryName(experiment_table.getRegistryName()),
+            wood_pulp
     };
 
     @SubscribeEvent
@@ -56,7 +61,7 @@ public class ItemRegistry {
                 ((Initialisable) item).init();
             }
         });
+
         event.getRegistry().registerAll(items);
     }
-
 }

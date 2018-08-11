@@ -7,7 +7,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftApiHelper;
@@ -19,6 +18,7 @@ import java.util.List;
 
 import static hu.frontrider.arcana.Configuration.enablePlatinum;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.items.ItemRegistry.wood_pulp;
 import static net.minecraft.init.Items.*;
 
 public class AlchemyRecipes {
@@ -30,11 +30,11 @@ public class AlchemyRecipes {
         initHardenFleshToLeather();
         initGrowingAdvanced();
         initGrowingFlesh();
+        initPlantProducts();
     }
 
     private static void initMetalTransmutation() {
 
-        GameRegistry.findRegistry(Item.class).getValue(new ResourceLocation("minecraft:stone"));
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     "METAL_TRANSMUTATION",
@@ -363,4 +363,20 @@ public class AlchemyRecipes {
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "incubated_egg_recipe"), recipe);
         }
     }
+
+    private static void initPlantProducts() {
+        {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    "PLANT_PRODUCTS",
+                    new ItemStack(Items.PAPER, 16, 0),
+                    wood_pulp,
+                    new AspectList()
+                            .add(Aspect.WATER, 1)
+                            .add(Aspect.ENTROPY, 1)
+                            .add(Aspect.ORDER, 1)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "paper"), recipe);
+        }
+    }
+
 }

@@ -8,6 +8,7 @@ import hu.frontrider.arcana.creatureenchant.ProtectionEnchant;
 import hu.frontrider.arcana.creatureenchant.RespirationEnchant;
 import hu.frontrider.arcana.creatureenchant.StrengthEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.eventhandlers.FunctionEventManager;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessageHandler;
 import hu.frontrider.arcana.network.CreatureEnchantSynchronizer;
@@ -66,6 +67,7 @@ public class ThaumicArcana {
             MinecraftForge.EVENT_BUS.register(creatureEnchant);
         }
         MinecraftForge.EVENT_BUS.register(new CreatureEnchantSynchronizer());
+        MinecraftForge.EVENT_BUS.register(new FunctionEventManager());
     }
 
     @EventHandler

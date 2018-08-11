@@ -239,7 +239,6 @@
         }
       ]
     },
-
     {
       "key": "FLESH_GROWTH",
       "name": "research.thaumic_arcana.flesh_growth.title",
@@ -308,8 +307,8 @@
         "HIDDEN"
       ],
       "location": [
-        4,
-        4
+        2,
+        3
       ],
       "required_knowledge": [
         "THEORY;ALCHEMY;2",
@@ -653,7 +652,7 @@
         },
         {
           "text": "research.thaumic_arcana.self_enchantment.stage.3",
-          "required_research":[
+          "required_research": [
             "BATHSALTS"
           ],
           "required_item": [
@@ -666,7 +665,7 @@
         },
         {
           "text": "research.thaumic_arcana.self_enchantment.stage.4",
-          "required_research":[
+          "required_research": [
             "BASEAUROMANCY"
           ],
           "required_item": [
@@ -762,6 +761,66 @@
             "thaumic_arcana:pork_to_leather",
             "thaumic_arcana:mutton_to_leather"
           ]
+        }
+      ]
+    },
+    {
+      "key": "PLANT_PRODUCTS",
+      "name": "research.thaumic_arcana.plantproducts.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        2,
+        5
+      ],
+      "parents": [
+        "PLANT_GROWTH",
+        "HEDGEALCHEMY",
+        "PLANT_GROWTH_ADVANCED"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.plantproducts.stage.1",
+          "required_item": [
+            "minecraft:log",
+            "minecraft:sugarcane",
+            "minecraft:paper",
+            "minecraft:wheat",
+            "minecraft:grass",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'perditio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'fabrico'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ordo'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BASIC;1"
+          ],
+          "warp": 0
+        },
+        {
+          "text": "research.thaumic_arcana.plantproducts.stage.2",
+          "required_item": [
+            "minecraft:dye:1",
+            "minecraft:dye:11",
+            "minecraft:dye:2",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "recipes": [
+            "thaumic_arcana:paper"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BASIC;1"
+          ],
+          "warp": 0
         }
       ]
     }
