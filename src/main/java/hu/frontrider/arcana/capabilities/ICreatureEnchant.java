@@ -5,6 +5,9 @@ import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import java.util.Map;
 
 public interface ICreatureEnchant {
+
+    boolean hasEnchant();
+
     boolean hasEnchant(CEnchantment enchantment);
 
     int getLevel(CEnchantment enchantment);

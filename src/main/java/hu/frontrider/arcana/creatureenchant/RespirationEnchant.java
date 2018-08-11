@@ -8,11 +8,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.RESPIRATION;
 
-public class RespirationEnchant extends CreatureEnchant<LivingEvent.LivingUpdateEvent> {
+public class RespirationEnchant extends CreatureEnchant {
+
     public RespirationEnchant() {
-        super(LivingEvent.LivingUpdateEvent.class);
+        super(new ResourceLocation(MODID, "textures/enchant/respiration.png"));
     }
 
     @SubscribeEvent
@@ -26,10 +28,6 @@ public class RespirationEnchant extends CreatureEnchant<LivingEvent.LivingUpdate
             }
     }
 
-    @Override
-    public ResourceLocation getIcon() {
-        return null;
-    }
 
     @Override
     public AspectList formula() {

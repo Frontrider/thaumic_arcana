@@ -8,6 +8,9 @@ import hu.frontrider.arcana.creatureenchant.ProtectionEnchant;
 import hu.frontrider.arcana.creatureenchant.RespirationEnchant;
 import hu.frontrider.arcana.creatureenchant.StrengthEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
+import hu.frontrider.arcana.network.CreatureEnchantSyncMessageHandler;
+import hu.frontrider.arcana.network.CreatureEnchantSynchronizer;
 import hu.frontrider.arcana.proxy.CommonProxy;
 import hu.frontrider.arcana.research.ResearchRegistry;
 import hu.frontrider.arcana.util.CreativeTabArcana;
@@ -20,6 +23,9 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
@@ -32,7 +38,7 @@ public class ThaumicArcana {
 
     public static Logger logger;
     public static CreativeTabs TABARCANA = new CreativeTabArcana(CreativeTabs.getNextID(), "thaumic_arcana");
-
+    public static final SimpleNetworkWrapper NETWORK_WRAPPER = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
 
     @SidedProxy(clientSide = "hu.frontrider.arcana.proxy.ClientProxy", serverSide = "hu.frontrider.arcana.proxy.ServerProxy")
     public static CommonProxy proxy;
@@ -42,6 +48,7 @@ public class ThaumicArcana {
         logger = event.getModLog();
         proxy.preInit(event);
         CapabilityManager.INSTANCE.register(ICreatureEnchant.class, new CreatureEnchantStorage(), CreatureEnchantCapability::new);
+        NETWORK_WRAPPER.registerMessage(CreatureEnchantSyncMessageHandler.class,CreatureEnchantSyncMessage.class,0,Side.CLIENT);
     }
 
     @EventHandler
@@ -58,6 +65,7 @@ public class ThaumicArcana {
         for (CreatureEnchant creatureEnchant : creatureEnchants) {
             MinecraftForge.EVENT_BUS.register(creatureEnchant);
         }
+        MinecraftForge.EVENT_BUS.register(new CreatureEnchantSynchronizer());
     }
 
     @EventHandler

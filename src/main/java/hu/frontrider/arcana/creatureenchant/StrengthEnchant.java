@@ -8,11 +8,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.STRENGTH;
 
-public class StrengthEnchant extends CreatureEnchant<LivingHurtEvent> {
+public class StrengthEnchant extends CreatureEnchant {
+
     public StrengthEnchant() {
-        super(LivingHurtEvent.class);
+        super(new ResourceLocation(MODID, "textures/enchant/strength.png"));
     }
 
     @SubscribeEvent
@@ -25,11 +27,6 @@ public class StrengthEnchant extends CreatureEnchant<LivingHurtEvent> {
                 event.setAmount(event.getAmount() + enchantLevel);
             }
         }
-    }
-
-    @Override
-    public ResourceLocation getIcon() {
-        return null;
     }
 
     @Override

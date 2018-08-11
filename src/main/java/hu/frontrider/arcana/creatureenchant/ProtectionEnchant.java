@@ -8,11 +8,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.PROTECTION;
 
-public class ProtectionEnchant extends CreatureEnchant<LivingHurtEvent> {
+public class ProtectionEnchant extends CreatureEnchant {
+
     public ProtectionEnchant() {
-        super(LivingHurtEvent.class);
+        super(new ResourceLocation(MODID, "textures/enchant/protection.png"));
     }
 
     @SubscribeEvent
@@ -28,11 +30,6 @@ public class ProtectionEnchant extends CreatureEnchant<LivingHurtEvent> {
                     amount = 1;
                 event.setAmount(amount);
             }
-    }
-
-    @Override
-    public ResourceLocation getIcon() {
-        return null;
     }
 
     @Override

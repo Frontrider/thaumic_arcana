@@ -2,6 +2,7 @@ package hu.frontrider.arcana.items;
 
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
+import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
@@ -11,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -27,8 +29,7 @@ import thaumcraft.api.items.ItemsTC;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
+import static hu.frontrider.arcana.ThaumicArcana.*;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.*;
 import static net.minecraft.util.EnumActionResult.FAIL;
@@ -62,7 +63,6 @@ public class CreatureEnchanter extends ItemBase {
 
                 if (capability == null)
                     return false;
-                System.out.println("tagCompound = " + tagCompound);
                 NBTBase creature_enchants = tagCompound.getTag("creature_enchants");
                 ((NBTTagList) creature_enchants).iterator().forEachRemaining((enchant) -> {
                     EnchantmentData enchantmentData = nbtToEnchantment((NBTTagCompound) enchant);
@@ -70,6 +70,9 @@ public class CreatureEnchanter extends ItemBase {
                 });
 
                 stack.shrink(1);
+
+                int entityId = entity.getEntityId();
+                NETWORK_WRAPPER.sendTo(new CreatureEnchantSyncMessage(capability, entityId), (EntityPlayerMP) playerIn);
             }
             return true;
         }

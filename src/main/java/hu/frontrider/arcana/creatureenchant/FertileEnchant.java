@@ -9,12 +9,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.FERTILE;
 
-public class FertileEnchant extends CreatureEnchant<BabyEntitySpawnEvent> {
+public class FertileEnchant extends CreatureEnchant {
 
     public FertileEnchant() {
-        super(BabyEntitySpawnEvent.class);
+        super(new ResourceLocation(MODID, "textures/enchant/fertile.png"));
     }
 
     @SubscribeEvent
@@ -28,11 +29,6 @@ public class FertileEnchant extends CreatureEnchant<BabyEntitySpawnEvent> {
         if (getEnchantLevel(parentB,FERTILE)>0) {
             createChild(parentB, parentA);
         }
-    }
-
-    @Override
-    public ResourceLocation getIcon() {
-        return null;
     }
 
     @Override

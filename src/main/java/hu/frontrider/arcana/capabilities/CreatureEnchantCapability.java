@@ -12,6 +12,12 @@ public class CreatureEnchantCapability implements ICreatureEnchant {
         enchants = new HashMap<>();
     }
 
+
+    @Override
+    public boolean hasEnchant() {
+        return !enchants.isEmpty();
+    }
+
     @Override
     public boolean hasEnchant(CEnchantment enchantment) {
         return enchants.containsKey(enchantment);
