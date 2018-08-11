@@ -17,7 +17,7 @@ public class ExperimentTable extends BlockHorizontal {
         super(Material.WOOD);
         setRegistryName(new ResourceLocation(MODID,"experiment_table"));
         setUnlocalizedName("experiment_table");
-
+        setHardness(3);
     }
 
     /**
