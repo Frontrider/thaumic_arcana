@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.creatureenchant;
 
+import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -38,5 +39,10 @@ public class RespirationEnchant extends CreatureEnchant {
                 .merge(Aspect.ORDER,10)
                 .merge(Aspect.SENSES,20)
                 .merge(Aspect.MAGIC,80);
+    }
+
+    @Override
+    public CEnchantment getEnum() {
+        return RESPIRATION;
     }
 }

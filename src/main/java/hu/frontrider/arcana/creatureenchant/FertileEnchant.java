@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.creatureenchant;
 
+import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -40,6 +41,11 @@ public class FertileEnchant extends CreatureEnchant {
                 .merge(Aspect.ORDER,3)
                 .merge(Aspect.EXCHANGE,20)
                 .merge(Aspect.MAGIC,50);
+    }
+
+    @Override
+    public CEnchantment getEnum() {
+        return FERTILE;
     }
 
     void createChild(EntityAnimal parentA, EntityAnimal parentB) {

@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.creatureenchant;
 
+import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -41,5 +42,10 @@ public class ProtectionEnchant extends CreatureEnchant {
                 .merge(Aspect.CRYSTAL,3)
                 .merge(Aspect.EARTH,20)
                 .merge(Aspect.MAGIC,70);
+    }
+
+    @Override
+    public CEnchantment getEnum() {
+        return PROTECTION;
     }
 }

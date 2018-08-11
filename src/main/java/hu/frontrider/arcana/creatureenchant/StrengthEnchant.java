@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.creatureenchant;
 
+import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -37,5 +38,10 @@ public class StrengthEnchant extends CreatureEnchant {
                 .merge(Aspect.FIRE,50)
                 .merge(Aspect.ORDER,300)
                 .merge(Aspect.MAGIC,50);
+    }
+
+    @Override
+    public CEnchantment getEnum() {
+        return STRENGTH;
     }
 }
