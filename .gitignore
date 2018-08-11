@@ -26,4 +26,4 @@ classes
 /lib
 *.jar
 
-gradle.properties
+/gradle.properties
