@@ -12,6 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Map;
+import java.util.Set;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static java.lang.Math.PI;
@@ -42,9 +43,9 @@ public class EnchantRenderer implements LayerRenderer {
 
         drawMain(renderEngine);
 
-        GlStateManager.translate(1.8, 0, -.1);
+        GlStateManager.translate(0, 0, -.1);
         drawIcons(renderEngine, entity);
-        GlStateManager.translate(-1.8, 0, .1);
+        GlStateManager.translate(0, 0, .1);
 
         GlStateManager.enableLighting();
         GlStateManager.enableCull();
@@ -77,11 +78,15 @@ public class EnchantRenderer implements LayerRenderer {
 
     private void drawIcons(TextureManager textureManager, Entity entity) {
         Map<CEnchantment, Integer> creatureEnchants = CreatureEnchant.getCreatureEnchants(entity);
-        creatureEnchants.forEach((enchantment, level) -> {
-
+        Set<Map.Entry<CEnchantment, Integer>> entries = creatureEnchants.entrySet();
+        int index = 1;
+        for (Map.Entry<CEnchantment, Integer> entry : entries) {
+            CEnchantment enchantment = entry.getKey();
+            Integer level = entry.getValue();
             CreatureEnchant creatureEnchant = CreatureEnchant.getForEnum(enchantment);
 
             textureManager.bindTexture(creatureEnchant.getIcon());
+            GlStateManager.resetColor();
             switch (level) {
                 case 1:
                     GlStateManager.color(182, 255, 0);
@@ -93,11 +98,17 @@ public class EnchantRenderer implements LayerRenderer {
                     GlStateManager.color(214, 127, 155);
                     break;
             }
+            float x = (float) (Math.cos(45 * index) * 1.8);
+            float y = (float) (Math.sin(45 * index) * 1.8);
 
-            GlStateManager.translate(1.8/2 * Math.cos(-PI/4), 1.8/2 * Math.sin(-PI/4),0);
+            GlStateManager.translate(x, y, 0);
+
             drawIcon();
 
-        });
+            GlStateManager.translate(-x, -y, 0);
+
+            index++;
+        }
     }
 
     private void drawIcon() {
