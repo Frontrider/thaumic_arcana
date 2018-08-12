@@ -1,27 +1,37 @@
 package hu.frontrider.arcana.items;
 
+import hu.frontrider.arcana.util.Initialisable;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagEnd;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 
-public class PlantBall extends Item {
+public class PlantBall extends ItemBase implements Initialisable {
+
+    private static List<ItemStack> treeItems;
+    private static List<ItemStack> seedItems;
 
     PlantBall() {
         super();
@@ -29,8 +39,9 @@ public class PlantBall extends Item {
         setUnlocalizedName("plant_ball");
     }
 
-    public static ItemStack getBallFor(ItemStack... stacks) {
-        ItemStack itemStack = new ItemStack(ItemRegistry.plant_ball);
+
+    public ItemStack getBallFor(ItemStack... stacks) {
+        ItemStack itemStack = new ItemStack(this);
         NBTTagCompound nbtTagCompound = new NBTTagCompound();
 
         NBTTagList tagList = Arrays.stream(stacks).map(stack -> {
@@ -48,13 +59,31 @@ public class PlantBall extends Item {
         }).collect(
                 NBTTagList::new,
                 NBTTagList::appendTag,
-                (e1, e2) -> e2.iterator().forEachRemaining(e2::appendTag)
+                (e1, e2) -> e1.iterator().forEachRemaining(e2::appendTag)
         );
 
-        nbtTagCompound.setTag("items", tagList);
+        nbtTagCompound.setTag("products", tagList);
         itemStack.setTagCompound(nbtTagCompound);
 
         return itemStack;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+        NBTTagCompound tagCompound = stack.getTagCompound();
+        NBTTagList products = (NBTTagList) tagCompound.getTag("products");
+        tooltip.add(I18n.format("item.plant_ball.contains"));
+        products.iterator().forEachRemaining(
+                item -> {
+                    String regname = ((NBTTagCompound) item).getString("item");
+                    int count = ((NBTTagCompound) item).getInteger("count");
+                    int meta = ((NBTTagCompound) item).getInteger("meta");
+                    ResourceLocation resourcelocation = new ResourceLocation(regname);
+                    Item itemObj = Item.REGISTRY.getObject(resourcelocation);
+                    String lore = " - " + TextFormatting.GREEN + new ItemStack(itemObj, 1, meta).getDisplayName() + " " + TextFormatting.RESET + count;
+                    tooltip.add(lore);
+                });
     }
 
     @Override
@@ -62,13 +91,13 @@ public class PlantBall extends Item {
 
         ItemStack heldItem = player.getHeldItem(hand);
         NBTTagCompound tagCompound = heldItem.getTagCompound();
-        NBTTagList products = (NBTTagList) tagCompound.getTag("items");
+        NBTTagList products = (NBTTagList) tagCompound.getTag("products");
         products.iterator().forEachRemaining(
                 item -> {
-                    String regname = ((NBTTagCompound) item).getString("item");
+                    String regName = ((NBTTagCompound) item).getString("item");
                     int count = ((NBTTagCompound) item).getInteger("count");
                     int meta = ((NBTTagCompound) item).getInteger("meta");
-                    ResourceLocation resourcelocation = new ResourceLocation(regname);
+                    ResourceLocation resourcelocation = new ResourceLocation(regName);
                     Item itemObj = Item.REGISTRY.getObject(resourcelocation);
                     ItemStack itemStack = new ItemStack(itemObj, count, meta);
 
@@ -88,7 +117,66 @@ public class PlantBall extends Item {
     }
 
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs tab, List itemList) {
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+        if (tab != TABARCANA)
+            return;
+        items.addAll(treeItems);
+        items.addAll(seedItems);
+    }
 
+    public  List<ItemStack> getTreeVariants() {
+
+        final ArrayList<ItemStack> items = new ArrayList<>();
+
+        {
+            int meta = 0;
+
+            Item sapling = Item.REGISTRY.getObject(new ResourceLocation("minecraft:sapling"));
+            Item log = Item.REGISTRY.getObject(new ResourceLocation("minecraft:log"));
+            while (meta < 6) {
+                items.add(getBallFor(new ItemStack(sapling, 2, meta), new ItemStack(log, 5, meta)));
+                meta++;
+            }
+        }
+        return items;
+    }
+
+    public  List<ItemStack> getSeedVariants() {
+        final ArrayList<ItemStack> items = new ArrayList<>();
+        items.add(getBallFor(new ItemStack(Items.WHEAT_SEEDS, 2), new ItemStack(Items.WHEAT, 6)));
+        items.add(getBallFor(new ItemStack(Items.BEETROOT_SEEDS, 2), new ItemStack(Items.BEETROOT, 3)));
+
+        return items;
+    }
+
+    public static List<ItemStack> getTreeItems() {
+        return treeItems;
+    }
+
+    public static List<ItemStack> getSeedItems() {
+        return seedItems;
+    }
+
+
+    public static ItemStack getProductByIndex(ItemStack itemStack, int index) {
+        NBTTagCompound tagCompound = itemStack.getTagCompound();
+        NBTTagList products = (NBTTagList) tagCompound.getTag("products");
+        NBTBase item = products.get(index);
+
+        if (item instanceof NBTTagEnd)
+            return new ItemStack(Items.AIR);
+
+        String regName = ((NBTTagCompound) item).getString("item");
+        int count = ((NBTTagCompound) item).getInteger("count");
+        int meta = ((NBTTagCompound) item).getInteger("meta");
+        ResourceLocation resourcelocation = new ResourceLocation(regName);
+        Item itemObj = Item.REGISTRY.getObject(resourcelocation);
+        return new ItemStack(itemObj, count, meta);
+    }
+
+    @Override
+    public void init() {
+        treeItems= getTreeVariants();
+        seedItems = getSeedVariants();
     }
 }

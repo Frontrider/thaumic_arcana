@@ -1,11 +1,20 @@
 package hu.frontrider.arcana.capabilities;
 
+import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
+
+import java.util.Map;
+
 public interface ICreatureEnchant {
-    String getName();
 
-    void setName(String name);
+    boolean hasEnchant();
 
-    int getLevel();
+    boolean hasEnchant(CEnchantment enchantment);
 
-    void setLevel(int level);
+    int getLevel(CEnchantment enchantment);
+
+    Map<CEnchantment, Integer> getStore();
+
+    void setStore(Map<CEnchantment, Integer> store);
+
+    void putEnchant(CEnchantment enchantment, Integer level);
 }

@@ -39,8 +39,6 @@ public class ResearchRegistry {
     }
 
     static void initTheories() {
-        TheorycraftManager.registerAid(new AidMelon());
-        TheorycraftManager.registerAid(new AidPumpkin());
         TheorycraftManager.registerAid(new AidTable());
         TheorycraftManager.registerCard(CardGrow.class);
         TheorycraftManager.registerCard(CardDissect.class);

@@ -11,9 +11,7 @@ public class RecipeRegistry {
 
     @SubscribeEvent
     public static void registerVanillaRecipes(RegistryEvent.Register<IRecipe> event) {
-        AlchemyRecipes.register();
-        InfusionRecipes.register();
-        ArcaneCraftingRecipes.register();
+
     }
 
 }

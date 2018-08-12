@@ -7,106 +7,113 @@ import net.minecraft.util.math.BlockPos;
 import thaumcraft.api.golems.seals.ISealEntity;
 import thaumcraft.api.golems.tasks.Task;
 
-public class ProvisionRequest {
-    private ISealEntity seal;
-    private Entity entity;
-    private BlockPos pos;
-    private EnumFacing side;
-    private ItemStack stack;
-    private int id;
-    private Task linkedTask;
-    private boolean invalid;
+public class ProvisionRequest { 
+	private ISealEntity seal;
+	private Entity entity;
+	private BlockPos pos;
+	private EnumFacing side;
+	private ItemStack stack;
+	private int id;
+	private Task linkedTask;
+	private boolean invalid;
+	
+	ProvisionRequest(ISealEntity seal, ItemStack stack) {
+		this.seal = seal;
+		this.stack = stack.copy();
+		String s = seal.getSealPos().pos.toString() + seal.getSealPos().face.name() +stack.toString();
+		if (stack.hasTagCompound()) s += stack.getTagCompound().toString();
+		this.id = s.hashCode();
+	}
+	
+	ProvisionRequest(BlockPos pos, EnumFacing side, ItemStack stack) {
+		this.pos = pos;
+		this.side = side;
+		this.stack = stack.copy();
+		String s = pos.toString() + side.name() +stack.toString();
+		if (stack.hasTagCompound()) s += stack.getTagCompound().toString();
+		this.id = s.hashCode();
+	}
+	
+	ProvisionRequest(Entity entity, ItemStack stack) {
+		this.entity = entity;
+		this.stack = stack.copy();
+		String s = entity.getEntityId() + stack.toString();
+		if (stack.hasTagCompound()) s += stack.getTagCompound().toString();
+		this.id = s.hashCode();
+	}
+	
+	public int getId() {
+		return id;
+	}
 
-    ProvisionRequest(ISealEntity seal, ItemStack stack) {
-        this.seal = seal;
-        this.stack = stack.copy();
-        String s = seal.getSealPos().pos.toString() + seal.getSealPos().face.name() + stack.toString();
-        if (stack.hasTagCompound()) s += stack.getTagCompound().toString();
-        this.id = s.hashCode();
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    ProvisionRequest(BlockPos pos, EnumFacing side, ItemStack stack) {
-        this.pos = pos;
-        this.side = side;
-        this.stack = stack.copy();
-        String s = pos.toString() + side.name() + stack.toString();
-        if (stack.hasTagCompound()) s += stack.getTagCompound().toString();
-        this.id = s.hashCode();
-    }
+	public ISealEntity getSeal() {
+		return seal;
+	}
+	
+	public Entity getEntity() {
+		return entity;
+	}
+	
+	public ItemStack getStack() {
+		return stack;
+	}
+	
+	public BlockPos getPos() {
+		return pos;
+	}
 
-    ProvisionRequest(Entity entity, ItemStack stack) {
-        this.entity = entity;
-        this.stack = stack.copy();
-        String s = entity.getEntityId() + stack.toString();
-        if (stack.hasTagCompound()) s += stack.getTagCompound().toString();
-        this.id = s.hashCode();
-    }
+	public void setPos(BlockPos pos) {
+		this.pos = pos;
+	}
+	
+	public EnumFacing getSide() {
+		return side;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setSide(EnumFacing side) {
+		this.side = side;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public Task getLinkedTask() {
+		return linkedTask;
+	}
 
-    public ISealEntity getSeal() {
-        return seal;
-    }
+	public void setLinkedTask(Task linkedTask) {
+		this.linkedTask = linkedTask;
+	}
 
-    public Entity getEntity() {
-        return entity;
-    }
+	public boolean isInvalid() {
+		return invalid;
+	}
 
-    public ItemStack getStack() {
-        return stack;
-    }
+	public void setInvalid(boolean invalid) {
+		this.invalid = invalid;
+	}
 
-    public BlockPos getPos() {
-        return pos;
-    }
-
-    public void setPos(BlockPos pos) {
-        this.pos = pos;
-    }
-
-    public EnumFacing getSide() {
-        return side;
-    }
-
-    public void setSide(EnumFacing side) {
-        this.side = side;
-    }
-
-    public Task getLinkedTask() {
-        return linkedTask;
-    }
-
-    public void setLinkedTask(Task linkedTask) {
-        this.linkedTask = linkedTask;
-    }
-
-    public boolean isInvalid() {
-        return invalid;
-    }
-
-    public void setInvalid(boolean invalid) {
-        this.invalid = invalid;
-    }
-
-    @Override
-    public boolean equals(Object p_equals_1_) {
-        if (this == p_equals_1_) {
+	@Override
+	public boolean equals(Object p_equals_1_)
+    {
+        if (this == p_equals_1_)
+        {
             return true;
-        } else if (!(p_equals_1_ instanceof ProvisionRequest)) {
+        }
+        else if (!(p_equals_1_ instanceof ProvisionRequest))
+        {
             return false;
-        } else {
-            ProvisionRequest pr = (ProvisionRequest) p_equals_1_;
+        }
+        else
+        {        	
+        	ProvisionRequest pr = (ProvisionRequest)p_equals_1_;        	
             return this.id == pr.id;
         }
     }
-
-    private boolean isItemStackEqual(ItemStack first, ItemStack other) {
+	
+	private boolean isItemStackEqual(ItemStack first, ItemStack other)
+    {
         return first.getCount() == other.getCount() && (first.getItem() == other.getItem() && (first.getItemDamage() == other.getItemDamage() && ((first.getTagCompound() != null || other.getTagCompound() == null) && (first.getTagCompound() == null || first.getTagCompound().equals(other.getTagCompound())))));
     }
 }

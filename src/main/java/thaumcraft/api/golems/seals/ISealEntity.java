@@ -6,42 +6,42 @@ import net.minecraft.world.World;
 
 public interface ISealEntity {
 
-    void tickSealEntity(World world);
+	void tickSealEntity(World world);
 
-    ISeal getSeal();
+	ISeal getSeal();
 
-    SealPos getSealPos();
+	SealPos getSealPos();
 
-    byte getPriority();
+	byte getPriority();
 
-    void setPriority(byte priority);
+	void setPriority(byte priority);
 
-    void readNBT(NBTTagCompound nbt);
+	void readNBT(NBTTagCompound nbt);
 
-    NBTTagCompound writeNBT();
+	NBTTagCompound writeNBT();
 
-    void syncToClient(World world);
+	void syncToClient(World world);
 
-    BlockPos getArea();
+	BlockPos getArea();
 
-    void setArea(BlockPos v);
+	void setArea(BlockPos v);
 
-    boolean isLocked();
+	boolean isLocked();
 
-    void setLocked(boolean locked);
+	void setLocked(boolean locked);
+	
+	boolean isRedstoneSensitive();
 
-    boolean isRedstoneSensitive();
+	void setRedstoneSensitive(boolean redstone);
 
-    void setRedstoneSensitive(boolean redstone);
+	String getOwner();
 
-    String getOwner();
+	void setOwner(String owner);
+	
+	byte getColor();
 
-    void setOwner(String owner);
+	void setColor(byte color);
 
-    byte getColor();
-
-    void setColor(byte color);
-
-    boolean isStoppedByRedstone(World world);
+	boolean isStoppedByRedstone(World world);
 
 }
