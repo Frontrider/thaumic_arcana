@@ -3,7 +3,6 @@ package hu.frontrider.arcana.items;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -14,14 +13,14 @@ import net.minecraft.world.World;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
-public class ItemFertiliser extends Item {
+public class ItemFertiliser extends ItemBase {
 
     ItemFertiliser() {
         setRegistryName(new ResourceLocation(MODID, "fertiliser"));
         setUnlocalizedName("fertiliser");
     }
 
-    private static boolean applyBonemeal(World worldIn, BlockPos target, EntityPlayer player, ItemStack stack, EnumHand hand) {
+    private static boolean fertilise(World worldIn, BlockPos target, EntityPlayer player, ItemStack stack, EnumHand hand) {
 
         IBlockState iblockstate = worldIn.getBlockState(target);
 
@@ -49,7 +48,7 @@ public class ItemFertiliser extends Item {
         ItemStack stack = player.getHeldItem(hand);
 
         if (player.canPlayerEdit(pos.offset(facing), facing, stack)) {
-            if (applyBonemeal(worldIn, pos, player, stack, hand)) {
+            if (fertilise(worldIn, pos, player, stack, hand)) {
                 if (!worldIn.isRemote) {
                     worldIn.playEvent(2005, pos, 0);
                 }
