@@ -15,7 +15,7 @@ import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.RESPIRAT
 public class RespirationEnchant extends CreatureEnchant {
 
     public RespirationEnchant() {
-        super(new ResourceLocation(MODID, "textures/enchant/respiration.png"));
+        super(new ResourceLocation(MODID, "textures/enchant/respiration.png"),"respiration");
     }
 
     @SubscribeEvent
@@ -44,5 +44,10 @@ public class RespirationEnchant extends CreatureEnchant {
     @Override
     public CEnchantment getEnum() {
         return RESPIRATION;
+    }
+
+    @Override
+    public String getResearch() {
+        return "CREATURE_ENCHANT";
     }
 }

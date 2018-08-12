@@ -19,6 +19,7 @@ public abstract class CreatureEnchant {
     }
 
     private final ResourceLocation icon;
+    private final String unlocalizedName;
 
     public static CreatureEnchant getForEnum(CEnchantment enchantment) {
 
@@ -31,8 +32,13 @@ public abstract class CreatureEnchant {
         throw new InvalidCreatureEnchantmentException(enchantment, null);
     }
 
-    public CreatureEnchant(ResourceLocation icon) {
+    public CreatureEnchant(ResourceLocation icon,String unlocalizedName) {
         this.icon = icon;
+        this.unlocalizedName = unlocalizedName;
+    }
+
+    public String getUnlocalizedName(){
+        return "enchant.creature_enchant."+ unlocalizedName;
     }
 
     public int getEnchantLevel(Entity entity, CEnchantment enchantment) {
@@ -80,4 +86,15 @@ public abstract class CreatureEnchant {
 
     public abstract CEnchantment getEnum();
 
+    public abstract String getResearch();
+
+
+    @Override
+    public String toString() {
+        return "CreatureEnchant{" +
+                "enum=" + getEnum() +
+                ", icon=" + icon +
+                ", research='" + getResearch() + '\'' +
+                '}';
+    }
 }

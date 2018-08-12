@@ -26,6 +26,37 @@
       ]
     },
     {
+      "key": "EXPERMIENT_TABLE",
+      "name": "research.thaumic_arcana.table.title",
+      "icons": [
+        "thaumic_arcana:experiment_table"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        0,
+        -2
+      ],
+      "parents": [
+       "BIOMANCY_BASICS"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.table.stage.1"
+        }
+      ],
+      "addenda":[
+        {
+          "text": "research.thaumic_arcana.table.application",
+          "required_research": [
+            "EXPERMIENT_TABLE@1"
+          ]
+        }
+      ]
+    },
+    {
       "key": "PLANTLIFE",
       "name": "research.thaumic_arcana.plantlife.title",
       "icons": [
@@ -67,7 +98,25 @@
       ],
       "stages": [
         {
-          "text": "research.thaumic_arcana.creatures.stage.1"
+          "text": "research.thaumic_arcana.creatures.stage.1",
+          "required_knowledge": [
+            "THEORY;ALCHEMY;3",
+            "OBSERVATION;BIOMANCY;1"
+          ],
+          "required_items": [
+            "thaumcraft:salis_mundus"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creatures.stage.2"
+        }
+      ],
+      "addenda": [
+        {
+          "text": "research.thaumic_arcana.creatures.formula",
+          "required_research": [
+            "CREATURES@2"
+          ]
         }
       ]
     },
@@ -492,7 +541,8 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.2",
           "recipes": [
-            "thaumic_arcana:creature_enchanter_fertile"
+            "thaumic-arcana:enchant_powder_basic",
+            "thaumic_arcana:ce_fertile"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -509,8 +559,9 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.3",
           "recipes": [
-            "thaumic_arcana:creature_enchanter_fertile",
-            "thaumic_arcana:creature_enchanter_protection_1"
+            "thaumic-arcana:enchant_powder_basic",
+            "thaumic_arcana:ce_fertile",
+            "thaumic_arcana:ce_protection"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -528,37 +579,22 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.4",
           "recipes": [
-            "thaumic_arcana:creature_enchanter_fertile",
-            "thaumic_arcana:creature_enchanter_respiration",
-            "thaumic_arcana:creature_enchanter_protection_1",
-            "thaumic_arcana:creature_enchanter_protection_2"
-          ],
-          "required_item": [
-            "minecraft:enchanted_book",
-            "minecraft:beef",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'potentia'}]}"
-          ],
-          "required_knowledge": [
-            "THEORY;BIOMANCY;1"
-          ]
-        },
-        {
-          "text": "research.thaumic_arcana.creature_enchant.stage.5",
-          "recipes": [
-            "thaumic_arcana:creature_enchanter_fertile",
-            "thaumic_arcana:creature_enchanter_respiration",
-            "thaumic_arcana:creature_enchanter_protection_1",
-            "thaumic_arcana:creature_enchanter_protection_2",
-            "thaumic_arcana:creature_enchanter_protection_3",
-            "thaumic_arcana:creature_enchanter_protection_4"
+            "thaumic_arcana:enchant_powder_basic",
+            "thaumic_arcana:ce_fertile",
+            "thaumic_arcana:ce_protection",
+            "thaumic_arcana:ce_respiration"
           ]
         }
       ],
       "addenda": [
         {
           "text": "research.thaumic_arcana.creature_enchant.creature_enchanter_none",
+          "required_research": [
+            "CREATURE_ENCHANT@1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant.powder",
           "required_research": [
             "CREATURE_ENCHANT@1"
           ]
@@ -578,7 +614,7 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.creature_enchanter_respiration",
           "required_research": [
-            "CREATURE_ENCHANT@4"
+            "CREATURE_ENCHANT@3"
           ]
         }
       ]
@@ -604,10 +640,40 @@
       "stages": [
         {
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.1",
+          "required_item": [
+            "minecraft:enchanted_book",
+            "minecraft:beef",
+            "thaumic-arcana:enchant_powder_basic",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;INFUSION;2",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced.stage.2",
           "recipes": [
-            "thaumic_arcana:creature_enchanter_attack_1",
-            "thaumic_arcana:creature_enchanter_attack_2",
-            "thaumic_arcana:creature_enchanter_attack_3"
+            "thaumic_arcana:enchant_powder_advanced"
+          ],
+          "required_item": [
+            "minecraft:enchanted_book",
+            "minecraft:beef",
+            "thaumic-arcana:enchant_powder_advanced",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'potentia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "THEORY;BIOMANCY;2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced.stage.3",
+          "recipes": [
+            "thaumic_arcana:enchant_powder_advanced",
+            "thaumic_arcana:ce_strength"
           ]
         }
       ],

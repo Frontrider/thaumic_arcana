@@ -7,13 +7,12 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
-@Mod.EventBusSubscriber(modid = MODID)
 public class LifecycleEventManager {
 
     private static final ResourceLocation CREATURE_ENCHANT = new ResourceLocation(MODID, "creature_enchant");
@@ -21,7 +20,7 @@ public class LifecycleEventManager {
 
     @SuppressWarnings("ConstantConditions")
     @SubscribeEvent
-    public static void onPlayerClone(PlayerEvent.Clone event) {
+    public void onPlayerClone(PlayerEvent.Clone event) {
         EntityPlayer original = event.getOriginal();
 
         if (original.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
@@ -33,7 +32,7 @@ public class LifecycleEventManager {
     }
 
     @SubscribeEvent
-    public static void attachCapability(AttachCapabilitiesEvent<Entity> event) {
+    public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
         Entity object = event.getObject();
         if (object instanceof EntityLiving) {
             event.addCapability(CREATURE_ENCHANT, new CreatureEnchantProvider());
@@ -41,5 +40,10 @@ public class LifecycleEventManager {
         if (object instanceof EntityPlayer) {
             event.addCapability(CREATURE_ENCHANT, new CreatureEnchantProvider());
         }
+    }
+
+    public void registerRegistries(RegistryEvent.NewRegistry event){
+     //   new RegistryBuilder<FormulaRecipe>().setType(FormulaRecipe.class).create();
+        
     }
 }

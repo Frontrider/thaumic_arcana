@@ -1,13 +1,14 @@
 package hu.frontrider.arcana.research.theory;
 
-import thaumcraft.api.blocks.BlocksTC;
+import hu.frontrider.arcana.blocks.BlockRegistry;
 import thaumcraft.api.research.theorycraft.ITheorycraftAid;
 import thaumcraft.api.research.theorycraft.TheorycraftCard;
 
 public class AidTable implements ITheorycraftAid {
+
     @Override
     public Object getAidObject() {
-        return BlocksTC.tableStone;
+        return BlockRegistry.experiment_table;
     }
 
     @Override
@@ -17,7 +18,12 @@ public class AidTable implements ITheorycraftAid {
                 CardDissect.class,
                 CardDissect.class,
                 CardDissect.class,
-                CardDissectDead.class};
+                CardDissectDead.class,
+                CardGrow.class,
+                CardGrow.class,
+                CardGrow.class,
+                CardGrow.class,
+                CardGrow.class};
     }
 
 }

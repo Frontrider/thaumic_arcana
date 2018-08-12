@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.eventhandlers;
 
+import hu.frontrider.arcana.items.EnchantmentUpgradePowder;
 import hu.frontrider.arcana.items.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static hu.frontrider.arcana.blocks.BlockRegistry.experiment_table;
+import static hu.frontrider.arcana.items.ItemRegistry.creature_enchanter;
 import static net.minecraft.block.BlockHorizontal.FACING;
 
 @SuppressWarnings("ConstantConditions")
@@ -36,13 +38,13 @@ public class FunctionEventManager {
     private static Block enchanting_table = null;
 
     @GameRegistry.ObjectHolder("thaumcraft:plank_greatwood")
-    static Block greatwood_planks = null;
+    private static Block greatwood_planks = null;
 
     @GameRegistry.ObjectHolder("minecraft:glass_bottle")
-    static Item glass_bottle = null;
+    private static Item glass_bottle = null;
 
     @GameRegistry.ObjectHolder("minecraft:stick")
-    static Item stick = null;
+    private static Item stick = null;
 
     @SubscribeEvent
     public void entityRightClick(PlayerInteractEvent.EntityInteract event) {
@@ -98,6 +100,66 @@ public class FunctionEventManager {
                 );
             }
 
+            event.setUseBlock(Event.Result.DENY);
+        }
+    }
+    @SubscribeEvent
+    public void createEnchantedBook(PlayerInteractEvent.RightClickBlock event) {
+        World world = event.getWorld();
+        if (world.isRemote)
+            return;
+
+        EntityPlayer player = event.getEntityPlayer();
+
+
+        ItemStack itemMainhand = player.getHeldItemMainhand();
+        ItemStack itemOffhand = player.getHeldItemOffhand();
+
+        if (world.getBlockState(event.getPos()).getBlock() == enchanting_table &&
+                itemMainhand.getItem() instanceof EnchantmentUpgradePowder &&
+                itemOffhand.getItem() == creature_enchanter) {
+
+            BlockPos pos = event.getPos().up();
+
+            EntityItem entityItem = new EntityItem(world);
+            entityItem.setPosition(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
+            ItemStack itemStack = new ItemStack(enchant_book);
+
+            world.spawnEntity(entityItem);
+            ((EnchantmentUpgradePowder)itemMainhand.getItem()).transferEnchants(itemMainhand,itemStack);
+
+            entityItem.setItem(itemStack);
+
+            SoundEvent sound = new SoundEvent(new ResourceLocation("thaumcraft:dust"));
+            world.playSound(null, pos, sound, SoundCategory.AMBIENT, 1, 1.5f);
+
+            for (int i = 0; i < 50; i++) {
+                world.spawnParticle(EnumParticleTypes.FIREWORKS_SPARK,
+                        pos.getX() + .5,
+                        pos.getY() + .5,
+                        pos.getZ() + .5,
+                        0, 0, 0
+                );
+            }
+            itemMainhand.shrink(1);
+            itemOffhand.shrink(1);
+
+            event.setUseBlock(Event.Result.DENY);
+        }
+    }
+
+
+    //must deny this event, in order to be able to use the book on it
+    @SubscribeEvent
+    public void selfEnchantFix(PlayerInteractEvent.RightClickBlock event) {
+        World world = event.getWorld();
+        if (world.isRemote)
+            return;
+
+        EntityPlayer player = event.getEntityPlayer();
+        ItemStack itemMainhand = player.getHeldItemMainhand();
+
+        if(itemMainhand.getItem() == creature_enchanter) {
             event.setUseBlock(Event.Result.DENY);
         }
 

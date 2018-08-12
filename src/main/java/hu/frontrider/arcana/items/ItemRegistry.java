@@ -9,8 +9,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Arrays;
 
-import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
+import static hu.frontrider.arcana.ThaumicArcana.*;
 import static hu.frontrider.arcana.blocks.BlockRegistry.experiment_table;
 
 @Mod.EventBusSubscriber
@@ -21,37 +20,31 @@ public class ItemRegistry {
             .setUnlocalizedName("nutrient_mix")
             .setCreativeTab(TABARCANA);
 
-    public static Item enchanting_powder_basic = new Item()
+    public static Item enchanting_powder_basic = new EnchantmentUpgradePowder(1)
             .setRegistryName(MODID, "enchanting_powder_basic")
-            .setUnlocalizedName("enchanting_powder_basic")
-            .setCreativeTab(TABARCANA);
+            .setUnlocalizedName("enchanting_powder_basic");
 
 
-    public static Item enchanting_powder_advanced = new Item()
+    public static Item enchanting_powder_advanced = new EnchantmentUpgradePowder(2)
             .setRegistryName(MODID, "enchanting_powder_advanced")
-            .setUnlocalizedName("enchanting_powder_advanced")
-            .setCreativeTab(TABARCANA);
+            .setUnlocalizedName("enchanting_powder_advanced");
 
-    public static Item enchanting_powder_magical = new Item()
+
+    public static Item enchanting_powder_magical = new EnchantmentUpgradePowder(3)
             .setRegistryName(MODID, "enchanting_powder_magical")
-            .setUnlocalizedName("enchanting_powder_magical")
-            .setCreativeTab(TABARCANA);
-
-    public static Item wood_pulp = new Item()
-            .setRegistryName(MODID, "wood_pulp")
-            .setUnlocalizedName("wood_pulp")
-            .setCreativeTab(TABARCANA);
+            .setUnlocalizedName("enchanting_powder_magical");
 
     public static Item fertiliser = new ItemFertiliser();
     public static Item incubated_egg = new IncubatedEgg();
-    public static Item creature_enchanter = new CreatureEnchanter();
+    public static Item creature_enchanter = new CreatureEnchanter(NETWORK_WRAPPER);
     public static Item plant_ball = new PlantBall();
+    public static Item formula = new Formula();
 
     public static Item[] items = new Item[]{
             fertiliser, incubated_egg, creature_enchanter, nutrient_mix, plant_ball,
             enchanting_powder_basic,enchanting_powder_advanced,enchanting_powder_magical,
             new ItemBlock(experiment_table).setCreativeTab(TABARCANA).setRegistryName(experiment_table.getRegistryName()),
-            wood_pulp
+            formula
     };
 
     @SubscribeEvent

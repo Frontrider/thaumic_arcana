@@ -3,24 +3,28 @@ package hu.frontrider.arcana.items;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -29,7 +33,8 @@ import thaumcraft.api.items.ItemsTC;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static hu.frontrider.arcana.ThaumicArcana.*;
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
 import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.*;
 import static net.minecraft.util.EnumActionResult.FAIL;
@@ -40,17 +45,17 @@ public class CreatureEnchanter extends ItemBase {
     @GameRegistry.ObjectHolder("thaumcraft:warpward")
     static Potion warpWard = null;
 
-    @GameRegistry.ObjectHolder("minecraft:enchanting_table")
-    static Block enchanting_table = null;
+    private final SimpleNetworkWrapper networkWrapper;
 
-    public CreatureEnchanter() {
+    public CreatureEnchanter(SimpleNetworkWrapper networkWrapper) {
         super();
+        this.networkWrapper = networkWrapper;
         setRegistryName(MODID, "creature_enchanter");
         setUnlocalizedName("creature_enchanter");
         this.setMaxStackSize(1);
     }
 
-    private static boolean applyEntity(Entity entity, EntityPlayer playerIn, ItemStack stack) {
+    boolean applyEntity(Entity entity, EntityPlayer playerIn, ItemStack stack) {
         NBTTagCompound tagCompound = stack.getTagCompound();
 
         if (tagCompound == null) return false;
@@ -58,7 +63,7 @@ public class CreatureEnchanter extends ItemBase {
         if (!tagCompound.hasKey("creature_enchants")) return false;
 
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            if (!playerIn.world.isRemote) {
+            if (!playerIn.getEntityWorld().isRemote) {
                 ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
 
                 if (capability == null)
@@ -72,7 +77,7 @@ public class CreatureEnchanter extends ItemBase {
                 stack.shrink(1);
 
                 int entityId = entity.getEntityId();
-                NETWORK_WRAPPER.sendTo(new CreatureEnchantSyncMessage(capability, entityId), (EntityPlayerMP) playerIn);
+                networkWrapper.sendTo(new CreatureEnchantSyncMessage(capability, entityId), (EntityPlayerMP) playerIn);
             }
             return true;
         }
@@ -81,14 +86,9 @@ public class CreatureEnchanter extends ItemBase {
 
     @Override
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase entity, EnumHand hand) {
-        Potion warpWard = Potion.REGISTRY.getObject(new ResourceLocation("thaumcraft:warpward"));
-        if (playerIn.getActivePotionEffect(warpWard) != null) {
-            return applyEntity(playerIn, playerIn, stack);
-        }
-        if (entity instanceof EntityAgeable) {
-            return applyEntity(entity, playerIn, stack);
-        }
-        return false;
+
+        return applyEntity(entity, playerIn, stack);
+
     }
 
     @Override
@@ -96,8 +96,8 @@ public class CreatureEnchanter extends ItemBase {
         ItemStack stack = player.getHeldItemMainhand();
         ItemStack gauntlet = player.getHeldItemOffhand();
         IBlockState blockState = worldIn.getBlockState(pos);
-        if (blockState.getBlock() == enchanting_table &&
-                gauntlet.getItem() == ItemsTC.casterBasic &&
+        if (blockState.getBlock() == Blocks.ENCHANTING_TABLE &&
+                gauntlet.getItem().equals(ItemsTC.casterBasic) &&
                 player.getActivePotionEffect(warpWard) != null) {
             return applyEntity(player, player, stack) ? SUCCESS : FAIL;
         }
@@ -120,7 +120,7 @@ public class CreatureEnchanter extends ItemBase {
                 creature_enchants.iterator().forEachRemaining((enchant) -> {
                     String name = ((NBTTagCompound) enchant).getString("name");
                     int level = ((NBTTagCompound) enchant).getInteger("level");
-                    tooltip.add(I18n.format("enchant.thaumic_arcana.creature_enchant." + name.toLowerCase()) + " " + level);
+                    tooltip.add(I18n.format("enchant.creature_enchant." + name.toLowerCase()) + " " + level);
                 });
             }
         }
@@ -155,8 +155,8 @@ public class CreatureEnchanter extends ItemBase {
         }
     }
 
-    ItemStack createEnchantedItem(EnchantmentData... enchantmentDatas) {
-        ItemStack enchanter = new ItemStack(ItemRegistry.creature_enchanter, 1);
+    public static ItemStack createEnchantedItem(Item baseItem, EnchantmentData... enchantmentDatas) {
+        ItemStack enchanter = new ItemStack(baseItem, 1);
 
         NBTTagList tagList = new NBTTagList();
 
@@ -172,6 +172,9 @@ public class CreatureEnchanter extends ItemBase {
         enchanter.setTagCompound(compound);
         return enchanter;
     }
+    public static ItemStack createEnchantedItem(EnchantmentData... enchantmentDatas) {
+        return createEnchantedItem(ItemRegistry.creature_enchanter,enchantmentDatas);
+    }
 
     static EnchantmentData nbtToEnchantment(NBTTagCompound nbt) {
         String name = nbt.getString("name");
@@ -179,12 +182,12 @@ public class CreatureEnchanter extends ItemBase {
         return new EnchantmentData(CEnchantment.valueOf(name), level);
     }
 
-    static class EnchantmentData {
+    public static class EnchantmentData {
 
         private final CEnchantment enchantment;
         private final int level;
 
-        EnchantmentData(CEnchantment enchantment, int level) {
+        public EnchantmentData(CEnchantment enchantment, int level) {
             this.enchantment = enchantment;
             this.level = level;
         }

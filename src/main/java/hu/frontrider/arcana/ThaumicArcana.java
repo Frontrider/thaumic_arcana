@@ -9,10 +9,15 @@ import hu.frontrider.arcana.creatureenchant.RespirationEnchant;
 import hu.frontrider.arcana.creatureenchant.StrengthEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.eventhandlers.FunctionEventManager;
+import hu.frontrider.arcana.eventhandlers.LifecycleEventManager;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessageHandler;
 import hu.frontrider.arcana.network.CreatureEnchantSynchronizer;
 import hu.frontrider.arcana.proxy.CommonProxy;
+import hu.frontrider.arcana.recipes.AlchemyRecipes;
+import hu.frontrider.arcana.recipes.ArcaneCraftingRecipes;
+import hu.frontrider.arcana.recipes.InfusionRecipes;
+import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipe;
 import hu.frontrider.arcana.research.ResearchRegistry;
 import hu.frontrider.arcana.util.CreativeTabArcana;
 import net.minecraft.creativetab.CreativeTabs;
@@ -35,7 +40,7 @@ import java.util.List;
 public class ThaumicArcana {
     public static final String MODID = "thaumic_arcana";
     public static final String NAME = "Thaumic Arcana";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "0.1.0";
 
     public static Logger logger;
     public static CreativeTabs TABARCANA = new CreativeTabArcana(CreativeTabs.getNextID(), "thaumic_arcana");
@@ -55,7 +60,6 @@ public class ThaumicArcana {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
-        ResearchRegistry.init();
         List<CreatureEnchant> creatureEnchants = CreatureEnchant.getCreatureEnchants();
 
         creatureEnchants.add(new StrengthEnchant());
@@ -68,6 +72,12 @@ public class ThaumicArcana {
         }
         MinecraftForge.EVENT_BUS.register(new CreatureEnchantSynchronizer());
         MinecraftForge.EVENT_BUS.register(new FunctionEventManager());
+        MinecraftForge.EVENT_BUS.register(new LifecycleEventManager());
+        FormulaRecipe.registerRecipes();
+        AlchemyRecipes.register();
+        InfusionRecipes.register();
+        ArcaneCraftingRecipes.register();
+        ResearchRegistry.init();
     }
 
     @EventHandler

@@ -15,7 +15,7 @@ import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.PROTECTI
 public class ProtectionEnchant extends CreatureEnchant {
 
     public ProtectionEnchant() {
-        super(new ResourceLocation(MODID, "textures/enchant/protection.png"));
+        super(new ResourceLocation(MODID, "textures/enchant/protection.png"),"protection");
     }
 
     @SubscribeEvent
@@ -47,5 +47,10 @@ public class ProtectionEnchant extends CreatureEnchant {
     @Override
     public CEnchantment getEnum() {
         return PROTECTION;
+    }
+
+    @Override
+    public String getResearch() {
+        return "CREATURE_ENCHANT";
     }
 }

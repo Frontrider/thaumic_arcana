@@ -15,7 +15,7 @@ import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.STRENGTH
 public class StrengthEnchant extends CreatureEnchant {
 
     public StrengthEnchant() {
-        super(new ResourceLocation(MODID, "textures/enchant/strength.png"));
+        super(new ResourceLocation(MODID, "textures/enchant/strength.png"),"strength");
     }
 
     @SubscribeEvent
@@ -43,5 +43,10 @@ public class StrengthEnchant extends CreatureEnchant {
     @Override
     public CEnchantment getEnum() {
         return STRENGTH;
+    }
+
+    @Override
+    public String getResearch() {
+        return "CREATURE_ENCHANT_ADVANCED";
     }
 }

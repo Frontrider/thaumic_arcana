@@ -1,5 +1,7 @@
 package hu.frontrider.arcana.recipes;
 
+import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.items.Formula;
 import hu.frontrider.arcana.items.ItemRegistry;
 import hu.frontrider.arcana.items.PlantBall;
 import net.minecraft.init.Items;
@@ -18,7 +20,7 @@ import java.util.List;
 
 import static hu.frontrider.arcana.Configuration.enablePlatinum;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.items.ItemRegistry.wood_pulp;
+import static hu.frontrider.arcana.items.ItemRegistry.enchanting_powder_basic;
 import static net.minecraft.init.Items.*;
 
 public class AlchemyRecipes {
@@ -26,11 +28,12 @@ public class AlchemyRecipes {
     public static void register() {
         initMetalTransmutation();
         initGrowingBasic();
-        initRecipes();
+        initFertilizer();
         initHardenFleshToLeather();
         initGrowingAdvanced();
         initGrowingFlesh();
         initPlantProducts();
+        initEnchanting();
     }
 
     private static void initMetalTransmutation() {
@@ -316,7 +319,7 @@ public class AlchemyRecipes {
         }
     }
 
-    private static void initRecipes() {
+    private static void initFertilizer() {
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     "ARCANE_FERTILISER",
@@ -369,7 +372,7 @@ public class AlchemyRecipes {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     "PLANT_PRODUCTS",
                     new ItemStack(Items.PAPER, 16, 0),
-                    wood_pulp,
+                    "logWood",
                     new AspectList()
                             .add(Aspect.WATER, 1)
                             .add(Aspect.ENTROPY, 1)
@@ -377,6 +380,33 @@ public class AlchemyRecipes {
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "paper"), recipe);
         }
+    }
+
+    private static void initEnchanting() {
+        {
+
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    "CREATURE_ENCHANT",
+                    new ItemStack(enchanting_powder_basic, 1, 0),
+                    new ItemStack(Items.DYE, 1, 4),
+                    new AspectList()
+                            .add(Aspect.MAGIC, 10)
+                            .add(Aspect.ENTROPY, 3)
+                            .add(Aspect.ORDER, 3)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "enchant_powder_basic"), recipe);
+        }
+        CreatureEnchant.getCreatureEnchants().forEach(creatureEnchant -> {
+            AspectList formula = creatureEnchant.formula();
+            ItemStack itemStack = Formula.getItemStack(formula);
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    creatureEnchant.getResearch().toUpperCase(),
+                    itemStack,
+                    Formula.getItemStack(null),
+                    formula
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_" + creatureEnchant.getEnum().name().toLowerCase()), recipe);
+        });
     }
 
 }

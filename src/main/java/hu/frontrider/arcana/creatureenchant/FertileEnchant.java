@@ -16,7 +16,7 @@ import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.FERTILE;
 public class FertileEnchant extends CreatureEnchant {
 
     public FertileEnchant() {
-        super(new ResourceLocation(MODID, "textures/enchant/fertile.png"));
+        super(new ResourceLocation(MODID, "textures/enchant/fertile.png"),"fertile");
     }
 
     @SubscribeEvent
@@ -46,6 +46,11 @@ public class FertileEnchant extends CreatureEnchant {
     @Override
     public CEnchantment getEnum() {
         return FERTILE;
+    }
+
+    @Override
+    public String getResearch() {
+        return "CREATURE_ENCHANT";
     }
 
     void createChild(EntityAnimal parentA, EntityAnimal parentB) {

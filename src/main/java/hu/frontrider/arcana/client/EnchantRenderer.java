@@ -16,8 +16,7 @@ import java.util.Set;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static java.lang.Math.PI;
-import static net.minecraft.client.renderer.GlStateManager.glEnd;
-import static net.minecraft.client.renderer.GlStateManager.glTexCoord2f;
+import static net.minecraft.client.renderer.GlStateManager.*;
 import static org.lwjgl.opengl.GL11.glVertex3f;
 
 public class EnchantRenderer implements LayerRenderer {
@@ -41,8 +40,8 @@ public class EnchantRenderer implements LayerRenderer {
         GlStateManager.disableCull();
         GlStateManager.disableLighting();
 
-        drawMain(renderEngine);
 
+        drawMain(renderEngine);
         GlStateManager.translate(0, 0, -.1);
         drawIcons(renderEngine, entity);
         GlStateManager.translate(0, 0, .1);
@@ -63,7 +62,7 @@ public class EnchantRenderer implements LayerRenderer {
 
         textureManager.bindTexture(cicle);
 
-        GL11.glBegin(GL11.GL_QUADS);
+        glBegin(GL11.GL_QUADS);
         glTexCoord2f(0, 0);
         glVertex3f(-2, -2, 0);
         glTexCoord2f(1, 0);
@@ -73,6 +72,8 @@ public class EnchantRenderer implements LayerRenderer {
         glTexCoord2f(0, 1);
         glVertex3f(-2, 2, 0);
         glEnd();
+        GlStateManager.resetColor();
+
 
     }
 
@@ -84,9 +85,7 @@ public class EnchantRenderer implements LayerRenderer {
             CEnchantment enchantment = entry.getKey();
             Integer level = entry.getValue();
             CreatureEnchant creatureEnchant = CreatureEnchant.getForEnum(enchantment);
-
-            textureManager.bindTexture(creatureEnchant.getIcon());
-            GlStateManager.resetColor();
+            //somehow makes sure that our color is indeed reset
             switch (level) {
                 case 1:
                     GlStateManager.color(182, 255, 0);
@@ -98,6 +97,8 @@ public class EnchantRenderer implements LayerRenderer {
                     GlStateManager.color(214, 127, 155);
                     break;
             }
+            textureManager.bindTexture(creatureEnchant.getIcon());
+
             float x = (float) (Math.cos(45 * index) * 1.8);
             float y = (float) (Math.sin(45 * index) * 1.8);
 
@@ -106,12 +107,12 @@ public class EnchantRenderer implements LayerRenderer {
             drawIcon();
 
             GlStateManager.translate(-x, -y, 0);
-
             index++;
         }
     }
 
     private void drawIcon() {
+
 
         GL11.glBegin(GL11.GL_QUADS);
         glTexCoord2f(0, 0);

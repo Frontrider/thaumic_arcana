@@ -10,11 +10,17 @@ research.thaumic_arcana.metal_transmutation.stage.2=I DID IT! Iron is the most s
 research.thaumic_arcana.biomancy.title=Biomancy
 research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a major success at harnessing organic substances to create new devices. Ever since then, I was toying with the idea of applying more magic to organic matter.
 
+research.thaumic_arcana.table.title=Experiment Table
+research.thaumic_arcana.table.stage.1=To further my experiments, I drawn up designs, for a new table that includes all the tools I might need.<BR> To create it, I need to take 2 bottles and a stick into my hands, than put them on some greatwood planks. This workstation will also come in handy for research and theorycrafting.
+research.thaumic_arcana.table.application=I can use the experiment table to apply formulas to different items, by right clicking the table with the item in my main hand, and the formula in my offhand.
+
 research.thaumic_arcana.plantlife.title=Plant-life
 research.thaumic_arcana.plantlife.stage.1=The first thing I should study is how plants react to magic. I know for sure that plant-life can absorb magical energies, since there are magical plants around me.
 
 research.thaumic_arcana.creatures.title=Living Creatures
-research.thaumic_arcana.creatures.stage.1=Working with the living proves to be harder. Breathing organisms seem to actively resist magic, which makes them significantly harder to enchant.
+research.thaumic_arcana.creatures.stage.1=Working with the living proves to be harder. Breathing organisms seem to actively resist magic, which makes them significantly harder to work with.<BR> But I have a plan I have written up a recipe for an experimental formula, that can theoretically stabilise the essentia enough to be safely used on living beings.
+research.thaumic_arcana.creatures.stage.2=The susbtance is indeed stable enough, but it's also much weaker than the liquid form. It will not cause a revolution in how we practice thaumaturgy, but it will serve me well.
+research.thaumic_arcana.creatures.formula= To create the base of a formula, right click the Experiment Table with an empty bottle, and some salis mundus.
 
 research.thaumic_arcana.wheat.title=Plant growth
 research.thaumic_arcana.wheat.stage.1=I believe that the aspects creating the elements that plants need to grow should be able to create a reaction that grows the plant instantaneously... or explode on the spot.
@@ -46,14 +52,15 @@ research.thaumic_arcana.creature_enchant.stage.4=
 research.thaumic_arcana.creature_enchant.stage.5=That is it for now. I created powerful enchantments that I can apply to living beings. I think I can move forward to attempting more in Biomancy now that I understand more about the interaction of flesh and magic.
 
 research.thaumic_arcana.creature_enchant_advanced.title=Advanced Creature enchants
-research.thaumic_arcana.creature_enchant_advanced.stage.1=There must be more for me to do. I prepared some things for more advanced enchantments.
-research.thaumic_arcana.creature_enchant_advanced.stage.2=Increasing the creature's strength was a little harder. I can't just make it stronger, I also have to prepare the enchantments that will make it's body handle the increased stress. Without them, its limbs will fall off, or its body will injure itself from within as it can not handle the enchantment.
+research.thaumic_arcana.creature_enchant_advanced.stage.1=There must be more for me to do.I prepared a few ingredients that I can use to try out a new formula, that should serve as the base for a much stronger enchanting powder, that (theoratically) can increase the strength of the bond between the creature and the enchantment.
+research.thaumic_arcana.creature_enchant_advanced.stage.2=I created the substance.
 
 research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby.
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
 research.thaumic_arcana.creature_enchant.creature_enchanter_respiration=The respiration enchantment allows the enchanted creature to breath underwater.
 research.thaumic_arcana.creature_enchant.creature_enchanter_strength=The strength enchanter multiplies the attack damage of the enchanted entity.
-research.thaumic_arcana.creature_enchant.creature_enchanter_none=To create the book that serves as a base for any further creature enchanting, I need to cast a special binding, using salis mundus, above an enchanting table. <LINE> I need to right click an enchanting table, with salis mundus in my main hand, while holding a book in my offhand.
+research.thaumic_arcana.creature_enchant.creature_enchanter_none=To create the book that serves as a base for any further creature enchanting, I need to cast a special binding, using salis mundus, above an enchanting table. <LINE> I need to right click an enchanting table, with salis mundus in my main hand, while holding a book in my offhand. <LINE> To create the enchantment, first I need to cook up the correct formula, that I apply it to the enchanting powder.
+research.thaumic_arcana.creature_enchant.powder=To safely apply this kind of magic, I also need an another substance. My new enchanting powder can store the enchantment more safely, before I apply it to the book. it also helps to bind the magic to the creature.
 
 research.thaumic_arcana.self_enchantment.title=Self Enchantment
 research.thaumic_arcana.self_enchantment.stage.1=I can put enchantments on all kinds of creatures. But what if I could put them on myself? I must try it out!
@@ -76,7 +83,7 @@ research.thaumic_arcana.tree.stage.2=The tree, is more of a bush, but it is able
 
 research.thaumic_arcana.plantproducts.title=Biomanuafactury
 research.thaumic_arcana.plantproducts.stage.1= Now that I figured how to force plants to grow, I want to do something different. I want to see if I can fabricate products, that would normally come from different plants, in more flexible ways. <LINE> The first thing I want to try, is to solve a problem that has been emerging during my work. I use a lot of paper while doing research and studies. <BR> I prepared a few candidates and samples that should be useable to create paper.
-research.thaumic_arcana.plantproducts.stage.2= I ended up choosing wood as the proper material for this. With the correct formula, I can soften and reshape it's fibers to turn it into fine sheets of paper. <LINE> Now I want to do something different. I want to see if i could mold or even grow other resources.
+research.thaumic_arcana.plantproducts.stage.2= I ended up choosing wood as the material for this. With the correct essentia, I can soften and reshape it's fibers to turn it into fine sheets of paper. <LINE> Now I want to do something different. I want to see if i could mold or even grow other resources.
 
 ##########
 #Theories#
@@ -93,10 +100,10 @@ card.thaumic_arcana.study_dead_flesh.text=Dissecting %1$s can give you a deeper 
 ###################
 #Creature Enchants#
 ###################
-enchant.thaumic_arcana.creature_enchant.fertile=Fertile
-enchant.thaumic_arcana.creature_enchant.respiration=Respiration
-enchant.thaumic_arcana.creature_enchant.protection=Protection
-enchant.thaumic_arcana.creature_enchant.strength=Strength
+enchant.creature_enchant.fertile=Fertile
+enchant.creature_enchant.respiration=Respiration
+enchant.creature_enchant.protection=Protection
+enchant.creature_enchant.strength=Strength
 
 ########
 #Items#
@@ -115,10 +122,13 @@ item.enchanting_powder_basic.name=Basic Enchant Upgrade Powder
 item.enchanting_powder_advanced.name=Advanced Enchant Upgrade Powder
 item.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
 
-item.stabilizer.name=Magical Mixture
 item.stabiliser.stable=Excellent
 item.stabiliser.unstable=Unstable
 item.stabiliser.normal=Stable
+
+item.formula.name=Formula
+
+
 
 potion.effect.sweet_relief=Potion of Sweet Relief
 splash_potion.effect.sweet_relief=Splash potion of Sweet Relief
@@ -131,4 +141,12 @@ potion.sweet_relief=Sweet Relief
 ########
 
 tile.experiment_table.name=Experiment Table
+
+
+######
+#Keys#
+######
+key.thamic_arcana.category=Thaumic Arcana
+
+key.descriptions.desc=Swaps the descriptions of specific items
 
