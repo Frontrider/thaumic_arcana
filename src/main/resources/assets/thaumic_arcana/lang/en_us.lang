@@ -11,25 +11,15 @@ research.thaumic_arcana.biomancy.title=Biomancy
 research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a major success at harnessing organic substances to create new devices. Ever since then, I was toying with the idea of applying more magic to organic matter.
 
 research.thaumic_arcana.table.title=Experiment Table
-<<<<<<< HEAD
 research.thaumic_arcana.table.stage.1=To further my experiments, I have drawn up designs for a new table that includes all the tools I might need.<BR> To create it, I need to take 2 bottles and a stick into my hands, than put them on some greatwood planks. This workstation will also come in handy for research and theorycrafting.
 research.thaumic_arcana.table.application=I can use the experiment table to apply formulas to different items by right clicking the table with the item in my main hand and the formula in my offhand.
-=======
-research.thaumic_arcana.table.stage.1=To further my experiments, I drawn up designs, for a new table that includes all the tools I might need.<BR> To create it, I need to take 2 bottles and a stick into my hands, than put them on some greatwood planks. This workstation will also come in handy for research and theorycrafting.
-research.thaumic_arcana.table.application=I can use the experiment table to apply formulas to different items, by right clicking the table with the item in my main hand, and the formula in my offhand.
->>>>>>> master
 
 research.thaumic_arcana.plantlife.title=Plant-life
 research.thaumic_arcana.plantlife.stage.1=The first thing I should study is how plants react to magic. I know for sure that plant-life can absorb magical energies, since there are magical plants around me.
 
 research.thaumic_arcana.creatures.title=Living Creatures
-<<<<<<< HEAD
 research.thaumic_arcana.creatures.stage.1=Working with the living proves to be harder. Breathing organisms seem to actively resist magic, which makes them significantly harder to work with.<BR> But I have a plan: I have written up a recipe for an experimental formula that can theoretically stabilize the essentia enough to be safely used on living beings.
 research.thaumic_arcana.creatures.stage.2=The substance is indeed stable enough, but it's also much weaker than the liquid form. It will not cause a revolution in how we practice thaumaturgy, but it will serve me well.
-=======
-research.thaumic_arcana.creatures.stage.1=Working with the living proves to be harder. Breathing organisms seem to actively resist magic, which makes them significantly harder to work with.<BR> But I have a plan I have written up a recipe for an experimental formula, that can theoretically stabilise the essentia enough to be safely used on living beings.
-research.thaumic_arcana.creatures.stage.2=The susbtance is indeed stable enough, but it's also much weaker than the liquid form. It will not cause a revolution in how we practice thaumaturgy, but it will serve me well.
->>>>>>> master
 research.thaumic_arcana.creatures.formula= To create the base of a formula, right click the Experiment Table with an empty bottle, and some salis mundus.
 
 research.thaumic_arcana.wheat.title=Plant growth
@@ -52,11 +42,7 @@ research.thaumic_arcana.fertiliser.stage.1=Now that I know how adding essentia t
 research.thaumic_arcana.fertiliser.stage.2=This experiment was a resounding success. I created a new fertilizer that I can acquire more easily than traditional substances(bone meal, bone meal, and... oh, just bone meal).
 research.thaumic_arcana.fertiliser.stage.3=Now I can make this substance more efficiently.
 research.thaumic_arcana.fertiliser.stage.4=The substance reached the point where I can use it for further experiments. Its quality should be improved further.
-<<<<<<< HEAD
 research.thaumic_arcana.fertiliser.stage.5=After more trial and error, I reached the peek of my efficiency. I can not get more out of this fertilizer.
-=======
-research.thaumic_arcana.fertiliser.stage.5=After more trial and error, I reached the peek of my efficiency. I can not get more out of this essence.
->>>>>>> master
 
 research.thaumic_arcana.creature_enchant.title=Creature Enchantments
 research.thaumic_arcana.creature_enchant.stage.1=My studies on infusion enchantment and Biomancy lead me to the idea that, with the right methodology, I could enchant living flesh as I would enchant a regular tool.<BR/>I can't just put animals under the infusion altar though. Living and berating creatures have a tendency to reject magic, something I've been experiencing even more while working with remains.<LINE> That being said, potions give a different perspective on the topic. They can infuse living creatures with magical abilities, which means that my attempts are not futile.<LINE> Going back to the enchantment route, I believe that I could create a book that contains the right incantations to apply enchantments to animals. If it's possible, I'll need some salis mundus to carry the magic along, since I will not have the ability to hammer it into my subject.
@@ -73,26 +59,15 @@ research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertilit
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
 research.thaumic_arcana.creature_enchant.creature_enchanter_respiration=The respiration enchantment allows the enchanted creature to breath underwater.
 research.thaumic_arcana.creature_enchant.creature_enchanter_strength=The strength enchanter multiplies the attack damage of the enchanted entity.
-<<<<<<< HEAD
 research.thaumic_arcana.creature_enchant.creature_enchanter_none=To create the book that serves as a base for any further creature enchanting, I need to cast a special binding by using salis mundus above an enchanting table. <LINE> I need to right click an enchanting table with salis mundus in my main hand while holding a book in my offhand. <LINE> To create the enchantment, first I need to cook up the correct formula, that I apply it to the enchanting powder.
 research.thaumic_arcana.creature_enchant.powder=To safely apply this kind of magic, I also need an another substance. My new enchanting powder can store the enchantment more safely before I apply it to the book. it also helps to bind the magic to the creature.
-=======
-research.thaumic_arcana.creature_enchant.creature_enchanter_none=To create the book that serves as a base for any further creature enchanting, I need to cast a special binding, using salis mundus, above an enchanting table. <LINE> I need to right click an enchanting table, with salis mundus in my main hand, while holding a book in my offhand. <LINE> To create the enchantment, first I need to cook up the correct formula, that I apply it to the enchanting powder.
-research.thaumic_arcana.creature_enchant.powder=To safely apply this kind of magic, I also need an another substance. My new enchanting powder can store the enchantment more safely, before I apply it to the book. it also helps to bind the magic to the creature.
->>>>>>> master
 
 research.thaumic_arcana.self_enchantment.title=Self Enchantment
 research.thaumic_arcana.self_enchantment.stage.1=I can put enchantments on all kinds of creatures. But what if I could put them on myself? I must try it out!
 research.thaumic_arcana.self_enchantment.stage.2=This was a painful failure indeed! My body is still weak and trembling from the attempt. I cannot handle the process, as about halfway through, I started to feel sick, then I was shaking violently and was unable to pronounce the incantations.<BR/> I have experienced similar reactions when I first did this to animals, but I didn't expect this. <LINE> If I could mitigate the resistance of my body, than I could move forward with it.
-<<<<<<< HEAD
 research.thaumic_arcana.self_enchantment.stage.3=Ahh, the bath salts. Always able to clear my mind, even when I'm waking from a nightmare. I think it could also reduce the severity of the reaction that my flesh is having while applying the enchants.
 research.thaumic_arcana.self_enchantment.stage.4=Something is still missing. My hands are still shaking a bit. Maybe I could use some of my spellcasting tools to help with the process.
 research.thaumic_arcana.self_enchantment.stage.5=Using a simple gauntlet is enough for the task. To cast enchantments on myself, I need to be using an enchantment table to stabilize the magic and use a gauntlet because it can channel some vis to power the process and provide some support for my hand. I also need to be under the effects of warp ward, to keep my mind clear. That way I can apply any enchantments to myself, as long as they are compatible.
-=======
-research.thaumic_arcana.self_enchantment.stage.3=Ahh, the bath salts.Always able to clear my mind, even when I'm waking from a nightmare.I think it could also reduce the severity of the reaction that my flesh is having while applying the enchants.
-research.thaumic_arcana.self_enchantment.stage.4=Something is still missing. My hands are still shaking a bit. Maybe I could use some of my spellcasting tools to help with the process.
-research.thaumic_arcana.self_enchantment.stage.5=Using a simple gauntlet is enough for the task. To cast enchantments on myself, I need to be using an enchantment table to stabilise the magic, use a gauntlet because it can channel some vis to power the process and provide some support for my hand. I also need to be under the effects of warp ward, to keep my mind clear. That way I can apply any enchantments to myself, as long as they are compatible.
->>>>>>> master
 
 research.thaumic_arcana.nutrient_mix.title=Nutrient Mix
 research.thaumic_arcana.nutrient_mix.stage.1=Knowing how to grow fresh meat is good, but what If I still need the whole animal? Could I increase its growth, so I don't need to wait for very long to get a new animal?
@@ -103,21 +78,12 @@ research.thaumic_arcana.leather.stage.1=Now that I can make flesh, I want to fig
 research.thaumic_arcana.leather.stage.2=I failed to grow the hide, but found something else. I can make the flesh harden into a leather like substance, and the process is similar to what I used on rotten flesh.
 
 research.thaumic_arcana.tree.title=Bush Alchemy
-<<<<<<< HEAD
 research.thaumic_arcana.tree.stage.1=When I was growing plants, it wasn't too hard to add too much essentia, which sometimes causes its growth to go out of control. This was able to mutilate the plant. <LINE> This can be useful. If I don't care about the deformities than some new applications could emerge, namely to grow trees this way.
 research.thaumic_arcana.tree.stage.2=The tree is more of a bush, but it is able to give me wood. I also need to add some vacuos to the formula, so I can improve the spatial conditions in there for long enough to make it so that it won't get stuck in my cauldron, or thaumatorium. <LINE>The leaves overgrew, and became so hard that I need to crack it open by smashing it to a wall.
 
 research.thaumic_arcana.plantproducts.title=Biomanuafactury
 research.thaumic_arcana.plantproducts.stage.1= Now that I figured how to force plants to grow, I want to do something different. I want to see if I can fabricate products that would normally come from different plants in more flexible ways. <LINE> The first thing I want to try is to solve a problem that has been emerging during my work. I use a lot of paper while doing research and studies. <BR> I prepared a few candidates and samples that should be usable to create paper.
 research.thaumic_arcana.plantproducts.stage.2= I ended up choosing wood as the material for this. With the correct essentia, I can soften and reshape it's fibers to turn it into fine sheets of paper. <LINE> Now I want to do something different. I want to see if I could mold or even grow other resources.
-=======
-research.thaumic_arcana.tree.stage.1=When I was growing plants, it wasn't too hard to add too much essencia, which sometimes cause the growth to go out of control, which was able to mutilate the plant. <LINE> This can be usefull. If I don't care about the deformaties than some new applications could emerge, namely to grow trees this way.
-research.thaumic_arcana.tree.stage.2=The tree, is more of a bush, but it is able to give me wood.I also need to add some vacuos to the formula, so I can improve the spatial conditions in there for long enough so that it won't get stuck in my cauldron, or thaumatorium. <LINE>The leaves overgrew, and became so hard that I need to crack it open by smashing it to a wall.
-
-research.thaumic_arcana.plantproducts.title=Biomanuafactury
-research.thaumic_arcana.plantproducts.stage.1= Now that I figured how to force plants to grow, I want to do something different. I want to see if I can fabricate products, that would normally come from different plants, in more flexible ways. <LINE> The first thing I want to try, is to solve a problem that has been emerging during my work. I use a lot of paper while doing research and studies. <BR> I prepared a few candidates and samples that should be useable to create paper.
-research.thaumic_arcana.plantproducts.stage.2= I ended up choosing wood as the material for this. With the correct essentia, I can soften and reshape it's fibers to turn it into fine sheets of paper. <LINE> Now I want to do something different. I want to see if i could mold or even grow other resources.
->>>>>>> master
 
 ##########
 #Theories#
@@ -183,7 +149,3 @@ tile.experiment_table.name=Experiment Table
 key.thamic_arcana.category=Thaumic Arcana
 
 key.descriptions.desc=Swaps the descriptions of specific items
-<<<<<<< HEAD
-=======
-
->>>>>>> master
