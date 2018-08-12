@@ -10,7 +10,7 @@ A thaumcraft addon, currently featuring a school of biomancy, containign ways to
 ### Growth
 
 Apply alchemical principles to farm products in order to make more of them. This includes:
-* beef, port, mutton (no fish)
+* beef, pork, mutton (no fish)
 * wheat, potatoes, carrots, beet
 * pumpkins and melons
 * all vanilla trees
@@ -31,4 +31,6 @@ types:
 Other features:
 * alchemical fertilizer (easy to mass produce)
 * metal transmutation
+
+
 
