@@ -12,153 +12,156 @@ import java.util.UUID;
 
 public class Task {
 
-    private UUID golemUUID;
-    private int id;
-    private byte type;
-    private SealPos sealPos;
-    private BlockPos pos;
-    private Entity entity;
-    private boolean reserved;
-    private boolean suspended;
-    private boolean completed;
-    private int data;
-    private ProvisionRequest linkedProvision;
-    /**
-     * Lifespan in seconds. Default 300 seconds
-     */
-    private short lifespan;
-    private byte priority = 0;
+	private UUID golemUUID;
+	private int id;	
+	private byte type;
+	private SealPos sealPos;	
+	private BlockPos pos;	
+	private Entity entity; 
+	private boolean reserved;
+	private boolean suspended;
+	private boolean completed;
+	private int data;
+	private ProvisionRequest linkedProvision;
+	/**
+	 * Lifespan in seconds. Default 300 seconds
+	 */
+	private short lifespan;
+	private byte priority=0;
+	
+	private Task() {}
 
-    private Task() {
-    }
+	public Task(SealPos sealPos, BlockPos pos) {
+		this.sealPos = sealPos;
+		this.pos = pos;
+		if (sealPos==null) {
+			this.id = (System.currentTimeMillis()+"/BNPOS/"+pos.toString()).hashCode();
+		} else
+			this.id = (System.currentTimeMillis()+"/B/"+sealPos.face.toString()+"/"+sealPos.pos.toString()+"/"+pos.toString()).hashCode();
+		this.type = 0;
+		this.lifespan = 300;
+	}
+	
+	public Task(SealPos sealPos, Entity entity) {
+		this.sealPos = sealPos;
+		this.entity = entity;
+		if (sealPos==null) {
+			this.id = (System.currentTimeMillis()+"/ENPOS/"+entity.getEntityId()).hashCode();
+		} else
+			this.id = (System.currentTimeMillis()+"/E/"+sealPos.face.toString()+"/"+sealPos.pos.toString()+"/"+entity.getEntityId()).hashCode();
+		this.type = 1;
+		this.lifespan = 300;
+	}	
 
-    public Task(SealPos sealPos, BlockPos pos) {
-        this.sealPos = sealPos;
-        this.pos = pos;
-        if (sealPos == null) {
-            this.id = (System.currentTimeMillis() + "/BNPOS/" + pos.toString()).hashCode();
-        } else
-            this.id = (System.currentTimeMillis() + "/B/" + sealPos.face.toString() + "/" + sealPos.pos.toString() + "/" + pos.toString()).hashCode();
-        this.type = 0;
-        this.lifespan = 300;
-    }
+	public byte getPriority() {
+		return priority;
+	}
 
-    public Task(SealPos sealPos, Entity entity) {
-        this.sealPos = sealPos;
-        this.entity = entity;
-        if (sealPos == null) {
-            this.id = (System.currentTimeMillis() + "/ENPOS/" + entity.getEntityId()).hashCode();
-        } else
-            this.id = (System.currentTimeMillis() + "/E/" + sealPos.face.toString() + "/" + sealPos.pos.toString() + "/" + entity.getEntityId()).hashCode();
-        this.type = 1;
-        this.lifespan = 300;
-    }
+	public void setPriority(byte priority) {
+		this.priority = priority;
+	}
 
-    public byte getPriority() {
-        return priority;
-    }
+	public boolean isCompleted() {
+		return completed;
+	}
 
-    public void setPriority(byte priority) {
-        this.priority = priority;
-    }
+	public void setCompletion(boolean fulfilled) {
+		this.completed = fulfilled;
+		this.lifespan += 1;
+	}
 
-    public boolean isCompleted() {
-        return completed;
-    }
+	public UUID getGolemUUID() {
+		return golemUUID;
+	}
 
-    public void setCompletion(boolean fulfilled) {
-        this.completed = fulfilled;
-        this.lifespan += 1;
-    }
+	public void setGolemUUID(UUID golemUUID) {
+		this.golemUUID = golemUUID;
+	}
 
-    public UUID getGolemUUID() {
-        return golemUUID;
-    }
+	public BlockPos getPos() {
+		return type==1?entity.getPosition():pos;
+	}	
+	
+	public byte getType() {
+		return type;
+	}
 
-    public void setGolemUUID(UUID golemUUID) {
-        this.golemUUID = golemUUID;
-    }
+	public Entity getEntity() {
+		return entity;
+	}
 
-    public BlockPos getPos() {
-        return type == 1 ? entity.getPosition() : pos;
-    }
+	public int getId() {
+		return id;
+	}
+	
+	public boolean isReserved() {
+		return reserved;
+	}
 
-    public byte getType() {
-        return type;
-    }
+	public void setReserved(boolean res) {
+		this.reserved = res;
+		this.lifespan += 120;
+	}
 
-    public Entity getEntity() {
-        return entity;
-    }
+	public boolean isSuspended() {
+		return suspended;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setSuspended(boolean suspended) {
+		this.setLinkedProvision(null);
+		this.suspended = suspended;
+	}
 
-    public boolean isReserved() {
-        return reserved;
-    }
+	public SealPos getSealPos() {
+		return sealPos;
+	}
 
-    public void setReserved(boolean res) {
-        this.reserved = res;
-        this.lifespan += 120;
-    }
-
-    public boolean isSuspended() {
-        return suspended;
-    }
-
-    public void setSuspended(boolean suspended) {
-        this.setLinkedProvision(null);
-        this.suspended = suspended;
-    }
-
-    public SealPos getSealPos() {
-        return sealPos;
-    }
-
-    public boolean equals(Object o) {
-        if (!(o instanceof Task)) {
+	public boolean equals(Object o)
+    {
+        if (!(o instanceof Task))
+        {
             return false;
-        } else {
-            Task t = (Task) o;
+        }
+        else
+        {
+        	Task t = (Task)o;
             return t.id == this.id;
         }
     }
 
-    public long getLifespan() {
-        return lifespan;
-    }
+	public long getLifespan() {
+		return lifespan;
+	}
+	
+	public void setLifespan(short ls) {
+		this.lifespan = ls;
+	}
 
-    public void setLifespan(short ls) {
-        this.lifespan = ls;
-    }
+	public boolean canGolemPerformTask(IGolemAPI golem) {
+		ISealEntity se = GolemHelper.getSealEntity(golem.getGolemWorld().provider.getDimension(), this.sealPos);
+		if (se!=null) {
+			if (golem.getGolemColor()>0 && se.getColor()>0 && golem.getGolemColor() != se.getColor()) return false;
+			return se.getSeal().canGolemPerformTask(golem,this);
+		} else {
+			return true;
+		}
+	}
 
-    public boolean canGolemPerformTask(IGolemAPI golem) {
-        ISealEntity se = GolemHelper.getSealEntity(golem.getGolemWorld().provider.getDimension(), this.sealPos);
-        if (se != null) {
-            if (golem.getGolemColor() > 0 && se.getColor() > 0 && golem.getGolemColor() != se.getColor()) return false;
-            return se.getSeal().canGolemPerformTask(golem, this);
-        } else {
-            return true;
-        }
-    }
+	public int getData() {
+		return data;
+	}
 
-    public int getData() {
-        return data;
-    }
+	public void setData(int data) {
+		this.data = data;
+	}
 
-    public void setData(int data) {
-        this.data = data;
-    }
+	public ProvisionRequest getLinkedProvision() {
+		return linkedProvision;
+	}
 
-    public ProvisionRequest getLinkedProvision() {
-        return linkedProvision;
-    }
-
-    public void setLinkedProvision(ProvisionRequest linkedProvision) {
-        this.linkedProvision = linkedProvision;
-    }
+	public void setLinkedProvision(ProvisionRequest linkedProvision) {
+		this.linkedProvision = linkedProvision;
+	}
 
 	
 	

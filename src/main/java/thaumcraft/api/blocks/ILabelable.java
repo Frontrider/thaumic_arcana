@@ -14,11 +14,10 @@ import net.minecraft.util.math.BlockPos;
  */
 public interface ILabelable {
 
-    /**
-     * This method is used by the block or tileentity to do whatever needs doing.
-     *
-     * @return if true then label will be subtracted from player inventory
-     */
+	/**
+	 * This method is used by the block or tileentity to do whatever needs doing.	 
+	 * @return if true then label will be subtracted from player inventory
+	 */
     boolean applyLabel(EntityPlayer player, BlockPos pos, EnumFacing side, ItemStack labelstack);
-
+	
 }

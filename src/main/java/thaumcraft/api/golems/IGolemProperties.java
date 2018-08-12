@@ -7,43 +7,47 @@ import java.util.Set;
 
 public interface IGolemProperties {
 
-    Set<EnumGolemTrait> getTraits();
+	Set<EnumGolemTrait> getTraits();
 
-    boolean hasTrait(EnumGolemTrait tag);
+	boolean hasTrait(EnumGolemTrait tag);
+	
+	long toLong();
 
-    long toLong();
-
-    ItemStack[] generateComponents();
-
-    GolemMaterial getMaterial();
-
-    //material
+	ItemStack[] generateComponents();
+	
+	
+	//material
     void setMaterial(GolemMaterial mat);
 
-    GolemHead getHead();
+	GolemMaterial getMaterial();
 
-    //head
+	//head
     void setHead(GolemHead mat);
 
-    GolemArm getArms();
+	GolemHead getHead();
 
-    //arms
+	//arms
     void setArms(GolemArm mat);
 
-    GolemLeg getLegs();
+	GolemArm getArms();
 
-    //legs
+	//legs
     void setLegs(GolemLeg mat);
 
-    GolemAddon getAddon();
+	GolemLeg getLegs();
 
-    //addon
+	//addon
     void setAddon(GolemAddon mat);
 
-    int getRank();
+	GolemAddon getAddon();
 
-    //rank
+	//rank
     void setRank(int r);
 
+	int getRank();
+
+	
+	
+	
 
 }

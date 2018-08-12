@@ -11,62 +11,63 @@ import net.minecraft.item.ItemStack;
  *
  */
 public class RecipeMisc {
+	
+	public enum MiscRecipeType {
+		SMELTING
+	}
 
-    MiscRecipeType type;
-    ItemStack input;
-    ItemStack output;
+	MiscRecipeType type;
+	ItemStack input;
+	ItemStack output;
+	
+	public RecipeMisc(ItemStack input, ItemStack output, MiscRecipeType type) {
+		this.input = input;
+		this.output = output;
+		this.type = type;
+	}
 
-    public RecipeMisc(ItemStack input, ItemStack output, MiscRecipeType type) {
-        this.input = input;
-        this.output = output;
-        this.type = type;
-    }
+	/**
+	 * @return the type
+	 */
+	public MiscRecipeType getType() {
+		return type;
+	}
 
-    /**
-     * @return the type
-     */
-    public MiscRecipeType getType() {
-        return type;
-    }
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(MiscRecipeType type) {
+		this.type = type;
+	}
 
-    /**
-     * @param type the type to set
-     */
-    public void setType(MiscRecipeType type) {
-        this.type = type;
-    }
+	/**
+	 * @return the input
+	 */
+	public ItemStack getInput() {
+		return input;
+	}
 
-    /**
-     * @return the input
-     */
-    public ItemStack getInput() {
-        return input;
-    }
+	/**
+	 * @param input the input to set
+	 */
+	public void setInput(ItemStack input) {
+		this.input = input;
+	}
 
-    /**
-     * @param input the input to set
-     */
-    public void setInput(ItemStack input) {
-        this.input = input;
-    }
+	/**
+	 * @return the output
+	 */
+	public ItemStack getOutput() {
+		return output;
+	}
 
-    /**
-     * @return the output
-     */
-    public ItemStack getOutput() {
-        return output;
-    }
-
-    /**
-     * @param output the output to set
-     */
-    public void setOutput(ItemStack output) {
-        this.output = output;
-    }
-
-    public enum MiscRecipeType {
-        SMELTING
-    }
-
-
+	/**
+	 * @param output the output to set
+	 */
+	public void setOutput(ItemStack output) {
+		this.output = output;
+	}
+	
+	
+	
 }

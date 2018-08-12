@@ -12,11 +12,11 @@ import net.minecraft.item.ItemStack;
  */
 
 public interface IRevealer {
-
-    /*
-     * If this method returns true the nodes will be visible.
-     */
+	
+	/*
+	 * If this method returns true the nodes will be visible.
+	 */
     boolean showNodes(ItemStack itemstack, EntityLivingBase player);
-
+	
 
 }

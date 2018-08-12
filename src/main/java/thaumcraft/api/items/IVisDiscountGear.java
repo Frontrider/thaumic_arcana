@@ -4,6 +4,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 
+
+
 /**
  * @author Azanor
  * ItemArmor or Baubles with this interface will grant a discount to the vis cost of actions the wearer performs with casting wands.
@@ -11,7 +13,7 @@ import net.minecraft.item.ItemStack;
  * individual items really shouldn't have a discount more than 5%
  */
 public interface IVisDiscountGear {
-
-    int getVisDiscount(ItemStack stack, EntityPlayer player);
+		
+	int getVisDiscount(ItemStack stack, EntityPlayer player);
 
 }

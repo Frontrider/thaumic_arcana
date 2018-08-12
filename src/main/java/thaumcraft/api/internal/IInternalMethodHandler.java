@@ -40,99 +40,85 @@ import thaumcraft.api.research.ResearchCategory;
  * @see IInternalMethodHandler#getSealStack
  */
 public interface IInternalMethodHandler {
-
-    /**
-     * Add raw knowledge points (not whole knowledges) to the given player.
-     * This method will trigger appropriate gui notifications, etc.
-     *
-     * @param player
-     * @param type
-     * @param category
-     * @param amount
-     * @return if the knowledge was added
-     */
+	
+	/**
+	 * Add raw knowledge points (not whole knowledges) to the given player.
+	 * This method will trigger appropriate gui notifications, etc.
+	 * @param player
+	 * @param type
+	 * @param category
+	 * @param amount
+	 * @return if the knowledge was added
+	 */
     boolean addKnowledge(EntityPlayer player, EnumKnowledgeType type, ResearchCategory category, int amount);
-
-    /**
-     * Progresses research with all the proper bells and whistles (popups, sounds, warp, etc)
-     * If the research is linked to a research entry with stages the player's current stage will be increased
-     * by 1, or set to 1 if the research was not known before.
-     *
-     * @param player
-     * @param researchkey
-     * @return if operation succeeded
-     */
-    boolean progressResearch(EntityPlayer player, String researchkey);
-
-    /**
-     * Completes research with all the proper bells and whistles (popups, sounds, warp, etc)
-     * This automatically sets all its stages as complete.
-     * Most of the time you should probably use progressResearch instead.
-     * @param player
-     * @param researchkey
-     * @return if operation succeeded
-     */
+	
+	/**
+	 * Progresses research with all the proper bells and whistles (popups, sounds, warp, etc)
+	 * If the research is linked to a research entry with stages the player's current stage will be increased 
+	 * by 1, or set to 1 if the research was not known before.
+	 * @param player
+	 * @param researchkey
+	 * @return if operation succeeded
+	 */
+	boolean progressResearch(EntityPlayer player, String researchkey);
+	
+	/**
+	 * Completes research with all the proper bells and whistles (popups, sounds, warp, etc)
+	 * This automatically sets all its stages as complete. 
+	 * Most of the time you should probably use progressResearch instead.
+	 * @param player
+	 * @param researchkey
+	 * @return if operation succeeded
+	 */
     boolean completeResearch(EntityPlayer player, String researchkey);
-
-    /**
-     * @param player
-     * @param researchkey the key of the research you want to check
-     * @return does the player have all the required knowledge to complete the passed researchkey
-     */
-    boolean doesPlayerHaveRequisites(EntityPlayer player, String researchkey);
-
-    /**
-     * Adds warp with all the proper bells and whistles (text, sounds, etc)
-     * @param player
-     * @param researchkey
-     * @return
-     */
+	
+	/**
+	 * @param player 
+	 * @param researchkey the key of the research you want to check
+	 * @return does the player have all the required knowledge to complete the passed researchkey
+	 */
+	boolean doesPlayerHaveRequisites(EntityPlayer player, String researchkey);
+	
+	/**
+	 * Adds warp with all the proper bells and whistles (text, sounds, etc)
+	 * @param player
+	 * @param researchkey
+	 * @return
+	 */
     void addWarpToPlayer(EntityPlayer player, int amount, EnumWarpType type);
-
-    /**
-     * The total of the players normal + permanent warp. NOT temporary warp.
-     * @param player
-     * @return
-     */
+	
+	/**
+	 * The total of the players normal + permanent warp. NOT temporary warp.
+	 * @param player
+	 * @return
+	 */
     int getActualWarp(EntityPlayer player);
 
-    AspectList getObjectAspects(ItemStack is);
-
-    AspectList generateTags(ItemStack is);
-
-    float drainVis(World world, BlockPos pos, float amount, boolean simulate);
-
-    float drainFlux(World world, BlockPos pos, float amount, boolean simulate);
-
-    void addVis(World world, BlockPos pos, float amount);
-
-    void addFlux(World world, BlockPos pos, float amount, boolean showEffect);
-
-    /**
-     * returns the aura and flux in a chunk added together
-     * @param world
-     * @param pos
-     * @return
-     */
+	AspectList getObjectAspects(ItemStack is);
+	AspectList generateTags(ItemStack is);
+	
+	float drainVis(World world, BlockPos pos, float amount, boolean simulate);
+	float drainFlux(World world, BlockPos pos, float amount, boolean simulate);
+	void addVis(World world, BlockPos pos, float amount);
+	void addFlux(World world, BlockPos pos, float amount, boolean showEffect);
+	
+	/**
+	 * returns the aura and flux in a chunk added together
+	 * @param world
+	 * @param pos
+	 * @return
+	 */
     float getTotalAura(World world, BlockPos pos);
-
-    float getVis(World world, BlockPos pos);
-
-    float getFlux(World world, BlockPos pos);
-
-    int getAuraBase(World world, BlockPos pos);
-
-    void registerSeal(ISeal seal);
-
-    ISeal getSeal(String key);
-
-    ISealEntity getSealEntity(int dim, SealPos pos);
-
-    void addGolemTask(int dim, Task task);
-
-    boolean shouldPreserveAura(World world, EntityPlayer player, BlockPos pos);
-
-    ItemStack getSealStack(String key);
+	float getVis(World world, BlockPos pos);
+	float getFlux(World world, BlockPos pos);
+	int getAuraBase(World world, BlockPos pos);
+	
+	void registerSeal(ISeal seal);
+	ISeal getSeal(String key);
+	ISealEntity getSealEntity(int dim, SealPos pos);
+	void addGolemTask(int dim, Task task);
+	boolean shouldPreserveAura(World world, EntityPlayer player, BlockPos pos);
+	ItemStack getSealStack(String key);
 
 	
 
