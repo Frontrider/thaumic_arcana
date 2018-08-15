@@ -49,12 +49,14 @@ minecraft {
 dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junit_version
+    testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
+
     testCompile group: 'org.mockito', name: 'mockito-all', version: mockito_version
 
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junit_version
-
-    testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
     testCompile("com.jayway.jsonpath:json-path:$json_path_version")
+    testCompile group: 'org.apache.commons', name: 'commons-text', version: commons_text_version
+
 }
 
 processResources {
