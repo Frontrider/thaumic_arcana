@@ -38,12 +38,12 @@ import java.util.List;
 
 @Mod(modid = ThaumicArcana.MODID, name = ThaumicArcana.NAME, version = ThaumicArcana.VERSION)
 public class ThaumicArcana {
-    public static final String MODID = "thaumic_arcana";
-    public static final String NAME = "Thaumic Arcana";
-    public static final String VERSION = "0.1.0";
+    public static final String MODID = "@MODID@";
+    public static final String NAME = "@NAME@";
+    public static final String VERSION = "@VERSION@";
 
     public static Logger logger;
-    public static CreativeTabs TABARCANA = new CreativeTabArcana(CreativeTabs.getNextID(), "thaumic_arcana");
+    public static CreativeTabs TABARCANA = new CreativeTabArcana(CreativeTabs.getNextID(), MODID);
     public static final SimpleNetworkWrapper NETWORK_WRAPPER = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
 
     @SidedProxy(clientSide = "hu.frontrider.arcana.proxy.ClientProxy", serverSide = "hu.frontrider.arcana.proxy.ServerProxy")

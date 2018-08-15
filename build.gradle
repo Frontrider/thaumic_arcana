@@ -18,11 +18,11 @@ apply plugin: "com.matthewprenger.cursegradle"
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 curseforge {
-    apiKey = "$System.env.curse_api_key"
+    apiKey = System.env.curse_api_key != null?System.env.curse_api_key:"111111"
     project {
-        id =  "$System.env.project_id"
+        id =  System.env.project_id != null?System.env.project_id:"111111"
         changelog = file("$changelog")
-        releaseType = "$System.env.release_type"
+        releaseType = System.env.release_type != null?System.env.release_type:"release"
     }
 }
 
@@ -35,17 +35,26 @@ minecraft {
     runDir = "run"
     mappings = "snapshot_20171003"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+
+    replace '@VERSION@', project.version
+    replace '@MODID@', modid
+    replace '@NAME@', name
+    //Replaces all text that matches the left side with the right.
+    //replace '@FINGERPRINT@', project.findProperty('signSHA1')
+    //Makes those replacement changes to the main mod class.
+    //My mod class is set in my project's gradle.properties file.
+    replaceIn "${mod_class}.java"
 }
-
-
 
 dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
-    testCompile group: 'org.mockito', name: 'mockito-all', version: '2.0.2-beta'
-    // Enable use of the JUnitPlatform Runner within the IDE
-    testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
+    testCompile group: 'org.mockito', name: 'mockito-all', version: mockito_version
 
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junit_version
+
+    testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
+    testCompile("com.jayway.jsonpath:json-path:$json_path_version")
 }
 
 processResources {
@@ -70,6 +79,5 @@ jar {
 
     manifest {
 
-        attributes 'FMLAT': "${modid}.cfg"
     }
 }
