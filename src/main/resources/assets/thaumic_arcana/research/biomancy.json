@@ -320,7 +320,7 @@
             "minecraft:beef",
             "minecraft:porkchop",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}"
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -483,7 +483,7 @@
           "required_item": [
             "minecraft:egg",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ignis'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
           ],
           "required_knowledge": [
@@ -547,8 +547,8 @@
           "required_item": [
             "minecraft:enchanted_book",
             "minecraft:beef",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'pracentio'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praemunio'}]}"
           ],
           "required_knowledge": [
@@ -566,8 +566,8 @@
           "required_item": [
             "minecraft:enchanted_book",
             "minecraft:beef",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'pracentio'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praemunio'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'potentia'}]}"
           ],
