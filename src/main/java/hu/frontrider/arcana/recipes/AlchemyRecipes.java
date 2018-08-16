@@ -235,6 +235,26 @@ public class AlchemyRecipes {
             index++;
         }
 
+        List<ItemStack> seedItems = PlantBall.getSeedItems();
+        index = 0;
+        for (ItemStack seedlingItem : seedItems) {
+            ItemStack seedItem = PlantBall.getProductByIndex(seedlingItem, 0);
+
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    KEY,
+                    seedlingItem,
+                    new ItemStack(seedItem.getItem(), 1, seedItem.getMetadata()),
+                    new AspectList()
+                            .add(Aspect.LIGHT, 5)
+                            .merge(Aspect.EARTH, 10)
+                            .merge(Aspect.WATER, 12)
+                            .merge(Aspect.VOID, 5)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "seed_1" + index
+            ), recipe);
+            index++;
+        }
+
     }
 
     private static void initGrowingFlesh() {
