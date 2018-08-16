@@ -20,10 +20,11 @@ build
 # other
 eclipse
 run
-
-classes
 .
+classes
+.gitignore
 /lib
 *.jar
+logs/
 
-/gradle.properties
+!/gradle/wrapper/gradle-wrapper.jar
