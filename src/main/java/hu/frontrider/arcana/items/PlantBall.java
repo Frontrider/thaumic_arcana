@@ -120,7 +120,9 @@ public class PlantBall extends ItemBase implements Initialisable {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (tab != TABARCANA)
             return;
+        if(treeItems != null)
         items.addAll(treeItems);
+        if(seedItems!= null)
         items.addAll(seedItems);
     }
 
