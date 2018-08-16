@@ -110,12 +110,14 @@ public class FormulaRecipe {
 
     public static void registerRecipes() {
 
-        formulaRecipeList = new ArrayList<>();
+        if (formulaRecipeList == null)
+            formulaRecipeList = new ArrayList<>();
+
         CreatureEnchant.getCreatureEnchants().forEach(creatureEnchant -> {
             formulaRecipeList.add(buildFor(creatureEnchant, enchanting_powder_advanced));
             formulaRecipeList.add(buildFor(creatureEnchant, enchanting_powder_basic));
             formulaRecipeList.add(buildFor(creatureEnchant, enchanting_powder_magical));
-            });
+        });
     }
 
     static FormulaRecipe buildFor(CreatureEnchant creatureEnchant, Item enchanter) {
@@ -130,6 +132,8 @@ public class FormulaRecipe {
     }
 
     public static List<FormulaRecipe> getFormulaRecipeList() {
+        if (formulaRecipeList == null)
+            formulaRecipeList = new ArrayList<>();
         return formulaRecipeList;
     }
 }
