@@ -1,19 +1,18 @@
 package hu.frontrider.arcana.network;
 
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.minecraftforge.fml.common.network.ByteBufUtils.readVarInt;
-import static net.minecraftforge.fml.common.network.ByteBufUtils.writeVarInt;
+import static net.minecraftforge.fml.common.network.ByteBufUtils.*;
 
 public class CreatureEnchantSyncMessage implements IMessage {
 
-    private Map<CEnchantment, Integer> enchant;
+    private Map<ResourceLocation, Integer> enchant;
     private int id;
 
     private static final int byteLength = 1;
@@ -35,9 +34,9 @@ public class CreatureEnchantSyncMessage implements IMessage {
         id = readVarInt(buf, Integer.BYTES);
         int count = readVarInt(buf, byteLength);
         for (int i = 0; i < count; i++) {
-            int enchantIndex = readVarInt(buf, byteLength);
+            String enchantIndex = readUTF8String(buf);
             int level = readVarInt(buf, byteLength);
-            enchant.put(CEnchantment.values()[enchantIndex], level);
+            enchant.put(new ResourceLocation(enchantIndex), level);
         }
     }
 
@@ -46,12 +45,12 @@ public class CreatureEnchantSyncMessage implements IMessage {
         writeVarInt(buf, id, Integer.BYTES);
         writeVarInt(buf, enchant.size(), byteLength);
         enchant.forEach((key, value) -> {
-            writeVarInt(buf, key.ordinal(), byteLength);
+            writeUTF8String(buf, key.toString());
             writeVarInt(buf, value, byteLength);
         });
     }
 
-    public Map<CEnchantment, Integer> getEnchant() {
+    public Map<ResourceLocation, Integer> getEnchant() {
         return enchant;
     }
 

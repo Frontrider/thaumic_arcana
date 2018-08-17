@@ -35,7 +35,7 @@ public class ResearchRegistry {
     }
 
     static void initCategories() {
-        ResearchCategories.registerCategory("BIOMANCY", "MINDBIOTHAUMIC", (new AspectList()).add(Aspect.ALCHEMY, 30).add(Aspect.LIFE, 10).add(Aspect.MAGIC, 10).add(Aspect.LIGHT, 5).add(Aspect.AVERSION, 5).add(Aspect.EARTH, 5).add(Aspect.WATER, 5), new ResourceLocation("thaumcraft", "zombie_brain"), new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_3.jpg"), BACK_OVER);
+        ResearchCategories.registerCategory("BIOMANCY", "MINDBIOTHAUMIC", (new AspectList()).add(Aspect.ALCHEMY, 30).add(Aspect.LIFE, 10).add(Aspect.MAGIC, 10).add(Aspect.LIGHT, 5).add(Aspect.AVERSION, 5).add(Aspect.EARTH, 5).add(Aspect.WATER, 5), new ResourceLocation("thaumcraft", "brain"), new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_3.jpg"), BACK_OVER);
     }
 
     static void initTheories() {

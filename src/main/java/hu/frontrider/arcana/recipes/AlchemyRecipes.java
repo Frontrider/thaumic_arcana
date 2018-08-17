@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.recipes;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.items.BaseFormula;
 import hu.frontrider.arcana.items.Formula;
 import hu.frontrider.arcana.items.ItemRegistry;
 import hu.frontrider.arcana.items.PlantBall;
@@ -9,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftApiHelper;
@@ -20,10 +22,14 @@ import java.util.List;
 
 import static hu.frontrider.arcana.Configuration.enablePlatinum;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.items.ItemRegistry.enchanting_powder_basic;
 import static net.minecraft.init.Items.*;
 
 public class AlchemyRecipes {
+
+    @GameRegistry.ObjectHolder("thaumic_arcana:formula")
+    static Formula formula = null;
 
     public static void register() {
         initMetalTransmutation();
@@ -265,7 +271,7 @@ public class AlchemyRecipes {
                     KEY,
                     new ItemStack(Items.BEEF, 2),
                     new ItemStack(Items.BEEF),
-                    new AspectList().add(Aspect.LIFE, 3)
+                    new AspectList().add(Aspect.LIFE, 10)
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "grow_beef"), recipe);
         }
@@ -274,7 +280,7 @@ public class AlchemyRecipes {
                     KEY,
                     new ItemStack(Items.MUTTON, 2),
                     new ItemStack(Items.MUTTON),
-                    new AspectList().add(Aspect.LIFE, 3)
+                    new AspectList().add(Aspect.LIFE, 10)
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "grow_mutton"), recipe);
         }
@@ -283,7 +289,7 @@ public class AlchemyRecipes {
                     KEY,
                     new ItemStack(Items.PORKCHOP, 2),
                     new ItemStack(Items.PORKCHOP),
-                    new AspectList().add(Aspect.LIFE, 3)
+                    new AspectList().add(Aspect.LIFE, 10)
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "grow_pork"), recipe);
         }
@@ -292,7 +298,7 @@ public class AlchemyRecipes {
                     KEY,
                     new ItemStack(Items.CHICKEN, 2),
                     new ItemStack(Items.CHICKEN),
-                    new AspectList().add(Aspect.LIFE, 3)
+                    new AspectList().add(Aspect.LIFE, 10)
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "grow_chicken"), recipe);
         }
@@ -416,17 +422,22 @@ public class AlchemyRecipes {
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "enchant_powder_basic"), recipe);
         }
-        CreatureEnchant.getCreatureEnchants().forEach(creatureEnchant -> {
-            AspectList formula = creatureEnchant.formula();
-            ItemStack itemStack = Formula.getItemStack(formula);
-            CrucibleRecipe recipe = new CrucibleRecipe(
-                    creatureEnchant.getResearch().toUpperCase(),
-                    itemStack,
-                    Formula.getItemStack(null),
-                    formula
-            );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_" + creatureEnchant.getEnum().name().toLowerCase()), recipe);
+        NonNullList<ItemStack> formulaSubItems = NonNullList.create();
+        formula.getSubItems(TABARCANA, formulaSubItems);
+
+        formulaSubItems.forEach(itemStack -> {
+
+            AspectList aspectList = ((BaseFormula) itemStack.getItem()).getAspects(itemStack);
+            CreatureEnchant creatureEnchant = CreatureEnchant.getForFormula(aspectList);
+            if (creatureEnchant != null) {
+                CrucibleRecipe recipe = new CrucibleRecipe(
+                        creatureEnchant.getResearch().toUpperCase(),
+                        itemStack,
+                        formula,
+                        aspectList
+                );
+                ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_" + creatureEnchant.getRegistryName().getResourceDomain()), recipe);
+            }
         });
     }
-
 }

@@ -1,20 +1,21 @@
 package hu.frontrider.arcana.capabilities;
 
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.Map;
+
 
 public interface ICreatureEnchant {
 
     boolean hasEnchant();
 
-    boolean hasEnchant(CEnchantment enchantment);
+    boolean hasEnchant(ResourceLocation enchantment);
 
-    int getLevel(CEnchantment enchantment);
+    int getLevel(ResourceLocation enchantment);
 
-    Map<CEnchantment, Integer> getStore();
+    Map<ResourceLocation, Integer> getStore();
 
-    void setStore(Map<CEnchantment, Integer> store);
+    void setStore(Map<ResourceLocation, Integer> store);
 
-    void putEnchant(CEnchantment enchantment, Integer level);
+    void putEnchant(ResourceLocation enchantment, Integer level);
 }

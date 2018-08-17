@@ -1,6 +1,5 @@
 package hu.frontrider.arcana.creatureenchant;
 
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -11,12 +10,11 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.FERTILE;
 
 public class FertileEnchant extends CreatureEnchant {
 
     public FertileEnchant() {
-        super(new ResourceLocation(MODID, "textures/enchant/fertile.png"),"fertile");
+        super(new ResourceLocation(MODID, "fertile"),"fertile");
     }
 
     @SubscribeEvent
@@ -24,10 +22,10 @@ public class FertileEnchant extends CreatureEnchant {
         EntityAnimal parentA = (EntityAnimal) event.getParentA();
         EntityAnimal parentB = (EntityAnimal) event.getParentB();
 
-        if (getEnchantLevel(parentA,FERTILE)>0) {
+        if (getEnchantLevel(parentA,getRegistryName())>0) {
             createChild(parentA, parentB);
         }
-        if (getEnchantLevel(parentB,FERTILE)>0) {
+        if (getEnchantLevel(parentB,getRegistryName())>0) {
             createChild(parentB, parentA);
         }
     }
@@ -41,11 +39,6 @@ public class FertileEnchant extends CreatureEnchant {
                 .merge(Aspect.ORDER,3)
                 .merge(Aspect.EXCHANGE,20)
                 .merge(Aspect.MAGIC,50);
-    }
-
-    @Override
-    public CEnchantment getEnum() {
-        return FERTILE;
     }
 
     @Override

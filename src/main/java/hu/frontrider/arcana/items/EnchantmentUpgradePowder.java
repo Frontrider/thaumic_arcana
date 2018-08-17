@@ -9,6 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -17,8 +18,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
-import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.*;
 import static hu.frontrider.arcana.items.CreatureEnchanter.createEnchantedItem;
 
 public class EnchantmentUpgradePowder extends ItemBase {
@@ -50,7 +51,7 @@ public class EnchantmentUpgradePowder extends ItemBase {
                 creature_enchants.iterator().forEachRemaining((enchant) -> {
                     String name = ((NBTTagCompound) enchant).getString("name");
                     int level = ((NBTTagCompound) enchant).getInteger("level");
-                    tooltip.add(I18n.format("enchant.creature_enchant." + name.toLowerCase()) + " " + level);
+                    tooltip.add(I18n.format("enchant.creature_enchant." + name.split(":")[1].toLowerCase()) + " " + level);
                 });
             }
         }
@@ -72,12 +73,10 @@ public class EnchantmentUpgradePowder extends ItemBase {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (tab == TABARCANA) {
             items.add(new ItemStack(this));
-
-            items.add(createEnchantedItem(this, new EnchantmentData(FERTILE, level)));
-            items.add(createEnchantedItem(this, new EnchantmentData(RESPIRATION, level)));
-            items.add(createEnchantedItem(this, new EnchantmentData(STRENGTH, level)));
-            items.add(createEnchantedItem(this, new EnchantmentData(PROTECTION, level)));
-
+            items.add(createEnchantedItem(this, new EnchantmentData(new ResourceLocation(MODID,"fertile"), level)));
+            items.add(createEnchantedItem(this, new EnchantmentData(new ResourceLocation(MODID,"respiration"), level)));
+            items.add(createEnchantedItem(this, new EnchantmentData(new ResourceLocation(MODID,"strength"), level)));
+            items.add(createEnchantedItem(this, new EnchantmentData(new ResourceLocation(MODID,"protection"), level)));
         }
     }
 

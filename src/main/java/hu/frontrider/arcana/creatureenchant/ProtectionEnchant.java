@@ -1,6 +1,5 @@
 package hu.frontrider.arcana.creatureenchant;
 
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -10,7 +9,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.PROTECTION;
 
 public class ProtectionEnchant extends CreatureEnchant {
 
@@ -21,7 +19,7 @@ public class ProtectionEnchant extends CreatureEnchant {
     @SubscribeEvent
     public void handleEvent(LivingHurtEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
-        int enchantLevel = getEnchantLevel(entity, PROTECTION);
+        int enchantLevel = getEnchantLevel(entity, getRegistryName());
 
         if (enchantLevel>0) {
                 float amount = event.getAmount() / enchantLevel;
@@ -42,11 +40,6 @@ public class ProtectionEnchant extends CreatureEnchant {
                 .merge(Aspect.CRYSTAL,3)
                 .merge(Aspect.EARTH,20)
                 .merge(Aspect.MAGIC,70);
-    }
-
-    @Override
-    public CEnchantment getEnum() {
-        return PROTECTION;
     }
 
     @Override

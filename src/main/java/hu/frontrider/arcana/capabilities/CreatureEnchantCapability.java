@@ -1,12 +1,12 @@
 package hu.frontrider.arcana.capabilities;
 
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CreatureEnchantCapability implements ICreatureEnchant {
-    private Map<CEnchantment,Integer> enchants;
+    private Map<ResourceLocation,Integer> enchants;
 
     public CreatureEnchantCapability() {
         enchants = new HashMap<>();
@@ -19,26 +19,26 @@ public class CreatureEnchantCapability implements ICreatureEnchant {
     }
 
     @Override
-    public boolean hasEnchant(CEnchantment enchantment) {
+    public boolean hasEnchant(ResourceLocation enchantment) {
         return enchants.containsKey(enchantment);
     }
 
     @Override
-    public int getLevel(CEnchantment enchantment) {
+    public int getLevel(ResourceLocation enchantment) {
         return enchants.get(enchantment);
     }
 
     @Override
-    public Map<CEnchantment, Integer> getStore() {
+    public Map<ResourceLocation, Integer> getStore() {
         return enchants;
     }
 
     @Override
-    public void setStore(Map<CEnchantment, Integer> store) {
+    public void setStore(Map<ResourceLocation, Integer> store) {
         enchants = store;
     }
 
-    public void putEnchant(CEnchantment enchantment,Integer level){
+    public void putEnchant(ResourceLocation enchantment,Integer level){
         enchants.put(enchantment, level);
     }
 }

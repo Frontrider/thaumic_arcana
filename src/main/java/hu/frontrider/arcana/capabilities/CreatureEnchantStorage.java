@@ -1,10 +1,10 @@
 package hu.frontrider.arcana.capabilities;
 
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.Capability;
 
 import javax.annotation.Nullable;
@@ -15,7 +15,7 @@ public class CreatureEnchantStorage implements Capability.IStorage<ICreatureEnch
     @Override
     public NBTBase writeNBT(Capability<ICreatureEnchant> capability, ICreatureEnchant instance, EnumFacing side) {
         NBTTagList compound = new NBTTagList();
-        Map<CEnchantment, Integer> enchants = instance.getStore();
+        Map<ResourceLocation, Integer> enchants = instance.getStore();
         enchants.forEach((enchant,level)->{
             NBTTagCompound enchantData = new NBTTagCompound();
             enchantData.setInteger("level",level);
@@ -33,7 +33,7 @@ public class CreatureEnchantStorage implements Capability.IStorage<ICreatureEnch
         compound.iterator().forEachRemaining((enchant)->{
             String enchantName = ((NBTTagCompound) enchant).getString("enchant");
             int level = ((NBTTagCompound) enchant).getInteger("level");
-            CEnchantment enchantment = CEnchantment.valueOf(enchantName);
+            ResourceLocation enchantment = new ResourceLocation(enchantName);
             instance.putEnchant(enchantment,level);
         });
     }
