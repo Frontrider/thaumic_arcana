@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.creatureenchant;
+package hu.frontrider.arcana.creatureenchant.effect;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,7 +20,7 @@ public class RespirationEnchant extends CreatureEnchant {
     public void handleEvent(LivingEvent.LivingUpdateEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
             if (entity.isInWater()) {
-                int enchantLevel = getEnchantLevel(entity, getRegistryName());
+                int enchantLevel = getEnchantLevel(entity, this);
                 if (enchantLevel >0) {
                     entity.setAir(300);
                 }

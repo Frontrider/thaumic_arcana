@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.items;
 
+import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.items.CreatureEnchanter.EnchantmentData;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -7,30 +8,29 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.potion.Potion;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.registries.IForgeRegistry;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.items.CreatureEnchanter.createEnchantedItem;
 
 public class EnchantmentUpgradePowder extends ItemBase {
 
-    @GameRegistry.ObjectHolder("thaumcraft:warpward")
-    static Potion warpWard = null;
+    private static final IForgeRegistry<CreatureEnchant> registry = GameRegistry.findRegistry(CreatureEnchant.class);
+
     private final int level;
 
 
     public EnchantmentUpgradePowder(int level) {
         super();
+
         this.level = level;
     }
 
@@ -73,10 +73,7 @@ public class EnchantmentUpgradePowder extends ItemBase {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (tab == TABARCANA) {
             items.add(new ItemStack(this));
-            items.add(createEnchantedItem(this, new EnchantmentData(new ResourceLocation(MODID,"fertile"), level)));
-            items.add(createEnchantedItem(this, new EnchantmentData(new ResourceLocation(MODID,"respiration"), level)));
-            items.add(createEnchantedItem(this, new EnchantmentData(new ResourceLocation(MODID,"strength"), level)));
-            items.add(createEnchantedItem(this, new EnchantmentData(new ResourceLocation(MODID,"protection"), level)));
+            registry.getValuesCollection().forEach(enchant -> items.add(createEnchantedItem(this, new EnchantmentData(enchant, level))));
         }
     }
 

@@ -1,44 +1,64 @@
 package hu.frontrider.arcana.capabilities;
 
-import net.minecraft.util.ResourceLocation;
+import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
+
 public class CreatureEnchantCapability implements ICreatureEnchant {
-    private Map<ResourceLocation,Integer> enchants;
+
+    @GameRegistry.ObjectHolder(MODID+":normal")
+    private static EnchantingBaseCircle baseCircle = null;
+
+    private Map<CreatureEnchant, Integer> enchants;
+    private EnchantingBaseCircle enchantingBaseCircle;
 
     public CreatureEnchantCapability() {
         enchants = new HashMap<>();
+        enchantingBaseCircle = baseCircle;
     }
-
 
     @Override
     public boolean hasEnchant() {
         return !enchants.isEmpty();
     }
 
+
     @Override
-    public boolean hasEnchant(ResourceLocation enchantment) {
+    public boolean hasEnchant(CreatureEnchant enchantment) {
         return enchants.containsKey(enchantment);
     }
 
     @Override
-    public int getLevel(ResourceLocation enchantment) {
+    public int getLevel(CreatureEnchant enchantment) {
         return enchants.get(enchantment);
     }
 
     @Override
-    public Map<ResourceLocation, Integer> getStore() {
+    public Map<CreatureEnchant, Integer> getStore() {
         return enchants;
     }
 
     @Override
-    public void setStore(Map<ResourceLocation, Integer> store) {
+    public void setStore(Map<CreatureEnchant, Integer> store) {
         enchants = store;
     }
 
-    public void putEnchant(ResourceLocation enchantment,Integer level){
+    public void putEnchant(CreatureEnchant enchantment, Integer level) {
         enchants.put(enchantment, level);
+    }
+
+    @Override
+    public EnchantingBaseCircle getCircle() {
+        return enchantingBaseCircle;
+    }
+
+    @Override
+    public void setCircle(EnchantingBaseCircle enchantingBaseCircle) {
+        this.enchantingBaseCircle = enchantingBaseCircle;
     }
 }

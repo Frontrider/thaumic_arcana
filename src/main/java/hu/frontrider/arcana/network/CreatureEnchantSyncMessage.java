@@ -1,9 +1,12 @@
 package hu.frontrider.arcana.network;
 
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,16 +15,19 @@ import static net.minecraftforge.fml.common.network.ByteBufUtils.*;
 
 public class CreatureEnchantSyncMessage implements IMessage {
 
-    private Map<ResourceLocation, Integer> enchant;
+    private Map<CreatureEnchant, Integer> enchant;
     private int id;
 
     private static final int byteLength = 1;
+
+    IForgeRegistry<CreatureEnchant> registry;
 
     public CreatureEnchantSyncMessage() {
     }
 
     public CreatureEnchantSyncMessage(ICreatureEnchant enchant, int id) {
 
+        registry = GameRegistry.findRegistry(CreatureEnchant.class);
         this.enchant = enchant.getStore();
         this.id = id;
     }
@@ -36,7 +42,7 @@ public class CreatureEnchantSyncMessage implements IMessage {
         for (int i = 0; i < count; i++) {
             String enchantIndex = readUTF8String(buf);
             int level = readVarInt(buf, byteLength);
-            enchant.put(new ResourceLocation(enchantIndex), level);
+            enchant.put(registry.getValue(new ResourceLocation(enchantIndex)), level);
         }
     }
 
@@ -50,7 +56,7 @@ public class CreatureEnchantSyncMessage implements IMessage {
         });
     }
 
-    public Map<ResourceLocation, Integer> getEnchant() {
+    public Map<CreatureEnchant, Integer> getEnchant() {
         return enchant;
     }
 

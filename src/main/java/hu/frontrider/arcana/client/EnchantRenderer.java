@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.client;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -48,7 +49,7 @@ public class EnchantRenderer implements LayerRenderer {
         GlStateManager.disableLighting();
 
 
-        drawMain(renderEngine);
+        drawMain(renderEngine,entity);
         GlStateManager.translate(0, 0, -.1);
         drawIcons(renderEngine, entity);
         GlStateManager.translate(0, 0, .1);
@@ -63,9 +64,12 @@ public class EnchantRenderer implements LayerRenderer {
         return false;
     }
 
-    private void drawMain(TextureManager textureManager) {
+    private void drawMain(TextureManager textureManager,Entity entity) {
 
-        GlStateManager.color(255, 204, 0);
+        EnchantingBaseCircle baseCircle = CreatureEnchant.getBaseCircle(entity);
+        EnchantingBaseCircle.Color color = baseCircle.getColor();
+
+        GlStateManager.color(color.getR(), color.getB(), color.getG(),color.getA());
 
         textureManager.bindTexture(cicle);
 
@@ -85,13 +89,13 @@ public class EnchantRenderer implements LayerRenderer {
     }
 
     private void drawIcons(TextureManager textureManager, Entity entity) {
-        Map<ResourceLocation, Integer> creatureEnchants = CreatureEnchant.getCreatureEnchants(entity);
-        Set<Map.Entry<ResourceLocation, Integer>> entries = creatureEnchants.entrySet();
+        Map<CreatureEnchant, Integer> creatureEnchants = CreatureEnchant.getCreatureEnchants(entity);
+        Set<Map.Entry<CreatureEnchant, Integer>> entries = creatureEnchants.entrySet();
         int index = 1;
-        for (Map.Entry<ResourceLocation, Integer> entry : entries) {
+        for (Map.Entry<CreatureEnchant, Integer> entry : entries) {
 
             Integer level = entry.getValue();
-            CreatureEnchant creatureEnchant = this.creatureEnchants.getValue(entry.getKey());
+            CreatureEnchant creatureEnchant = entry.getKey();
             //somehow makes sure that our color is indeed reset
             switch (level) {
                 case 1:

@@ -1,6 +1,8 @@
-package hu.frontrider.arcana.creatureenchant;
+package hu.frontrider.arcana.creatureenchant.effect;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -13,7 +15,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 public class StrengthEnchant extends CreatureEnchant {
 
     public StrengthEnchant() {
-        super(new ResourceLocation(MODID, "strength"),"strength");
+        super(new ResourceLocation(MODID, "strength"), "strength");
     }
 
     @SubscribeEvent
@@ -21,9 +23,12 @@ public class StrengthEnchant extends CreatureEnchant {
 
         DamageSource source = event.getSource();
         if (source.getTrueSource() != null) {
-            int enchantLevel = getEnchantLevel(event.getSource().getTrueSource(), getRegistryName());
-            if (enchantLevel > 0) {
-                event.setAmount(event.getAmount() + enchantLevel);
+            Entity trueSource = event.getSource().getTrueSource();
+            if (trueSource instanceof EntityLivingBase) {
+                int enchantLevel = getEnchantLevel((EntityLivingBase) trueSource, this);
+                if (enchantLevel > 0) {
+                    event.setAmount(event.getAmount() + enchantLevel);
+                }
             }
         }
     }
@@ -31,11 +36,11 @@ public class StrengthEnchant extends CreatureEnchant {
     @Override
     public AspectList formula() {
         return new AspectList()
-                .merge(Aspect.LIFE,20)
-                .merge(Aspect.ENERGY,200)
-                .merge(Aspect.FIRE,50)
-                .merge(Aspect.ORDER,300)
-                .merge(Aspect.MAGIC,50);
+                .merge(Aspect.LIFE, 20)
+                .merge(Aspect.ENERGY, 200)
+                .merge(Aspect.FIRE, 50)
+                .merge(Aspect.ORDER, 300)
+                .merge(Aspect.MAGIC, 50);
     }
 
     @Override

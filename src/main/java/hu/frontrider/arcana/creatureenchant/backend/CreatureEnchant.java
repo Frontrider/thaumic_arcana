@@ -3,6 +3,7 @@ package hu.frontrider.arcana.creatureenchant.backend;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.util.AspectUtil;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -11,10 +12,13 @@ import thaumcraft.api.aspects.AspectList;
 import java.util.Collections;
 import java.util.Map;
 
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
 
 public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureEnchant> {
 
+    @GameRegistry.ObjectHolder(MODID+":normal")
+    private static EnchantingBaseCircle baseCircle = null;
 
     private final ResourceLocation icon;
     private final String unlocalizedName;
@@ -29,16 +33,19 @@ public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureE
         return "enchant.creature_enchant." + unlocalizedName;
     }
 
-    public int getEnchantLevel(Entity entity, ResourceLocation enchantment) {
+    public int getEnchantLevel(EntityLivingBase entity, CreatureEnchant enchantment) {
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
+            int level = capability.getLevel(enchantment);
             if (capability.hasEnchant(enchantment))
-                return capability.getLevel(enchantment);
+            return capability.getCircle().doEffect(level,entity,enchantment);
+
         }
         return 0;
     }
 
-    public static void setEnchantment(Entity entity, Map<ResourceLocation, Integer> enchants) {
+
+    public static void setEnchantment(Entity entity, Map<CreatureEnchant, Integer> enchants) {
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
             capability.setStore(enchants);
@@ -53,13 +60,22 @@ public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureE
         return false;
     }
 
-    public static Map<ResourceLocation, Integer> getCreatureEnchants(Entity entity) {
+    public static Map<CreatureEnchant, Integer> getCreatureEnchants(Entity entity) {
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
             return capability.getStore();
         }
 
         return Collections.emptyMap();
+    }
+
+    public static EnchantingBaseCircle getBaseCircle(Entity entity){
+        if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
+            ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
+            return capability.getCircle();
+        }
+
+        return baseCircle;
     }
 
 

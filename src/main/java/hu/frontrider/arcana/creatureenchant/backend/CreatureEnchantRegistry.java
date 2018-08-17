@@ -1,9 +1,11 @@
 package hu.frontrider.arcana.creatureenchant.backend;
 
-import hu.frontrider.arcana.creatureenchant.FertileEnchant;
-import hu.frontrider.arcana.creatureenchant.ProtectionEnchant;
-import hu.frontrider.arcana.creatureenchant.RespirationEnchant;
-import hu.frontrider.arcana.creatureenchant.StrengthEnchant;
+import hu.frontrider.arcana.creatureenchant.base.NegationCircle;
+import hu.frontrider.arcana.creatureenchant.base.NormalCircle;
+import hu.frontrider.arcana.creatureenchant.effect.FertileEnchant;
+import hu.frontrider.arcana.creatureenchant.effect.ProtectionEnchant;
+import hu.frontrider.arcana.creatureenchant.effect.RespirationEnchant;
+import hu.frontrider.arcana.creatureenchant.effect.StrengthEnchant;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -25,15 +27,29 @@ public class CreatureEnchantRegistry {
                 .setName(new ResourceLocation(MODID,"creature_enchant"))
                 .add((iForgeRegistryInternal, registryManager, i, enchant, v1) -> MinecraftForge.EVENT_BUS.register(enchant))
                 .create();
+
+        new RegistryBuilder<EnchantingBaseCircle>()
+                .setType(EnchantingBaseCircle.class)
+                .setIDRange(0, 100)
+                .setName(new ResourceLocation(MODID,"enchanting_base_circle"))
+                //.add((iForgeRegistryInternal, registryManager, i, enchant, v1) -> MinecraftForge.EVENT_BUS.register(enchant))
+                .create();
     }
 
     @SubscribeEvent
-    public static void registryEvent(RegistryEvent.Register<CreatureEnchant> event) {
+    public static void registryEventCreatureEnchant(RegistryEvent.Register<CreatureEnchant> event) {
         event.getRegistry().registerAll(
                 new StrengthEnchant(),
                 new FertileEnchant(),
                 new ProtectionEnchant(),
                 new RespirationEnchant()
+        );
+    }
+    @SubscribeEvent
+    public static void registryEventEnchantingBaseCircle(RegistryEvent.Register<EnchantingBaseCircle> event) {
+        event.getRegistry().registerAll(
+                new NormalCircle(),
+                new NegationCircle()
         );
     }
 

@@ -125,7 +125,7 @@ public class FormulaRecipe {
 
     static FormulaRecipe buildFor(CreatureEnchant creatureEnchant, Item enchanter) {
         ItemStack enchantedItem = CreatureEnchanter.createEnchantedItem(
-                enchanter, new CreatureEnchanter.EnchantmentData(creatureEnchant.getRegistryName(), 3));
+                enchanter, new CreatureEnchanter.EnchantmentData(creatureEnchant, 3));
         enchantedItem.setCount(1);
         return new FormulaRecipe(
                 new ItemStack(enchanter),

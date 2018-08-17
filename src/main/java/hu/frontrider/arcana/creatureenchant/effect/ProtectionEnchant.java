@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.creatureenchant;
+package hu.frontrider.arcana.creatureenchant.effect;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,13 +13,13 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 public class ProtectionEnchant extends CreatureEnchant {
 
     public ProtectionEnchant() {
-        super(new ResourceLocation(MODID, "textures/enchant/protection.png"),"protection");
+        super(new ResourceLocation(MODID, "protection"),"protection");
     }
 
     @SubscribeEvent
     public void handleEvent(LivingHurtEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
-        int enchantLevel = getEnchantLevel(entity, getRegistryName());
+        int enchantLevel = getEnchantLevel(entity, this);
 
         if (enchantLevel>0) {
                 float amount = event.getAmount() / enchantLevel;

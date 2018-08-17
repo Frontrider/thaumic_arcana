@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.capabilities;
 
-import net.minecraft.util.ResourceLocation;
+import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 
 import java.util.Map;
 
@@ -9,13 +10,16 @@ public interface ICreatureEnchant {
 
     boolean hasEnchant();
 
-    boolean hasEnchant(ResourceLocation enchantment);
+    boolean hasEnchant(CreatureEnchant enchant);
 
-    int getLevel(ResourceLocation enchantment);
+    int getLevel(CreatureEnchant enchant);
 
-    Map<ResourceLocation, Integer> getStore();
+    Map<CreatureEnchant, Integer> getStore();
 
-    void setStore(Map<ResourceLocation, Integer> store);
+    void setStore(Map<CreatureEnchant, Integer> store);
 
-    void putEnchant(ResourceLocation enchantment, Integer level);
+    void putEnchant(CreatureEnchant enchantment, Integer level);
+
+    EnchantingBaseCircle getCircle();
+    void setCircle(EnchantingBaseCircle enchantingBaseCircle);
 }

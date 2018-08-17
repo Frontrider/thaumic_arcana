@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.creatureenchant;
+package hu.frontrider.arcana.creatureenchant.effect;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityAgeable;
@@ -22,10 +22,10 @@ public class FertileEnchant extends CreatureEnchant {
         EntityAnimal parentA = (EntityAnimal) event.getParentA();
         EntityAnimal parentB = (EntityAnimal) event.getParentB();
 
-        if (getEnchantLevel(parentA,getRegistryName())>0) {
+        if (getEnchantLevel(parentA,this)>0) {
             createChild(parentA, parentB);
         }
-        if (getEnchantLevel(parentB,getRegistryName())>0) {
+        if (getEnchantLevel(parentB,this)>0) {
             createChild(parentB, parentA);
         }
     }
