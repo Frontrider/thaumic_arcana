@@ -1,4 +1,6 @@
+
 0.1.1:
+- enchantment effect now renders in first person
 - fixed logs inside plantballs
 - fixed a variety of language keys
 - fixed research files
@@ -8,3 +10,22 @@
 
 
 WARNING: If you had enchants from before, you might need to kill the entity (the same applies to your character), because the internal names have changed.
+=======
+0.1.0 alpha release
+features:
+  -grow plants and meat in your crucible
+  -incubated egg: always hatches into a chicken
+  -creature enchantments: enhance creatures -> or yourself
+  -metal transmutation
+  -fertiliser made out of herba, that acts like bonemeal
+  
+WARNING: this build might be (surely) completly broken in some way!
+
+known issues:
+ -formula damage values not fully implemented (required for later recipes)
+ -plantball is broken with certain wood types
+ -missing language keys
+ -wrong research texts
+ -enchantment effect does not displays the level of the enchantment
+ -biomancy tab has a placeholder image
+ -Experiment table opacitcy can be broken
