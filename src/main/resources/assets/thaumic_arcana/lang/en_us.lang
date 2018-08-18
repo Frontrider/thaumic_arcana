@@ -11,8 +11,9 @@ research.thaumic_arcana.biomancy.title=Biomancy
 research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a major success at harnessing organic substances to create new devices. Ever since then, I was toying with the idea of applying more magic to organic matter.
 
 research.thaumic_arcana.table.title=Experiment Table
-research.thaumic_arcana.table.stage.1=To further my experiments, I have drawn up designs for a new table that includes all the tools I might need.<BR> To create it, I need to take 2 bottles and a stick into my hands, than put them on some greatwood planks. This workstation will also come in handy for research and theorycrafting.
-research.thaumic_arcana.table.application=I can use the experiment table to apply formulas to different items by right clicking the table with the item in my main hand and the formula in my offhand.
+research.thaumic_arcana.table.stage.1=To further my experiments, I drawn up designs, for a new table that includes all the tools I might need.<BR> To create it, I need to take 2 bottles and a stick into my hands, than put them on some greatwood planks. This workstation will also come in handy for research and theorycrafting.
+research.thaumic_arcana.table.application=I can use the experiment table to apply formulas to different items, by right clicking the table with the item in my main hand, and the formula in my offhand.
+research.thaumic_arcana.table.magic_application=I can also use the enchanting table to apply magical items, in a similar way to the Experiment Table.
 
 research.thaumic_arcana.plantlife.title=Plant-life
 research.thaumic_arcana.plantlife.stage.1=The first thing I should study is how plants react to magic. I know for sure that plant-life can absorb magical energies, since there are magical plants around me.
@@ -46,10 +47,9 @@ research.thaumic_arcana.fertiliser.stage.5=After more trial and error, I reached
 
 research.thaumic_arcana.creature_enchant.title=Creature Enchantments
 research.thaumic_arcana.creature_enchant.stage.1=My studies on infusion enchantment and Biomancy lead me to the idea that, with the right methodology, I could enchant living flesh as I would enchant a regular tool.<BR/>I can't just put animals under the infusion altar though. Living and berating creatures have a tendency to reject magic, something I've been experiencing even more while working with remains.<LINE> That being said, potions give a different perspective on the topic. They can infuse living creatures with magical abilities, which means that my attempts are not futile.<LINE> Going back to the enchantment route, I believe that I could create a book that contains the right incantations to apply enchantments to animals. If it's possible, I'll need some salis mundus to carry the magic along, since I will not have the ability to hammer it into my subject.
-research.thaumic_arcana.creature_enchant.stage.2=The first enchantment I created is a very basic one. it boosts the reproductive ability of any animal that I apply it to. One extra offspring is created per parent. <br> Although, if I want to go further than amplifying basic functions, I'll need to focus my research a little more.
-research.thaumic_arcana.creature_enchant.stage.3=Now I see how I can amplify the power of the enchantments. I need more research. There must be something more that I can do.
-research.thaumic_arcana.creature_enchant.stage.4=
-research.thaumic_arcana.creature_enchant.stage.5=That is it for now. I created powerful enchantments that I can apply to living beings. I think I can move forward to attempting more in Biomancy now that I understand more about the interaction of flesh and magic.
+research.thaumic_arcana.creature_enchant.stage.2=The carrier is complete. This special substance is able to bridge some of the incompatibilities between magic, and a creature's soul. <LINE> To test it, I created a special enchant,that increases the birthrates of my farm animals.
+research.thaumic_arcana.creature_enchant.stage.3=For the next experiment, I want to see how specific and radical I can be. I want to try to enchant a creature to breath underwater.
+research.thaumic_arcana.creature_enchant.stage.4=That is it for now. I created powerful enchantments that I can apply to living beings. I think I can move forward to attempting more in Biomancy now that I understand more about the interaction of flesh and magic.
 
 research.thaumic_arcana.creature_enchant_advanced.title=Advanced Creature enchants
 research.thaumic_arcana.creature_enchant_advanced.stage.1=There must be more for me to do.I prepared a few ingredients that I can use to try out a new formula, that should serve as the base for a much stronger enchanting powder, that (theoratically) can increase the strength of the bond between the creature and the enchantment.
@@ -80,6 +80,8 @@ research.thaumic_arcana.leather.stage.2=I failed to grow the hide, but found som
 research.thaumic_arcana.tree.title=Bush Alchemy
 research.thaumic_arcana.tree.stage.1=When I was growing plants, it wasn't too hard to add too much essentia, which sometimes causes its growth to go out of control. This was able to mutilate the plant. <LINE> This can be useful. If I don't care about the deformities than some new applications could emerge, namely to grow trees this way.
 research.thaumic_arcana.tree.stage.2=The tree is more of a bush, but it is able to give me wood. I also need to add some vacuos to the formula, so I can improve the spatial conditions in there for long enough to make it so that it won't get stuck in my cauldron, or thaumatorium. <LINE>The leaves overgrew, and became so hard that I need to crack it open by smashing it to a wall.
+research.thaumic_arcana.tree.stage.3=The process causes a yield lower than expected. I don't think I should do this to plants where this problem didn't occur.
+
 
 research.thaumic_arcana.plantproducts.title=Biomanuafactury
 research.thaumic_arcana.plantproducts.stage.1= Now that I figured how to force plants to grow, I want to do something different. I want to see if I can fabricate products that would normally come from different plants in more flexible ways. <LINE> The first thing I want to try is to solve a problem that has been emerging during my work. I use a lot of paper while doing research and studies. <BR> I prepared a few candidates and samples that should be usable to create paper.

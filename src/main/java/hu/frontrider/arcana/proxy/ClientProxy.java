@@ -52,5 +52,7 @@ public class ClientProxy extends CommonProxy {
 
             playerRender.addLayer(enchantRenderer);
         }
+
+        MinecraftForge.EVENT_BUS.register(enchantRenderer);
     }
 }

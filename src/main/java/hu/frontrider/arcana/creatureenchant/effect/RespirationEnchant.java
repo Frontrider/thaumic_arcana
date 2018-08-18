@@ -1,6 +1,5 @@
-package hu.frontrider.arcana.creatureenchant;
+package hu.frontrider.arcana.creatureenchant.effect;
 
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -10,19 +9,18 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.RESPIRATION;
 
 public class RespirationEnchant extends CreatureEnchant {
 
     public RespirationEnchant() {
-        super(new ResourceLocation(MODID, "textures/enchant/respiration.png"),"respiration");
+        super(new ResourceLocation(MODID, "respiration"),"respiration");
     }
 
     @SubscribeEvent
     public void handleEvent(LivingEvent.LivingUpdateEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
             if (entity.isInWater()) {
-                int enchantLevel = getEnchantLevel(entity, RESPIRATION);
+                int enchantLevel = getEnchantLevel(entity, this);
                 if (enchantLevel >0) {
                     entity.setAir(300);
                 }
@@ -39,11 +37,6 @@ public class RespirationEnchant extends CreatureEnchant {
                 .merge(Aspect.ORDER,10)
                 .merge(Aspect.SENSES,20)
                 .merge(Aspect.MAGIC,80);
-    }
-
-    @Override
-    public CEnchantment getEnum() {
-        return RESPIRATION;
     }
 
     @Override

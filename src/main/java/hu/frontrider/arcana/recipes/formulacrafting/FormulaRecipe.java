@@ -5,7 +5,9 @@ import hu.frontrider.arcana.items.CreatureEnchanter;
 import hu.frontrider.arcana.util.AspectUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.api.aspects.AspectHelper;
 import thaumcraft.api.aspects.AspectList;
 
@@ -26,6 +28,7 @@ public class FormulaRecipe {
     private final ItemStack result;
     private BiConsumer<ItemStack, ItemStack> craftingCallback;
     private BiFunction<ItemStack, ItemStack, Boolean> canCraftOverride;
+    private static IForgeRegistry<CreatureEnchant> creatureEnchantIForgeRegistry = GameRegistry.findRegistry(CreatureEnchant.class);
 
     public FormulaRecipe(ItemStack item, AspectList formula, ItemStack result) {
         this.item = item;
@@ -110,17 +113,19 @@ public class FormulaRecipe {
 
     public static void registerRecipes() {
 
-        formulaRecipeList = new ArrayList<>();
-        CreatureEnchant.getCreatureEnchants().forEach(creatureEnchant -> {
+        if (formulaRecipeList == null)
+            formulaRecipeList = new ArrayList<>();
+
+        creatureEnchantIForgeRegistry.getValuesCollection().forEach(creatureEnchant -> {
             formulaRecipeList.add(buildFor(creatureEnchant, enchanting_powder_advanced));
             formulaRecipeList.add(buildFor(creatureEnchant, enchanting_powder_basic));
             formulaRecipeList.add(buildFor(creatureEnchant, enchanting_powder_magical));
-            });
+        });
     }
 
     static FormulaRecipe buildFor(CreatureEnchant creatureEnchant, Item enchanter) {
         ItemStack enchantedItem = CreatureEnchanter.createEnchantedItem(
-                enchanter, new CreatureEnchanter.EnchantmentData(creatureEnchant.getEnum(), 3));
+                enchanter, new CreatureEnchanter.EnchantmentData(creatureEnchant, 3));
         enchantedItem.setCount(1);
         return new FormulaRecipe(
                 new ItemStack(enchanter),
@@ -130,6 +135,8 @@ public class FormulaRecipe {
     }
 
     public static List<FormulaRecipe> getFormulaRecipeList() {
+        if (formulaRecipeList == null)
+            formulaRecipeList = new ArrayList<>();
         return formulaRecipeList;
     }
 }

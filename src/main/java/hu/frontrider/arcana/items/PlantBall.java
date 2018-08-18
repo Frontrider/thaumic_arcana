@@ -120,7 +120,9 @@ public class PlantBall extends ItemBase implements Initialisable {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (tab != TABARCANA)
             return;
+        if(treeItems != null)
         items.addAll(treeItems);
+        if(seedItems!= null)
         items.addAll(seedItems);
     }
 
@@ -133,8 +135,17 @@ public class PlantBall extends ItemBase implements Initialisable {
 
             Item sapling = Item.REGISTRY.getObject(new ResourceLocation("minecraft:sapling"));
             Item log = Item.REGISTRY.getObject(new ResourceLocation("minecraft:log"));
-            while (meta < 6) {
+
+            Item log2 = Item.REGISTRY.getObject(new ResourceLocation("minecraft:log2"));
+
+            while (meta < 4) {
                 items.add(getBallFor(new ItemStack(sapling, 2, meta), new ItemStack(log, 5, meta)));
+                meta++;
+            }
+            meta=0;
+
+            while (meta < 2) {
+                items.add(getBallFor(new ItemStack(sapling, 2, meta+4), new ItemStack(log2, 5, meta)));
                 meta++;
             }
         }

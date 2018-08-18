@@ -1,3 +1,16 @@
+
+0.1.1:
+- enchantment effect now renders in first person
+- fixed logs inside plantballs
+- fixed a variety of language keys
+- fixed research files
+- fixed nullpointer exception with Better With Mods
+
+- internal reworkings
+
+
+WARNING: If you had enchants from before, you might need to kill the entity (the same applies to your character), because the internal names have changed.
+=======
 0.1.0 alpha release
 features:
   -grow plants and meat in your crucible
