@@ -14,7 +14,12 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: "com.matthewprenger.cursegradle"
 
+
+
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+archivesBaseName="Thaumic Arcana"
+
 
 curseforge {
     apiKey = System.env.curse_api_key != null?System.env.curse_api_key:"111111"
