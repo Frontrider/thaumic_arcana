@@ -20,10 +20,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import testutil.TestUtils;
 import thaumcraft.api.items.ItemsTC;
 
@@ -32,6 +29,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.*;
 
+@Disabled
 class CreatureEnchanterTest {
     private CreatureEnchanter creature_enchanter;
     private EntityLivingBase mockentityLiving;

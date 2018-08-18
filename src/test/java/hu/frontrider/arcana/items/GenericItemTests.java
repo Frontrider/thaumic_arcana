@@ -4,6 +4,7 @@ import net.minecraft.init.Bootstrap;
 import net.minecraft.item.Item;
 import net.minecraft.util.NonNullList;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,6 +14,7 @@ import java.util.stream.Stream;
 
 import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 
+@Disabled
 @DisplayName("Generic tests that run on all items")
 public class GenericItemTests {
 
