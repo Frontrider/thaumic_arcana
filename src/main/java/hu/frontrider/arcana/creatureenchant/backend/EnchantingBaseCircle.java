@@ -27,29 +27,29 @@ public abstract class EnchantingBaseCircle extends IForgeRegistryEntry.Impl<Ench
     public static class Color{
         public Color(int r,int g,int b,int a){
 
-            this.r = r;
-            this.g = g;
-            this.b = b;
-            this.a = a;
+            this.r = r/255;
+            this.g = g/255;
+            this.b = b/255;
+            this.a = a/255;
         }
-        int r;
-        int g;
-        int b;
-        int a;
+        float r;
+        float g;
+        float b;
+        float a;
 
-        public int getR() {
+        public float getR() {
             return r;
         }
 
-        public int getG() {
+        public float getG() {
             return g;
         }
 
-        public int getB() {
+        public float getB() {
             return b;
         }
 
-        public int getA() {
+        public float getA() {
             return a;
         }
     }
