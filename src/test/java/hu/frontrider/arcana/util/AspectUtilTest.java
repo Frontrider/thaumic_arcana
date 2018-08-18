@@ -68,5 +68,19 @@ class AspectUtilTest {
 
             assertFalse(AspectUtil.aspectListEquals(aspectList, aspectList1));
         }
+        @Test
+        @DisplayName("not equals when the lists are different")
+        void aspectListDifferentList() {
+            AspectList aspectList = new AspectList()
+                    .merge(Aspect.ENERGY, 2)
+                    .merge(Aspect.MAGIC, 3);
+
+            AspectList aspectList1 = new AspectList()
+                    .merge(Aspect.EXCHANGE, 2)
+                    .merge(Aspect.DESIRE, 3)
+                    .merge(Aspect.SOUL,12);
+
+            assertFalse(AspectUtil.aspectListEquals(aspectList, aspectList1));
+        }
     }
 }

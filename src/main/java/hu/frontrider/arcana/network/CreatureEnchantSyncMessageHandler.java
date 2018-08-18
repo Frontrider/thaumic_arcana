@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.network;
 
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
+import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -15,7 +15,7 @@ import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE
 
 public class CreatureEnchantSyncMessageHandler implements IMessageHandler<CreatureEnchantSyncMessage, IMessage> {
 
-    public static Map<Integer,Map<CEnchantment,Integer>> enchantmentCache;
+    public static Map<Integer,Map<CreatureEnchant,Integer>> enchantmentCache;
 
     static{
         enchantmentCache = new HashMap<>();

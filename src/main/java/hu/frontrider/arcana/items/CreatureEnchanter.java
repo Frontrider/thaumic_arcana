@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.items;
 
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
+import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
@@ -18,10 +18,7 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -36,14 +33,25 @@ import java.util.List;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
-import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.*;
 import static net.minecraft.util.EnumActionResult.FAIL;
 import static net.minecraft.util.EnumActionResult.SUCCESS;
 
 public class CreatureEnchanter extends ItemBase {
 
     @GameRegistry.ObjectHolder("thaumcraft:warpward")
-    static Potion warpWard = null;
+    public static final Potion warpWard = null;
+
+    @GameRegistry.ObjectHolder("thaumic_arcana:fertile")
+    public static final CreatureEnchant fertile = null;
+
+    @GameRegistry.ObjectHolder("thaumic_arcana:protection")
+    public static final CreatureEnchant protection = null;
+
+    @GameRegistry.ObjectHolder("thaumic_arcana:strength")
+    public static final CreatureEnchant strength = null;
+
+    @GameRegistry.ObjectHolder("thaumic_arcana:respiration")
+    public static final CreatureEnchant respiration = null;
 
     private final SimpleNetworkWrapper networkWrapper;
 
@@ -70,6 +78,8 @@ public class CreatureEnchanter extends ItemBase {
                     return false;
                 NBTBase creature_enchants = tagCompound.getTag("creature_enchants");
                 ((NBTTagList) creature_enchants).iterator().forEachRemaining((enchant) -> {
+                    if(capability.getStore().size()>6)
+                        return;
                     EnchantmentData enchantmentData = nbtToEnchantment((NBTTagCompound) enchant);
                     capability.putEnchant(enchantmentData.enchantment, enchantmentData.level);
                 });
@@ -120,7 +130,7 @@ public class CreatureEnchanter extends ItemBase {
                 creature_enchants.iterator().forEachRemaining((enchant) -> {
                     String name = ((NBTTagCompound) enchant).getString("name");
                     int level = ((NBTTagCompound) enchant).getInteger("level");
-                    tooltip.add(I18n.format("enchant.creature_enchant." + name.toLowerCase()) + " " + level);
+                    tooltip.add(I18n.format("enchant.creature_enchant." + name.split(":")[1].toLowerCase()) + " " + level);
                 });
             }
         }
@@ -142,15 +152,15 @@ public class CreatureEnchanter extends ItemBase {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (tab == TABARCANA) {
             items.add(new ItemStack(ItemRegistry.creature_enchanter));
-            items.add(createEnchantedItem(new EnchantmentData(FERTILE, 1)));
-            items.add(createEnchantedItem(new EnchantmentData(RESPIRATION, 1)));
+            items.add(createEnchantedItem(new EnchantmentData(fertile, 1)));
+            items.add(createEnchantedItem(new EnchantmentData(respiration, 1)));
 
             for (int level = 1; level < 4; level++) {
-                items.add(createEnchantedItem(new EnchantmentData(STRENGTH, level)));
+                items.add(createEnchantedItem(new EnchantmentData(strength, level)));
             }
 
             for (int level = 1; level < 4; level++) {
-                items.add(createEnchantedItem(new EnchantmentData(PROTECTION, level)));
+                items.add(createEnchantedItem(new EnchantmentData(protection, level)));
             }
         }
     }
@@ -162,7 +172,7 @@ public class CreatureEnchanter extends ItemBase {
 
         for (EnchantmentData enchantmentData : enchantmentDatas) {
             NBTTagCompound enchantmentTag = new NBTTagCompound();
-            enchantmentTag.setString("name", enchantmentData.enchantment.name());
+            enchantmentTag.setString("name", enchantmentData.enchantment.getRegistryName().toString());
             enchantmentTag.setInteger("level", enchantmentData.level);
 
             tagList.appendTag(enchantmentTag);
@@ -172,22 +182,23 @@ public class CreatureEnchanter extends ItemBase {
         enchanter.setTagCompound(compound);
         return enchanter;
     }
+
     public static ItemStack createEnchantedItem(EnchantmentData... enchantmentDatas) {
-        return createEnchantedItem(ItemRegistry.creature_enchanter,enchantmentDatas);
+        return createEnchantedItem(ItemRegistry.creature_enchanter, enchantmentDatas);
     }
 
     static EnchantmentData nbtToEnchantment(NBTTagCompound nbt) {
         String name = nbt.getString("name");
         int level = nbt.getInteger("level");
-        return new EnchantmentData(CEnchantment.valueOf(name), level);
+        return new EnchantmentData(GameRegistry.findRegistry(CreatureEnchant.class).getValue(new ResourceLocation(name)), level);
     }
 
     public static class EnchantmentData {
 
-        private final CEnchantment enchantment;
+        private final CreatureEnchant enchantment;
         private final int level;
 
-        public EnchantmentData(CEnchantment enchantment, int level) {
+        public EnchantmentData(CreatureEnchant enchantment, int level) {
             this.enchantment = enchantment;
             this.level = level;
         }

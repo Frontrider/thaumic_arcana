@@ -1,7 +1,8 @@
-package hu.frontrider.arcana.creatureenchant;
+package hu.frontrider.arcana.creatureenchant.effect;
 
-import hu.frontrider.arcana.creatureenchant.backend.CEnchantment;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -10,12 +11,11 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.creatureenchant.backend.CEnchantment.STRENGTH;
 
 public class StrengthEnchant extends CreatureEnchant {
 
     public StrengthEnchant() {
-        super(new ResourceLocation(MODID, "textures/enchant/strength.png"),"strength");
+        super(new ResourceLocation(MODID, "strength"), "strength");
     }
 
     @SubscribeEvent
@@ -23,9 +23,12 @@ public class StrengthEnchant extends CreatureEnchant {
 
         DamageSource source = event.getSource();
         if (source.getTrueSource() != null) {
-            int enchantLevel = getEnchantLevel(event.getSource().getTrueSource(), STRENGTH);
-            if (enchantLevel > 0) {
-                event.setAmount(event.getAmount() + enchantLevel);
+            Entity trueSource = event.getSource().getTrueSource();
+            if (trueSource instanceof EntityLivingBase) {
+                int enchantLevel = getEnchantLevel((EntityLivingBase) trueSource, this);
+                if (enchantLevel > 0) {
+                    event.setAmount(event.getAmount() + enchantLevel);
+                }
             }
         }
     }
@@ -33,16 +36,11 @@ public class StrengthEnchant extends CreatureEnchant {
     @Override
     public AspectList formula() {
         return new AspectList()
-                .merge(Aspect.LIFE,20)
-                .merge(Aspect.ENERGY,200)
-                .merge(Aspect.FIRE,50)
-                .merge(Aspect.ORDER,300)
-                .merge(Aspect.MAGIC,50);
-    }
-
-    @Override
-    public CEnchantment getEnum() {
-        return STRENGTH;
+                .merge(Aspect.LIFE, 20)
+                .merge(Aspect.ENERGY, 200)
+                .merge(Aspect.FIRE, 50)
+                .merge(Aspect.ORDER, 300)
+                .merge(Aspect.MAGIC, 50);
     }
 
     @Override

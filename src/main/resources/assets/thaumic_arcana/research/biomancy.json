@@ -53,6 +53,12 @@
           "required_research": [
             "EXPERMIENT_TABLE@1"
           ]
+        },
+        {
+          "text": "research.thaumic_arcana.table.magic_application",
+          "required_research": [
+            "CREATURE_ENCHANT@2"
+          ]
         }
       ]
     },
@@ -275,6 +281,18 @@
         },
         {
           "text": "research.thaumic_arcana.tree.stage.2",
+          "required_item": [
+            "minecraft:seeds",
+            "minecraft:beetroot_seeds",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;4"
+          ],
           "recipes": [
             "thaumic_arcana:tree_0",
             "thaumic_arcana:tree_1",
@@ -284,6 +302,22 @@
             "thaumic_arcana:tree_5",
             "thaumic_arcana:tree_6",
             "thaumic_arcana:tree_7"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.tree.stage.3",
+          "recipes": [
+            "thaumic_arcana:tree_0",
+            "thaumic_arcana:tree_1",
+            "thaumic_arcana:tree_2",
+            "thaumic_arcana:tree_3",
+            "thaumic_arcana:tree_4",
+            "thaumic_arcana:tree_5",
+            "thaumic_arcana:tree_6",
+            "thaumic_arcana:tree_7",
+
+            "thaumic_arcana:seed_10",
+            "thaumic_arcana:seed_11"
           ]
         }
       ]
@@ -320,7 +354,7 @@
             "minecraft:beef",
             "minecraft:porkchop",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}"
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -483,7 +517,7 @@
           "required_item": [
             "minecraft:egg",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ignis'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
           ],
           "required_knowledge": [
@@ -547,8 +581,8 @@
           "required_item": [
             "minecraft:enchanted_book",
             "minecraft:beef",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'pracentio'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praemunio'}]}"
           ],
           "required_knowledge": [
@@ -566,8 +600,8 @@
           "required_item": [
             "minecraft:enchanted_book",
             "minecraft:beef",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'pracentio'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'beastia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praemunio'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'potentia'}]}"
           ],

@@ -20,16 +20,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 
 public class ExperimentTable extends BlockHorizontal {
 
-    @GameRegistry.ObjectHolder(MODID + ":enchanting_powder_basic")
-    private static Item enchanting_powder_basic = null;
-    @GameRegistry.ObjectHolder(MODID + ":enchanting_powder_advanced")
-    private static Item enchanting_powder_advanced = null;
-
-    @GameRegistry.ObjectHolder(MODID + ":enchanting_powder_magical")
-    private static Item enchanting_powder_magical = null;
 
     @GameRegistry.ObjectHolder(MODID + ":formula")
     public static Item formula = null;
@@ -43,6 +37,7 @@ public class ExperimentTable extends BlockHorizontal {
         setRegistryName(new ResourceLocation(MODID, "experiment_table"));
         setUnlocalizedName("experiment_table");
         setHardness(3);
+        setCreativeTab(TABARCANA);
     }
 
     /**

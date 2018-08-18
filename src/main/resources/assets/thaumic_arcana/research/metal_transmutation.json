@@ -30,7 +30,7 @@
             "minecraft:gold_ingot",
             "minecraft:gold_nugget",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'metallum'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'deserium'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'desiderium'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vitreus'}]}"
           ],
           "required_knowledge": [
