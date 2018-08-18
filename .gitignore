@@ -26,5 +26,4 @@ classes
 /lib
 *.jar
 logs/
-
 !/gradle/wrapper/gradle-wrapper.jar

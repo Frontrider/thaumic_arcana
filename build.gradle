@@ -14,6 +14,10 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: "com.matthewprenger.cursegradle"
 
+version = "0.1.0"
+group = "hu.frontrider.arcana" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "ThaumicArcana"
+
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
