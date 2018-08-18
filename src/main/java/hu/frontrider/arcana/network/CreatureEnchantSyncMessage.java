@@ -23,11 +23,12 @@ public class CreatureEnchantSyncMessage implements IMessage {
     IForgeRegistry<CreatureEnchant> registry;
 
     public CreatureEnchantSyncMessage() {
+        registry = GameRegistry.findRegistry(CreatureEnchant.class);
+
     }
 
     public CreatureEnchantSyncMessage(ICreatureEnchant enchant, int id) {
-
-        registry = GameRegistry.findRegistry(CreatureEnchant.class);
+        this();
         this.enchant = enchant.getStore();
         this.id = id;
     }
@@ -51,7 +52,7 @@ public class CreatureEnchantSyncMessage implements IMessage {
         writeVarInt(buf, id, Integer.BYTES);
         writeVarInt(buf, enchant.size(), byteLength);
         enchant.forEach((key, value) -> {
-            writeUTF8String(buf, key.toString());
+            writeUTF8String(buf, key.getRegistryName().toString());
             writeVarInt(buf, value, byteLength);
         });
     }

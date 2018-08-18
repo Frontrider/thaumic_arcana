@@ -3,12 +3,15 @@ package hu.frontrider.arcana.client;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.lwjgl.opengl.GL11;
@@ -31,10 +34,26 @@ public class EnchantRenderer implements LayerRenderer {
     }
 
 
-    //set vertices, set textures, tell glstatemanager to draw it
     @Override
     public void doRenderLayer(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+         doRender(entity, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
+    }
 
+    @SubscribeEvent
+    public void renderFirstPerson(RenderWorldLastEvent event){
+        EntityPlayerSP player = Minecraft.getMinecraft().player;
+
+        if(player != null) {
+            int thirdPersonView = Minecraft.getMinecraft().gameSettings.thirdPersonView;
+            if (thirdPersonView == 0) {
+                GlStateManager.translate(0, -1, 0);
+                doRender(player, player.limbSwing, player.limbSwingAmount, event.getPartialTicks(), player.ticksExisted, player.cameraYaw, player.cameraPitch, 1);
+                GlStateManager.translate(0, 1, 0);
+            }
+        }
+    }
+
+    void doRender(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale){
         if (!CreatureEnchant.isEnchanted(entity)) {
             return;
         }
@@ -47,7 +66,6 @@ public class EnchantRenderer implements LayerRenderer {
         TextureManager renderEngine = Minecraft.getMinecraft().renderEngine;
         GlStateManager.disableCull();
         GlStateManager.disableLighting();
-
 
         drawMain(renderEngine,entity);
         GlStateManager.translate(0, 0, -.1);
@@ -68,10 +86,8 @@ public class EnchantRenderer implements LayerRenderer {
 
         EnchantingBaseCircle baseCircle = CreatureEnchant.getBaseCircle(entity);
         EnchantingBaseCircle.Color color = baseCircle.getColor();
-
-        GlStateManager.color(color.getR(), color.getB(), color.getG(),color.getA());
-
         textureManager.bindTexture(cicle);
+        GlStateManager.color(color.getR(), color.getG(), color.getB());
 
         glBegin(GL11.GL_QUADS);
         glTexCoord2f(0, 0);
@@ -94,21 +110,23 @@ public class EnchantRenderer implements LayerRenderer {
         int index = 1;
         for (Map.Entry<CreatureEnchant, Integer> entry : entries) {
 
+
             Integer level = entry.getValue();
             CreatureEnchant creatureEnchant = entry.getKey();
-            //somehow makes sure that our color is indeed reset
+
+            textureManager.bindTexture(creatureEnchant.getIcon());
+
             switch (level) {
                 case 1:
-                    GlStateManager.color(182, 255, 0);
+                    GlStateManager.color(.71f, 1,0);
                     break;
                 case 2:
-                    GlStateManager.color(255, 127, 127);
+                    GlStateManager.color(1, 0.49f, 0.49f);
                     break;
                 default:
-                    GlStateManager.color(214, 127, 155);
+                    GlStateManager.color(0.83f, 0.49f, 1);
                     break;
             }
-            textureManager.bindTexture(creatureEnchant.getIcon());
 
             float x = (float) (Math.cos(45 * index) * 1.8);
             float y = (float) (Math.sin(45 * index) * 1.8);

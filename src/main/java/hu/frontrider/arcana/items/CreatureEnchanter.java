@@ -36,15 +36,21 @@ import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE
 import static net.minecraft.util.EnumActionResult.FAIL;
 import static net.minecraft.util.EnumActionResult.SUCCESS;
 
-@GameRegistry.ObjectHolder("thaumic_arcana")
 public class CreatureEnchanter extends ItemBase {
 
     @GameRegistry.ObjectHolder("thaumcraft:warpward")
     public static final Potion warpWard = null;
 
+    @GameRegistry.ObjectHolder("thaumic_arcana:fertile")
     public static final CreatureEnchant fertile = null;
+
+    @GameRegistry.ObjectHolder("thaumic_arcana:protection")
     public static final CreatureEnchant protection = null;
+
+    @GameRegistry.ObjectHolder("thaumic_arcana:strength")
     public static final CreatureEnchant strength = null;
+
+    @GameRegistry.ObjectHolder("thaumic_arcana:respiration")
     public static final CreatureEnchant respiration = null;
 
     private final SimpleNetworkWrapper networkWrapper;
@@ -72,6 +78,8 @@ public class CreatureEnchanter extends ItemBase {
                     return false;
                 NBTBase creature_enchants = tagCompound.getTag("creature_enchants");
                 ((NBTTagList) creature_enchants).iterator().forEachRemaining((enchant) -> {
+                    if(capability.getStore().size()>6)
+                        return;
                     EnchantmentData enchantmentData = nbtToEnchantment((NBTTagCompound) enchant);
                     capability.putEnchant(enchantmentData.enchantment, enchantmentData.level);
                 });
@@ -164,7 +172,7 @@ public class CreatureEnchanter extends ItemBase {
 
         for (EnchantmentData enchantmentData : enchantmentDatas) {
             NBTTagCompound enchantmentTag = new NBTTagCompound();
-            enchantmentTag.setString("name", enchantmentData.enchantment.toString());
+            enchantmentTag.setString("name", enchantmentData.enchantment.getRegistryName().toString());
             enchantmentTag.setInteger("level", enchantmentData.level);
 
             tagList.appendTag(enchantmentTag);

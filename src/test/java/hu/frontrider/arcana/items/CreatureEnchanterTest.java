@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.items;
 
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.effect.FertileEnchant;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +17,6 @@ import net.minecraft.potion.PotionHealth;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -27,7 +27,6 @@ import org.junit.jupiter.api.Test;
 import testutil.TestUtils;
 import thaumcraft.api.items.ItemsTC;
 
-import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
@@ -55,7 +54,7 @@ class CreatureEnchanterTest {
         mockentityLiving = mock(EntityLivingBase.class);
 
         entityItemFrame = mock(EntityItemFrame.class);
-        enchantedItem = CreatureEnchanter.createEnchantedItem(new CreatureEnchanter.EnchantmentData(new ResourceLocation(MODID,"fertile"), 1));
+        enchantedItem = CreatureEnchanter.createEnchantedItem(new CreatureEnchanter.EnchantmentData(new FertileEnchant(), 1));
         blockPos = spy(new BlockPos(0, 0, 0));
 
         world = mock(World.class);
@@ -90,7 +89,7 @@ class CreatureEnchanterTest {
         @Test
         @DisplayName("capability got the new enchant")
         void capabilityGotEnchant() {
-            verify(capability, times(1)).putEnchant(new ResourceLocation(MODID,"fertile"), 1);
+            verify(capability, times(1)).putEnchant(new FertileEnchant(), 1);
         }
 
         @Test

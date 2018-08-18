@@ -35,7 +35,7 @@ public class CreatureEnchantCapability implements ICreatureEnchant {
 
     @Override
     public int getLevel(CreatureEnchant enchantment) {
-        return enchants.get(enchantment);
+        return enchants.get(enchantment) != null ? enchants.get(enchantment):0;
     }
 
     @Override
