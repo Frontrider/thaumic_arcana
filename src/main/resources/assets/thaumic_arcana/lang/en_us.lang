@@ -14,6 +14,8 @@ research.thaumic_arcana.table.title=Experiment Table
 research.thaumic_arcana.table.stage.1=To further my experiments, I drawn up designs, for a new table that includes all the tools I might need.<BR> To create it, I need to take 2 bottles and a stick into my hands, than put them on some greatwood planks. This workstation will also come in handy for research and theorycrafting.
 research.thaumic_arcana.table.application=I can use the experiment table to apply formulas to different items, by right clicking the table with the item in my main hand, and the formula in my offhand.
 research.thaumic_arcana.table.magic_application=I can also use the enchanting table to apply magical items, in a similar way to the Experiment Table.
+research.thaumic_arcana.table.cage=To start up my experiments on animals, I'll need some test subjects.To keep them somewhere, I created a small cage at the base of my experiment table. I can access it through the door, on the right side of the table.
+
 
 research.thaumic_arcana.plantlife.title=Plant-life
 research.thaumic_arcana.plantlife.stage.1=The first thing I should study is how plants react to magic. I know for sure that plant-life can absorb magical energies, since there are magical plants around me.
@@ -28,11 +30,12 @@ research.thaumic_arcana.wheat.stage.1=I believe that the aspects creating the el
 research.thaumic_arcana.wheat.stage.2=The first steps are promising: using alchemical principles, I was able to trigger rapid growth in seeds. Unfortunately, the resulting plant did not yield anything to repeat the process. I must try it on other plants.
 research.thaumic_arcana.wheat.stage.3=Other plants are reacting much better than wheat, resulting in a net gain. The methodology is still not perfect, but the results look edible.
 research.thaumic_arcana.wheat.stage.4=I have to see what happens when I use different breeds of plants. Maybe that can give me answers.
-research.thaumic_arcana.wheat.stage.6=Now I can alchemically grow my food on demand. The infertility problem of some plants proves to be harder to get rid of than I anticipated.
+research.thaumic_arcana.wheat.stage.5=Now I can alchemically grow my food on demand. The infertility problem of some plants proves to be harder to get rid of than I anticipated.
 
 research.thaumic_arcana.incubated_egg.title=Incubated Egg
 research.thaumic_arcana.incubated_egg.stage.1=I think I've gone far enough with plants to attempt to apply the same fundamental principles to animals. As a starting point, I'm going to apply heat and life energy to an egg in an attempt at supporting it's growth.
 research.thaumic_arcana.incubated_egg.stage.2=The egg responded the way I expected. After a few attempts with disturbing half grown animals, I managed to find the ratios of essentia I need to get an egg that will hatch a chicken every single time.<LINE> I also have to note that the shell of the egg became harder (I have no idea why), so throwing the egg around is inadvisable because it can damage the embryo.
+
 
 research.thaumic_arcana.flesh_growth.title=Fleshing it out
 research.thaumic_arcana.flesh_growth.stage.1=Now that I observed how essentia effects the growth of an animal, I can apply it in a different fashion. Theoretically, I can use Victus to trigger the growth of meat outside the animal. I'm going to add some Beastia as well, just in case the tissue needs a more familiar environment.
@@ -53,7 +56,8 @@ research.thaumic_arcana.creature_enchant.stage.4=That is it for now. I created p
 
 research.thaumic_arcana.creature_enchant_advanced.title=Advanced Creature enchants
 research.thaumic_arcana.creature_enchant_advanced.stage.1=There must be more for me to do.I prepared a few ingredients that I can use to try out a new formula, that should serve as the base for a much stronger enchanting powder, that (theoratically) can increase the strength of the bond between the creature and the enchantment.
-research.thaumic_arcana.creature_enchant_advanced.stage.2=I created the substance.
+research.thaumic_arcana.creature_enchant_advanced.stage.2=I created the substance. Now I want to try out if I could increase the strenght of the creature.
+research.thaumic_arcana.creature_enchant_advanced.stage.3=Success. The new enchantment is indeed potent, but it will not work alone I'll need some internal reinforcements, or else the limbs will fall off.
 
 research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby.
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
@@ -129,7 +133,8 @@ item.stabiliser.unstable=Unstable
 item.stabiliser.normal=Stable
 
 item.formula.name=Formula
-
+item.rodent.name=Rodent
+item.rodent.dead.name=Dead Rodent
 
 
 potion.effect.sweet_relief=Potion of Sweet Relief

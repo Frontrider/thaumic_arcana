@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.network;
+package hu.frontrider.arcana.network.creatureenchants;
 
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;

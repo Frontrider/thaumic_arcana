@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.api.aspects.AspectList;
-import thaumcraft.api.aspects.IEssentiaContainerItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -20,9 +19,9 @@ import java.util.List;
 import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.util.StringUtil.swappedDescription;
 
-public class BaseFormula extends ItemBase implements IEssentiaContainerItem {
+public class BaseFormula extends ItemWithAspects {
 
-    IForgeRegistry<CreatureEnchant> creatureEnchantIForgeRegistry;
+    private IForgeRegistry<CreatureEnchant> creatureEnchantIForgeRegistry;
 
     public BaseFormula() {
 
@@ -67,26 +66,6 @@ public class BaseFormula extends ItemBase implements IEssentiaContainerItem {
         itemStack.setTagCompound(nbtTagCompound);
 
         return itemStack;
-    }
-
-    public AspectList getAspects(ItemStack itemStack) {
-        NBTTagCompound tagCompound = itemStack.getTagCompound();
-        AspectList aspectList = new AspectList();
-        if (tagCompound == null)
-            return aspectList;
-
-        aspectList.readFromNBT(tagCompound);
-
-        return aspectList;
-    }
-
-    @Override
-    public void setAspects(ItemStack itemStack, AspectList aspectList) {
-        NBTTagCompound tagCompound = itemStack.getTagCompound();
-        if (tagCompound == null)
-            tagCompound = new NBTTagCompound();
-        aspectList.writeToNBT(tagCompound);
-        itemStack.setTagCompound(tagCompound);
     }
 
     @Override

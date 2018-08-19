@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.network;
+package hu.frontrider.arcana.network.creatureenchants;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
-import static hu.frontrider.arcana.network.CreatureEnchantSyncMessageHandler.enchantmentCache;
+import static hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessageHandler.enchantmentCache;
 
 public class CreatureEnchantSynchronizer {
 

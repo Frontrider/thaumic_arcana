@@ -45,7 +45,6 @@ public class CreatureEnchantOffsetManager {
                         ()-> new String[]{
                                 "config file:" + file.getAbsolutePath()
                         });
-
             }
         } else {
             try {

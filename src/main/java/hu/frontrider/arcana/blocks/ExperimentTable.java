@@ -1,10 +1,13 @@
 package hu.frontrider.arcana.blocks;
 
+import hu.frontrider.arcana.ThaumicArcana;
+import hu.frontrider.arcana.blocks.tiles.TileEntityExperimentTable;
+import hu.frontrider.arcana.client.gui.GuiHandler;
 import hu.frontrider.arcana.items.Formula;
 import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipe;
 import hu.frontrider.arcana.util.AspectUtil;
-import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,10 +22,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.aspects.AspectList;
 
-import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
+import javax.annotation.Nullable;
 
-public class ExperimentTable extends BlockHorizontal {
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
+
+public class ExperimentTable extends BlockTileEntity<TileEntityExperimentTable> {
+    public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 
     @GameRegistry.ObjectHolder(MODID + ":formula")
@@ -33,11 +38,8 @@ public class ExperimentTable extends BlockHorizontal {
 
 
     protected ExperimentTable() {
-        super(Material.WOOD);
-        setRegistryName(new ResourceLocation(MODID, "experiment_table"));
-        setUnlocalizedName("experiment_table");
+        super(Material.WOOD,"experiment_table");
         setHardness(3);
-        setCreativeTab(TABARCANA);
     }
 
     /**
@@ -57,6 +59,13 @@ public class ExperimentTable extends BlockHorizontal {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (worldIn.isRemote)
             return true;
+
+        if (!playerIn.isSneaking()) {
+            if(state.getValue(FACING).rotateYCCW() == facing) {
+                playerIn.openGui(ThaumicArcana.instance, GuiHandler.EXPERIMENT_TABLE_CAGE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+                return true;
+            }
+        }
 
         ItemStack itemMainhand = playerIn.getHeldItemMainhand();
         ItemStack itemOffhand = playerIn.getHeldItemOffhand();
@@ -173,5 +182,17 @@ public class ExperimentTable extends BlockHorizontal {
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing()), 2);
+    }
+
+
+    @Override
+    public Class<TileEntityExperimentTable> getTileEntityClass() {
+        return TileEntityExperimentTable.class;
+    }
+
+    @Nullable
+    @Override
+    public TileEntityExperimentTable createTileEntity(World world, IBlockState state) {
+        return new TileEntityExperimentTable();
     }
 }

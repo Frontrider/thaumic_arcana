@@ -44,7 +44,7 @@ public class ItemRegistry {
             fertiliser, incubated_egg, creature_enchanter, nutrient_mix, plant_ball,
             enchanting_powder_basic,enchanting_powder_advanced,enchanting_powder_magical,
             new ItemBlock(experiment_table).setCreativeTab(TABARCANA).setRegistryName(experiment_table.getRegistryName()),
-            formula
+            formula,new Rodent()
     };
 
     @SubscribeEvent

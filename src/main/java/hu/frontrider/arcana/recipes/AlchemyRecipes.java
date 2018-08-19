@@ -346,41 +346,46 @@ public class AlchemyRecipes {
     }
 
     private static void initFertilizer() {
+
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
-                    "ARCANE_FERTILISER",
+                    "ARCANE_FERTILIZER",
                     new ItemStack(ItemRegistry.fertiliser, 1),
                     ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
                     new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4)
             );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertiliser_recipe"), recipe);
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe"), recipe);
         }
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
-                    "ARCANE_FERTILISER",
+                    "ARCANE_FERTILIZER",
                     new ItemStack(ItemRegistry.fertiliser, 4),
-                    ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 4),
-                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 2)
+                    ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
+                    new AspectList().add(Aspect.LIGHT, 3)
+                            .merge(Aspect.EARTH, 3)
+                            .merge(Aspect.WATER, 3)
+                            .merge(Aspect.CRAFT, 4)
+                            .add(Aspect.PLANT, 2)
             );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertiliser_recipe_2"), recipe);
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe_2"), recipe);
         }
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
-                    "ARCANE_FERTILISER",
+                    "ARCANE_FERTILIZER",
                     new ItemStack(ItemRegistry.fertiliser, 16),
                     ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
-                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 10)
+                    new AspectList().add(Aspect.LIGHT, 4).merge(Aspect.EARTH, 4).merge(Aspect.WATER, 4).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 10)
             );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertiliser_recipe_3"), recipe);
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe_3"), recipe);
         }
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
-                    "ARCANE_FERTILISER",
-                    new ItemStack(ItemRegistry.fertiliser, 64),
+                    "ARCANE_FERTILIZER",
+                    new ItemStack(ItemRegistry.fertiliser, 32),
                     ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
-                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 40)
+                    new AspectList().add(Aspect.LIGHT, 5).merge(Aspect.EARTH, 5).merge(Aspect.WATER, 5).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 40)
             );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertiliser_recipe_4"), recipe);
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe_4"), recipe);
         }
         {
             CrucibleRecipe recipe = new CrucibleRecipe(

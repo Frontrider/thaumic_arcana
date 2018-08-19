@@ -3,11 +3,12 @@ package hu.frontrider.arcana;
 import hu.frontrider.arcana.capabilities.CreatureEnchantCapability;
 import hu.frontrider.arcana.capabilities.CreatureEnchantStorage;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
+import hu.frontrider.arcana.client.gui.GuiHandler;
 import hu.frontrider.arcana.eventhandlers.FunctionEventManager;
 import hu.frontrider.arcana.eventhandlers.LifecycleEventManager;
-import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
-import hu.frontrider.arcana.network.CreatureEnchantSyncMessageHandler;
-import hu.frontrider.arcana.network.CreatureEnchantSynchronizer;
+import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessage;
+import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessageHandler;
+import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSynchronizer;
 import hu.frontrider.arcana.recipes.AlchemyRecipes;
 import hu.frontrider.arcana.recipes.ArcaneCraftingRecipes;
 import hu.frontrider.arcana.recipes.InfusionRecipes;
@@ -41,6 +42,9 @@ public class ThaumicArcana {
     public static CreativeTabs TABARCANA = new CreativeTabArcana(CreativeTabs.getNextID(), MODID);
     public static final SimpleNetworkWrapper NETWORK_WRAPPER = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
 
+    @Mod.Instance(MODID)
+    public static ThaumicArcana instance;
+
     @SidedProxy(clientSide = "hu.frontrider.arcana.client.ClientProxy", serverSide = "hu.frontrider.arcana.CommonProxy")
     public static CommonProxy proxy;
 
@@ -54,6 +58,9 @@ public class ThaumicArcana {
         proxy.preInit(event);
         CapabilityManager.INSTANCE.register(ICreatureEnchant.class, new CreatureEnchantStorage(), CreatureEnchantCapability::new);
         NETWORK_WRAPPER.registerMessage(CreatureEnchantSyncMessageHandler.class,CreatureEnchantSyncMessage.class,0,Side.CLIENT);
+
+
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 
     @EventHandler
