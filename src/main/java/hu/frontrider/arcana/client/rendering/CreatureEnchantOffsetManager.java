@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.function.Supplier;
 
 /**
  * Some creatures have the enchants in the wrong place. This system creates a customiseable offset.
@@ -39,22 +40,22 @@ public class CreatureEnchantOffsetManager {
                                 "This file provides a fix for that.");
 
             } catch (IOException e) {
-                EntityPlayerSP player = Minecraft.getMinecraft().player;
-                if (player != null)
-                    player.sendMessage(new TextComponentTranslation("rendering.reload.failed"));
-                ThaumicArcana.logger.error("config file:" + file.getAbsolutePath());
-                ThaumicArcana.logger.error(e.getStackTrace());
+                reportError(e,
+                        "rendering.reload.failed",
+                        ()-> new String[]{
+                                "config file:" + file.getAbsolutePath()
+                        });
 
             }
         } else {
             try {
                 offsetProperties.load(new FileInputStream(file));
             } catch (IOException e) {
-                EntityPlayerSP player = Minecraft.getMinecraft().player;
-                if (player != null)
-                    player.sendMessage(new TextComponentTranslation("rendering.reload.failed"));
-                ThaumicArcana.logger.error("config file:" + file.getAbsolutePath());
-                ThaumicArcana.logger.error(e.getStackTrace());
+                reportError(e,
+                        "rendering.reload.failed",
+                        ()-> new String[]{
+                                "config file:" + file.getAbsolutePath()
+                        });
             }
         }
 
@@ -68,12 +69,12 @@ public class CreatureEnchantOffsetManager {
                 String[] split = value.toString().split(",");
                 offsets.put(key.toString(), new ImmutableTriple<>(Float.valueOf(split[0]), Float.valueOf(split[1]), Float.valueOf(split[2])));
             } catch (Exception e) {
-                EntityPlayerSP player = Minecraft.getMinecraft().player;
-                if (player != null)
-                    player.sendMessage(new TextComponentTranslation("rendering.reload.failed"));
-                ThaumicArcana.logger.error("key: " + key);
-                ThaumicArcana.logger.error("value: " + value);
-                ThaumicArcana.logger.error(e.getStackTrace());
+                reportError(e,
+                        "rendering.reload.failed",
+                        ()-> new String[]{
+                                "key: " + key,
+                                "value: " + value
+                                });
             }
 
         });
@@ -99,6 +100,17 @@ public class CreatureEnchantOffsetManager {
      */
     public Triple<Float, Float, Float> getForEntity(String resourceLocation) {
         return offsets.get(resourceLocation);
+    }
+
+    private void reportError(Exception e, String languageKey, Supplier<String[]> message){
+        EntityPlayerSP player = Minecraft.getMinecraft().player;
+        if (player != null)
+            player.sendMessage(new TextComponentTranslation(languageKey));
+
+        for (String log : message.get()) {
+            ThaumicArcana.logger.error(log);
+        }
+        ThaumicArcana.logger.error(e.getStackTrace());
     }
 
 }
