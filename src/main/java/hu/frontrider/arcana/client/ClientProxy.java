@@ -1,6 +1,8 @@
-package hu.frontrider.arcana.proxy;
+package hu.frontrider.arcana.client;
 
-import hu.frontrider.arcana.client.EnchantRenderer;
+import hu.frontrider.arcana.CommonProxy;
+import hu.frontrider.arcana.client.commands.ReloadOffsetsCommand;
+import hu.frontrider.arcana.client.rendering.EnchantRenderer;
 import hu.frontrider.arcana.items.ItemRegistry;
 import hu.frontrider.arcana.util.StringUtil;
 import net.minecraft.client.Minecraft;
@@ -11,6 +13,7 @@ import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -54,5 +57,7 @@ public class ClientProxy extends CommonProxy {
         }
 
         MinecraftForge.EVENT_BUS.register(enchantRenderer);
+
+        ClientCommandHandler.instance.registerCommand(new ReloadOffsetsCommand(enchantRenderer));
     }
 }

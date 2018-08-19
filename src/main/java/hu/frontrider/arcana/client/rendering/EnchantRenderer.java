@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.client;
+package hu.frontrider.arcana.client.rendering;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
@@ -12,8 +12,10 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+import org.apache.commons.lang3.tuple.Triple;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Map;
@@ -28,11 +30,14 @@ public class EnchantRenderer implements LayerRenderer {
 
     ResourceLocation cicle = new ResourceLocation(MODID, "textures/cenchant/enchant_effect.png");
     IForgeRegistry<CreatureEnchant> creatureEnchants;
-
+    CreatureEnchantOffsetManager creatureEnchantOffsetManager;
     public EnchantRenderer(){
         creatureEnchants = GameRegistry.findRegistry(CreatureEnchant.class);
-    }
+        creatureEnchantOffsetManager = new CreatureEnchantOffsetManager();
 
+        creatureEnchantOffsetManager.loadConfigs();
+
+    }
 
     @Override
     public void doRenderLayer(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
@@ -58,7 +63,12 @@ public class EnchantRenderer implements LayerRenderer {
             return;
         }
 
+        String name = EntityRegistry.getEntry(entity.getClass()).getRegistryName().toString();
+        Triple<Float, Float, Float> offset = creatureEnchantOffsetManager.getForEntity(name);
         GlStateManager.pushMatrix();
+        if(offset  != null){
+            GlStateManager.translate(offset.getLeft(), offset.getMiddle(), offset.getRight());
+        }else
         GlStateManager.translate(0, entity.height - .5, 0);
         GlStateManager.rotate(180, 0, 1, 1);
         GlStateManager.scale(0.6, 0.6, 0.6);
@@ -71,7 +81,9 @@ public class EnchantRenderer implements LayerRenderer {
         GlStateManager.translate(0, 0, -.1);
         drawIcons(renderEngine, entity);
         GlStateManager.translate(0, 0, .1);
-
+        if(offset  != null){
+            GlStateManager.translate(-offset.getLeft(), -offset.getMiddle(), -offset.getRight());
+        }else
         GlStateManager.enableLighting();
         GlStateManager.enableCull();
         GlStateManager.popMatrix();
@@ -142,7 +154,6 @@ public class EnchantRenderer implements LayerRenderer {
 
     private void drawIcon() {
 
-
         GL11.glBegin(GL11.GL_QUADS);
         glTexCoord2f(0, 0);
         glVertex3f(-.5f, -.5f, 0);
@@ -154,5 +165,9 @@ public class EnchantRenderer implements LayerRenderer {
         glVertex3f(-.5f, .5f, 0);
         glEnd();
 
+    }
+
+    public void reload(){
+        creatureEnchantOffsetManager.loadConfigs();
     }
 }

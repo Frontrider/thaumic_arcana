@@ -8,7 +8,6 @@ import hu.frontrider.arcana.eventhandlers.LifecycleEventManager;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessage;
 import hu.frontrider.arcana.network.CreatureEnchantSyncMessageHandler;
 import hu.frontrider.arcana.network.CreatureEnchantSynchronizer;
-import hu.frontrider.arcana.proxy.CommonProxy;
 import hu.frontrider.arcana.recipes.AlchemyRecipes;
 import hu.frontrider.arcana.recipes.ArcaneCraftingRecipes;
 import hu.frontrider.arcana.recipes.InfusionRecipes;
@@ -29,22 +28,29 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
+
 @Mod(modid = ThaumicArcana.MODID, name = ThaumicArcana.NAME, version = ThaumicArcana.VERSION)
 public class ThaumicArcana {
     public static final String MODID = "thaumic_arcana";
     public static final String NAME = "Thaumic Arcana";
     public static final String VERSION = "0.1.1";
 
+    public static File ConfigDirectory;
     public static Logger logger;
     public static CreativeTabs TABARCANA = new CreativeTabArcana(CreativeTabs.getNextID(), MODID);
     public static final SimpleNetworkWrapper NETWORK_WRAPPER = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
 
-    @SidedProxy(clientSide = "hu.frontrider.arcana.proxy.ClientProxy", serverSide = "hu.frontrider.arcana.proxy.ServerProxy")
+    @SidedProxy(clientSide = "hu.frontrider.arcana.client.ClientProxy", serverSide = "hu.frontrider.arcana.CommonProxy")
     public static CommonProxy proxy;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
+        File suggestedConfigurationFile = event.getSuggestedConfigurationFile();
+
+        ConfigDirectory = new File(suggestedConfigurationFile.getParent() + "/" + MODID + "/");
+
         proxy.preInit(event);
         CapabilityManager.INSTANCE.register(ICreatureEnchant.class, new CreatureEnchantStorage(), CreatureEnchantCapability::new);
         NETWORK_WRAPPER.registerMessage(CreatureEnchantSyncMessageHandler.class,CreatureEnchantSyncMessage.class,0,Side.CLIENT);

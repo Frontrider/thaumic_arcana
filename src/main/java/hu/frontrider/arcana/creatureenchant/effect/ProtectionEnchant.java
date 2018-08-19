@@ -23,8 +23,6 @@ public class ProtectionEnchant extends CreatureEnchant {
 
         if (enchantLevel>0) {
                 float amount = event.getAmount() / enchantLevel;
-                System.out.println("event amount = " + event.getAmount());
-                System.out.println("amount = " + amount);
                 if (amount < 1 && entity.world.rand.nextBoolean())
                     amount = 1;
                 event.setAmount(amount);

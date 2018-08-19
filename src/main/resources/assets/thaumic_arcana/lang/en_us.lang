@@ -149,5 +149,11 @@ tile.experiment_table.name=Experiment Table
 #Keys#
 ######
 key.thamic_arcana.category=Thaumic Arcana
-
 key.descriptions.desc=Swaps the descriptions of specific items
+
+
+##########
+#Commands#
+##########
+command.reload.feedback=Thaumic Arcana configs reloaded
+rendering.reload.failed=Failed to reload rendering. Check the console output for details.
