@@ -417,67 +417,9 @@
         },
         {
           "text": "research.thaumic_arcana.fertiliser.stage.2",
-          "required_item": [
-            "minecraft:bone_meal",
-            "minecraft:seeds",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
-          ],
           "recipes": [
             "thaumic_arcana:fertilizer_recipe"
-          ],
-          "required_knowledge": [
-            "THEORY;ALCHEMY;2",
-            "OBSERVATION;BIOMANCY;1",
-            "THEORY;BIOMANCY;1"
           ]
-        },
-        {
-          "text": "research.thaumic_arcana.fertiliser.stage.3",
-          "required_item": [
-            "minecraft:bone_meal",
-            "minecraft:seeds",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
-          ],
-          "recipes": [
-            "thaumic_arcana:fertilizer_recipe_2"
-          ],
-          "required_knowledge": [
-            "THEORY;ALCHEMY;2",
-            "OBSERVATION;BIOMANCY;1",
-            "THEORY;BIOMANCY;1"
-          ]
-        },
-        {
-          "text": "research.thaumic_arcana.fertiliser.stage.4",
-          "required_item": [
-            "thaumic_arcana:fertiliser",
-            "minecraft:seeds",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
-          ],
-          "recipes": [
-            "thaumic_arcana:fertilizer_recipe_3"
-          ],
-          "required_knowledge": [
-            "THEORY;ALCHEMY;2",
-            "OBSERVATION;BIOMANCY;1",
-            "THEORY;BIOMANCY;1"
-          ]
-        },
-        {
-          "text": "research.thaumic_arcana.fertiliser.stage.5",
-          "recipes": [
-            "thaumic_arcana:fertilizer_recipe_4"
-          ]
-        }
       ]
     },
     {
