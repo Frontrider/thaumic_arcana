@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
-import static hu.frontrider.arcana.items.ItemRegistry.*;
+import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.*;
 
 public class FormulaRecipe {
 

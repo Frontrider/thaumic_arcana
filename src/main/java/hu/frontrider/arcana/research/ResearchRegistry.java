@@ -43,6 +43,7 @@ public class ResearchRegistry {
         TheorycraftManager.registerCard(CardGrow.class);
         TheorycraftManager.registerCard(CardDissect.class);
         TheorycraftManager.registerCard(CardDissectDead.class);
+        TheorycraftManager.registerCard(CardExperiment.class);
     }
 
     static void initScans() {

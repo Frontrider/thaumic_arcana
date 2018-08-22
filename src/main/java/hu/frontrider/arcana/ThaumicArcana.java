@@ -13,6 +13,7 @@ import hu.frontrider.arcana.recipes.AlchemyRecipes;
 import hu.frontrider.arcana.recipes.ArcaneCraftingRecipes;
 import hu.frontrider.arcana.recipes.InfusionRecipes;
 import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipe;
+import hu.frontrider.arcana.registrationhandlers.BlockRegistry;
 import hu.frontrider.arcana.research.ResearchRegistry;
 import hu.frontrider.arcana.util.CreativeTabArcana;
 import net.minecraft.creativetab.CreativeTabs;
@@ -52,6 +53,8 @@ public class ThaumicArcana {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         File suggestedConfigurationFile = event.getSuggestedConfigurationFile();
+        MinecraftForge.EVENT_BUS.register(new BlockRegistry());
+
 
         ConfigDirectory = new File(suggestedConfigurationFile.getParent() + "/" + MODID + "/");
 

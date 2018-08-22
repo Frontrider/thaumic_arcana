@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.eventhandlers;
 
 import hu.frontrider.arcana.items.EnchantmentUpgradePowder;
-import hu.frontrider.arcana.items.ItemRegistry;
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -16,35 +16,38 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
-import static hu.frontrider.arcana.blocks.BlockRegistry.experiment_table;
-import static hu.frontrider.arcana.items.ItemRegistry.creature_enchanter;
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.creature_enchanter;
 import static net.minecraft.block.BlockHorizontal.FACING;
 
 @SuppressWarnings("ConstantConditions")
 public class FunctionEventManager {
 
-    @GameRegistry.ObjectHolder("thaumcraft:salis_mundus")
+    @ObjectHolder("thaumcraft:salis_mundus")
     private static final Item sal_mundi = null;
 
-    @GameRegistry.ObjectHolder("minecraft:book")
+    @ObjectHolder("minecraft:book")
     private static final Item book = null;
 
-    @GameRegistry.ObjectHolder("thaumic_arcana:creature_enchanter")
+    @ObjectHolder("thaumic_arcana:creature_enchanter")
     private static final Item enchant_book = null;
 
-    @GameRegistry.ObjectHolder("minecraft:enchanting_table")
+    @ObjectHolder("minecraft:enchanting_table")
     private static Block enchanting_table = null;
 
-    @GameRegistry.ObjectHolder("thaumcraft:plank_greatwood")
+    @ObjectHolder("thaumcraft:plank_greatwood")
     private static Block greatwood_planks = null;
 
-    @GameRegistry.ObjectHolder("minecraft:glass_bottle")
+    @ObjectHolder("minecraft:glass_bottle")
     private static Item glass_bottle = null;
 
-    @GameRegistry.ObjectHolder("minecraft:stick")
+    @ObjectHolder("minecraft:stick")
     private static Item stick = null;
+
+    @ObjectHolder(MODID+":experiment_table")
+    private static Block experiment_table = null;
 
     @SubscribeEvent
     public void entityRightClick(PlayerInteractEvent.EntityInteract event) {

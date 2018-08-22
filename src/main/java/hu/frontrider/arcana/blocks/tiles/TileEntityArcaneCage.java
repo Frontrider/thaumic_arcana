@@ -1,22 +1,26 @@
 package hu.frontrider.arcana.blocks.tiles;
 
 import hu.frontrider.arcana.blocks.tiles.capabilities.CageItemStackHandler;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import javax.annotation.Nullable;
 
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
 
-public class TileEntityExperimentTable extends TileEntity {
+public class TileEntityArcaneCage extends TileEntity {
+
+    @GameRegistry.ObjectHolder(MODID + ":rodent")
+    static Item rodent = null;
 
     private CageItemStackHandler cage = new CageItemStackHandler();
-
-    public TileEntityExperimentTable() {
-
-    }
 
     @Override
     public void updateContainingBlockInfo() {
@@ -46,7 +50,26 @@ public class TileEntityExperimentTable extends TileEntity {
     @Override
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
         return capability == ITEM_HANDLER_CAPABILITY ? ITEM_HANDLER_CAPABILITY.cast(cage) :
-                        super.getCapability(capability, facing);
+                super.getCapability(capability, facing);
+    }
+
+    public boolean randomTick(World world) {
+        ItemStack stackInSlot = cage.getStackInSlot(0);
+
+        if (stackInSlot.isEmpty()) {
+
+            ItemStack rodent = new ItemStack(TileEntityArcaneCage.rodent);
+
+            NBTTagCompound tagCompound = new NBTTagCompound();
+            tagCompound.setLong("lastFed", world.getTotalWorldTime());
+
+            rodent.setTagCompound(tagCompound);
+
+            cage.setStackInSlot(0, rodent);
+            this.markDirty();
+            return true;
+        }
+        return false;
     }
 
 }

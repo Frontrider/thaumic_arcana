@@ -46,5 +46,7 @@ public class TheoryRegistry {
 
         CardDissectDead.options = itemStacks.toArray(new ItemStack[0]);
 
+
+
     }
 }

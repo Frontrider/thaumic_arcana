@@ -33,7 +33,7 @@ public class PlantBall extends ItemBase implements Initialisable {
     private static List<ItemStack> treeItems;
     private static List<ItemStack> seedItems;
 
-    PlantBall() {
+    public PlantBall() {
         super();
         setRegistryName(new ResourceLocation(MODID, "plant_ball"));
         setUnlocalizedName("plant_ball");

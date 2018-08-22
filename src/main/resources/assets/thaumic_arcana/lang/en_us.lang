@@ -103,6 +103,8 @@ card.thaumic_arcana.study_flesh.text=Dissecting animals (%1$s) can give you a de
 card.thaumic_arcana.study_dead_flesh.name=Dissect remains
 card.thaumic_arcana.study_dead_flesh.text=Dissecting %1$s can give you a deeper understanding of their structure, even though it's a bit more gross than fresh tissue. Gain 25 Biomancy.
 
+card.thaumic_arcana.experiment.name=Experiment on animals
+card.thaumic_arcana.experiment.description=Experimention on animals is the most valuable source of information in the field of biomancy.
 ###################
 #Creature Enchants#
 ###################
@@ -162,3 +164,4 @@ key.descriptions.desc=Swaps the descriptions of specific items
 ##########
 command.reload.feedback=Thaumic Arcana configs reloaded
 rendering.reload.failed=Failed to reload rendering. Check the console output for details.
+

@@ -1,5 +1,6 @@
-package hu.frontrider.arcana.items;
+package hu.frontrider.arcana.registrationhandlers;
 
+import hu.frontrider.arcana.items.*;
 import hu.frontrider.arcana.util.Initialisable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -10,7 +11,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.Arrays;
 
 import static hu.frontrider.arcana.ThaumicArcana.*;
-import static hu.frontrider.arcana.blocks.BlockRegistry.experiment_table;
+import static hu.frontrider.arcana.registrationhandlers.BlockRegistry.blockArcaneCage;
+import static hu.frontrider.arcana.registrationhandlers.BlockRegistry.experimentTable;
 
 @Mod.EventBusSubscriber
 public class ItemRegistry {
@@ -43,8 +45,9 @@ public class ItemRegistry {
     public static Item[] items = new Item[]{
             fertiliser, incubated_egg, creature_enchanter, nutrient_mix, plant_ball,
             enchanting_powder_basic,enchanting_powder_advanced,enchanting_powder_magical,
-            new ItemBlock(experiment_table).setCreativeTab(TABARCANA).setRegistryName(experiment_table.getRegistryName()),
-            formula,new Rodent()
+            formula,new Rodent(),
+            new ItemBlock(experimentTable).setRegistryName(experimentTable.getRegistryName()).setCreativeTab(TABARCANA),
+            new ItemBlock(blockArcaneCage).setRegistryName(blockArcaneCage.getRegistryName()).setCreativeTab(TABARCANA)
     };
 
     @SubscribeEvent

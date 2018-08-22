@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "captured=false": {
+      "model": "thaumic_arcana:arcane_cage_open"
+    },
+    "captured=true": {
+      "model": "thaumic_arcana:arcane_cage_closed"
+    }
+
+  }
+}

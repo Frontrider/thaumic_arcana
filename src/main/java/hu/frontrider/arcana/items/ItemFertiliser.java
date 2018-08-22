@@ -15,7 +15,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
 public class ItemFertiliser extends ItemBase {
 
-    ItemFertiliser() {
+    public ItemFertiliser() {
         setRegistryName(new ResourceLocation(MODID, "fertiliser"));
         setUnlocalizedName("fertiliser");
     }

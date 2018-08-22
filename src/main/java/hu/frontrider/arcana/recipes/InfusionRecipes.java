@@ -8,8 +8,8 @@ import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.InfusionRecipe;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.items.ItemRegistry.enchanting_powder_advanced;
-import static hu.frontrider.arcana.items.ItemRegistry.enchanting_powder_basic;
+import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.enchanting_powder_advanced;
+import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.enchanting_powder_basic;
 import static net.minecraft.init.Items.DYE;
 import static thaumcraft.api.items.ItemsTC.salisMundus;
 

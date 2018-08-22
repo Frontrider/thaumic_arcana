@@ -3,6 +3,7 @@ package hu.frontrider.arcana.items;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessage;
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;

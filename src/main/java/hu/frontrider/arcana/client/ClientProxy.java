@@ -3,7 +3,7 @@ package hu.frontrider.arcana.client;
 import hu.frontrider.arcana.CommonProxy;
 import hu.frontrider.arcana.client.commands.ReloadOffsetsCommand;
 import hu.frontrider.arcana.client.rendering.EnchantRenderer;
-import hu.frontrider.arcana.items.ItemRegistry;
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
 import hu.frontrider.arcana.util.StringUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;

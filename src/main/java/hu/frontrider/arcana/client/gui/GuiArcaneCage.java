@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.client.gui;
 
-import hu.frontrider.arcana.blocks.tiles.TileEntityExperimentTable;
+import hu.frontrider.arcana.blocks.tiles.TileEntityArcaneCage;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,18 +11,18 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
-public class GuiExperimentTableCage extends GuiContainer {
+public class GuiArcaneCage extends GuiContainer {
     @GameRegistry.ObjectHolder(MODID + ":experiment_table")
     Block experimentTable = null;
 
     private static final ResourceLocation BG_TEXTURE = new ResourceLocation(MODID + ":textures/gui/experiment_table_cage.png");
     private InventoryPlayer playerInv;
-    private final TileEntityExperimentTable experimentTableTileEntity;
+    private final TileEntityArcaneCage experimentTableTileEntity;
 
-    public GuiExperimentTableCage(Container container, InventoryPlayer playerInv, TileEntityExperimentTable experimentTableTileEntity) {
+    public GuiArcaneCage(Container container, InventoryPlayer playerInv, TileEntityArcaneCage tileEntityArcaneCage) {
         super(container);
         this.playerInv = playerInv;
-        this.experimentTableTileEntity = experimentTableTileEntity;
+        this.experimentTableTileEntity = tileEntityArcaneCage;
     }
 
     @Override
@@ -32,6 +32,11 @@ public class GuiExperimentTableCage extends GuiContainer {
         int x = (width - xSize) / 2;
         int y = (height - ySize) / 2;
         drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
+    }
+
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
     @Override

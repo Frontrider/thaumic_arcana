@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.blocks.tiles.experimenttable;
+package hu.frontrider.arcana.blocks.tiles.capabilities;
 
 import hu.frontrider.arcana.Configuration;
 import net.minecraft.item.Item;

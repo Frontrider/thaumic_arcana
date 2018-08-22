@@ -3,8 +3,8 @@ package hu.frontrider.arcana.recipes;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.items.BaseFormula;
 import hu.frontrider.arcana.items.Formula;
-import hu.frontrider.arcana.items.ItemRegistry;
 import hu.frontrider.arcana.items.PlantBall;
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,7 +23,7 @@ import java.util.List;
 import static hu.frontrider.arcana.Configuration.enablePlatinum;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
-import static hu.frontrider.arcana.items.ItemRegistry.enchanting_powder_basic;
+import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.enchanting_powder_basic;
 import static net.minecraft.init.Items.*;
 
 public class AlchemyRecipes {

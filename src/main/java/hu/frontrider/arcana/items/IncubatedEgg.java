@@ -13,7 +13,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
 public class IncubatedEgg extends ItemBase {
 
-    IncubatedEgg() {
+    public IncubatedEgg() {
         super();
         setRegistryName(MODID, "incubated_egg");
         setMaxStackSize(16);
