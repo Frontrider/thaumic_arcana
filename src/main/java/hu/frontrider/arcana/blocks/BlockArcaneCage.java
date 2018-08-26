@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class BlockArcaneCage extends BlockTileEntity<TileEntityArcaneCage> {
+public class BlockArcaneCage extends BlockCage<TileEntityArcaneCage> {
 
     public static final PropertyBool CAPTURED = PropertyBool.create("captured");
 

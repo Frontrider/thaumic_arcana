@@ -5,7 +5,9 @@
     },
     "captured=true": {
       "model": "thaumic_arcana:arcane_cage_closed"
+    },
+    "inventory": {
+      "model": "thaumic_arcana:arcane_cage_open"
     }
-
   }
 }

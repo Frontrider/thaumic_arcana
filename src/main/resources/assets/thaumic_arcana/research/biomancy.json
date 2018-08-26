@@ -114,16 +114,37 @@
           ]
         },
         {
-          "text": "research.thaumic_arcana.creatures.stage.2"
+          "text": "research.thaumic_arcana.creatures.stage.2",
+          "required_knowledge": [
+            "OBSERVATION;BIOMANCY;1",
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_items": [
+            "thaumcraft:greatwood_planks",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vinculum'}]}"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creatures.stage.3",
+          "recipes":[
+            "thaumic_arcana:create_cage"
+          ]
         }
       ],
       "addenda": [
         {
           "text": "research.thaumic_arcana.creatures.formula",
           "required_research": [
+            "CREATURES@1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creatures.cage",
+          "required_research": [
             "CREATURES@2"
           ]
         }
+
       ]
     },
     {
@@ -420,6 +441,7 @@
           "recipes": [
             "thaumic_arcana:fertilizer_recipe"
           ]
+        }
       ]
     },
     {
@@ -637,6 +659,64 @@
           "recipes": [
             "thaumic_arcana:enchant_powder_advanced",
             "thaumic_arcana:ce_strength"
+          ],
+          "required_item": [
+            "minecraft:enchanted_book",
+            "thaumicarcana:rodent",
+            "thaumic-arcana:enchant_powder_advanced",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ignis'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "THEORY;BIOMANCY;2"
+          ]
+        },  {
+          "text": "research.thaumic_arcana.creature_enchant_advanced.stage.4",
+          "recipes": [
+            "thaumic_arcana:enchant_powder_advanced",
+            "thaumic_arcana:ce_strength",
+            "thaumic_arcana:ce_speed"
+          ],
+          "required_item": [
+            "minecraft:enchanted_book",
+            "minecraft:spider_eye",
+            "minecraft:cob_web",
+            "thaumicarcana:rodent",
+            "thaumic-arcana:enchant_powder_advanced",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vinculum'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "THEORY;BIOMANCY;2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced.stage.5",
+          "recipes": [
+            "thaumic_arcana:enchant_powder_advanced",
+            "thaumic_arcana:ce_strength",
+            "thaumic_arcana:ce_speed",
+            "thaumic_arcana:ce_spider"
+          ],
+          "required_item": [
+            "minecraft:enchanted_book",
+            "minecraft:spider_eye",
+            "minecraft:cob_web",
+            "thaumicarcana:rodent",
+            "thaumic-arcana:enchant_powder_advanced",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vinculum'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "THEORY;BIOMANCY;2"
           ]
         }
       ],
@@ -835,9 +915,9 @@
         {
           "text": "research.thaumic_arcana.plantproducts.stage.2",
           "required_item": [
-            "minecraft:dye:1",
-            "minecraft:dye:11",
-            "minecraft:dye:2",
+            "minecraft:dye;1;1",
+            "minecraft:dye;1;11",
+            "minecraft:dye;1;2",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
@@ -850,8 +930,42 @@
             "OBSERVATION;BASIC;1"
           ],
           "warp": 0
+        },
+        {
+          "text": "research.thaumic_arcana.plantproducts.stage.3",
+          "recipes": [
+            "thaumic_arcana:paper",
+            "thaumic_arcana:dye_red",
+            "thaumic_arcana:dye_yellow",
+            "thaumic_arcana:dye_green"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ENCHANT_MODIFICATION",
+      "name": "research.thaumic_arcana.enchant_modification.title",
+      "icons": [
+        "thaumic_arcana:textures/research/cat_biomancy.png"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        2,
+        -5
+      ],
+      "parents": [
+        "CREATURE_ENCHANT_ADVANCED"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.enchant_modification.stage.1"
         }
       ]
     }
+
   ]
 }

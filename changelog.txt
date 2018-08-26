@@ -1,3 +1,16 @@
+0.1.2:
+ - added animal experiments.
+ - Experiment table now has a small cage
+ - added arcane cage to trap rodents
+ - added rodents:
+    - catch them with the cage
+    - used for research
+    - will escape when the container is broken
+    - will die if not fed
+ - added enchantment: "Spider Limbs"
+ - added enchantment modifier: "Negation"
+ - added some flux
+
 
 0.1.1:
 - enchantment effect now renders in first person

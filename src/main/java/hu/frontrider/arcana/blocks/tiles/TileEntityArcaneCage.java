@@ -1,11 +1,13 @@
 package hu.frontrider.arcana.blocks.tiles;
 
 import hu.frontrider.arcana.blocks.tiles.capabilities.CageItemStackHandler;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -56,20 +58,29 @@ public class TileEntityArcaneCage extends TileEntity {
     public boolean randomTick(World world) {
         ItemStack stackInSlot = cage.getStackInSlot(0);
 
-        if (stackInSlot.isEmpty()) {
+        if (stackInSlot.isEmpty() && world.rand.nextBoolean()) {
+            ItemStack food = cage.getStackInSlot(1);
+            if(!food.isEmpty())
+            {
+                food.shrink(1);
+                ItemStack rodent = new ItemStack(TileEntityArcaneCage.rodent);
+                NBTTagCompound tagCompound = new NBTTagCompound();
+                tagCompound.setLong("lastFed", world.getTotalWorldTime());
 
-            ItemStack rodent = new ItemStack(TileEntityArcaneCage.rodent);
+                rodent.setTagCompound(tagCompound);
 
-            NBTTagCompound tagCompound = new NBTTagCompound();
-            tagCompound.setLong("lastFed", world.getTotalWorldTime());
+                cage.setStackInSlot(0, rodent);
+                this.markDirty();
+                return true;
+            }
 
-            rodent.setTagCompound(tagCompound);
-
-            cage.setStackInSlot(0, rodent);
-            this.markDirty();
-            return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
+        return oldState.getBlock() != newSate.getBlock();
     }
 
 }

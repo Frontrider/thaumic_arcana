@@ -3,6 +3,7 @@ package hu.frontrider.arcana.items;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.effect.FertileEnchant;
 import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessage;
+import hu.frontrider.minecrafttestkit.util.ReflectionHelper;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItemFrame;
@@ -21,7 +22,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.junit.jupiter.api.*;
-import testutil.TestUtils;
 import thaumcraft.api.items.ItemsTC;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -56,7 +56,7 @@ class CreatureEnchanterTest {
         blockPos = spy(new BlockPos(0, 0, 0));
 
         world = mock(World.class);
-        TestUtils.refectSetValue(world, "isRemote", false);
+        ReflectionHelper.refectSetValue(world, "isRemote", false);
 
         player = mock(EntityPlayerMP.class);
         when(player.getEntityWorld()).thenReturn(world);

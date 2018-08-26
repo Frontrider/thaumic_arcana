@@ -29,7 +29,10 @@ curseforge {
         releaseType = System.env.release_type != null?System.env.release_type:"release"
     }
 }
-
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
@@ -55,7 +58,7 @@ dependencies {
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junit_version
     testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
-
+    testCompile("hu.frontrider.minecrafttestkit:minecrafttestkit:0.1-SNAPSHOT")
     testCompile group: 'org.mockito', name: 'mockito-all', version: mockito_version
 
     testCompile("com.jayway.jsonpath:json-path:$json_path_version")

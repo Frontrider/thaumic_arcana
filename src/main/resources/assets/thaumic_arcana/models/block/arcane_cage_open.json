@@ -1,6 +1,7 @@
 ﻿{
-	"credit": "Made with Blockbench",
-	"textures": {
+  "credit": "Made with Blockbench",
+  "parent": "block/block",
+  "textures": {
 		"0": "thaumcraft:blocks/plank_greatwood",
 		"1": "thaumcraft:blocks/arcane_brick_stone",
 		"particle": "thaumcraft:blocks/plank_greatwood"

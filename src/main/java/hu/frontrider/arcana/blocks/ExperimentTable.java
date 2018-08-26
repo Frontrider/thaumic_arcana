@@ -31,7 +31,7 @@ import java.util.Random;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
 
-public class ExperimentTable extends BlockTileEntity<TileEntityExperimentTable> {
+public class ExperimentTable extends BlockCage<TileEntityExperimentTable> {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
     @GameRegistry.ObjectHolder("minecraft:water_bucket")
