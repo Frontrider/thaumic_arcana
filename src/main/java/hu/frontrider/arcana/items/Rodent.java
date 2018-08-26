@@ -1,5 +1,7 @@
 package hu.frontrider.arcana.items;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,7 +28,8 @@ public class Rodent extends ItemWithAspects {
         this.addPropertyOverride(new ResourceLocation("dead"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-                return isDead(stack, worldIn) ? 0.0F : 1.0F;
+                WorldClient world = Minecraft.getMinecraft().world;
+                return isDead(stack, world) ? 1F : 0.0F;
             }
         });
         setMaxStackSize(1);
@@ -43,7 +46,7 @@ public class Rodent extends ItemWithAspects {
         return aspectList;
     }
 
-    public boolean isDead(ItemStack itemStack, World world) {
+    public static boolean isDead(ItemStack itemStack, World world) {
         if (!(itemStack.getItem() instanceof Rodent))
             return false;
 
@@ -55,8 +58,7 @@ public class Rodent extends ItemWithAspects {
             return true;
         } else {
             long lastFed = tagCompound.getLong("lastFed");
-            //half an our : 36000
-            return world.getTotalWorldTime() - lastFed > 1200;
+            return world.getTotalWorldTime() - lastFed > 36000;
         }
     }
 
