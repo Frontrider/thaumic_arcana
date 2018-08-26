@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.research;
 
+import hu.frontrider.arcana.Configuration;
 import hu.frontrider.arcana.research.theory.*;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.util.ResourceLocation;
@@ -16,26 +17,24 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 public class ResearchRegistry {
     private static final ResourceLocation BACK_OVER = new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_over.png");
 
-    private static String[] Research = {
-            "metal_transmutation",
-            "biomancy"
-    };
-
     public static void init() {
+
+
+
         initCategories();
         TheoryRegistry.init();
         initTheories();
         initScans();
         for (String research :
-                Research) {
-            ThaumcraftApi.registerResearchLocation(new ResourceLocation(MODID, "research/" + research.toLowerCase()));
+                Configuration.research) {
+            ThaumcraftApi.registerResearchLocation(new ResourceLocation(research.toLowerCase()));
         }
 
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(MODID, "research/scans"));
     }
 
     static void initCategories() {
-        ResearchCategories.registerCategory("BIOMANCY", "MINDBIOTHAUMIC", (new AspectList()).add(Aspect.ALCHEMY, 30).add(Aspect.LIFE, 10).add(Aspect.MAGIC, 10).add(Aspect.LIGHT, 5).add(Aspect.AVERSION, 5).add(Aspect.EARTH, 5).add(Aspect.WATER, 5), new ResourceLocation("thaumcraft", "brain"), new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_3.jpg"), BACK_OVER);
+        ResearchCategories.registerCategory("BIOMANCY", "MINDBIOTHAUMIC", (new AspectList()).add(Aspect.ALCHEMY, 30).add(Aspect.LIFE, 10).add(Aspect.MAGIC, 10).add(Aspect.LIGHT, 5).add(Aspect.AVERSION, 5).add(Aspect.EARTH, 5).add(Aspect.WATER, 5), new ResourceLocation(MODID, "textures/research/cat_biomancy.png"), new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_7.jpg"), BACK_OVER);
     }
 
     static void initTheories() {

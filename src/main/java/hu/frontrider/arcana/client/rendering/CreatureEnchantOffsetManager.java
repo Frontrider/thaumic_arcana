@@ -3,6 +3,7 @@ package hu.frontrider.arcana.client.rendering;
 import hu.frontrider.arcana.ThaumicArcana;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.text.TextComponentTranslation;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
@@ -42,7 +43,7 @@ public class CreatureEnchantOffsetManager {
             } catch (IOException e) {
                 reportError(e,
                         "rendering.reload.failed",
-                        ()-> new String[]{
+                        () -> new String[]{
                                 "config file:" + file.getAbsolutePath()
                         });
             }
@@ -52,7 +53,7 @@ public class CreatureEnchantOffsetManager {
             } catch (IOException e) {
                 reportError(e,
                         "rendering.reload.failed",
-                        ()-> new String[]{
+                        () -> new String[]{
                                 "config file:" + file.getAbsolutePath()
                         });
             }
@@ -70,10 +71,10 @@ public class CreatureEnchantOffsetManager {
             } catch (Exception e) {
                 reportError(e,
                         "rendering.reload.failed",
-                        ()-> new String[]{
+                        () -> new String[]{
                                 "key: " + key,
                                 "value: " + value
-                                });
+                        });
             }
 
         });
@@ -97,11 +98,19 @@ public class CreatureEnchantOffsetManager {
      * @param resourceLocation the location of the entity
      * @return Triple, containing the offsets or null, if no entity was found.
      */
-    public Triple<Float, Float, Float> getForEntity(String resourceLocation) {
-        return offsets.get(resourceLocation);
+    public Triple<Float, Float, Float> getForEntity(String resourceLocation, EntityLivingBase entityLivingBase) {
+        float height = 0.0f;
+        if(entityLivingBase != null)
+            height = (float) (entityLivingBase.height-.5);
+
+        if (offsets.containsKey(resourceLocation)) {
+            return offsets.get(resourceLocation);
+        } else {
+            return new ImmutableTriple<>(0.0f, height, 0.0f);
+        }
     }
 
-    private void reportError(Exception e, String languageKey, Supplier<String[]> message){
+    private void reportError(Exception e, String languageKey, Supplier<String[]> message) {
         EntityPlayerSP player = Minecraft.getMinecraft().player;
         if (player != null)
             player.sendMessage(new TextComponentTranslation(languageKey));

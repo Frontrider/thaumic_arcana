@@ -1,10 +1,10 @@
 package hu.frontrider.arcana.recipes;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
-import hu.frontrider.arcana.items.BaseFormula;
 import hu.frontrider.arcana.items.Formula;
 import hu.frontrider.arcana.items.PlantBall;
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
+import hu.frontrider.arcana.util.AspectUtil;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -350,43 +350,13 @@ public class AlchemyRecipes {
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     "ARCANE_FERTILIZER",
-                    new ItemStack(ItemRegistry.fertiliser, 1),
-                    ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
-                    new AspectList().add(Aspect.LIGHT, 2).merge(Aspect.EARTH, 2).merge(Aspect.WATER, 2).merge(Aspect.CRAFT, 4)
-            );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe"), recipe);
-        }
-        {
-            CrucibleRecipe recipe = new CrucibleRecipe(
-                    "ARCANE_FERTILIZER",
-                    new ItemStack(ItemRegistry.fertiliser, 4),
-                    ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
-                    new AspectList().add(Aspect.LIGHT, 3)
-                            .merge(Aspect.EARTH, 3)
-                            .merge(Aspect.WATER, 3)
-                            .merge(Aspect.CRAFT, 4)
-                            .add(Aspect.PLANT, 2)
-            );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe_2"), recipe);
-        }
-        {
-            CrucibleRecipe recipe = new CrucibleRecipe(
-                    "ARCANE_FERTILIZER",
                     new ItemStack(ItemRegistry.fertiliser, 16),
                     ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
                     new AspectList().add(Aspect.LIGHT, 4).merge(Aspect.EARTH, 4).merge(Aspect.WATER, 4).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 10)
             );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe_3"), recipe);
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe"), recipe);
         }
-        {
-            CrucibleRecipe recipe = new CrucibleRecipe(
-                    "ARCANE_FERTILIZER",
-                    new ItemStack(ItemRegistry.fertiliser, 32),
-                    ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
-                    new AspectList().add(Aspect.LIGHT, 5).merge(Aspect.EARTH, 5).merge(Aspect.WATER, 5).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 40)
-            );
-            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "fertilizer_recipe_4"), recipe);
-        }
+
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     "INCUBATED_EGG",
@@ -411,6 +381,45 @@ public class AlchemyRecipes {
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "paper"), recipe);
         }
+        {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    "PLANT_PRODUCTS",
+                    new ItemStack(Items.DYE, 2, 1),
+                    new ItemStack(Items.DYE, 1, 1),
+                    new AspectList()
+                            .add(Aspect.WATER, 1)
+                            .add(Aspect.LIGHT, 1)
+                            .add(Aspect.EARTH, 1)
+                            .add(Aspect.LIFE, 1)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "dye_red"), recipe);
+        }
+        {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    "PLANT_PRODUCTS",
+                    new ItemStack(Items.DYE, 2, 2),
+                    new ItemStack(Items.DYE, 1, 2),
+                    new AspectList()
+                            .add(Aspect.WATER, 1)
+                            .add(Aspect.LIGHT, 1)
+                            .add(Aspect.EARTH, 1)
+                            .add(Aspect.LIFE, 1)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "dye_green"), recipe);
+        }
+        {
+            CrucibleRecipe recipe = new CrucibleRecipe(
+                    "PLANT_PRODUCTS",
+                    new ItemStack(Items.DYE, 2, 11),
+                    new ItemStack(Items.DYE, 1, 11),
+                    new AspectList()
+                            .add(Aspect.WATER, 1)
+                            .add(Aspect.LIGHT, 1)
+                            .add(Aspect.EARTH, 1)
+                            .add(Aspect.LIFE, 1)
+            );
+            ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "dye_yellow"), recipe);
+        }
     }
 
     private static void initEnchanting() {
@@ -428,21 +437,24 @@ public class AlchemyRecipes {
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "enchant_powder_basic"), recipe);
         }
         NonNullList<ItemStack> formulaSubItems = NonNullList.create();
+        formulaSubItems.clear();
         formula.getSubItems(TABARCANA, formulaSubItems);
 
-        formulaSubItems.forEach(itemStack -> {
+        for (ItemStack itemStack : formulaSubItems) {
+            if (itemStack.hasTagCompound()) {
+                AspectList aspectList = AspectUtil.getStoredAspects(itemStack);
 
-            AspectList aspectList = ((BaseFormula) itemStack.getItem()).getAspects(itemStack);
-            CreatureEnchant creatureEnchant = CreatureEnchant.getForFormula(aspectList);
-            if (creatureEnchant != null) {
-                CrucibleRecipe recipe = new CrucibleRecipe(
-                        creatureEnchant.getResearch().toUpperCase(),
-                        itemStack,
-                        formula,
-                        aspectList
-                );
-                ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_" + creatureEnchant.getRegistryName().getResourceDomain()), recipe);
+                CreatureEnchant creatureEnchant = CreatureEnchant.getForFormula(aspectList);
+                if (creatureEnchant != null) {
+                    CrucibleRecipe recipe = new CrucibleRecipe(
+                            creatureEnchant.getResearch(),
+                            itemStack,
+                            formula,
+                            aspectList
+                    );
+                    ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_" + creatureEnchant.getRegistryName().getResourcePath()), recipe);
+                }
             }
-        });
+        }
     }
 }

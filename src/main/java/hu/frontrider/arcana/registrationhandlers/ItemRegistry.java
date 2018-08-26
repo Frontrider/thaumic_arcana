@@ -45,7 +45,7 @@ public class ItemRegistry {
     public static Item[] items = new Item[]{
             fertiliser, incubated_egg, creature_enchanter, nutrient_mix, plant_ball,
             enchanting_powder_basic,enchanting_powder_advanced,enchanting_powder_magical,
-            formula,new Rodent(),
+            formula,new Rodent(),new EnchantModifierDust(NETWORK_WRAPPER),
             new ItemBlock(experimentTable).setRegistryName(experimentTable.getRegistryName()).setCreativeTab(TABARCANA),
             new ItemBlock(blockArcaneCage).setRegistryName(blockArcaneCage.getRegistryName()).setCreativeTab(TABARCANA)
     };

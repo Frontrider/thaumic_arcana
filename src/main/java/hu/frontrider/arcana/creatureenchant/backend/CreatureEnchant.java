@@ -45,10 +45,12 @@ public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureE
     }
 
 
-    public static void setEnchantment(Entity entity, Map<CreatureEnchant, Integer> enchants) {
+    public static void setEnchantment(Entity entity,ICreatureEnchant enchants) {
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
-            capability.setStore(enchants);
+
+            capability.setStore(enchants.getStore());
+            capability.setCircle(enchants.getCircle());
         }
     }
 

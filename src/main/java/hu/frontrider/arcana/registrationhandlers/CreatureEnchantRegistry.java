@@ -1,11 +1,10 @@
-package hu.frontrider.arcana.creatureenchant.backend;
+package hu.frontrider.arcana.registrationhandlers;
 
+import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 import hu.frontrider.arcana.creatureenchant.base.NegationCircle;
 import hu.frontrider.arcana.creatureenchant.base.NormalCircle;
-import hu.frontrider.arcana.creatureenchant.effect.FertileEnchant;
-import hu.frontrider.arcana.creatureenchant.effect.ProtectionEnchant;
-import hu.frontrider.arcana.creatureenchant.effect.RespirationEnchant;
-import hu.frontrider.arcana.creatureenchant.effect.StrengthEnchant;
+import hu.frontrider.arcana.creatureenchant.effect.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -42,7 +41,9 @@ public class CreatureEnchantRegistry {
                 new StrengthEnchant(),
                 new FertileEnchant(),
                 new ProtectionEnchant(),
-                new RespirationEnchant()
+                new RespirationEnchant(),
+                new SpiderFingers(),
+                new Speed()
         );
     }
     @SubscribeEvent

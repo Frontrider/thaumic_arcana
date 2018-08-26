@@ -9,6 +9,10 @@ import hu.frontrider.arcana.eventhandlers.LifecycleEventManager;
 import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessage;
 import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessageHandler;
 import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSynchronizer;
+import hu.frontrider.arcana.network.creatureenchants.player.SyncPlayerEnchantMessage;
+import hu.frontrider.arcana.network.creatureenchants.player.SyncPlayerEnchantMessageHandler;
+import hu.frontrider.arcana.network.falldamage.FalldamageSyncMessage;
+import hu.frontrider.arcana.network.falldamage.FalldamageSyncMessageHandler;
 import hu.frontrider.arcana.recipes.AlchemyRecipes;
 import hu.frontrider.arcana.recipes.ArcaneCraftingRecipes;
 import hu.frontrider.arcana.recipes.InfusionRecipes;
@@ -60,9 +64,10 @@ public class ThaumicArcana {
 
         proxy.preInit(event);
         CapabilityManager.INSTANCE.register(ICreatureEnchant.class, new CreatureEnchantStorage(), CreatureEnchantCapability::new);
+
         NETWORK_WRAPPER.registerMessage(CreatureEnchantSyncMessageHandler.class,CreatureEnchantSyncMessage.class,0,Side.CLIENT);
-
-
+        NETWORK_WRAPPER.registerMessage(FalldamageSyncMessageHandler.class,FalldamageSyncMessage.class,1,Side.SERVER);
+        NETWORK_WRAPPER.registerMessage(SyncPlayerEnchantMessageHandler.class,SyncPlayerEnchantMessage.class,2,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 
@@ -73,6 +78,7 @@ public class ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(new CreatureEnchantSynchronizer());
         MinecraftForge.EVENT_BUS.register(new FunctionEventManager());
         MinecraftForge.EVENT_BUS.register(new LifecycleEventManager());
+
         FormulaRecipe.registerRecipes();
         AlchemyRecipes.register();
         InfusionRecipes.register();

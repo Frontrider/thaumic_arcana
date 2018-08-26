@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.util;
 
+import net.minecraft.item.ItemStack;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
@@ -35,4 +36,11 @@ public class AspectUtil {
          return (Aspect) aspects.toArray()[new Random().nextInt(aspects.size())];
     }
 
+    public static AspectList getStoredAspects(ItemStack itemStack){
+        AspectList aspectList = new AspectList();
+
+        aspectList.readFromNBT(itemStack.getTagCompound());
+
+        return aspectList;
+    }
 }

@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -31,7 +32,8 @@ public class EnchantRenderer implements LayerRenderer {
     ResourceLocation cicle = new ResourceLocation(MODID, "textures/cenchant/enchant_effect.png");
     IForgeRegistry<CreatureEnchant> creatureEnchants;
     CreatureEnchantOffsetManager creatureEnchantOffsetManager;
-    public EnchantRenderer(){
+
+    public EnchantRenderer() {
         creatureEnchants = GameRegistry.findRegistry(CreatureEnchant.class);
         creatureEnchantOffsetManager = new CreatureEnchantOffsetManager();
 
@@ -41,14 +43,14 @@ public class EnchantRenderer implements LayerRenderer {
 
     @Override
     public void doRenderLayer(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-         doRender(entity, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
+        doRender(entity, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
     }
 
     @SubscribeEvent
-    public void renderFirstPerson(RenderWorldLastEvent event){
+    public void renderFirstPerson(RenderWorldLastEvent event) {
         EntityPlayerSP player = Minecraft.getMinecraft().player;
 
-        if(player != null) {
+        if (player != null) {
             int thirdPersonView = Minecraft.getMinecraft().gameSettings.thirdPersonView;
             if (thirdPersonView == 0) {
                 GlStateManager.translate(0, -1, 0);
@@ -58,18 +60,19 @@ public class EnchantRenderer implements LayerRenderer {
         }
     }
 
-    void doRender(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale){
+    void doRender(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         if (!CreatureEnchant.isEnchanted(entity)) {
             return;
         }
-
-        String name = EntityRegistry.getEntry(entity.getClass()).getRegistryName().toString();
-        Triple<Float, Float, Float> offset = creatureEnchantOffsetManager.getForEntity(name);
+        EntityEntry entry = EntityRegistry.getEntry(entity.getClass());
         GlStateManager.pushMatrix();
-        if(offset  != null){
-            GlStateManager.translate(offset.getLeft(), offset.getMiddle(), offset.getRight());
-        }else
-        GlStateManager.translate(0, entity.height - .5, 0);
+        String name = "null";
+        if (entry != null) {
+            name = entry.getRegistryName().toString();
+        }
+
+        Triple<Float, Float, Float> offset = creatureEnchantOffsetManager.getForEntity(name, entity);
+        GlStateManager.translate(offset.getLeft(), offset.getMiddle(), offset.getRight());
         GlStateManager.rotate(180, 0, 1, 1);
         GlStateManager.scale(0.6, 0.6, 0.6);
         GlStateManager.rotate((ageInTicks) / 20.0F * (180F / (float) PI), 0.0F, 0.0F, 1.0F);
@@ -77,13 +80,11 @@ public class EnchantRenderer implements LayerRenderer {
         GlStateManager.disableCull();
         GlStateManager.disableLighting();
 
-        drawMain(renderEngine,entity);
+        drawMain(renderEngine, entity);
         GlStateManager.translate(0, 0, -.1);
         drawIcons(renderEngine, entity);
         GlStateManager.translate(0, 0, .1);
-        if(offset  != null){
-            GlStateManager.translate(-offset.getLeft(), -offset.getMiddle(), -offset.getRight());
-        }else
+        GlStateManager.translate(-offset.getLeft(), -offset.getMiddle(), -offset.getRight());
         GlStateManager.enableLighting();
         GlStateManager.enableCull();
         GlStateManager.popMatrix();
@@ -94,7 +95,7 @@ public class EnchantRenderer implements LayerRenderer {
         return false;
     }
 
-    private void drawMain(TextureManager textureManager,Entity entity) {
+    private void drawMain(TextureManager textureManager, Entity entity) {
 
         EnchantingBaseCircle baseCircle = CreatureEnchant.getBaseCircle(entity);
         EnchantingBaseCircle.Color color = baseCircle.getColor();
@@ -130,7 +131,7 @@ public class EnchantRenderer implements LayerRenderer {
 
             switch (level) {
                 case 1:
-                    GlStateManager.color(.71f, 1,0);
+                    GlStateManager.color(.71f, 1, 0);
                     break;
                 case 2:
                     GlStateManager.color(1, 0.49f, 0.49f);
@@ -167,7 +168,7 @@ public class EnchantRenderer implements LayerRenderer {
 
     }
 
-    public void reload(){
+    public void reload() {
         creatureEnchantOffsetManager.loadConfigs();
     }
 }

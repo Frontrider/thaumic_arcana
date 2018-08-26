@@ -17,6 +17,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import thaumcraft.api.aura.AuraHelper;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.creature_enchanter;
@@ -80,7 +81,7 @@ public class FunctionEventManager {
 
         if (world.getBlockState(event.getPos()).getBlock() == enchanting_table &&
                 itemMainhand.getItem() == sal_mundi &&
-                itemOffhand.getItem() == book) {
+                itemOffhand.getItem() == book && AuraHelper.drainVis(world,event.getPos(),20,true)==100) {
             itemMainhand.shrink(1);
             itemOffhand.shrink(1);
             BlockPos pos = event.getPos().up();
@@ -94,15 +95,7 @@ public class FunctionEventManager {
             SoundEvent sound = new SoundEvent(new ResourceLocation("thaumcraft:dust"));
             world.playSound(null, pos, sound, SoundCategory.AMBIENT, 1, 1.5f);
 
-            for (int i = 0; i < 50; i++) {
-                world.spawnParticle(EnumParticleTypes.FIREWORKS_SPARK,
-                        pos.getX() + .5,
-                        pos.getY() + .5,
-                        pos.getZ() + .5,
-                        0, 0, 0
-                );
-            }
-
+            AuraHelper.polluteAura(world,event.getPos(),5,true);
             event.setUseBlock(Event.Result.DENY);
         }
     }

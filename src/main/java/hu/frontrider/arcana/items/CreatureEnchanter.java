@@ -7,7 +7,6 @@ import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,20 +18,23 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import thaumcraft.api.aura.AuraHelper;
 import thaumcraft.api.items.ItemsTC;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
 import static net.minecraft.util.EnumActionResult.FAIL;
 import static net.minecraft.util.EnumActionResult.SUCCESS;
@@ -41,18 +43,6 @@ public class CreatureEnchanter extends ItemBase {
 
     @GameRegistry.ObjectHolder("thaumcraft:warpward")
     public static final Potion warpWard = null;
-
-    @GameRegistry.ObjectHolder("thaumic_arcana:fertile")
-    public static final CreatureEnchant fertile = null;
-
-    @GameRegistry.ObjectHolder("thaumic_arcana:protection")
-    public static final CreatureEnchant protection = null;
-
-    @GameRegistry.ObjectHolder("thaumic_arcana:strength")
-    public static final CreatureEnchant strength = null;
-
-    @GameRegistry.ObjectHolder("thaumic_arcana:respiration")
-    public static final CreatureEnchant respiration = null;
 
     private final SimpleNetworkWrapper networkWrapper;
 
@@ -79,10 +69,18 @@ public class CreatureEnchanter extends ItemBase {
                     return false;
                 NBTBase creature_enchants = tagCompound.getTag("creature_enchants");
                 ((NBTTagList) creature_enchants).iterator().forEachRemaining((enchant) -> {
-                    if(capability.getStore().size()>6)
+                    if (capability.getStore().size() > 6)
                         return;
+                    if (AuraHelper.drainVis(entity.world, entity.getPosition(), 30, true) < 30)
+                        return;
+                    AuraHelper.drainVis(entity.world, entity.getPosition(), 30, false);
                     EnchantmentData enchantmentData = nbtToEnchantment((NBTTagCompound) enchant);
                     capability.putEnchant(enchantmentData.enchantment, enchantmentData.level);
+
+                    AuraHelper.polluteAura(entity.getEntityWorld(), entity.getPosition(), 5, true);
+                    if (entity instanceof EntityPlayer) {
+                        AuraHelper.polluteAura(entity.getEntityWorld(), entity.getPosition(), 20, true);
+                    }
                 });
 
                 stack.shrink(1);
@@ -143,29 +141,6 @@ public class CreatureEnchanter extends ItemBase {
         return (tagCompound != null) && (tagCompound.hasKey("creature_enchants"));
     }
 
-    @Override
-    public boolean getHasSubtypes() {
-        return true;
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (tab == TABARCANA) {
-            items.add(new ItemStack(ItemRegistry.creature_enchanter));
-            items.add(createEnchantedItem(new EnchantmentData(fertile, 1)));
-            items.add(createEnchantedItem(new EnchantmentData(respiration, 1)));
-
-            for (int level = 1; level < 4; level++) {
-                items.add(createEnchantedItem(new EnchantmentData(strength, level)));
-            }
-
-            for (int level = 1; level < 4; level++) {
-                items.add(createEnchantedItem(new EnchantmentData(protection, level)));
-            }
-        }
-    }
-
     public static ItemStack createEnchantedItem(Item baseItem, EnchantmentData... enchantmentDatas) {
         ItemStack enchanter = new ItemStack(baseItem, 1);
 
@@ -204,6 +179,4 @@ public class CreatureEnchanter extends ItemBase {
             this.level = level;
         }
     }
-
-
 }

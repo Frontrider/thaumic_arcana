@@ -17,6 +17,7 @@ import static hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncM
 public class CreatureEnchantSynchronizer {
 
     @SubscribeEvent
+    @SideOnly(Side.SERVER)
     public void EntityTrack(StartTracking event) {
         Entity target = event.getTarget();
 
@@ -40,4 +41,19 @@ public class CreatureEnchantSynchronizer {
             enchantmentCache.remove(entity.getEntityId());
         }
     }
+
+    @SubscribeEvent
+    @SideOnly(Side.SERVER)
+    public void syncPlayer(EntityJoinWorldEvent event) {
+        Entity entity = event.getEntity();
+        if(entity instanceof EntityPlayer){
+            int entityId = entity.getEntityId();
+            NETWORK_WRAPPER.sendTo(new CreatureEnchantSyncMessage(
+                            entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null),
+                            entityId
+                    ), (EntityPlayerMP) entity
+            );
+        }
+    }
+
 }
