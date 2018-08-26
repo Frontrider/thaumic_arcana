@@ -31,7 +31,6 @@ public class CreatureEnchantRegistry {
                 .setType(EnchantingBaseCircle.class)
                 .setIDRange(0, 100)
                 .setName(new ResourceLocation(MODID,"enchanting_base_circle"))
-                //.add((iForgeRegistryInternal, registryManager, i, enchant, v1) -> MinecraftForge.EVENT_BUS.register(enchant))
                 .create();
     }
 
@@ -43,7 +42,8 @@ public class CreatureEnchantRegistry {
                 new ProtectionEnchant(),
                 new RespirationEnchant(),
                 new SpiderFingers(),
-                new Speed()
+                new Speed(),
+                new Vitality()
         );
     }
     @SubscribeEvent

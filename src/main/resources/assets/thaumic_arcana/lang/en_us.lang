@@ -16,7 +16,6 @@ research.thaumic_arcana.table.application=I can use the experiment table to appl
 research.thaumic_arcana.table.magic_application=I can also use the enchanting table to apply magical items, in a similar way to the Experiment Table.
 research.thaumic_arcana.table.cage=To start up my experiments on animals, I'll need some test subjects.To keep them somewhere, I created a small cage at the base of my experiment table. I can access it through the door, on the right side of the table.
 
-
 research.thaumic_arcana.plantlife.title=Plant-life
 research.thaumic_arcana.plantlife.stage.1=The first thing I should study is how plants react to magic. I know for sure that plant-life can absorb magical energies, since there are magical plants around me.
 
@@ -60,7 +59,9 @@ research.thaumic_arcana.creature_enchant_advanced.title=Advanced Creature enchan
 research.thaumic_arcana.creature_enchant_advanced.stage.1=There must be more for me to do.I prepared a few ingredients that I can use to try out a new formula, that should serve as the base for a much stronger enchanting powder, that (theoratically) can increase the strength of the bond between the creature and the enchantment.
 research.thaumic_arcana.creature_enchant_advanced.stage.2=I created the substance. Now I want to try out if I could increase the strenght of the creature.
 research.thaumic_arcana.creature_enchant_advanced.stage.3=Success. The new enchantment is indeed potent, but it will not work alone I'll need some internal reinforcements, or else the limbs will fall off. <LINE> Now that I see some of the applications and limitations of this technique, I want to see if I can create an enchant, that would transcend the abilities of one creature, and make it behave like it's something else. <BR><BR>A spider should suffice.
-research.thaumic_arcana.creature_enchant_advanced.stage.4=That's it for now. I need to learn more before I can do more.
+research.thaumic_arcana.creature_enchant_advanced.stage.4=Was a little harder than expected, but the property transfer was successfull. <LINE> Before moving forward, I want to see if speed has the same limitations as strength.
+research.thaumic_arcana.creature_enchant_advanced.stage.5=Interestingly, it does not. Still needs some getting used to.<LINE> Lastly, I want to see, if increased vitality would be the answer to the fragility problem of strength.
+research.thaumic_arcana.creature_enchant_advanced.stage.6=That's it for now. I need to learn more before I can do more.
 
 research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby.
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
@@ -96,11 +97,20 @@ research.thaumic_arcana.plantproducts.stage.2= I ended up choosing wood as the m
 research.thaumic_arcana.plantproducts.stage.3= The dyes reacted well to my treatment.
 
 research.thaumic_arcana.enchant_modification.title=Creature Enchant Modification
-research.thaumic_arcana.enchant_modification.stage.1=While studying the phenomenons arount creature enchants, there was something that was bothering me. It is not only affecting the flesh, but also the aura around the subject. This new "field", created by the magical dusts binds the magic to the creature. I alos noticed that this field is connected to the local aura, in a way that I don't fully understand. <BR><BR>To crack this mystery, first I'm going to try to alter it's behaviour. I should be able to change it, so that it changes the way the enchants bind. <LINE> But, first things first, I should have a way to stabilise this field, just in case something goes wrong. My theory is that a strong enough binding agent, should be able to carry the spell.
+research.thaumic_arcana.enchant_modification.stage.1=While studying the phenomenons around creature enchants, there was something that was bothering me. It is not only affecting the flesh, but also the aura around the subject. This new "field", created by the magical dusts binds the magic to the creature. I alsp noticed that this field is connected to the local aura, in a way that I don't fully understand. <BR><BR>To crack this mystery, first I'm going to try to alter it's behaviour. I should be able to alter it, so that it changes the way the enchants bind. <LINE> But, first things first, I should have a way to stabilise this field, just in case something goes wrong. My theory is that a strong enough binding agent, should be able to carry the spell.
 research.thaumic_arcana.enchant_modification.stage.2=Now that I have some sort of safety net to work with, I want to see how easy it would be to break this bond down. My intiial design was that it should be as strong as possible, so that the subject can not reject it.
 research.thaumic_arcana.enchant_modification.stage.3=Total failure. I still can not break the bond, and the only thing I have, is a spell that currupts the magical energies of the enchantments. They will either stop working, or turn to their opposite effects.
 research.thaumic_arcana.enchant_modification.negation=The negation modifier will flip the multiplier of the enchantment.
 research.thaumic_arcana.enchant_modification.base=The normal modifier will revert the binding to it's default state.
+
+research.thaumic_arcana.creature_enchant_negation.title=Creature Enchant Modifier: Negation
+research.thaumic_arcana.creature_enchant_negation.stage.1=To keep myself better organised, I'll note the known effects of negation here. If it's not listed, it will only be disabled.<BR>Only time will tell the horrors I'm about to find...
+
+research.thaumic_arcana.creature_enchant_negation.fertile=The Fertile enchant gives a chance to reduce birthrates.
+research.thaumic_arcana.creature_enchant_negation.strength=The Strength enchant will give weakness instead of strength.
+research.thaumic_arcana.creature_enchant_negation.speed=The Speed enchant will give slowness instead of speed.
+research.thaumic_arcana.creature_enchant_negation.vitality=The Vitality enchant will wither instead of regenerating.
+research.thaumic_arcana.creature_enchant_negation.protection=The Protection enchant will increase the damage instead of reducing it.
 
 ##########
 #Theories#
@@ -133,40 +143,29 @@ enchant.modifier.negation=Negation
 ########
 itemGroup.thaumic_arcana=Thaumic Arcana
 
-item.creature_enchanter.name=Creature Enchanter
-item.incubated_egg.name=Incubated Egg
-item.fertiliser.name=Arcane Fertilizer
-item.relief_item.name=Raw Relief
-item.nutrient_mix.name=Nutrient Mix
-item.plant_ball.name=Plant Ball
-item.plant_ball.contains=Contains:
-item.enchanting_powder.name=Enchanting Powder
-item.enchanting_powder_basic.name=Basic Enchant Upgrade Powder
-item.enchanting_powder_advanced.name=Advanced Enchant Upgrade Powder
-item.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
-item.enchant_modifier.name=Enchantment Modifier Powder
+item.thaumic_arcana.creature_enchanter.name=Creature Enchanter
+item.thaumic_arcana.incubated_egg.name=Incubated Egg
+item.thaumic_arcana.fertiliser.name=Arcane Fertilizer
+item.thaumic_arcana.relief_item.name=Raw Relief
+item.thaumic_arcana.nutrient_mix.name=Nutrient Mix
+item.thaumic_arcana.plant_ball.name=Plant Ball
+item.thaumic_arcana.plant_ball.contains=Contains:
+item.thaumic_arcana.enchanting_powder.name=Enchanting Powder
+item.thaumic_arcana.enchanting_powder_basic.name=Basic Enchant Upgrade Powder
+item.thaumic_arcana.enchanting_powder_advanced.name=Advanced Enchant Upgrade Powder
+item.thaumic_arcana.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
+item.thaumic_arcana.enchant_modifier.name=Enchantment Modifier Powder
 
-item.stabiliser.stable=Excellent
-item.stabiliser.unstable=Unstable
-item.stabiliser.normal=Stable
-
-item.formula.name=Formula
-item.rodent.name=Rodent
-item.rodent.dead.name=Dead Rodent
-
-
-potion.effect.sweet_relief=Potion of Sweet Relief
-splash_potion.effect.sweet_relief=Splash potion of Sweet Relief
-lingering_potion.effect.sweet_relief=Lingering potion of Sweet Relief
-
-potion.sweet_relief=Sweet Relief
+item.thaumic_arcana.formula.name=Formula
+item.thaumic_arcana.rodent.name=Rodent
+item.thaumic_arcana.rodent.dead.name=Dead Rodent
 
 ########
 #Blocks#
 ########
 
-tile.experiment_table.name=Experiment Table
-tile.arcane_cage.name=Arcane Cage
+tile.thaumic_arcana.experiment_table.name=Experiment Table
+tile.thaumic_arcana.arcane_cage.name=Arcane Cage
 
 ######
 #Keys#
@@ -177,5 +176,5 @@ key.descriptions.desc=Swaps the descriptions of specific items
 ##########
 #Commands#
 ##########
-command.reload.feedback=Thaumic Arcana configs reloaded
-rendering.reload.failed=Failed to reload rendering. Check the console output for details.
+command.thaumic_arcana.reload.feedback=Thaumic Arcana configs reloaded
+rendering.thaumic_arcana.reload.failed=Failed to reload rendering. Check the console output for details.

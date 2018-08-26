@@ -42,7 +42,7 @@ public class CreatureEnchantOffsetManager {
 
             } catch (IOException e) {
                 reportError(e,
-                        "rendering.reload.failed",
+                        "rendering.thaumic_arcana.reload.failed",
                         () -> new String[]{
                                 "config file:" + file.getAbsolutePath()
                         });
@@ -52,7 +52,7 @@ public class CreatureEnchantOffsetManager {
                 offsetProperties.load(new FileInputStream(file));
             } catch (IOException e) {
                 reportError(e,
-                        "rendering.reload.failed",
+                        "rendering.thaumic_arcana.reload.failed",
                         () -> new String[]{
                                 "config file:" + file.getAbsolutePath()
                         });
@@ -70,7 +70,7 @@ public class CreatureEnchantOffsetManager {
                 offsets.put(key.toString(), new ImmutableTriple<>(Float.valueOf(split[0]), Float.valueOf(split[1]), Float.valueOf(split[2])));
             } catch (Exception e) {
                 reportError(e,
-                        "rendering.reload.failed",
+                        "rendering.thaumic_arcana.reload.failed",
                         () -> new String[]{
                                 "key: " + key,
                                 "value: " + value

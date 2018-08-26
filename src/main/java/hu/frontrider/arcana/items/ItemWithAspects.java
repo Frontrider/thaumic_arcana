@@ -2,10 +2,15 @@ package hu.frontrider.arcana.items;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IEssentiaContainerItem;
 
 public class ItemWithAspects extends ItemBase implements IEssentiaContainerItem {
+
+    ItemWithAspects(ResourceLocation resourceLocation) {
+        super(resourceLocation);
+    }
 
     public AspectList getAspects(ItemStack itemStack) {
         NBTTagCompound tagCompound = itemStack.getTagCompound();

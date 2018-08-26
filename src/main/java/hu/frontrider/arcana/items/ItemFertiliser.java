@@ -16,8 +16,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 public class ItemFertiliser extends ItemBase {
 
     public ItemFertiliser() {
-        setRegistryName(new ResourceLocation(MODID, "fertiliser"));
-        setUnlocalizedName("fertiliser");
+        super(new ResourceLocation(MODID, "fertiliser"));
     }
 
     private static boolean fertilise(World worldIn, BlockPos target, EntityPlayer player, ItemStack stack, EnumHand hand) {

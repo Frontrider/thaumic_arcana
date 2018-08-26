@@ -26,11 +26,9 @@ public class GenericItemTests {
     static Stream<Arguments> getItems(){
         return Stream.of(
                 Arguments.of(new CreatureEnchanter(null)),
-                Arguments.of(new EnchantmentUpgradePowder(0)),
                 Arguments.of(new Formula()),
                 Arguments.of(new IncubatedEgg()),
                 Arguments.of(new ItemFertiliser()),
-                Arguments.of(new ItemBase()),
                 Arguments.of(new PlantBall())
         );
     }

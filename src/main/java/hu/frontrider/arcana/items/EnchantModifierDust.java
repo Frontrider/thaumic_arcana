@@ -45,10 +45,8 @@ public class EnchantModifierDust extends ItemBase {
 
 
     public EnchantModifierDust(SimpleNetworkWrapper networkWrapper) {
-        super();
+        super(new ResourceLocation(MODID, "enchant_modifier"));
         this.networkWrapper = networkWrapper;
-        setRegistryName(MODID, "enchant_modifier");
-        setUnlocalizedName("enchant_modifier");
         this.setMaxStackSize(1);
     }
 

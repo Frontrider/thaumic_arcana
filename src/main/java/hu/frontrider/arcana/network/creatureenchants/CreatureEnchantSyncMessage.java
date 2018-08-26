@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import java.util.Map;
+import java.util.Collection;
 
 import static net.minecraftforge.fml.common.network.ByteBufUtils.*;
 
@@ -53,20 +53,23 @@ public class CreatureEnchantSyncMessage implements IMessage {
         for (int i = 0; i < count; i++) {
             String enchantIndex = readUTF8String(buf);
             int level = readVarInt(buf, byteLength);
-            enchant.getStore().put(registry.getValue(new ResourceLocation(enchantIndex)), level);
+            int usedTo = readVarInt(buf,byteLength);
+            CreatureEnchant creatureEnchant = registry.getValue(new ResourceLocation(enchantIndex));
+            enchant.putEnchant(new CreatureEnchantCapability.CreatureEnchantContainer(creatureEnchant,level,usedTo));
         }
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        Map<CreatureEnchant, Integer> store = enchant.getStore();
+        Collection<CreatureEnchantCapability.CreatureEnchantContainer> store = enchant.getStore().values();
         writeVarInt(buf, id, Integer.BYTES);
         writeUTF8String(buf,enchant.getCircle().getRegistryName().toString());
 
         writeVarInt(buf, store.size(), byteLength);
-        store.forEach((key, value) -> {
-            writeUTF8String(buf, key.getRegistryName().toString());
-            writeVarInt(buf, value, byteLength);
+        store.forEach((enchant) -> {
+            writeUTF8String(buf, enchant.getCreatureEnchant().getRegistryName().toString());
+            writeVarInt(buf, enchant.getLevel(), byteLength);
+            writeVarInt(buf, enchant.getUsedTo(), byteLength);
         });
     }
 

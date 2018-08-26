@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.client.rendering;
 
+import hu.frontrider.arcana.capabilities.CreatureEnchantCapability;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 import net.minecraft.client.Minecraft;
@@ -19,8 +20,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.commons.lang3.tuple.Triple;
 import org.lwjgl.opengl.GL11;
 
+import java.util.Collection;
 import java.util.Map;
-import java.util.Set;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static java.lang.Math.PI;
@@ -118,14 +119,14 @@ public class EnchantRenderer implements LayerRenderer {
     }
 
     private void drawIcons(TextureManager textureManager, Entity entity) {
-        Map<CreatureEnchant, Integer> creatureEnchants = CreatureEnchant.getCreatureEnchants(entity);
-        Set<Map.Entry<CreatureEnchant, Integer>> entries = creatureEnchants.entrySet();
+        Map<CreatureEnchant, CreatureEnchantCapability.CreatureEnchantContainer> creatureEnchants = CreatureEnchant.getCreatureEnchants(entity);
+        Collection<CreatureEnchantCapability.CreatureEnchantContainer> values = creatureEnchants.values();
         int index = 1;
-        for (Map.Entry<CreatureEnchant, Integer> entry : entries) {
+        for (CreatureEnchantCapability.CreatureEnchantContainer entry : values) {
 
 
-            Integer level = entry.getValue();
-            CreatureEnchant creatureEnchant = entry.getKey();
+            Integer level = entry.getLevel();
+            CreatureEnchant creatureEnchant = entry.getCreatureEnchant();
 
             textureManager.bindTexture(creatureEnchant.getIcon());
 

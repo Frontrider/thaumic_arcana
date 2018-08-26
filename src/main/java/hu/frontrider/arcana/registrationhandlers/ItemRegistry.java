@@ -4,6 +4,7 @@ import hu.frontrider.arcana.items.*;
 import hu.frontrider.arcana.util.Initialisable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -19,22 +20,15 @@ public class ItemRegistry {
 
     public static Item nutrient_mix = new Item()
             .setRegistryName(MODID, "nutrient_mix")
-            .setUnlocalizedName("nutrient_mix")
+            .setUnlocalizedName(MODID+".nutrient_mix")
             .setCreativeTab(TABARCANA);
 
-    public static Item enchanting_powder_basic = new EnchantmentUpgradePowder(1)
-            .setRegistryName(MODID, "enchanting_powder_basic")
-            .setUnlocalizedName("enchanting_powder_basic");
-
-
-    public static Item enchanting_powder_advanced = new EnchantmentUpgradePowder(2)
-            .setRegistryName(MODID, "enchanting_powder_advanced")
-            .setUnlocalizedName("enchanting_powder_advanced");
-
-
-    public static Item enchanting_powder_magical = new EnchantmentUpgradePowder(3)
-            .setRegistryName(MODID, "enchanting_powder_magical")
-            .setUnlocalizedName("enchanting_powder_magical");
+    public static Item enchanting_powder_basic =
+            new EnchantmentUpgradePowder(1,new ResourceLocation(MODID, "enchanting_powder_basic"));
+    public static Item enchanting_powder_advanced =
+            new EnchantmentUpgradePowder(2,new ResourceLocation(MODID, "enchanting_powder_advanced"));
+    public static Item enchanting_powder_magical =
+            new EnchantmentUpgradePowder(3,new ResourceLocation(MODID, "enchanting_powder_magical"));
 
     public static Item fertiliser = new ItemFertiliser();
     public static Item incubated_egg = new IncubatedEgg();

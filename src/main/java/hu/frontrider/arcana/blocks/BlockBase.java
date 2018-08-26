@@ -11,7 +11,7 @@ public class BlockBase extends Block {
     public BlockBase(Material materialIn,String name) {
         super(materialIn);
         setRegistryName(MODID,name);
-        setUnlocalizedName(name);
+        setUnlocalizedName(MODID+"."+name);
         setCreativeTab(TABARCANA);
     }
 }

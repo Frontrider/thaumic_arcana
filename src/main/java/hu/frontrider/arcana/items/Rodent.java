@@ -22,8 +22,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 public class Rodent extends ItemWithAspects {
 
     public Rodent() {
-        setRegistryName(MODID, "rodent");
-        setUnlocalizedName("rodent");
+        super(new ResourceLocation(MODID, "rodent"));
 
         this.addPropertyOverride(new ResourceLocation("dead"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)

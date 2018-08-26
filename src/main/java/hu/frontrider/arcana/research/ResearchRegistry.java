@@ -19,8 +19,6 @@ public class ResearchRegistry {
 
     public static void init() {
 
-
-
         initCategories();
         TheoryRegistry.init();
         initTheories();

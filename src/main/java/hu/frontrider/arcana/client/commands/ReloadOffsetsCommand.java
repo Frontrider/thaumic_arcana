@@ -46,7 +46,7 @@ public class ReloadOffsetsCommand implements IClientCommand {
     @SideOnly(Side.CLIENT)
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
         enchantRenderer.reload();
-        sender.sendMessage(new TextComponentTranslation("command.reload.feedback"));
+        sender.sendMessage(new TextComponentTranslation("command.thaumic_arcana.reload.feedback"));
     }
 
     @Override

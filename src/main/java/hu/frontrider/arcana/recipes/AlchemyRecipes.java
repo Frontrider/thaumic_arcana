@@ -443,13 +443,13 @@ public class AlchemyRecipes {
         for (ItemStack itemStack : formulaSubItems) {
             if (itemStack.hasTagCompound()) {
                 AspectList aspectList = AspectUtil.getStoredAspects(itemStack);
-
                 CreatureEnchant creatureEnchant = CreatureEnchant.getForFormula(aspectList);
+
                 if (creatureEnchant != null) {
                     CrucibleRecipe recipe = new CrucibleRecipe(
                             creatureEnchant.getResearch(),
                             itemStack,
-                            formula,
+                            new ItemStack(formula),
                             aspectList
                     );
                     ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_" + creatureEnchant.getRegistryName().getResourcePath()), recipe);

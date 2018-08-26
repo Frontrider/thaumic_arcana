@@ -2,6 +2,7 @@ package hu.frontrider.arcana.blocks;
 
 import hu.frontrider.arcana.ThaumicArcana;
 import hu.frontrider.arcana.blocks.tiles.TileEntityArcaneCage;
+import hu.frontrider.arcana.blocks.tiles.logic.ArcaneCageAreaScan;
 import hu.frontrider.arcana.client.gui.GuiHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -21,6 +22,7 @@ public class BlockArcaneCage extends BlockCage<TileEntityArcaneCage> {
 
     public static final PropertyBool CAPTURED = PropertyBool.create("captured");
 
+    ArcaneCageAreaScan arcaneCageAreaScan = new ArcaneCageAreaScan();
     public BlockArcaneCage() {
         super(Material.ROCK, "arcane_cage");
         setHardness(3);
@@ -43,7 +45,7 @@ public class BlockArcaneCage extends BlockCage<TileEntityArcaneCage> {
     public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random) {
         TileEntityArcaneCage tileEntity = getTileEntity(worldIn, pos);
 
-        if (!state.getValue(CAPTURED) && tileEntity.randomTick(worldIn)) {
+        if (!state.getValue(CAPTURED) && tileEntity.randomTick(worldIn)&& arcaneCageAreaScan.isvalid(worldIn,pos)) {
             worldIn.setBlockState(pos, state.withProperty(CAPTURED, true), 2);
         }
     }

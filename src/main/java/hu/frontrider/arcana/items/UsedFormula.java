@@ -1,14 +1,14 @@
 package hu.frontrider.arcana.items;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
 public class UsedFormula extends BaseFormula {
     public UsedFormula()
     {
-        setRegistryName(MODID, "formula_used");
-        setUnlocalizedName("formula");
+        super(new ResourceLocation(MODID, "formula_used"));
         setMaxStackSize(1);
         setMaxDamage(16);
     }

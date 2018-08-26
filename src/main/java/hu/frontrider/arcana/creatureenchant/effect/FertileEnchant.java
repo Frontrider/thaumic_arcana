@@ -14,7 +14,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 public class FertileEnchant extends CreatureEnchant {
 
     public FertileEnchant() {
-        super(new ResourceLocation(MODID, "fertile"),"fertile");
+        super(new ResourceLocation(MODID, "fertile"), "fertile");
     }
 
     @SubscribeEvent
@@ -22,23 +22,34 @@ public class FertileEnchant extends CreatureEnchant {
         EntityAnimal parentA = (EntityAnimal) event.getParentA();
         EntityAnimal parentB = (EntityAnimal) event.getParentB();
 
-        if (getEnchantLevel(parentA,this)>0) {
+
+        int parentAlevel = getEnchantLevel(parentA, this);
+        if (parentAlevel > 0) {
             createChild(parentA, parentB);
+        } else {
+            if (parentA.getEntityWorld().rand.nextBoolean()) {
+                event.setCanceled(true);
+            }
         }
-        if (getEnchantLevel(parentB,this)>0) {
+        int parentBlevel = getEnchantLevel(parentB, this);
+        if (parentBlevel> 0) {
             createChild(parentB, parentA);
+        } else {
+            if (parentB.getEntityWorld().rand.nextBoolean()) {
+                event.setCanceled(true);
+            }
         }
     }
 
     @Override
     public AspectList formula() {
         return new AspectList()
-                .merge(Aspect.LIFE,20)
-                .merge(Aspect.DESIRE,30)
-                .merge(Aspect.FIRE,5)
-                .merge(Aspect.ORDER,3)
-                .merge(Aspect.EXCHANGE,20)
-                .merge(Aspect.MAGIC,50);
+                .merge(Aspect.LIFE, 20)
+                .merge(Aspect.DESIRE, 30)
+                .merge(Aspect.FIRE, 5)
+                .merge(Aspect.ORDER, 3)
+                .merge(Aspect.EXCHANGE, 20)
+                .merge(Aspect.MAGIC, 50);
     }
 
     @Override

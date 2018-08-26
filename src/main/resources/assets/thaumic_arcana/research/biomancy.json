@@ -37,7 +37,7 @@
         -2
       ],
       "parents": [
-       "BIOMANCY_BASICS"
+        "BIOMANCY_BASICS"
       ],
       "meta": [
         "ROUND"
@@ -47,7 +47,7 @@
           "text": "research.thaumic_arcana.table.stage.1"
         }
       ],
-      "addenda":[
+      "addenda": [
         {
           "text": "research.thaumic_arcana.table.application",
           "required_research": [
@@ -126,7 +126,7 @@
         },
         {
           "text": "research.thaumic_arcana.creatures.stage.3",
-          "recipes":[
+          "recipes": [
             "thaumic_arcana:create_cage"
           ]
         }
@@ -144,7 +144,6 @@
             "CREATURES@2"
           ]
         }
-
       ]
     },
     {
@@ -336,7 +335,6 @@
             "thaumic_arcana:tree_5",
             "thaumic_arcana:tree_6",
             "thaumic_arcana:tree_7",
-
             "thaumic_arcana:seed_10",
             "thaumic_arcana:seed_11"
           ]
@@ -672,7 +670,8 @@
             "THEORY;INFUSION;1",
             "THEORY;BIOMANCY;2"
           ]
-        },  {
+        },
+        {
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.4",
           "recipes": [
             "thaumic_arcana:enchant_powder_advanced",
@@ -744,7 +743,8 @@
         "CREATURE_ENCHANT_ADVANCED"
       ],
       "meta": [
-        "ROUND"
+        "SPIKY",
+        "HIDDEN"
       ],
       "stages": [
         {
@@ -946,7 +946,7 @@
       "key": "ENCHANT_MODIFICATION",
       "name": "research.thaumic_arcana.enchant_modification.title",
       "icons": [
-        "thaumic_arcana:textures/research/cat_biomancy.png"
+        "thaumic_arcana:textures/cenchant/enchant_effect.png"
       ],
       "category": "BIOMANCY",
       "location": [
@@ -962,10 +962,120 @@
       ],
       "stages": [
         {
-          "text": "research.thaumic_arcana.enchant_modification.stage.1"
+          "text": "research.thaumic_arcana.enchant_modification.stage.1",
+          "required_item": [
+            "thaumic_arcana:enchanting_powder_advanced",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'permutatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ordo'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1",
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;2",
+            "OBSERVATION;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.enchant_modification.stage.2",
+          "recipes": [
+            "thaumic_arcana:enchant_modifier_basic"
+          ],
+          "required_item": [
+            "thaumic_arcana:enchanting_powder_advanced",
+            "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:normal'}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'permutatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'perditio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vitium'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1",
+            "THEORY;BIOMANCY;2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.enchant_modification.stage.3",
+          "recipes": [
+            "thaumic_arcana:enchant_modifier_basic",
+            "thaumic_arcana:enchant_modifier_negation"
+          ]
+        }
+      ],
+      "addenda": [
+        {
+          "text": "research.thaumic_arcana.enchant_modification.base",
+          "required_research": [
+            "ENCHANT_MODIFICATION@1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.enchant_modification.negation",
+          "required_research": [
+            "ENCHANT_MODIFICATION@2"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CREATURE_ENCHANTMENT_NEGATION",
+      "name": "research.thaumic_arcana.creature_enchant_negation.title",
+      "icons": [
+        "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:negation'}"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        0,
+        -5
+      ],
+      "parents": [
+        "ENCHANT_MODIFICATION"
+      ],
+      "meta": [
+        "SPIKY",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.stage.1",
+          "required_research": [
+            "CREATURE_ENCHANTMENT_NEGATION@0"
+          ]
+        }
+      ],
+      "addenda": [
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.fertile",
+          "required_research": [
+            "CREATURE_ENCHANTMENT_NEGATION@0"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.protection",
+          "required_research": [
+            "CREATURE_ENCHANTMENT_NEGATION@0"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.strength",
+          "required_research": [
+            "CREATURE_ENCHANTMENT_NEGATION@0"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.speed",
+          "required_research": [
+            "CREATURE_ENCHANTMENT_NEGATION@0"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.vitality",
+          "required_research": [
+            "CREATURE_ENCHANTMENT_NEGATION@0"
+          ]
         }
       ]
     }
-
   ]
 }

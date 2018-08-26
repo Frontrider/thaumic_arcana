@@ -2,9 +2,14 @@ package hu.frontrider.arcana.items;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.aspects.AspectList;
 
 public class BaseFormula extends ItemWithAspects {
+
+    BaseFormula(ResourceLocation resourceLocation) {
+        super(resourceLocation);
+    }
 
     @Override
     public boolean hasEffect(ItemStack itemStack) {

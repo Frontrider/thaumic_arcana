@@ -8,6 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -24,8 +25,7 @@ public class Formula extends BaseFormula {
     private IForgeRegistry<CreatureEnchant> creatureEnchantIForgeRegistry;
 
     public Formula() {
-        setRegistryName(MODID, "formula");
-        setUnlocalizedName("formula");
+        super(new ResourceLocation(MODID, "formula"));
         setMaxStackSize(1);
         creatureEnchantIForgeRegistry = GameRegistry.findRegistry(CreatureEnchant.class);
 

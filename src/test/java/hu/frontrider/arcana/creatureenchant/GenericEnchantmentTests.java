@@ -2,12 +2,20 @@ package hu.frontrider.arcana.creatureenchant;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.effect.*;
+import hu.frontrider.minecrafttestkit.MineCraftTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@MineCraftTest
 public class GenericEnchantmentTests {
+
+    @BeforeEach
+    void setUp() {
+
+    }
 
     @ParameterizedTest
     @ValueSource(classes = {

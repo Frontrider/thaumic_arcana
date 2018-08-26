@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.capabilities.CreatureEnchantCapability.CreatureEnchantContainer;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
 import static net.minecraft.util.EnumActionResult.FAIL;
 import static net.minecraft.util.EnumActionResult.SUCCESS;
@@ -47,10 +48,8 @@ public class CreatureEnchanter extends ItemBase {
     private final SimpleNetworkWrapper networkWrapper;
 
     public CreatureEnchanter(SimpleNetworkWrapper networkWrapper) {
-        super();
+        super(new ResourceLocation(MODID, "creature_enchanter"));
         this.networkWrapper = networkWrapper;
-        setRegistryName(MODID, "creature_enchanter");
-        setUnlocalizedName("creature_enchanter");
         this.setMaxStackSize(1);
     }
 
@@ -75,7 +74,9 @@ public class CreatureEnchanter extends ItemBase {
                         return;
                     AuraHelper.drainVis(entity.world, entity.getPosition(), 30, false);
                     EnchantmentData enchantmentData = nbtToEnchantment((NBTTagCompound) enchant);
-                    capability.putEnchant(enchantmentData.enchantment, enchantmentData.level);
+
+                    CreatureEnchantContainer creatureEnchantContainer = new CreatureEnchantContainer(enchantmentData.enchantment, enchantmentData.level, 0);
+                    capability.putEnchant(creatureEnchantContainer);
 
                     AuraHelper.polluteAura(entity.getEntityWorld(), entity.getPosition(), 5, true);
                     if (entity instanceof EntityPlayer) {
