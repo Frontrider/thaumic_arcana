@@ -8,7 +8,7 @@ import hu.frontrider.arcana.eventhandlers.FunctionEventManager;
 import hu.frontrider.arcana.eventhandlers.LifecycleEventManager;
 import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessage;
 import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessageHandler;
-import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSynchronizer;
+import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSynchroniser;
 import hu.frontrider.arcana.network.falldamage.FalldamageSyncMessage;
 import hu.frontrider.arcana.network.falldamage.FalldamageSyncMessageHandler;
 import hu.frontrider.arcana.recipes.AlchemyRecipes;
@@ -72,7 +72,7 @@ public class ThaumicArcana {
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
 
-        MinecraftForge.EVENT_BUS.register(new CreatureEnchantSynchronizer());
+        MinecraftForge.EVENT_BUS.register(new CreatureEnchantSynchroniser());
         MinecraftForge.EVENT_BUS.register(new FunctionEventManager());
         MinecraftForge.EVENT_BUS.register(new LifecycleEventManager());
 
