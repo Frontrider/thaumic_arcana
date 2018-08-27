@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * */
 public class ArcaneCageAreaScan {
 
-    @GameRegistry.ObjectHolder("minecraft_grass")
+    @GameRegistry.ObjectHolder("minecraft:grass")
     static Block grass = null;
 
     public boolean isvalid(World world, BlockPos pos) {

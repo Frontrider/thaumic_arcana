@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.StartTracking;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -43,17 +44,15 @@ public class CreatureEnchantSynchroniser {
     }
 
     @SubscribeEvent
-    @SideOnly(Side.SERVER)
-    public void syncPlayer(EntityJoinWorldEvent event) {
-        Entity entity = event.getEntity();
-        if(entity instanceof EntityPlayer){
-            int entityId = entity.getEntityId();
-            NETWORK_WRAPPER.sendTo(new CreatureEnchantSyncMessage(
-                            entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null),
-                            entityId
-                    ), (EntityPlayerMP) entity
-            );
-        }
+    public void syncPlayer(PlayerEvent.PlayerLoggedInEvent event) {
+        Entity entity = event.player;
+        System.out.println("player has joined");
+        int entityId = entity.getEntityId();
+        NETWORK_WRAPPER.sendTo(new CreatureEnchantSyncMessage(
+                        entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null),
+                        entityId
+                ), (EntityPlayerMP) entity
+        );
     }
 
 }

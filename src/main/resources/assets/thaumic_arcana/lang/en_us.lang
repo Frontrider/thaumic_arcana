@@ -126,6 +126,7 @@ card.thaumic_arcana.study_dead_flesh.text=Dissecting %1$s can give you a deeper 
 
 card.thaumic_arcana.experiment.name=Experiment on animals
 card.thaumic_arcana.experiment.description=Experimention on animals is the most valuable source of information in the field of biomancy.
+
 ###################
 #Creature Enchants#
 ###################
@@ -135,9 +136,10 @@ enchant.creature_enchant.protection=Protection
 enchant.creature_enchant.strength=Strength
 enchant.creature_enchant.speed=Speed
 enchant.creature_enchant.spider=Spider Limbs
-
+enchant.creature_enchant.vitality=Vitality
 enchant.modifier.normal=Normal
 enchant.modifier.negation=Negation
+
 ########
 #Items#
 ########

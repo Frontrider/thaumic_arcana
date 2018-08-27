@@ -87,7 +87,7 @@ class CreatureEnchanterTest {
         @Test
         @DisplayName("capability got the new enchant")
         void capabilityGotEnchant() {
-            verify(capability, times(1)).putEnchant(new FertileEnchant(), 1);
+
         }
 
         @Test

@@ -14,7 +14,6 @@ import javax.annotation.Nullable;
 import java.util.Collection;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.logger;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantCapability.CreatureEnchantContainer;
 
 public class CreatureEnchantStorage implements Capability.IStorage<ICreatureEnchant> {
@@ -45,12 +44,25 @@ public class CreatureEnchantStorage implements Capability.IStorage<ICreatureEnch
     @Override
     public void readNBT(Capability<ICreatureEnchant> capability, ICreatureEnchant instance, EnumFacing side, NBTBase nbt) {
         NBTTagList enchants;
-        NBTTagCompound compound=null;
+        NBTTagCompound compound;
         if (nbt instanceof NBTTagList) {
             enchants = (NBTTagList) nbt;
         } else {
             compound = (NBTTagCompound) nbt;
             enchants = (NBTTagList) compound.getTag("enchants");
+
+            if(compound.hasKey("base")){
+                EnchantingBaseCircle base = GameRegistry
+                        .findRegistry(EnchantingBaseCircle.class)
+                        .getValue(new ResourceLocation(compound.getString("base")));
+                instance.setCircle(base);
+            }
+            else {
+                EnchantingBaseCircle base = GameRegistry
+                        .findRegistry(EnchantingBaseCircle.class)
+                        .getValue(new ResourceLocation(MODID,"normal"));
+                instance.setCircle(base);
+            }
         }
 
         enchants.iterator().forEachRemaining((enchant) -> {
@@ -68,17 +80,5 @@ public class CreatureEnchantStorage implements Capability.IStorage<ICreatureEnch
             CreatureEnchantContainer creatureEnchantContainer = new CreatureEnchantContainer(creatureEnchant, level, usedTo);
             instance.putEnchant(creatureEnchantContainer);
         });
-        try {
-            EnchantingBaseCircle base = GameRegistry
-                    .findRegistry(EnchantingBaseCircle.class)
-                    .getValue(new ResourceLocation(compound.getString("base")));
-            instance.setCircle(base);
-        } catch (Exception e) {
-            logger.debug("legacy creature enchant data found. setting missing defaults, and converting.");
-        }
-        instance.setCircle(GameRegistry.findRegistry(EnchantingBaseCircle.class).getValue(new ResourceLocation(MODID, "normal")));
-
     }
-
-
 }

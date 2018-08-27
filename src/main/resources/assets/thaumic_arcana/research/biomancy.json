@@ -717,6 +717,16 @@
             "THEORY;INFUSION;1",
             "THEORY;BIOMANCY;2"
           ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced.stage.6",
+          "recipes": [
+            "thaumic_arcana:enchant_powder_advanced",
+            "thaumic_arcana:ce_strength",
+            "thaumic_arcana:ce_speed",
+            "thaumic_arcana:ce_spider",
+            "thaumic_arcana:ce_vitality"
+          ]
         }
       ],
       "addenda": [
@@ -980,6 +990,7 @@
         {
           "text": "research.thaumic_arcana.enchant_modification.stage.2",
           "recipes": [
+            "thaumic_arcana:enchant_modifier_base",
             "thaumic_arcana:enchant_modifier_basic"
           ],
           "required_item": [
@@ -998,7 +1009,7 @@
         {
           "text": "research.thaumic_arcana.enchant_modification.stage.3",
           "recipes": [
-            "thaumic_arcana:enchant_modifier_basic",
+            "thaumic_arcana:enchant_modifier_base",
             "thaumic_arcana:enchant_modifier_negation"
           ]
         }

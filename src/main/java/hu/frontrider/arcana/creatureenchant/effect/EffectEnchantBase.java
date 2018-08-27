@@ -28,11 +28,13 @@ public abstract class EffectEnchantBase extends CreatureEnchant {
         int enchantLevel = getEnchantLevel(entity, this);
 
         if (enchantLevel > 0) {
-            entity.addPotionEffect(new PotionEffect(positive,30,enchantLevel-1,false,false));
+            if(entity.getActivePotionEffect(positive) == null || entity.getActivePotionEffect(positive).getDuration() <30)
+            entity.addPotionEffect(new PotionEffect(positive,240,enchantLevel-1,true,false));
         }
 
         if (enchantLevel < 0) {
-            entity.addPotionEffect(new PotionEffect(negative,30, (int) ((enchantLevel+1)*negativeMultiplier),false,false));
+            if(entity.getActivePotionEffect(negative) == null || entity.getActivePotionEffect(negative).getDuration() <30)
+            entity.addPotionEffect(new PotionEffect(negative,240, (int) ((enchantLevel+1)*negativeMultiplier),true,false));
         }
     }
 

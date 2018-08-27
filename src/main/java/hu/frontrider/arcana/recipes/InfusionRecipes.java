@@ -1,14 +1,11 @@
 package hu.frontrider.arcana.recipes;
 
-import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
-import hu.frontrider.arcana.items.EnchantModifierDust;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
@@ -67,19 +64,16 @@ public class InfusionRecipes {
                     )
             );
         }
-        IForgeRegistry<EnchantingBaseCircle> registry = GameRegistry.findRegistry(EnchantingBaseCircle.class);
         {
+            ItemStack itemStack = new ItemStack(modifier);
 
-            EnchantingBaseCircle normal = registry.getValue(new ResourceLocation(MODID, "normal"));
-
-            ItemStack source = EnchantModifierDust.createItem(modifier,normal);
-
-            ItemStack itemStack = new ItemStack(enchanting_powder_advanced);
+            ItemStack source = new ItemStack(enchanting_powder_advanced);
             ThaumcraftApi.addInfusionCraftingRecipe(
                     new ResourceLocation(MODID, "enchant_modifier_basic"),
                     new InfusionRecipe("CREATURE_ENCHANT_MODIFICATION",
                             itemStack,
-                            10, (new AspectList())
+                            10,
+                            new AspectList()
                             .add(Aspect.MAGIC, 20)
                             .add(Aspect.LIFE, 50)
                             .add(Aspect.AURA, 20)
@@ -93,32 +87,6 @@ public class InfusionRecipes {
                             ThaumcraftApiHelper.makeCrystal(Aspect.ORDER),
                             ThaumcraftApiHelper.makeCrystal(Aspect.MAGIC),
                             ThaumcraftApiHelper.makeCrystal(Aspect.MAGIC)
-                    )
-            );
-        }
-        {
-            EnchantingBaseCircle negation = registry.getValue(new ResourceLocation(MODID, "negation"));
-            ItemStack source = EnchantModifierDust.createItem(modifier,negation);
-
-            ItemStack itemStack = new ItemStack(enchanting_powder_advanced);
-            ThaumcraftApi.addInfusionCraftingRecipe(
-                    new ResourceLocation(MODID, "enchant_modifier_negation"),
-                    new InfusionRecipe("CREATURE_ENCHANT_MODIFICATION",
-                            itemStack,
-                            10, (new AspectList())
-                            .add(Aspect.ENTROPY, 100)
-                            .add(Aspect.LIFE, 50)
-                            .add(Aspect.FLUX, 70)
-                            .add(Aspect.BEAST,100),
-                            source,
-                            new ItemStack(obsidian),
-                            new ItemStack(obsidian),
-                            new ItemStack(magma),
-                            new ItemStack(magma),
-                            ThaumcraftApiHelper.makeCrystal(Aspect.FLUX),
-                            ThaumcraftApiHelper.makeCrystal(Aspect.FLUX),
-                            new ItemStack(enderEye),
-                            new ItemStack(enderEye)
                     )
             );
         }

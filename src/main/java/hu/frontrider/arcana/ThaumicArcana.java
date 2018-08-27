@@ -34,7 +34,12 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 
-@Mod(modid = ThaumicArcana.MODID, name = ThaumicArcana.NAME, version = ThaumicArcana.VERSION)
+@Mod(modid = ThaumicArcana.MODID,
+        name = ThaumicArcana.NAME,
+        version = ThaumicArcana.VERSION,
+        dependencies="required-after:thaumcraft"
+
+)
 public class ThaumicArcana {
     public static final String MODID = "thaumic_arcana";
     public static final String NAME = "Thaumic Arcana";

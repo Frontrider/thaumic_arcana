@@ -69,8 +69,10 @@ public class EnchantModifierDust extends ItemBase {
 
                 String modifier = tagCompound.getString("modifier");
                 EnchantingBaseCircle baseCircle = registry.getValue(new ResourceLocation(modifier));
+
                 ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
                 capability.setCircle(baseCircle);
+
                 stack.shrink(1);
 
                 AuraHelper.polluteAura(entity.getEntityWorld(), entity.getPosition(), 10, true);

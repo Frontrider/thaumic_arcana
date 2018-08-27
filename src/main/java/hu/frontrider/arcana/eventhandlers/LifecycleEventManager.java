@@ -24,6 +24,9 @@ public class LifecycleEventManager {
     public void onPlayerClone(PlayerEvent.Clone event) {
         EntityPlayer original = event.getOriginal();
 
+        if(event.isWasDeath())
+            return;
+
         if (original.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
             EntityPlayer player = event.getEntityPlayer();
             ICreatureEnchant creatureEnchant = player.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null);
@@ -51,4 +54,5 @@ public class LifecycleEventManager {
             event.addCapability(CREATURE_ENCHANT, new CreatureEnchantProvider());
         }
     }
+
 }
