@@ -34,4 +34,8 @@ public class NormalCircle extends EnchantingBaseCircle {
                 .merge(Aspect.LIFE,50)
                 .merge(Aspect.AURA,100);
     }
+    @Override
+    public String getReseatch() {
+        return "ENCHANT_MODIFICATION";
+    }
 }

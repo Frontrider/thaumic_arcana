@@ -35,4 +35,9 @@ public class NegationCircle extends EnchantingBaseCircle {
                 .merge(Aspect.LIFE,50)
                 .merge(Aspect.ENTROPY,100);
     }
+
+    @Override
+    public String getReseatch() {
+        return "ENCHANT_MODIFICATION";
+    }
 }

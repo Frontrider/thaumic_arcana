@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.util;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
@@ -42,5 +43,10 @@ public class AspectUtil {
         aspectList.readFromNBT(itemStack.getTagCompound());
 
         return aspectList;
+    }
+    public static int hashAspectList(AspectList list){
+        NBTTagCompound nbtTagCompound = new NBTTagCompound();
+        list.writeToNBT(nbtTagCompound);
+        return nbtTagCompound.hashCode();
     }
 }

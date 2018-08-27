@@ -23,7 +23,6 @@ public class CreatureEnchantSyncMessageHandler implements IMessageHandler<Creatu
     @Override
     public IMessage onMessage(CreatureEnchantSyncMessage message, MessageContext ctx) {
 
-        System.out.println("message recived client side");
         Entity entityByID = Minecraft.getMinecraft().world.getEntityByID(message.getId());
 
         if(entityByID == null) {

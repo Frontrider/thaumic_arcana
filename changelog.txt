@@ -1,4 +1,4 @@
-0.1.2:
+0.2.0:
  - added animal experiments.
  - Experiment table now has a small cage
  - added arcane cage to trap rodents
@@ -11,6 +11,9 @@
  - added enchantment modifier: "Negation"
  - added some flux
 
+known bugs:
+ - formulas show up multiple times.
+ - not sure if thaumcraft or me, the /tc research <player> all freezes the server.
 
 0.1.1:
 - enchantment effect now renders in first person

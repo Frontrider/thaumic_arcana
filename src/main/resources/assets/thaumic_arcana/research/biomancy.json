@@ -1051,7 +1051,7 @@
         {
           "text": "research.thaumic_arcana.creature_enchant_negation.stage.1",
           "required_research": [
-            "CREATURE_ENCHANTMENT_NEGATION@0"
+            "CREATURE_ENCHANTMENT_NEGATION@1"
           ]
         }
       ],
@@ -1059,31 +1059,31 @@
         {
           "text": "research.thaumic_arcana.creature_enchant_negation.fertile",
           "required_research": [
-            "CREATURE_ENCHANTMENT_NEGATION@0"
+            "CREATURE_ENCHANTMENT_NEGATION@1"
           ]
         },
         {
           "text": "research.thaumic_arcana.creature_enchant_negation.protection",
           "required_research": [
-            "CREATURE_ENCHANTMENT_NEGATION@0"
+            "CREATURE_ENCHANTMENT_NEGATION@1"
           ]
         },
         {
           "text": "research.thaumic_arcana.creature_enchant_negation.strength",
           "required_research": [
-            "CREATURE_ENCHANTMENT_NEGATION@0"
+            "CREATURE_ENCHANTMENT_NEGATION@1"
           ]
         },
         {
           "text": "research.thaumic_arcana.creature_enchant_negation.speed",
           "required_research": [
-            "CREATURE_ENCHANTMENT_NEGATION@0"
+            "CREATURE_ENCHANTMENT_NEGATION@1"
           ]
         },
         {
           "text": "research.thaumic_arcana.creature_enchant_negation.vitality",
           "required_research": [
-            "CREATURE_ENCHANTMENT_NEGATION@0"
+            "CREATURE_ENCHANTMENT_NEGATION@1"
           ]
         }
       ]

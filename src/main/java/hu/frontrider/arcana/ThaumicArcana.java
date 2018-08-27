@@ -13,8 +13,10 @@ import hu.frontrider.arcana.network.falldamage.FalldamageSyncMessage;
 import hu.frontrider.arcana.network.falldamage.FalldamageSyncMessageHandler;
 import hu.frontrider.arcana.recipes.AlchemyRecipes;
 import hu.frontrider.arcana.recipes.ArcaneCraftingRecipes;
+import hu.frontrider.arcana.recipes.FormulaCraftingRecipes;
 import hu.frontrider.arcana.recipes.InfusionRecipes;
-import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipe;
+import hu.frontrider.arcana.recipes.formulacrafting.FormulaCraftingHandler;
+import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipes;
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry;
 import hu.frontrider.arcana.research.ResearchRegistry;
 import hu.frontrider.arcana.util.CreativeTabArcana;
@@ -62,7 +64,6 @@ public class ThaumicArcana {
         File suggestedConfigurationFile = event.getSuggestedConfigurationFile();
         MinecraftForge.EVENT_BUS.register(new BlockRegistry());
 
-
         ConfigDirectory = new File(suggestedConfigurationFile.getParent() + "/" + MODID + "/");
 
         proxy.preInit(event);
@@ -71,6 +72,8 @@ public class ThaumicArcana {
         NETWORK_WRAPPER.registerMessage(CreatureEnchantSyncMessageHandler.class,CreatureEnchantSyncMessage.class,0,Side.CLIENT);
         NETWORK_WRAPPER.registerMessage(FalldamageSyncMessageHandler.class,FalldamageSyncMessage.class,1,Side.SERVER);
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+
+        FormulaRecipes.create();
     }
 
     @EventHandler
@@ -80,8 +83,9 @@ public class ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(new CreatureEnchantSynchroniser());
         MinecraftForge.EVENT_BUS.register(new FunctionEventManager());
         MinecraftForge.EVENT_BUS.register(new LifecycleEventManager());
+        MinecraftForge.EVENT_BUS.register(new FormulaCraftingHandler());
 
-        FormulaRecipe.registerRecipes();
+        FormulaCraftingRecipes.initRecipes();
         AlchemyRecipes.register();
         InfusionRecipes.register();
         ArcaneCraftingRecipes.register();

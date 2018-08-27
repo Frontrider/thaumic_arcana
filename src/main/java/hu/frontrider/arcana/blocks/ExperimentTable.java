@@ -3,16 +3,12 @@ package hu.frontrider.arcana.blocks;
 import hu.frontrider.arcana.ThaumicArcana;
 import hu.frontrider.arcana.blocks.tiles.TileEntityExperimentTable;
 import hu.frontrider.arcana.client.gui.GuiHandler;
-import hu.frontrider.arcana.items.Formula;
 import hu.frontrider.arcana.items.Rodent;
-import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipe;
-import hu.frontrider.arcana.util.AspectUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -23,7 +19,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.items.IItemHandler;
-import thaumcraft.api.aspects.AspectList;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -91,26 +86,6 @@ public class ExperimentTable extends BlockCage<TileEntityExperimentTable> {
             return true;
         }
 
-        if (item == formula)
-            for (FormulaRecipe formulaRecipe : FormulaRecipe.getFormulaRecipeList()) {
-                if (formulaRecipe.getItem().getItem() == itemMainhandItem) {
-                    AspectList aspects = ((Formula) item).getAspects(itemOffhand);
-                    if (AspectUtil.aspectListEquals(aspects, formulaRecipe.getFormula())) {
-                        ItemStack result = formulaRecipe.craft(itemMainhand, itemOffhand);
-
-                        if (result == null)
-                            return false;
-
-                        pos = pos.up();
-                        EntityItem entityItem = new EntityItem(worldIn);
-                        entityItem.setPosition(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
-                        entityItem.setItem(result);
-                        worldIn.spawnEntity(entityItem);
-                        return true;
-                    }
-                }
-
-            }
         return false;
     }
 

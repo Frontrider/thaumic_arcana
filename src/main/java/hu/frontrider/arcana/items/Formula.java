@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.items;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipes;
 import hu.frontrider.arcana.util.AspectUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,6 +17,7 @@ import thaumcraft.api.aspects.AspectList;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
@@ -43,10 +45,9 @@ public class Formula extends BaseFormula {
         aspectList.readFromNBT(tagCompound);
         swappedDescription(tooltip)
                 .permanent(description -> {
-                    description.add("Enchants:");
                     creatureEnchantIForgeRegistry.getValuesCollection().forEach(creatureEnchant -> {
                         if (AspectUtil.aspectListEquals(aspectList, creatureEnchant.formula())) {
-                            description.add("- " + I18n.format(creatureEnchant.getUnlocalizedName()));
+                            description.add("Enchants: " + I18n.format(creatureEnchant.getUnlocalizedName()));
                         }
                     });
                 })
@@ -57,7 +58,12 @@ public class Formula extends BaseFormula {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (tab != TABARCANA)
             return;
+
         items.add(new ItemStack(this));
-        creatureEnchantIForgeRegistry.getValuesCollection().forEach((creatureEnchant -> items.add(getItemStack(creatureEnchant.formula()))));
+        items.addAll(FormulaRecipes.INSTANCE.getRecipes()
+                .stream()
+                .flatMap(List::stream)
+                .map(recipe -> getItemStack(recipe.getFormula()))
+                .collect(Collectors.toSet()));
     }
 }
