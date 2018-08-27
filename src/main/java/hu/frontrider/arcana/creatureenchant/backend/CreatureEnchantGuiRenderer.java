@@ -19,8 +19,4 @@ public class CreatureEnchantGuiRenderer {
         EntityPlayerSP player = mc.player;
 
     }
-
-
-
-
 }

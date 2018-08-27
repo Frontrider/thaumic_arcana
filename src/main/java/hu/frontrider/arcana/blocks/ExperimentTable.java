@@ -1,29 +1,39 @@
 package hu.frontrider.arcana.blocks;
 
-import hu.frontrider.arcana.items.Formula;
-import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipe;
-import hu.frontrider.arcana.util.AspectUtil;
-import net.minecraft.block.BlockHorizontal;
+import hu.frontrider.arcana.ThaumicArcana;
+import hu.frontrider.arcana.blocks.tiles.TileEntityExperimentTable;
+import hu.frontrider.arcana.client.gui.GuiHandler;
+import hu.frontrider.arcana.items.Rodent;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import thaumcraft.api.aspects.AspectList;
+import net.minecraftforge.items.IItemHandler;
+
+import javax.annotation.Nullable;
+import java.util.Random;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
+import static net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
 
-public class ExperimentTable extends BlockHorizontal {
+public class ExperimentTable extends BlockCage<TileEntityExperimentTable> {
+    public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
+    @GameRegistry.ObjectHolder("minecraft:water_bucket")
+    private static Item water_bucket = null;
+
+    @GameRegistry.ObjectHolder("minecraft:bucket")
+    private static Item bucket = null;
 
     @GameRegistry.ObjectHolder(MODID + ":formula")
     public static Item formula = null;
@@ -32,12 +42,10 @@ public class ExperimentTable extends BlockHorizontal {
     private static final Item sal_mundi = null;
 
 
-    protected ExperimentTable() {
-        super(Material.WOOD);
-        setRegistryName(new ResourceLocation(MODID, "experiment_table"));
-        setUnlocalizedName("experiment_table");
+    public ExperimentTable() {
+        super(Material.WOOD, "experiment_table");
         setHardness(3);
-        setCreativeTab(TABARCANA);
+        setTickRandomly(true);
     }
 
     /**
@@ -57,9 +65,16 @@ public class ExperimentTable extends BlockHorizontal {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (worldIn.isRemote)
             return true;
-
         ItemStack itemMainhand = playerIn.getHeldItemMainhand();
         ItemStack itemOffhand = playerIn.getHeldItemOffhand();
+
+        if (!playerIn.isSneaking()) {
+            if (state.getValue(FACING).rotateYCCW() == facing) {
+                playerIn.openGui(ThaumicArcana.instance, GuiHandler.EXPERIMENT_TABLE_CAGE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+                return true;
+            }
+        }
+
         Item itemMainhandItem = itemMainhand.getItem();
         Item item = itemOffhand.getItem();
         //noinspection ConstantConditions
@@ -71,26 +86,6 @@ public class ExperimentTable extends BlockHorizontal {
             return true;
         }
 
-        if (item == formula)
-            for (FormulaRecipe formulaRecipe : FormulaRecipe.getFormulaRecipeList()) {
-                if (formulaRecipe.getItem().getItem() == itemMainhandItem) {
-                    AspectList aspects = ((Formula) item).getAspects(itemOffhand);
-                    if (AspectUtil.aspectListEquals(aspects, formulaRecipe.getFormula())) {
-                        ItemStack result = formulaRecipe.craft(itemMainhand, itemOffhand);
-
-                        if(result == null)
-                            return false;
-
-                        pos = pos.up();
-                        EntityItem entityItem = new EntityItem(worldIn);
-                        entityItem.setPosition(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
-                        entityItem.setItem(result);
-                        worldIn.spawnEntity(entityItem);
-                        return true;
-                    }
-                }
-
-            }
         return false;
     }
 
@@ -173,5 +168,36 @@ public class ExperimentTable extends BlockHorizontal {
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing()), 2);
+    }
+
+
+    @Override
+    public Class<TileEntityExperimentTable> getTileEntityClass() {
+        return TileEntityExperimentTable.class;
+    }
+
+    @Nullable
+    @Override
+    public TileEntityExperimentTable createTileEntity(World world, IBlockState state) {
+        return new TileEntityExperimentTable();
+    }
+
+    @Override
+    public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random) {
+        TileEntityExperimentTable tileEntity = getTileEntity(worldIn, pos);
+
+        IItemHandler capability = tileEntity.getCapability(ITEM_HANDLER_CAPABILITY, null);
+        assert capability != null;
+        ItemStack rat = capability.getStackInSlot(0);
+        if (rat.getCount() == 1) {
+            ItemStack food = capability.getStackInSlot(1);
+            if (food.getCount() > 0) {
+                if (!((Rodent) rat.getItem()).isDead(rat, worldIn)) {
+                    food.shrink(1);
+                    NBTTagCompound tagCompound = rat.getTagCompound();
+                    tagCompound.setLong("lastFed", worldIn.getTotalWorldTime());
+                }
+            }
+        }
     }
 }

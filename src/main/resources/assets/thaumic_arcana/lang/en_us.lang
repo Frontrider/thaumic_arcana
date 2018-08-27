@@ -14,25 +14,29 @@ research.thaumic_arcana.table.title=Experiment Table
 research.thaumic_arcana.table.stage.1=To further my experiments, I drawn up designs, for a new table that includes all the tools I might need.<BR> To create it, I need to take 2 bottles and a stick into my hands, than put them on some greatwood planks. This workstation will also come in handy for research and theorycrafting.
 research.thaumic_arcana.table.application=I can use the experiment table to apply formulas to different items, by right clicking the table with the item in my main hand, and the formula in my offhand.
 research.thaumic_arcana.table.magic_application=I can also use the enchanting table to apply magical items, in a similar way to the Experiment Table.
+research.thaumic_arcana.table.cage=To start up my experiments on animals, I'll need some test subjects.To keep them somewhere, I created a small cage at the base of my experiment table. I can access it through the door, on the right side of the table.
 
 research.thaumic_arcana.plantlife.title=Plant-life
 research.thaumic_arcana.plantlife.stage.1=The first thing I should study is how plants react to magic. I know for sure that plant-life can absorb magical energies, since there are magical plants around me.
 
 research.thaumic_arcana.creatures.title=Living Creatures
 research.thaumic_arcana.creatures.stage.1=Working with the living proves to be harder. Breathing organisms seem to actively resist magic, which makes them significantly harder to work with.<BR> But I have a plan: I have written up a recipe for an experimental formula that can theoretically stabilize the essentia enough to be safely used on living beings.
-research.thaumic_arcana.creatures.stage.2=The substance is indeed stable enough, but it's also much weaker than the liquid form. It will not cause a revolution in how we practice thaumaturgy, but it will serve me well.
-research.thaumic_arcana.creatures.formula= To create the base of a formula, right click the Experiment Table with an empty bottle, and some salis mundus.
+research.thaumic_arcana.creatures.stage.2=The substance is indeed stable enough, but it's also much weaker than the liquid form. It will not cause a revolution in how we practice thaumaturgy, but it will serve me well.<LINE> Now I'll need a way to get access to something I can experiment with. Small rodents should work. Next up, I'll design a device that can capture them.
+research.thaumic_arcana.creatures.stage.3=I have everything I need to start my experiments.
+research.thaumic_arcana.creatures.formula=To create the base of a formula, right click the Experiment Table with an empty bottle, and some salis mundus.
+research.thaumic_arcana.creatures.cage=The arcan cage needs bait (food items that rodents like), and a 10x10 area of grass around it. It also needs to see the sky.
 
 research.thaumic_arcana.wheat.title=Plant growth
 research.thaumic_arcana.wheat.stage.1=I believe that the aspects creating the elements that plants need to grow should be able to create a reaction that grows the plant instantaneously... or explode on the spot.
 research.thaumic_arcana.wheat.stage.2=The first steps are promising: using alchemical principles, I was able to trigger rapid growth in seeds. Unfortunately, the resulting plant did not yield anything to repeat the process. I must try it on other plants.
 research.thaumic_arcana.wheat.stage.3=Other plants are reacting much better than wheat, resulting in a net gain. The methodology is still not perfect, but the results look edible.
 research.thaumic_arcana.wheat.stage.4=I have to see what happens when I use different breeds of plants. Maybe that can give me answers.
-research.thaumic_arcana.wheat.stage.6=Now I can alchemically grow my food on demand. The infertility problem of some plants proves to be harder to get rid of than I anticipated.
+research.thaumic_arcana.wheat.stage.5=Now I can alchemically grow my food on demand. The infertility problem of some plants proves to be harder to get rid of than I anticipated.
 
 research.thaumic_arcana.incubated_egg.title=Incubated Egg
 research.thaumic_arcana.incubated_egg.stage.1=I think I've gone far enough with plants to attempt to apply the same fundamental principles to animals. As a starting point, I'm going to apply heat and life energy to an egg in an attempt at supporting it's growth.
 research.thaumic_arcana.incubated_egg.stage.2=The egg responded the way I expected. After a few attempts with disturbing half grown animals, I managed to find the ratios of essentia I need to get an egg that will hatch a chicken every single time.<LINE> I also have to note that the shell of the egg became harder (I have no idea why), so throwing the egg around is inadvisable because it can damage the embryo.
+
 
 research.thaumic_arcana.flesh_growth.title=Fleshing it out
 research.thaumic_arcana.flesh_growth.stage.1=Now that I observed how essentia effects the growth of an animal, I can apply it in a different fashion. Theoretically, I can use Victus to trigger the growth of meat outside the animal. I'm going to add some Beastia as well, just in case the tissue needs a more familiar environment.
@@ -53,7 +57,11 @@ research.thaumic_arcana.creature_enchant.stage.4=That is it for now. I created p
 
 research.thaumic_arcana.creature_enchant_advanced.title=Advanced Creature enchants
 research.thaumic_arcana.creature_enchant_advanced.stage.1=There must be more for me to do.I prepared a few ingredients that I can use to try out a new formula, that should serve as the base for a much stronger enchanting powder, that (theoratically) can increase the strength of the bond between the creature and the enchantment.
-research.thaumic_arcana.creature_enchant_advanced.stage.2=I created the substance.
+research.thaumic_arcana.creature_enchant_advanced.stage.2=I created the substance. Now I want to try out if I could increase the strenght of the creature.
+research.thaumic_arcana.creature_enchant_advanced.stage.3=Success. The new enchantment is indeed potent, but it will not work alone I'll need some internal reinforcements, or else the limbs will fall off. <LINE> Now that I see some of the applications and limitations of this technique, I want to see if I can create an enchant, that would transcend the abilities of one creature, and make it behave like it's something else. <BR><BR>A spider should suffice.
+research.thaumic_arcana.creature_enchant_advanced.stage.4=Was a little harder than expected, but the property transfer was successfull. <LINE> Before moving forward, I want to see if speed has the same limitations as strength.
+research.thaumic_arcana.creature_enchant_advanced.stage.5=Interestingly, it does not. Still needs some getting used to.<LINE> Lastly, I want to see, if increased vitality would be the answer to the fragility problem of strength.
+research.thaumic_arcana.creature_enchant_advanced.stage.6=That's it for now. I need to learn more before I can do more.
 
 research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby.
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
@@ -85,7 +93,24 @@ research.thaumic_arcana.tree.stage.3=The process causes a yield lower than expec
 
 research.thaumic_arcana.plantproducts.title=Biomanuafactury
 research.thaumic_arcana.plantproducts.stage.1= Now that I figured how to force plants to grow, I want to do something different. I want to see if I can fabricate products that would normally come from different plants in more flexible ways. <LINE> The first thing I want to try is to solve a problem that has been emerging during my work. I use a lot of paper while doing research and studies. <BR> I prepared a few candidates and samples that should be usable to create paper.
-research.thaumic_arcana.plantproducts.stage.2= I ended up choosing wood as the material for this. With the correct essentia, I can soften and reshape it's fibers to turn it into fine sheets of paper. <LINE> Now I want to do something different. I want to see if I could mold or even grow other resources.
+research.thaumic_arcana.plantproducts.stage.2= I ended up choosing wood as the material for this. With the correct essentia, I can soften and reshape it's fibers to turn it into fine sheets of paper. <LINE> Now I want to do something different. I want to see if I could mold or even grow other resources. <BR> Making more of some dead plantmatter should do it.
+research.thaumic_arcana.plantproducts.stage.3= The dyes reacted well to my treatment.
+
+research.thaumic_arcana.enchant_modification.title=Creature Enchant Modification
+research.thaumic_arcana.enchant_modification.stage.1=While studying the phenomenons around creature enchants, there was something that was bothering me. It is not only affecting the flesh, but also the aura around the subject. This new "field", created by the magical dusts binds the magic to the creature. I alsp noticed that this field is connected to the local aura, in a way that I don't fully understand. <BR><BR>To crack this mystery, first I'm going to try to alter it's behaviour. I should be able to alter it, so that it changes the way the enchants bind. <LINE> But, first things first, I should have a way to stabilise this field, just in case something goes wrong. My theory is that a strong enough binding agent, should be able to carry the spell.
+research.thaumic_arcana.enchant_modification.stage.2=Now that I have some sort of safety net to work with, I want to see how easy it would be to break this bond down. My intiial design was that it should be as strong as possible, so that the subject can not reject it.
+research.thaumic_arcana.enchant_modification.stage.3=Total failure. I still can not break the bond, and the only thing I have, is a spell that currupts the magical energies of the enchantments. They will either stop working, or turn to their opposite effects.
+research.thaumic_arcana.enchant_modification.negation=The negation modifier will flip the multiplier of the enchantment.
+research.thaumic_arcana.enchant_modification.base=The normal modifier will revert the binding to it's default state.
+
+research.thaumic_arcana.creature_enchant_negation.title=Creature Enchant Modifier: Negation
+research.thaumic_arcana.creature_enchant_negation.stage.1=To keep myself better organised, I'll note the known effects of negation here. If it's not listed, it will only be disabled.<BR>Only time will tell the horrors I'm about to find...
+
+research.thaumic_arcana.creature_enchant_negation.fertile=The Fertile enchant gives a chance to reduce birthrates.
+research.thaumic_arcana.creature_enchant_negation.strength=The Strength enchant will give weakness instead of strength.
+research.thaumic_arcana.creature_enchant_negation.speed=The Speed enchant will give slowness instead of speed.
+research.thaumic_arcana.creature_enchant_negation.vitality=The Vitality enchant will wither instead of regenerating.
+research.thaumic_arcana.creature_enchant_negation.protection=The Protection enchant will increase the damage instead of reducing it.
 
 ##########
 #Theories#
@@ -99,6 +124,9 @@ card.thaumic_arcana.study_flesh.text=Dissecting animals (%1$s) can give you a de
 card.thaumic_arcana.study_dead_flesh.name=Dissect remains
 card.thaumic_arcana.study_dead_flesh.text=Dissecting %1$s can give you a deeper understanding of their structure, even though it's a bit more gross than fresh tissue. Gain 25 Biomancy.
 
+card.thaumic_arcana.experiment.name=Experiment on animals
+card.thaumic_arcana.experiment.description=Experimention on animals is the most valuable source of information in the field of biomancy.
+
 ###################
 #Creature Enchants#
 ###################
@@ -106,48 +134,49 @@ enchant.creature_enchant.fertile=Fertile
 enchant.creature_enchant.respiration=Respiration
 enchant.creature_enchant.protection=Protection
 enchant.creature_enchant.strength=Strength
+enchant.creature_enchant.speed=Speed
+enchant.creature_enchant.spider=Spider Limbs
+enchant.creature_enchant.vitality=Vitality
+enchant.modifier.normal=Normal
+enchant.modifier.negation=Negation
 
 ########
 #Items#
 ########
 itemGroup.thaumic_arcana=Thaumic Arcana
 
-item.creature_enchanter.name=Creature Enchanter
-item.incubated_egg.name=Incubated Egg
-item.fertiliser.name=Arcane Fertilizer
-item.relief_item.name=Raw Relief
-item.nutrient_mix.name=Nutrient Mix
-item.plant_ball.name=Plant Ball
-item.plant_ball.contains=Contains:
-item.enchanting_powder.name=Enchanting Powder
-item.enchanting_powder_basic.name=Basic Enchant Upgrade Powder
-item.enchanting_powder_advanced.name=Advanced Enchant Upgrade Powder
-item.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
+item.thaumic_arcana.creature_enchanter.name=Creature Enchanter
+item.thaumic_arcana.incubated_egg.name=Incubated Egg
+item.thaumic_arcana.fertiliser.name=Arcane Fertilizer
+item.thaumic_arcana.relief_item.name=Raw Relief
+item.thaumic_arcana.nutrient_mix.name=Nutrient Mix
+item.thaumic_arcana.plant_ball.name=Plant Ball
+item.thaumic_arcana.plant_ball.contains=Contains:
+item.thaumic_arcana.enchanting_powder.name=Enchanting Powder
+item.thaumic_arcana.enchanting_powder_basic.name=Basic Enchant Upgrade Powder
+item.thaumic_arcana.enchanting_powder_advanced.name=Advanced Enchant Upgrade Powder
+item.thaumic_arcana.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
+item.thaumic_arcana.enchant_modifier.name=Enchantment Modifier Powder
 
-item.stabiliser.stable=Excellent
-item.stabiliser.unstable=Unstable
-item.stabiliser.normal=Stable
-
-item.formula.name=Formula
-
-
-
-potion.effect.sweet_relief=Potion of Sweet Relief
-splash_potion.effect.sweet_relief=Splash potion of Sweet Relief
-lingering_potion.effect.sweet_relief=Lingering potion of Sweet Relief
-
-potion.sweet_relief=Sweet Relief
+item.thaumic_arcana.formula.name=Formula
+item.thaumic_arcana.rodent.name=Rodent
+item.thaumic_arcana.rodent.dead.name=Dead Rodent
 
 ########
 #Blocks#
 ########
 
-tile.experiment_table.name=Experiment Table
-
+tile.thaumic_arcana.experiment_table.name=Experiment Table
+tile.thaumic_arcana.arcane_cage.name=Arcane Cage
 
 ######
 #Keys#
 ######
 key.thamic_arcana.category=Thaumic Arcana
-
 key.descriptions.desc=Swaps the descriptions of specific items
+
+##########
+#Commands#
+##########
+command.thaumic_arcana.reload.feedback=Thaumic Arcana configs reloaded
+rendering.thaumic_arcana.reload.failed=Failed to reload rendering. Check the console output for details.

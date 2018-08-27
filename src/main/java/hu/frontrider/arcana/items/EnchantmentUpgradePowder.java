@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -28,9 +29,8 @@ public class EnchantmentUpgradePowder extends ItemBase {
     private final int level;
 
 
-    public EnchantmentUpgradePowder(int level) {
-        super();
-
+    public EnchantmentUpgradePowder(int level,ResourceLocation resourceLocation) {
+        super(resourceLocation);
         this.level = level;
     }
 

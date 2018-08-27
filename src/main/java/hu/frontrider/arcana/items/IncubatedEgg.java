@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -13,11 +14,9 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
 public class IncubatedEgg extends ItemBase {
 
-    IncubatedEgg() {
-        super();
-        setRegistryName(MODID, "incubated_egg");
+    public IncubatedEgg() {
+        super(new ResourceLocation(MODID, "incubated_egg"));
         setMaxStackSize(16);
-        setUnlocalizedName("incubated_egg");
     }
 
     @Override

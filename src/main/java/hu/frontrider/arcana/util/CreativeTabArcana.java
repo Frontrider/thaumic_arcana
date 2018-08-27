@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.util;
 
-import hu.frontrider.arcana.items.ItemRegistry;
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

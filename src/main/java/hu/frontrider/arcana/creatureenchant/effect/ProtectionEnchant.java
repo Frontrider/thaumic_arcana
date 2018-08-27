@@ -1,34 +1,16 @@
 package hu.frontrider.arcana.creatureenchant.effect;
 
-import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.MobEffects;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
-public class ProtectionEnchant extends CreatureEnchant {
+public class ProtectionEnchant extends EffectEnchantBase {
 
     public ProtectionEnchant() {
-        super(new ResourceLocation(MODID, "protection"),"protection");
-    }
-
-    @SubscribeEvent
-    public void handleEvent(LivingHurtEvent event) {
-        EntityLivingBase entity = event.getEntityLiving();
-        int enchantLevel = getEnchantLevel(entity, this);
-
-        if (enchantLevel>0) {
-                float amount = event.getAmount() / enchantLevel;
-                System.out.println("event amount = " + event.getAmount());
-                System.out.println("amount = " + amount);
-                if (amount < 1 && entity.world.rand.nextBoolean())
-                    amount = 1;
-                event.setAmount(amount);
-            }
+        super(MobEffects.RESISTANCE,MobEffects.RESISTANCE,1,new ResourceLocation(MODID, "protection"),"protection");
     }
 
     @Override

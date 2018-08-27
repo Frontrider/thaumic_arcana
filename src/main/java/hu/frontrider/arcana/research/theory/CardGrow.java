@@ -42,7 +42,7 @@ public class CardGrow extends TheorycraftCard {
     @Override
     public ItemStack[] getRequiredItems() {
         ItemStack stack = new ItemStack(ItemsTC.phial, 1, 0);
-        ((ItemGenericEssentiaContainer) ItemsTC.crystalEssence).setAspects(stack, new AspectList().add(Aspect.WATER, 1));
+        ((ItemGenericEssentiaContainer) ItemsTC.crystalEssence).setAspects(stack, new AspectList().add(Aspect.WATER, 10));
 
         return new ItemStack[]{
                 new ItemStack(itemStack.getItem(), 1), stack

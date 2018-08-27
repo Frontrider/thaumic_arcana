@@ -3,6 +3,7 @@ package hu.frontrider.arcana.creatureenchant.base;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 import net.minecraft.entity.EntityLivingBase;
+import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
@@ -27,6 +28,14 @@ public class NormalCircle extends EnchantingBaseCircle {
 
     @Override
     public AspectList getFormula() {
-        return new AspectList();
+        return new AspectList()
+                .merge(Aspect.BEAST,300)
+                .merge(Aspect.MAGIC,100)
+                .merge(Aspect.LIFE,50)
+                .merge(Aspect.AURA,100);
+    }
+    @Override
+    public String getReseatch() {
+        return "ENCHANT_MODIFICATION";
     }
 }

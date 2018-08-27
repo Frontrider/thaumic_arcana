@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.eventhandlers;
 
 import hu.frontrider.arcana.items.EnchantmentUpgradePowder;
-import hu.frontrider.arcana.items.ItemRegistry;
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -16,35 +16,39 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import thaumcraft.api.aura.AuraHelper;
 
-import static hu.frontrider.arcana.blocks.BlockRegistry.experiment_table;
-import static hu.frontrider.arcana.items.ItemRegistry.creature_enchanter;
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
+import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.creature_enchanter;
 import static net.minecraft.block.BlockHorizontal.FACING;
 
 @SuppressWarnings("ConstantConditions")
 public class FunctionEventManager {
 
-    @GameRegistry.ObjectHolder("thaumcraft:salis_mundus")
+    @ObjectHolder("thaumcraft:salis_mundus")
     private static final Item sal_mundi = null;
 
-    @GameRegistry.ObjectHolder("minecraft:book")
+    @ObjectHolder("minecraft:book")
     private static final Item book = null;
 
-    @GameRegistry.ObjectHolder("thaumic_arcana:creature_enchanter")
+    @ObjectHolder("thaumic_arcana:creature_enchanter")
     private static final Item enchant_book = null;
 
-    @GameRegistry.ObjectHolder("minecraft:enchanting_table")
+    @ObjectHolder("minecraft:enchanting_table")
     private static Block enchanting_table = null;
 
-    @GameRegistry.ObjectHolder("thaumcraft:plank_greatwood")
+    @ObjectHolder("thaumcraft:plank_greatwood")
     private static Block greatwood_planks = null;
 
-    @GameRegistry.ObjectHolder("minecraft:glass_bottle")
+    @ObjectHolder("minecraft:glass_bottle")
     private static Item glass_bottle = null;
 
-    @GameRegistry.ObjectHolder("minecraft:stick")
+    @ObjectHolder("minecraft:stick")
     private static Item stick = null;
+
+    @ObjectHolder(MODID+":experiment_table")
+    private static Block experiment_table = null;
 
     @SubscribeEvent
     public void entityRightClick(PlayerInteractEvent.EntityInteract event) {
@@ -77,7 +81,7 @@ public class FunctionEventManager {
 
         if (world.getBlockState(event.getPos()).getBlock() == enchanting_table &&
                 itemMainhand.getItem() == sal_mundi &&
-                itemOffhand.getItem() == book) {
+                itemOffhand.getItem() == book && AuraHelper.drainVis(world,event.getPos(),20,true)==100) {
             itemMainhand.shrink(1);
             itemOffhand.shrink(1);
             BlockPos pos = event.getPos().up();
@@ -91,15 +95,7 @@ public class FunctionEventManager {
             SoundEvent sound = new SoundEvent(new ResourceLocation("thaumcraft:dust"));
             world.playSound(null, pos, sound, SoundCategory.AMBIENT, 1, 1.5f);
 
-            for (int i = 0; i < 50; i++) {
-                world.spawnParticle(EnumParticleTypes.FIREWORKS_SPARK,
-                        pos.getX() + .5,
-                        pos.getY() + .5,
-                        pos.getZ() + .5,
-                        0, 0, 0
-                );
-            }
-
+            AuraHelper.polluteAura(world,event.getPos(),5,true);
             event.setUseBlock(Event.Result.DENY);
         }
     }

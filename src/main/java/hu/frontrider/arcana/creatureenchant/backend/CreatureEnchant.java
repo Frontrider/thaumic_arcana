@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.creatureenchant.backend;
 
+import hu.frontrider.arcana.capabilities.CreatureEnchantCapability;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.util.AspectUtil;
 import net.minecraft.entity.Entity;
@@ -45,10 +46,12 @@ public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureE
     }
 
 
-    public static void setEnchantment(Entity entity, Map<CreatureEnchant, Integer> enchants) {
+    public static void setEnchantment(Entity entity,ICreatureEnchant enchants) {
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
-            capability.setStore(enchants);
+
+            capability.setStore(enchants.getStore());
+            capability.setCircle(enchants.getCircle());
         }
     }
 
@@ -60,7 +63,7 @@ public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureE
         return false;
     }
 
-    public static Map<CreatureEnchant, Integer> getCreatureEnchants(Entity entity) {
+    public static Map<CreatureEnchant, CreatureEnchantCapability.CreatureEnchantContainer> getCreatureEnchants(Entity entity) {
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
             return capability.getStore();

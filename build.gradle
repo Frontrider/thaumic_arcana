@@ -14,7 +14,12 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: "com.matthewprenger.cursegradle"
 
+
+
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+archivesBaseName="Thaumic Arcana"
+
 
 curseforge {
     apiKey = System.env.curse_api_key != null?System.env.curse_api_key:"111111"
@@ -24,7 +29,10 @@ curseforge {
         releaseType = System.env.release_type != null?System.env.release_type:"release"
     }
 }
-
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
@@ -46,16 +54,17 @@ minecraft {
 }
 
 dependencies {
+    apiCompile project(":thaumcraftApi")
+    implementation files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA23-deobf.jar")
     testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junit_version
     testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
-
+    testCompile("hu.frontrider.minecrafttestkit:minecrafttestkit:0.1-SNAPSHOT")
     testCompile group: 'org.mockito', name: 'mockito-all', version: mockito_version
 
     testCompile("com.jayway.jsonpath:json-path:$json_path_version")
     testCompile group: 'org.apache.commons', name: 'commons-text', version: commons_text_version
-
 }
 
 processResources {

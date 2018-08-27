@@ -14,11 +14,11 @@ public interface ICreatureEnchant {
 
     int getLevel(CreatureEnchant enchant);
 
-    Map<CreatureEnchant, Integer> getStore();
+    Map<CreatureEnchant, CreatureEnchantCapability.CreatureEnchantContainer> getStore();
 
-    void setStore(Map<CreatureEnchant, Integer> store);
+    void setStore(Map<CreatureEnchant, CreatureEnchantCapability.CreatureEnchantContainer> store);
 
-    void putEnchant(CreatureEnchant enchantment, Integer level);
+    void putEnchant(CreatureEnchantCapability.CreatureEnchantContainer creatureEnchantContainer);
 
     EnchantingBaseCircle getCircle();
     void setCircle(EnchantingBaseCircle enchantingBaseCircle);

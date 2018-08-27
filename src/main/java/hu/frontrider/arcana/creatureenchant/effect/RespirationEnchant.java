@@ -27,7 +27,6 @@ public class RespirationEnchant extends CreatureEnchant {
             }
     }
 
-
     @Override
     public AspectList formula() {
         return new AspectList()

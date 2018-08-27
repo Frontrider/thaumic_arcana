@@ -56,7 +56,7 @@ public class CardDissectDead extends TheorycraftCard {
 
     @Override
     public boolean activate(EntityPlayer entityPlayer, ResearchTableData researchTableData) {
-        researchTableData.addTotal(this.getResearchCategory(), 25);
+        researchTableData.addTotal(this.getResearchCategory(), 16);
         return true;
     }
 
