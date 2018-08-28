@@ -37,7 +37,7 @@ public class NegationCircle extends EnchantingBaseCircle {
     }
 
     @Override
-    public String getReseatch() {
+    public String getResearch() {
         return "ENCHANT_MODIFICATION";
     }
 }

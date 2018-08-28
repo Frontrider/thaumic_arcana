@@ -24,7 +24,7 @@ public abstract class EnchantingBaseCircle extends IForgeRegistryEntry.Impl<Ench
 
     public abstract AspectList getFormula();
 
-    public abstract String getReseatch();
+    public abstract String getResearch();
 
     public static class Color{
         public Color(int r,int g,int b,int a){

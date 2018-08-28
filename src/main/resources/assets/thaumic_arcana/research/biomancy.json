@@ -524,7 +524,7 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.2",
           "recipes": [
-            "thaumic-arcana:enchant_powder_basic",
+            "thaumic_arcana:enchant_powder_basic",
             "thaumic_arcana:ce_fertile"
           ],
           "required_item": [
@@ -542,7 +542,7 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.3",
           "recipes": [
-            "thaumic-arcana:enchant_powder_basic",
+            "thaumic_arcana:enchant_powder_basic",
             "thaumic_arcana:ce_fertile",
             "thaumic_arcana:ce_protection"
           ],
@@ -626,7 +626,7 @@
           "required_item": [
             "minecraft:enchanted_book",
             "minecraft:beef",
-            "thaumic-arcana:enchant_powder_basic",
+            "thaumic_arcana:enchant_powder_basic",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}"
           ],
@@ -643,7 +643,7 @@
           "required_item": [
             "minecraft:enchanted_book",
             "minecraft:beef",
-            "thaumic-arcana:enchant_powder_advanced",
+            "thaumic_arcana:enchant_powder_advanced",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'potentia'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}"
           ],
@@ -660,8 +660,8 @@
           ],
           "required_item": [
             "minecraft:enchanted_book",
-            "thaumicarcana:rodent",
-            "thaumic-arcana:enchant_powder_advanced",
+            "thaumic_arcana:rodent",
+            "thaumic_arcana:enchant_powder_advanced",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ignis'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}"
@@ -682,8 +682,8 @@
             "minecraft:enchanted_book",
             "minecraft:spider_eye",
             "minecraft:cob_web",
-            "thaumicarcana:rodent",
-            "thaumic-arcana:enchant_powder_advanced",
+            "thaumic_arcana:rodent",
+            "thaumic_arcana:enchant_powder_advanced",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vinculum'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
@@ -706,8 +706,8 @@
             "minecraft:enchanted_book",
             "minecraft:spider_eye",
             "minecraft:cob_web",
-            "thaumicarcana:rodent",
-            "thaumic-arcana:enchant_powder_advanced",
+            "thaumic_arcana:rodent",
+            "thaumic_arcana:enchant_powder_advanced",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vinculum'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
@@ -778,7 +778,7 @@
             "thaumic_arcana:creature_enchanter",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
             "thaumcraft:salis_mundus",
-            "tbaumcraft:bath-salts",
+            "thaumcraft:bath_salts",
             "minecraft:water_bucket"
           ]
         },
@@ -791,7 +791,7 @@
             "thaumic_arcana:creature_enchanter",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
             "thaumcraft:salis_mundus",
-            "tbaumcraft:bath-salts",
+            "thaumcraft:bath_salts",
             "minecraft:water_bucket",
             "thaumcraft:caster_basic"
           ]
@@ -991,7 +991,7 @@
           "text": "research.thaumic_arcana.enchant_modification.stage.2",
           "recipes": [
             "thaumic_arcana:enchant_modifier_base",
-            "thaumic_arcana:enchant_modifier_basic"
+            "thaumic_arcana:ce_circle_normal"
           ],
           "required_item": [
             "thaumic_arcana:enchanting_powder_advanced",
@@ -1010,7 +1010,8 @@
           "text": "research.thaumic_arcana.enchant_modification.stage.3",
           "recipes": [
             "thaumic_arcana:enchant_modifier_base",
-            "thaumic_arcana:enchant_modifier_negation"
+            "thaumic_arcana:ce_circle_normal",
+            "thaumic_arcana:ce_circle_negation"
           ]
         }
       ],
@@ -1051,7 +1052,7 @@
         {
           "text": "research.thaumic_arcana.creature_enchant_negation.stage.1",
           "required_research": [
-            "CREATURE_ENCHANTMENT_NEGATION@1"
+            "ENCHANT_MODIFICATION@1"
           ]
         }
       ],

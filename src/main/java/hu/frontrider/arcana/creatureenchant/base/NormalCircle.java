@@ -35,7 +35,7 @@ public class NormalCircle extends EnchantingBaseCircle {
                 .merge(Aspect.AURA,100);
     }
     @Override
-    public String getReseatch() {
+    public String getResearch() {
         return "ENCHANT_MODIFICATION";
     }
 }
