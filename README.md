@@ -37,8 +37,9 @@ Other features:
 * metal transmutation
 
 
-##For modders
+## For modders
 
 The creature enchantments and the formula recipes use the standard forge registry, except the formula recipes. Those need to be added to the handler, at the Init phase.
+
 Also, you're supposed to get the references via object holders. it was done, so that you could theoratically swap out my defaults with registry editing. Please do that for custom maps only. If you need an edit for some other reason, than it might be actually needs to be done on my end.
  
