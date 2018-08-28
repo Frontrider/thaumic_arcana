@@ -1,5 +1,4 @@
 # Thaumic Arcana
-[ ![Codeship Status for Frontrider/thaumic_arcana](https://app.codeship.com/projects/3f097430-8095-0136-a0a6-525bda1a386a/status?branch=master)](https://app.codeship.com/projects/301567)
 
 discord: https://discord.gg/UvzmEfx
 
@@ -29,6 +28,10 @@ types:
 * protection
 * strength
 * respiration
+* speed
+* vitality (regen)
+* spider limbs
+* + modifiers
 
 ### Misc
 
