@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.items;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.items.formula.BaseFormula;
 import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipes;
 import hu.frontrider.arcana.util.AspectUtil;
 import net.minecraft.client.resources.I18n;
@@ -30,28 +31,11 @@ public class Formula extends BaseFormula {
         super(new ResourceLocation(MODID, "formula"));
         setMaxStackSize(1);
         creatureEnchantIForgeRegistry = GameRegistry.findRegistry(CreatureEnchant.class);
-
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-
-        NBTTagCompound tagCompound = stack.getTagCompound();
-        if (tagCompound == null)
-            return;
-
-        AspectList aspectList = new AspectList();
-        aspectList.readFromNBT(tagCompound);
-        swappedDescription(tooltip)
-                .permanent(description -> {
-                    creatureEnchantIForgeRegistry.getValuesCollection().forEach(creatureEnchant -> {
-                        if (AspectUtil.aspectListEquals(aspectList, creatureEnchant.formula())) {
-                            description.add("Enchants: " + I18n.format(creatureEnchant.getUnlocalizedName()));
-                        }
-                    });
-                })
-                .render();
     }
 
     @Override

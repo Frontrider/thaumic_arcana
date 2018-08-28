@@ -23,6 +23,11 @@ public class CreatureEnchantSyncMessageHandler implements IMessageHandler<Creatu
     @Override
     public IMessage onMessage(CreatureEnchantSyncMessage message, MessageContext ctx) {
 
+        if(Minecraft.getMinecraft().world != null) {
+            enchantmentCache.put(message.getId(),message.getEnchant());
+            return null;
+        }
+        
         Entity entityByID = Minecraft.getMinecraft().world.getEntityByID(message.getId());
 
         if(entityByID == null) {

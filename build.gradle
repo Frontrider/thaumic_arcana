@@ -54,7 +54,7 @@ minecraft {
 }
 
 dependencies {
-    apiCompile project(":thaumcraftApi")
+    apiCompileOnly project(":thaumcraftApi")
     implementation files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA23-deobf.jar")
     testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")

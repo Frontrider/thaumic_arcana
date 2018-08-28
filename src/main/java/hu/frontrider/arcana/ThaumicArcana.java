@@ -18,6 +18,7 @@ import hu.frontrider.arcana.recipes.InfusionRecipes;
 import hu.frontrider.arcana.recipes.formulacrafting.FormulaCraftingHandler;
 import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipes;
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry;
+import hu.frontrider.arcana.research.ResearchEventManager;
 import hu.frontrider.arcana.research.ResearchRegistry;
 import hu.frontrider.arcana.util.CreativeTabArcana;
 import net.minecraft.creativetab.CreativeTabs;
@@ -33,6 +34,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.Logger;
+import thaumcraft.api.research.ResearchEvent;
 
 import java.io.File;
 
@@ -85,6 +87,7 @@ public class ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(new LifecycleEventManager());
         MinecraftForge.EVENT_BUS.register(new FormulaCraftingHandler());
 
+        ResearchEventManager.initHandlers();
         FormulaCraftingRecipes.initRecipes();
         AlchemyRecipes.register();
         InfusionRecipes.register();

@@ -1,8 +1,8 @@
 package hu.frontrider.arcana.registrationhandlers;
 
-import hu.frontrider.arcana.blocks.BlockArcaneCage;
+import hu.frontrider.arcana.blocks.experiments.BlockArcaneCage;
 import hu.frontrider.arcana.blocks.BlockTileEntity;
-import hu.frontrider.arcana.blocks.ExperimentTable;
+import hu.frontrider.arcana.blocks.experiments.ExperimentTable;
 import net.minecraft.block.Block;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

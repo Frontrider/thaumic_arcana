@@ -46,7 +46,6 @@ public class CreatureEnchantSynchroniser {
     @SubscribeEvent
     public void syncPlayer(PlayerEvent.PlayerLoggedInEvent event) {
         Entity entity = event.player;
-        System.out.println("player has joined");
         int entityId = entity.getEntityId();
         NETWORK_WRAPPER.sendTo(new CreatureEnchantSyncMessage(
                         entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null),

@@ -140,6 +140,9 @@ enchant.creature_enchant.vitality=Vitality
 enchant.modifier.normal=Normal
 enchant.modifier.negation=Negation
 
+enchant.creature_enchant.helper.enchant=Enchant
+enchant.creature_enchant.helper.modifier=Enchant Modifier
+
 ########
 #Items#
 ########

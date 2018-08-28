@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.items;
 
+import hu.frontrider.arcana.items.formula.BaseFormula;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 

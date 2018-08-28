@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.containers;
 
-import hu.frontrider.arcana.blocks.tiles.TileEntityArcaneCage;
+import hu.frontrider.arcana.blocks.experiments.tiles.TileEntityArcaneCage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraftforge.items.CapabilityItemHandler;

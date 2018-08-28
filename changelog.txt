@@ -1,5 +1,7 @@
 0.2.1:
- - fixed errors in research file, now adding a
+ - fixed fatal errors in research file
+ - internal cleanup
+ 
 =======
 0.2.0:
  - added animal experiments.

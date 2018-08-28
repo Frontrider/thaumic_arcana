@@ -8,7 +8,7 @@ import thaumcraft.api.aspects.IEssentiaContainerItem;
 
 public class ItemWithAspects extends ItemBase implements IEssentiaContainerItem {
 
-    ItemWithAspects(ResourceLocation resourceLocation) {
+    public ItemWithAspects(ResourceLocation resourceLocation) {
         super(resourceLocation);
     }
 

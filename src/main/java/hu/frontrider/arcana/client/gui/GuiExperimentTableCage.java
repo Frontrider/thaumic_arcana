@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.client.gui;
 
-import hu.frontrider.arcana.blocks.tiles.TileEntityExperimentTable;
+import hu.frontrider.arcana.blocks.experiments.tiles.TileEntityExperimentTable;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;

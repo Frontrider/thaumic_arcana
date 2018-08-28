@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.client.gui;
 
-import hu.frontrider.arcana.blocks.tiles.TileEntityArcaneCage;
-import hu.frontrider.arcana.blocks.tiles.TileEntityExperimentTable;
+import hu.frontrider.arcana.blocks.experiments.tiles.TileEntityArcaneCage;
+import hu.frontrider.arcana.blocks.experiments.tiles.TileEntityExperimentTable;
 import hu.frontrider.arcana.containers.ContainerArcaneCage;
 import hu.frontrider.arcana.containers.ContainerExperimentTableCage;
 import net.minecraft.entity.player.EntityPlayer;

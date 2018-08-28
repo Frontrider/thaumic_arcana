@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.containers;
 
-import hu.frontrider.arcana.blocks.tiles.TileEntityExperimentTable;
+import hu.frontrider.arcana.blocks.experiments.tiles.TileEntityExperimentTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.EnumFacing;

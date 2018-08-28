@@ -12,6 +12,7 @@ public class NormalCircle extends EnchantingBaseCircle {
 
     private Color color;
     public NormalCircle(){
+        super("normal");
         setRegistryName(MODID,"normal");
         color = new Color(255,255,255,255);
     }

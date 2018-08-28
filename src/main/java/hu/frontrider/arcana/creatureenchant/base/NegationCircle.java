@@ -13,6 +13,7 @@ public class NegationCircle extends EnchantingBaseCircle {
     private Color color;
 
     public NegationCircle() {
+        super("negation");
         setRegistryName(MODID, "negation");
         color = new Color(255,0,0,255);
     }
