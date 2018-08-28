@@ -57,7 +57,7 @@ public class FormulaCraftingRecipes {
 
     static void InitEnchaningFormula(EnchantingBaseCircle enchant, Item item) {
         FormulaRecipes.INSTANCE.addRecipe(new FormulaApplicationRecipe(
-                enchant.getReseatch(),
+                enchant.getResearch(),
                 Blocks.ENCHANTING_TABLE,
                 enchant.getFormula(),
                 new ItemStack(item),

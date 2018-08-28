@@ -1,17 +1,19 @@
 package hu.frontrider.arcana.recipes;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 import hu.frontrider.arcana.items.Formula;
 import hu.frontrider.arcana.items.PlantBall;
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
-import hu.frontrider.arcana.util.AspectUtil;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
@@ -22,7 +24,6 @@ import java.util.List;
 
 import static hu.frontrider.arcana.Configuration.enablePlatinum;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.enchanting_powder_basic;
 import static net.minecraft.init.Items.*;
 
@@ -436,25 +437,44 @@ public class AlchemyRecipes {
             );
             ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "enchant_powder_basic"), recipe);
         }
-        NonNullList<ItemStack> formulaSubItems = NonNullList.create();
-        formulaSubItems.clear();
-        formula.getSubItems(TABARCANA, formulaSubItems);
+        {//getting all the creature enchants
+            IForgeRegistry<CreatureEnchant> registry = GameRegistry.findRegistry(CreatureEnchant.class);
+            for (CreatureEnchant enchant : registry) {
+                AspectList aspectList = enchant.formula();
+                ItemStack enchantedFormula = new ItemStack(formula);
 
-        for (ItemStack itemStack : formulaSubItems) {
-            if (itemStack.hasTagCompound()) {
-                AspectList aspectList = AspectUtil.getStoredAspects(itemStack);
-                CreatureEnchant creatureEnchant = CreatureEnchant.getForFormula(aspectList);
+                NBTTagCompound nbtTagCompound = new NBTTagCompound();
+                aspectList.writeToNBT(nbtTagCompound);
 
-                if (creatureEnchant != null) {
-                    CrucibleRecipe recipe = new CrucibleRecipe(
-                            creatureEnchant.getResearch(),
-                            itemStack,
-                            new ItemStack(formula),
-                            aspectList
-                    );
-                    ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_" + creatureEnchant.getRegistryName().getResourcePath()), recipe);
-                }
+                enchantedFormula.setTagCompound(nbtTagCompound);
+                CrucibleRecipe recipe = new CrucibleRecipe(
+                        enchant.getResearch(),
+                        enchantedFormula,
+                        new ItemStack(formula),
+                        aspectList
+                );
+                ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_" + enchant.getRegistryName().getResourcePath()), recipe);
+            }
+        }
+        {
+            IForgeRegistry<EnchantingBaseCircle> registry = GameRegistry.findRegistry(EnchantingBaseCircle.class);
+            for (EnchantingBaseCircle enchant : registry) {
+                AspectList aspectList = enchant.getFormula();
+                ItemStack enchantedFormula = new ItemStack(formula);
+
+                NBTTagCompound nbtTagCompound = new NBTTagCompound();
+                aspectList.writeToNBT(nbtTagCompound);
+
+                enchantedFormula.setTagCompound(nbtTagCompound);
+                CrucibleRecipe recipe = new CrucibleRecipe(
+                        enchant.getResearch(),
+                        enchantedFormula,
+                        new ItemStack(formula),
+                        aspectList
+                );
+                ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(MODID, "ce_circle_" + enchant.getRegistryName().getResourcePath()), recipe);
             }
         }
     }
 }
+

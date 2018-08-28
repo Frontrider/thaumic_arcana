@@ -34,4 +34,7 @@ public class Assertions {
     }
 
 
+    public static void arrayContains(String[] array,String value){
+
+    }
 }
