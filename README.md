@@ -39,7 +39,6 @@ Other features:
 
 ## For modders
 
-The creature enchantments and the formula recipes use the standard forge registry, except the formula recipes. Those need to be added to the handler, at the Init phase.
+The creature enchantments are using the standard forge registry, the formula recipes use my own handler (no event for it yet). Thoose need to be added to their handler, at the Init phase. (don't try pre init, it will not be initialised)
 
-Also, you're supposed to get the references via object holders. it was done, so that you could theoratically swap out my defaults with registry editing. Please do that for custom maps only. If you need an edit for some other reason, than it might be actually needs to be done on my end.
- 
+Also, you're supposed to get the references via object holders. it was done, so that you can swap out my defaults with registry editing more easily. Please do that for custom maps only. If you need an edit for some other reason, than it might be actually needs to be done on my end.
