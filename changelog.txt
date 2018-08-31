@@ -1,6 +1,7 @@
 0.2.1:
  - fixed fatal errors in research file
  - internal cleanup
+ - added groundwork for terramancy
  
 =======
 0.2.0:

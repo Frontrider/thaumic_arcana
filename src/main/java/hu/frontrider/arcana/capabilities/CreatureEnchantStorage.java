@@ -51,16 +51,15 @@ public class CreatureEnchantStorage implements Capability.IStorage<ICreatureEnch
             compound = (NBTTagCompound) nbt;
             enchants = (NBTTagList) compound.getTag("enchants");
 
-            if(compound.hasKey("base")){
+            if (compound.hasKey("base")) {
                 EnchantingBaseCircle base = GameRegistry
                         .findRegistry(EnchantingBaseCircle.class)
                         .getValue(new ResourceLocation(compound.getString("base")));
                 instance.setCircle(base);
-            }
-            else {
+            } else {
                 EnchantingBaseCircle base = GameRegistry
                         .findRegistry(EnchantingBaseCircle.class)
-                        .getValue(new ResourceLocation(MODID,"normal"));
+                        .getValue(new ResourceLocation(MODID, "normal"));
                 instance.setCircle(base);
             }
         }
@@ -72,10 +71,9 @@ public class CreatureEnchantStorage implements Capability.IStorage<ICreatureEnch
 
             ResourceLocation enchantment = new ResourceLocation(enchantName);
             CreatureEnchant creatureEnchant = GameRegistry.findRegistry(CreatureEnchant.class).getValue(enchantment);
-            int usedTo=0;
-            if(((NBTTagCompound) enchant).hasKey("usedTo"))
-            {
-                usedTo =((NBTTagCompound) enchant).getInteger("usedTo");
+            int usedTo = 0;
+            if (((NBTTagCompound) enchant).hasKey("usedTo")) {
+                usedTo = ((NBTTagCompound) enchant).getInteger("usedTo");
             }
             CreatureEnchantContainer creatureEnchantContainer = new CreatureEnchantContainer(creatureEnchant, level, usedTo);
             instance.putEnchant(creatureEnchantContainer);

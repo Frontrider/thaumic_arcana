@@ -21,14 +21,12 @@ public class CreatureEnchantSyncMessage implements IMessage {
 
     private static final int byteLength = 1;
 
-    IForgeRegistry<EnchantingBaseCircle> enchantingBaseCircles;
-    IForgeRegistry<CreatureEnchant> registry;
+    private IForgeRegistry<EnchantingBaseCircle> enchantingBaseCircles;
+    private IForgeRegistry<CreatureEnchant> registry;
 
     public CreatureEnchantSyncMessage() {
         registry = GameRegistry.findRegistry(CreatureEnchant.class);
-
         enchantingBaseCircles = GameRegistry.findRegistry(EnchantingBaseCircle.class);
-
     }
 
     public CreatureEnchantSyncMessage(ICreatureEnchant enchant, int id) {

@@ -180,3 +180,5 @@ key.descriptions.desc=Swaps the descriptions of specific items
 ##########
 command.thaumic_arcana.reload.feedback=Thaumic Arcana configs reloaded
 rendering.thaumic_arcana.reload.failed=Failed to reload rendering. Check the console output for details.
+
+commands.thaumic_arcana.spawn_structure.invalid_name=Invaliid structure name

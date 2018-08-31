@@ -36,7 +36,7 @@ public class StructureSpawnerCommand extends CommandSetBlock {
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length < 4) {
-            throw new WrongUsageException("commands.setblock.usage");
+            throw new WrongUsageException("commands.thaumic_arcana.spawn_structure.usage");
         }
         BlockPos blockpos = parseBlockPos(sender, args, 0, false);
 
@@ -46,7 +46,7 @@ public class StructureSpawnerCommand extends CommandSetBlock {
                 break;
             }
             default:
-                throw new CommandException("invalid name");
+                throw new CommandException("commands.thaumic_arcana.spawn_structure.invalid_name");
         }
     }
 }

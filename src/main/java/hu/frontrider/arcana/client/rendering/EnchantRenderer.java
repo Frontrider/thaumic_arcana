@@ -39,7 +39,6 @@ public class EnchantRenderer implements LayerRenderer {
         creatureEnchantOffsetManager = new CreatureEnchantOffsetManager();
 
         creatureEnchantOffsetManager.loadConfigs();
-
     }
 
     @Override
@@ -53,6 +52,7 @@ public class EnchantRenderer implements LayerRenderer {
 
         if (player != null) {
             int thirdPersonView = Minecraft.getMinecraft().gameSettings.thirdPersonView;
+
             if (thirdPersonView == 0) {
                 GlStateManager.translate(0, -1, 0);
                 doRender(player, player.limbSwing, player.limbSwingAmount, event.getPartialTicks(), player.ticksExisted, player.cameraYaw, player.cameraPitch, 1);
@@ -114,8 +114,6 @@ public class EnchantRenderer implements LayerRenderer {
         glVertex3f(-2, 2, 0);
         glEnd();
         GlStateManager.resetColor();
-
-
     }
 
     private void drawIcons(TextureManager textureManager, Entity entity) {

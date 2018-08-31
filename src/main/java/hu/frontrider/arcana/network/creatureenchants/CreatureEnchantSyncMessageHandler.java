@@ -23,23 +23,27 @@ public class CreatureEnchantSyncMessageHandler implements IMessageHandler<Creatu
     @Override
     public IMessage onMessage(CreatureEnchantSyncMessage message, MessageContext ctx) {
 
-        if(Minecraft.getMinecraft().world != null) {
-            enchantmentCache.put(message.getId(),message.getEnchant());
-            return null;
-        }
-        
-        Entity entityByID = Minecraft.getMinecraft().world.getEntityByID(message.getId());
+        Minecraft.getMinecraft().addScheduledTask(()->{
+            System.out.println("sync message recieved");
 
-        if(entityByID == null) {
-            enchantmentCache.put(message.getId(),message.getEnchant());
-            return null;
-        }
+            if(Minecraft.getMinecraft().world != null) {
+                enchantmentCache.put(message.getId(),message.getEnchant());
+                return;
+            }
 
-        if (entityByID.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            ICreatureEnchant capability = entityByID.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
-            capability.setStore(message.getEnchant().getStore());
-            capability.setCircle(message.getEnchant().getCircle());
-        }
+            Entity entityByID = Minecraft.getMinecraft().world.getEntityByID(message.getId());
+
+            if(entityByID == null) {
+                enchantmentCache.put(message.getId(),message.getEnchant());
+                return;
+            }
+
+            if (entityByID.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
+                ICreatureEnchant capability = entityByID.getCapability(CREATURE_ENCHANT_CAPABILITY, null);
+                capability.setStore(message.getEnchant().getStore());
+                capability.setCircle(message.getEnchant().getCircle());
+            }
+        });
 
         return null;
     }

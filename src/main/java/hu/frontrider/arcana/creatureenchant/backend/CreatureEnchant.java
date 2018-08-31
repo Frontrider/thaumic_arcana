@@ -45,7 +45,6 @@ public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureE
         return 0;
     }
 
-
     public static void setEnchantment(Entity entity,ICreatureEnchant enchants) {
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             ICreatureEnchant capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null);

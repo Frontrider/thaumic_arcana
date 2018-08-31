@@ -88,6 +88,7 @@ public class ClientProxy extends CommonProxy {
                         String modifier = tagCompound.getString("modifier");
 
                         EnchantingBaseCircle value = registry.getValue(new ResourceLocation(modifier));
+                        assert value != null;
                         EnchantingBaseCircle.Color color = value.getColor();
 
                         return new Color(color.getR(), color.getG(), color.getB()).getRGB();

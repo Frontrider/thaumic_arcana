@@ -24,6 +24,7 @@ public class CreatureEnchantSynchroniser {
 
         if (target.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
             EntityPlayer entityPlayer = event.getEntityPlayer();
+            System.out.println("sync message sent for entity that is tracked");
             int entityId = target.getEntityId();
             NETWORK_WRAPPER.sendTo(new CreatureEnchantSyncMessage(
                             target.getCapability(CREATURE_ENCHANT_CAPABILITY, null),
@@ -45,6 +46,8 @@ public class CreatureEnchantSynchroniser {
 
     @SubscribeEvent
     public void syncPlayer(PlayerEvent.PlayerLoggedInEvent event) {
+        System.out.println("sync message sent for joining player");
+
         Entity entity = event.player;
         int entityId = entity.getEntityId();
         NETWORK_WRAPPER.sendTo(new CreatureEnchantSyncMessage(
