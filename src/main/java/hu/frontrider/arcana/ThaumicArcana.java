@@ -20,6 +20,7 @@ import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipes;
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry;
 import hu.frontrider.arcana.research.ResearchEventManager;
 import hu.frontrider.arcana.research.ResearchRegistry;
+import hu.frontrider.arcana.server.commands.StructureSpawnerCommand;
 import hu.frontrider.arcana.util.CreativeTabArcana;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,6 +31,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -42,12 +45,11 @@ import java.io.File;
         name = ThaumicArcana.NAME,
         version = ThaumicArcana.VERSION,
         dependencies="required-after:thaumcraft"
-
 )
 public class ThaumicArcana {
     public static final String MODID = "thaumic_arcana";
     public static final String NAME = "Thaumic Arcana";
-    public static final String VERSION = "0.1.1";
+    public static final String VERSION = "0.2.1";
 
     public static File ConfigDirectory;
     public static Logger logger;
@@ -86,7 +88,7 @@ public class ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(new FunctionEventManager());
         MinecraftForge.EVENT_BUS.register(new LifecycleEventManager());
         MinecraftForge.EVENT_BUS.register(new FormulaCraftingHandler());
-
+        
         ResearchEventManager.initHandlers();
         FormulaCraftingRecipes.initRecipes();
         AlchemyRecipes.register();
@@ -98,5 +100,9 @@ public class ThaumicArcana {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event){
 
+    }
+    @EventHandler
+    public void serverLoad(FMLServerStartingEvent event){
+        event.registerServerCommand(new StructureSpawnerCommand());
     }
 }

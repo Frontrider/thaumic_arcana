@@ -4,6 +4,7 @@ import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.effect.*;
 import hu.frontrider.minecrafttestkit.MineCraftTest;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -17,6 +18,7 @@ public class GenericEnchantmentTests {
 
     }
 
+    @Disabled
     @ParameterizedTest
     @ValueSource(classes = {
             StrengthEnchant.class,

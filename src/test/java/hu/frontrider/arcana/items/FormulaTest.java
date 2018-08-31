@@ -7,12 +7,14 @@ import hu.frontrider.minecrafttestkit.RegistrationHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Disabled
 @MineCraftTest
 class FormulaTest {
 
