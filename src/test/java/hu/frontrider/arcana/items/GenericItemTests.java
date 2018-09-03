@@ -12,8 +12,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
-
 @Disabled
 @DisplayName("Generic tests that run on all items")
 public class GenericItemTests {
@@ -37,7 +35,7 @@ public class GenericItemTests {
     @DisplayName("Can get item variants before the mod was initialised")
     @MethodSource("getItems")
     void canGetVariantsBeforeInit(Item item){
-        item.getSubItems(TABARCANA,NonNullList.create());
+        item.getSubItems(ThamicArcana.INSTANCE.getTABARCANA(),NonNullList.create());
     }
 
 }

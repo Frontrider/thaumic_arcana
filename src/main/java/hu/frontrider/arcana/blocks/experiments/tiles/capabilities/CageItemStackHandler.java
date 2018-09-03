@@ -21,7 +21,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 public class CageItemStackHandler implements IItemHandler, IItemHandlerModifiable, INBTSerializable<NBTTagCompound> {
     protected NonNullList<ItemStack> stacks;
 
-    @GameRegistry.ObjectHolder(MODID+":rodent")
+    @GameRegistry.ObjectHolder(MODID +":rodent")
     static Item rodent=null;
 
     public CageItemStackHandler()

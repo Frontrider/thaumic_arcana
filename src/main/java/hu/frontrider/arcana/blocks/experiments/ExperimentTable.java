@@ -71,7 +71,7 @@ public class ExperimentTable extends BlockCage<TileEntityExperimentTable> {
 
         if (!playerIn.isSneaking()) {
             if (state.getValue(FACING).rotateYCCW() == facing) {
-                playerIn.openGui(ThaumicArcana.instance, GuiHandler.EXPERIMENT_TABLE_CAGE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+                playerIn.openGui(ThaumicArcana.INSTANCE, GuiHandler.EXPERIMENT_TABLE_CAGE, worldIn, pos.getX(), pos.getY(), pos.getZ());
                 return true;
             }
         }

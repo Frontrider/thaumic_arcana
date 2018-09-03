@@ -1,2 +1,3 @@
 include 'thaumcraftApi'
 
+rootProject.name = "Thaumic Arcana"

@@ -25,10 +25,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static hu.frontrider.arcana.ThaumicArcana.INSTANCE;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 
-public class PlantBall extends ItemBase implements Initialisable {
+public class  PlantBall extends ItemBase implements Initialisable {
 
     private static List<ItemStack> treeItems;
     private static List<ItemStack> seedItems;
@@ -116,7 +116,7 @@ public class PlantBall extends ItemBase implements Initialisable {
 
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (tab != TABARCANA)
+        if (tab != INSTANCE.getTABARCANA())
             return;
         if(treeItems != null)
         items.addAll(treeItems);

@@ -13,8 +13,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
+import static hu.frontrider.arcana.ThaumicArcana.INSTANCE;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER;
 
 public class SpiderFingers extends CreatureEnchant {
     public SpiderFingers() {
@@ -44,7 +44,7 @@ public class SpiderFingers extends CreatureEnchant {
         if (entityLivingBase.isSneaking()) {
             entityLivingBase.motionY = 0.0;
             if (world.isRemote) {
-                NETWORK_WRAPPER.sendToServer(new FalldamageSyncMessage());
+                INSTANCE.getNETWORK_WRAPPER().sendToServer(new FalldamageSyncMessage());
             }
         }
     }

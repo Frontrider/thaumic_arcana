@@ -11,7 +11,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Arrays;
 
-import static hu.frontrider.arcana.ThaumicArcana.*;
+import static hu.frontrider.arcana.ThaumicArcana.INSTANCE;
+import static hu.frontrider.arcana.ThaumicArcana.MODID;
 import static hu.frontrider.arcana.registrationhandlers.BlockRegistry.blockArcaneCage;
 import static hu.frontrider.arcana.registrationhandlers.BlockRegistry.experimentTable;
 
@@ -20,8 +21,8 @@ public class ItemRegistry {
 
     public static Item nutrient_mix = new Item()
             .setRegistryName(MODID, "nutrient_mix")
-            .setUnlocalizedName(MODID+".nutrient_mix")
-            .setCreativeTab(TABARCANA);
+            .setUnlocalizedName(MODID +".nutrient_mix")
+            .setCreativeTab(INSTANCE.getTABARCANA());
 
     public static Item enchanting_powder_basic =
             new EnchantmentUpgradePowder(1,new ResourceLocation(MODID, "enchanting_powder_basic"));
@@ -32,16 +33,16 @@ public class ItemRegistry {
 
     public static Item fertiliser = new ItemFertiliser();
     public static Item incubated_egg = new IncubatedEgg();
-    public static Item creature_enchanter = new CreatureEnchanter(NETWORK_WRAPPER);
+    public static Item creature_enchanter = new CreatureEnchanter(INSTANCE.getNETWORK_WRAPPER());
     public static Item plant_ball = new PlantBall();
     public static Item formula = new Formula();
 
     public static Item[] items = new Item[]{
             fertiliser, incubated_egg, creature_enchanter, nutrient_mix, plant_ball,
             enchanting_powder_basic,enchanting_powder_advanced,enchanting_powder_magical,
-            formula,new Rodent(),new EnchantModifierDust(NETWORK_WRAPPER),
-            new ItemBlock(experimentTable).setRegistryName(experimentTable.getRegistryName()).setCreativeTab(TABARCANA),
-            new ItemBlock(blockArcaneCage).setRegistryName(blockArcaneCage.getRegistryName()).setCreativeTab(TABARCANA)
+            formula,new Rodent(),new EnchantModifierDust(INSTANCE.getNETWORK_WRAPPER()),
+            new ItemBlock(experimentTable).setRegistryName(experimentTable.getRegistryName()).setCreativeTab(INSTANCE.getTABARCANA()),
+            new ItemBlock(blockArcaneCage).setRegistryName(blockArcaneCage.getRegistryName()).setCreativeTab(INSTANCE.getTABARCANA())
     };
 
     @SubscribeEvent

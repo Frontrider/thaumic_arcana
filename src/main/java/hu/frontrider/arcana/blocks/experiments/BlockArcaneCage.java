@@ -53,7 +53,7 @@ public class BlockArcaneCage extends BlockCage<TileEntityArcaneCage> {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        playerIn.openGui(ThaumicArcana.instance, GuiHandler.ARCANE_CAGE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+        playerIn.openGui(ThaumicArcana.INSTANCE, GuiHandler.ARCANE_CAGE, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }
 

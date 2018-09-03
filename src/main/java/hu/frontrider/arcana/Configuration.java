@@ -40,8 +40,13 @@ public class Configuration {
     })
     @Config.Name("Research configuration")
     public static String[] research = new String[]{
-            MODID+":research/metal_transmutation",
-            MODID+":research/biomancy",
-            MODID+":research/terramancy"
+            MODID +":research/metal_transmutation",
+
+            MODID +":research/biomancy",
+            MODID +":research/biomancy/enchanting",
+            MODID +":research/biomancy/plantproducts",
+            MODID +":research/biomancy/animalproducts",
+
+            MODID +":research/terramancy"
     };
 }

@@ -18,7 +18,7 @@ import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE
 
 public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureEnchant> {
 
-    @GameRegistry.ObjectHolder(MODID+":normal")
+    @GameRegistry.ObjectHolder(MODID +":normal")
     private static EnchantingBaseCircle baseCircle = null;
 
     private final ResourceLocation icon;

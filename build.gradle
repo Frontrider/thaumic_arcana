@@ -5,34 +5,20 @@ buildscript {
         maven {
             url "https://plugins.gradle.org/m2/"
         }
+        maven {
+            url "http://maven.shadowfacts.net/"
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.11"
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: "com.matthewprenger.cursegradle"
-
-
+apply plugin: "idea"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
-archivesBaseName="Thaumic Arcana"
 
-
-curseforge {
-    apiKey = System.env.curse_api_key != null?System.env.curse_api_key:"111111"
-    project {
-        id =  System.env.project_id != null?System.env.project_id:"111111"
-        changelog = file("$changelog")
-        releaseType = System.env.release_type != null?System.env.release_type:"release"
-    }
-}
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
@@ -41,30 +27,24 @@ minecraft {
     version = "1.12.2-14.23.4.2705"
     runDir = "run"
     mappings = "snapshot_20171003"
-    makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-
-    replace '@VERSION@', project.version
-    replace '@MODID@', modid
-    replace '@NAME@', name
-    //Replaces all text that matches the left side with the right.
-    //replace '@FINGERPRINT@', project.findProperty('signSHA1')
-    //Makes those replacement changes to the main mod class.
-    //My mod class is set in my project's gradle.properties file.
-    replaceIn "${mod_class}.java"
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+
+
 dependencies {
+    compile fileTree(dir: 'lib', include: '*.jar')
     apiCompileOnly project(":thaumcraftApi")
     implementation files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA23-deobf.jar")
+
     testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junit_version
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '2.0.2-beta'
+    // Enable use of the JUnitPlatform Runner within the IDE
     testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
-    testCompile("hu.frontrider.minecrafttestkit:minecrafttestkit:0.1-SNAPSHOT")
-    testCompile group: 'org.mockito', name: 'mockito-all', version: mockito_version
+    //testCompile("hu.frontrider.minecrafttestkit:minecrafttestkit:0.1")
 
-    testCompile("com.jayway.jsonpath:json-path:$json_path_version")
-    testCompile group: 'org.apache.commons', name: 'commons-text', version: commons_text_version
+
 }
 
 processResources {
@@ -86,12 +66,7 @@ processResources {
     }
 }
 jar {
-
     manifest {
-
+        attributes 'FMLAT': "${modid}.cfg"
     }
-}
-
-test{
-    useJUnitPlatform()
 }

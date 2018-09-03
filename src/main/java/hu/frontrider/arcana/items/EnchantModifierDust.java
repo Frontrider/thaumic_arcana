@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.items;
 
+import hu.frontrider.arcana.ThaumicArcana;
 import hu.frontrider.arcana.capabilities.ICreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessage;
@@ -31,7 +32,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
 import static hu.frontrider.arcana.capabilities.CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY;
 import static net.minecraft.util.EnumActionResult.FAIL;
 import static net.minecraft.util.EnumActionResult.SUCCESS;
@@ -138,7 +138,7 @@ public class EnchantModifierDust extends ItemBase {
     @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (tab == TABARCANA) {
+        if (tab == ThaumicArcana.INSTANCE.getTABARCANA()) {
             items.add(new ItemStack(this));
             registry.getValuesCollection().forEach(enchant -> items.add(createItem(this, enchant)));
         }

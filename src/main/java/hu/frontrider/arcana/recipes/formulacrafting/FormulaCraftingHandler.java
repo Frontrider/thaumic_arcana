@@ -14,7 +14,6 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aura.AuraHelper;
 import thaumcraft.api.capabilities.ThaumcraftCapabilities;
@@ -30,15 +29,6 @@ public class FormulaCraftingHandler {
     @GameRegistry.ObjectHolder(MODID + ":formula")
     private static Item formula = null;
 
-    /**
-     * sorting it to a map, for faster access later.
-     *
-     * @see IForgeRegistry<FormulaCraftingHandler>.getSlaveMap()
-     */
-    public FormulaCraftingHandler() {
-
-
-    }
 
     @SubscribeEvent
     public void doCraft(PlayerInteractEvent.RightClickBlock event) {
@@ -50,7 +40,7 @@ public class FormulaCraftingHandler {
 
         ItemStack itemMainhand = player.getHeldItemMainhand();
         ItemStack itemOffhand = player.getHeldItemOffhand();
-        Map<Block, List<FormulaApplicationRecipe>> recipeHashMap = FormulaRecipes.INSTANCE.recipes;
+        Map<Block, List<FormulaApplicationRecipe>> recipeHashMap = FormulaRecipes.INSTANCE.getRecipes();
         ItemStack formulaStack = itemOffhand.getItem() == formula ? itemOffhand : itemMainhand.getItem() == formula ? itemMainhand : null;
         ItemStack resourceStack = itemOffhand.getItem() != formula ? itemOffhand : itemMainhand.getItem() != formula ? itemMainhand : null;
         if (formulaStack != null) {

@@ -19,13 +19,13 @@ public class UtilTextureRender {
             Minecraft.getMinecraft().getTextureManager().bindTexture(res);
             Gui.drawModalRectWithCustomSizedTexture(x, y, 0F, 0F, w, h, w, h);
         } catch (NullPointerException e) {
-            ThaumicArcana.logger.error("Null pointer drawTexture;Simple " + res.getResourcePath());
-            ThaumicArcana.logger.error(e.getMessage());
+            ThaumicArcana.INSTANCE.getLogger().error("Null pointer drawTexture;Simple " + res.getResourcePath());
+            ThaumicArcana.INSTANCE.getLogger().error(e.getMessage());
             e.printStackTrace();
         } catch (net.minecraft.util.ReportedException e) {
-            ThaumicArcana.logger.error("net.minecraft.util.ReportedException ");
-            ThaumicArcana.logger.error(res.getResourceDomain() + ":" + res.getResourcePath());
-            ThaumicArcana.logger.error(e.getMessage());
+            ThaumicArcana.INSTANCE.getLogger().error("net.minecraft.util.ReportedException ");
+            ThaumicArcana.INSTANCE.getLogger().error(res.getResourceDomain() + ":" + res.getResourcePath());
+            ThaumicArcana.INSTANCE.getLogger().error(e.getMessage());
             e.printStackTrace();
         }
     }

@@ -9,7 +9,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
 public class AidTable implements ITheorycraftAid {
 
-    @GameRegistry.ObjectHolder(MODID+":experiment_table")
+    @GameRegistry.ObjectHolder(MODID +":experiment_table")
     private static Block experiment_table = null;
 
     @Override

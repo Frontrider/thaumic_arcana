@@ -20,7 +20,7 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
  */
 public class FormulaCraftingRecipes {
 
-    @GameRegistry.ObjectHolder(MODID+":enchant_modifier")
+    @GameRegistry.ObjectHolder(MODID +":enchant_modifier")
     static Item modifier = null;
 
     public static void initRecipes() {

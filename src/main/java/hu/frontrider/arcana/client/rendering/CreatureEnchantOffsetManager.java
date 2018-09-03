@@ -25,7 +25,7 @@ public class CreatureEnchantOffsetManager {
     private Map<String, Triple<Float, Float, Float>> offsets;
 
     public void loadConfigs() {
-        File file = new File(ThaumicArcana.ConfigDirectory.getAbsolutePath() + "/enchantingCircleOffsets.properties");
+        File file = new File(ThaumicArcana.INSTANCE.getConfigDirectory().getAbsolutePath() + "/enchantingCircleOffsets.properties");
 
         Properties offsetProperties = new Properties();
         if (!file.exists()) {
@@ -116,9 +116,9 @@ public class CreatureEnchantOffsetManager {
             player.sendMessage(new TextComponentTranslation(languageKey));
 
         for (String log : message.get()) {
-            ThaumicArcana.logger.error(log);
+            ThaumicArcana.INSTANCE.getLogger().error(log);
         }
-        ThaumicArcana.logger.error(e.getStackTrace());
+        ThaumicArcana.INSTANCE.getLogger().error(e.getStackTrace());
     }
 
 }

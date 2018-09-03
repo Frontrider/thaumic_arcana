@@ -23,19 +23,12 @@ public class CreatureEnchantSyncMessageHandler implements IMessageHandler<Creatu
     @Override
     public IMessage onMessage(CreatureEnchantSyncMessage message, MessageContext ctx) {
 
-        Minecraft.getMinecraft().addScheduledTask(()->{
-            System.out.println("sync message recieved");
-
-            if(Minecraft.getMinecraft().world != null) {
-                enchantmentCache.put(message.getId(),message.getEnchant());
-                return;
-            }
 
             Entity entityByID = Minecraft.getMinecraft().world.getEntityByID(message.getId());
 
             if(entityByID == null) {
                 enchantmentCache.put(message.getId(),message.getEnchant());
-                return;
+                return null;
             }
 
             if (entityByID.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
@@ -43,7 +36,6 @@ public class CreatureEnchantSyncMessageHandler implements IMessageHandler<Creatu
                 capability.setStore(message.getEnchant().getStore());
                 capability.setCircle(message.getEnchant().getCircle());
             }
-        });
 
         return null;
     }

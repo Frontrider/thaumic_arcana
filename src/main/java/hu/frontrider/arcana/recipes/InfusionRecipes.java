@@ -1,6 +1,5 @@
 package hu.frontrider.arcana.recipes;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,19 +20,8 @@ import static thaumcraft.api.items.ItemsTC.salisMundus;
 
 public class InfusionRecipes {
 
-    @GameRegistry.ObjectHolder(MODID+":enchant_modifier")
+    @GameRegistry.ObjectHolder(MODID +":enchant_modifier")
     static Item modifier = null;
-
-    @GameRegistry.ObjectHolder("minecraft:obsidian")
-    static Block obsidian =null;
-
-    @GameRegistry.ObjectHolder("minecraft:magma")
-    static Block magma =null;
-
-
-    @GameRegistry.ObjectHolder("minecraft:ender_eye")
-    static Item enderEye = null;
-
 
     public static void register() {
         registerCreatureEnchants();
@@ -50,7 +38,7 @@ public class InfusionRecipes {
                     new ResourceLocation(MODID, "enchant_powder_advanced"),
                     new InfusionRecipe("CREATURE_ENCHANT_ADVANCED",
                             itemStack,
-                            10, (new AspectList())
+                            5, (new AspectList())
                             .add(Aspect.MAGIC, 20)
                             .add(Aspect.LIFE, 50)
                             .add(Aspect.AURA, 20),
@@ -69,10 +57,10 @@ public class InfusionRecipes {
 
             ItemStack source = new ItemStack(enchanting_powder_advanced);
             ThaumcraftApi.addInfusionCraftingRecipe(
-                    new ResourceLocation(MODID, "enchant_modifier_basic"),
+                    new ResourceLocation(MODID, "enchant_modifier_base"),
                     new InfusionRecipe("CREATURE_ENCHANT_MODIFICATION",
                             itemStack,
-                            10,
+                            5,
                             new AspectList()
                             .add(Aspect.MAGIC, 20)
                             .add(Aspect.LIFE, 50)

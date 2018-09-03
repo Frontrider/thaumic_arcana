@@ -1,0 +1,25 @@
+{
+  "research":"CREATURES",
+  "location":"thaumic_arcana:smile-craft",
+  "result":"minecraft:slime_ball;9;1",
+  "required":"",
+  "block":"thaumcraft:flesh_block",
+  "consume_block":true,
+  "consume_formula":true,
+  "vis":1,
+  "pollution":0,
+  "formula":[
+    {
+      "name":"aqua",
+      "amount":4
+    },
+    {
+      "name":"perditio",
+      "amount":2
+    },
+    {
+      "name":"alkimia",
+      "amount":1
+    }
+  ]
+}

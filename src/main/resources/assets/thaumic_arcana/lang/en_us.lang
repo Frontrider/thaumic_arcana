@@ -8,23 +8,9 @@ research.thaumic_arcana.metal_transmutation.stage.1=I've grown tired of constant
 research.thaumic_arcana.metal_transmutation.stage.2=I DID IT! Iron is the most simple among all metals, so it can serve as a "blank slate" for all other metals. Going from there, I only need to add other aspects to it for it to transform. Also, I can only use nuggets for the process: otherwise I can't get the essentia to penetrate the metal correctly. <BR/>Even though it's only iron that can be transmuted, it still goes a long way towards fulfilling my needs.
 
 research.thaumic_arcana.biomancy.title=Biomancy
-research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a major success at harnessing organic substances to create new devices. Ever since then, I was toying with the idea of applying more magic to organic matter.
-
-research.thaumic_arcana.table.title=Experiment Table
-research.thaumic_arcana.table.stage.1=To further my experiments, I drawn up designs, for a new table that includes all the tools I might need.<BR> To create it, I need to take 2 bottles and a stick into my hands, than put them on some greatwood planks. This workstation will also come in handy for research and theorycrafting.
-research.thaumic_arcana.table.application=I can use the experiment table to apply formulas to different items, by right clicking the table with the item in my main hand, and the formula in my offhand.
-research.thaumic_arcana.table.magic_application=I can also use the enchanting table to apply magical items, in a similar way to the Experiment Table.
-research.thaumic_arcana.table.cage=To start up my experiments on animals, I'll need some test subjects.To keep them somewhere, I created a small cage at the base of my experiment table. I can access it through the door, on the right side of the table.
-
-research.thaumic_arcana.plantlife.title=Plant-life
-research.thaumic_arcana.plantlife.stage.1=The first thing I should study is how plants react to magic. I know for sure that plant-life can absorb magical energies, since there are magical plants around me.
-
-research.thaumic_arcana.creatures.title=Living Creatures
-research.thaumic_arcana.creatures.stage.1=Working with the living proves to be harder. Breathing organisms seem to actively resist magic, which makes them significantly harder to work with.<BR> But I have a plan: I have written up a recipe for an experimental formula that can theoretically stabilize the essentia enough to be safely used on living beings.
-research.thaumic_arcana.creatures.stage.2=The substance is indeed stable enough, but it's also much weaker than the liquid form. It will not cause a revolution in how we practice thaumaturgy, but it will serve me well.<LINE> Now I'll need a way to get access to something I can experiment with. Small rodents should work. Next up, I'll design a device that can capture them.
-research.thaumic_arcana.creatures.stage.3=I have everything I need to start my experiments.
-research.thaumic_arcana.creatures.formula=To create the base of a formula, right click the Experiment Table with an empty bottle, and some salis mundus.
-research.thaumic_arcana.creatures.cage=The arcan cage needs bait (food items that rodents like), and a 10x10 area of grass around it. It also needs to see the sky.
+research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a major success at harnessing organic substances to create new devices. Ever since then, I was toying with the idea of applying more magic to organic matter. <LINE> I prepared some materials form some very basic experiments. Based on my current theories and experience, it should not be too hard.
+research.thaumic_arcana.biomancy.stage.2=There's a difference between theory, and reality. The magic that I'm trying to apply causes a heavy amount of scarring in booth plants and animals, something that I did not experienced while making the biothaumic mind.  I prepared for a second experiment, now attempting to use some victus, to mitigate the effects of the magic.
+research.thaumic_arcana.biomancy.stage.3=I think I might be onto something. Reducing the strength of the spell, or reducing the amount of essentia touching the tissue allows me to finish the procedure whitout major damage. With it, I created a special mixture of victus, and salis mundus that can be used to infuse living creatures. To fully use this formula, I will need special tooling, so I've drawn up plans for a table that has the correct equipment. I also added a small cage to the bottom, so I could keep test subjects at hand. The table can also be used for a variety of different crafting releated to this branch of alchemy. It should also help me create new theories. <LINE>Speaking of test subjects, I have designed arcane trap, that can catch small animals that I can use in future experiments. I will need to add some bait, then leave it out in a 10x10 area of grass for it to catch some small rodents. <LINE> Booth the arcane cage, and the experiment table needs supplies, to catch and nurture the subjects. <LINE> I also tweaked my thaumatorium, so it can do more gentle crafts. That should enable me to use traditional alchemy, when applicable.
 
 research.thaumic_arcana.wheat.title=Plant growth
 research.thaumic_arcana.wheat.stage.1=I believe that the aspects creating the elements that plants need to grow should be able to create a reaction that grows the plant instantaneously... or explode on the spot.
@@ -33,14 +19,10 @@ research.thaumic_arcana.wheat.stage.3=Other plants are reacting much better than
 research.thaumic_arcana.wheat.stage.4=I have to see what happens when I use different breeds of plants. Maybe that can give me answers.
 research.thaumic_arcana.wheat.stage.5=Now I can alchemically grow my food on demand. The infertility problem of some plants proves to be harder to get rid of than I anticipated.
 
-research.thaumic_arcana.incubated_egg.title=Incubated Egg
-research.thaumic_arcana.incubated_egg.stage.1=I think I've gone far enough with plants to attempt to apply the same fundamental principles to animals. As a starting point, I'm going to apply heat and life energy to an egg in an attempt at supporting it's growth.
-research.thaumic_arcana.incubated_egg.stage.2=The egg responded the way I expected. After a few attempts with disturbing half grown animals, I managed to find the ratios of essentia I need to get an egg that will hatch a chicken every single time.<LINE> I also have to note that the shell of the egg became harder (I have no idea why), so throwing the egg around is inadvisable because it can damage the embryo.
-
-
-research.thaumic_arcana.flesh_growth.title=Fleshing it out
-research.thaumic_arcana.flesh_growth.stage.1=Now that I observed how essentia effects the growth of an animal, I can apply it in a different fashion. Theoretically, I can use Victus to trigger the growth of meat outside the animal. I'm going to add some Beastia as well, just in case the tissue needs a more familiar environment.
-research.thaumic_arcana.flesh_growth.stage.2=The experiment was a complete success. Now I am able to farm meat without growing the whole animal, and interestingly enough, I only need Victus to do so. I'll take note on that.
+research.thaumic_arcana.flesh_growth.title=Bestialchemy
+research.thaumic_arcana.flesh_growth.stage.1=I want to try something out, with my tweaks to my alchemy. The first experiment I prepared is an egg. With the correct formula, I should be able to trigger the growth of the embrio, and create an egg that will always hatch.
+research.thaumic_arcana.flesh_growth.stage.2=Now that I observed how essentia effects the growth of an animal, I can apply it in a different fashion. Theoretically, I can use Victus to trigger the growth of meat outside the animal. I'm going to add some Beastia as well, just in case the tissue needs a more familiar environment.
+research.thaumic_arcana.flesh_growth.stage.3=The experiment was a complete success. Now I am able to farm meat without growing the whole animal, and interestingly enough, I only need Victus to do so. I'll take note on that.
 
 research.thaumic_arcana.fertiliser.title=Alchemical Fertilization
 research.thaumic_arcana.fertiliser.stage.1=Now that I know how adding essentia to plants affect them, I can try to create a different application. I'm going to create a more potent fertilizer. I was thinking about bone meal, but it might fizzle if I add too much essentia. Instead of that, I'm going to take my experience from the time I made a focus.<BR/>I'm going to try to use an Herba crystal to absorb the aspects required to trigger growth. It should also help to make sure that my substance is actually compatible with plants.

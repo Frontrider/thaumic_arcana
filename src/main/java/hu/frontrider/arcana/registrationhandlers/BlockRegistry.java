@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.registrationhandlers;
 
-import hu.frontrider.arcana.blocks.experiments.BlockArcaneCage;
 import hu.frontrider.arcana.blocks.BlockTileEntity;
+import hu.frontrider.arcana.blocks.experiments.BlockArcaneCage;
 import hu.frontrider.arcana.blocks.experiments.ExperimentTable;
 import hu.frontrider.arcana.blocks.taintwine.mushroom.TaintWineCap;
 import hu.frontrider.arcana.blocks.taintwine.mushroom.TaintWineFlower;
@@ -15,8 +15,8 @@ import java.util.Objects;
 
 @SuppressWarnings("unchecked")
 public class BlockRegistry {
-    static ExperimentTable experimentTable;
-    static BlockArcaneCage blockArcaneCage;
+    public static ExperimentTable experimentTable;
+    public static BlockArcaneCage blockArcaneCage;
 
     public BlockRegistry() {
         experimentTable = new ExperimentTable();

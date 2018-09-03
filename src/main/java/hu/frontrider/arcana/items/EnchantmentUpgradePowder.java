@@ -19,7 +19,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static hu.frontrider.arcana.ThaumicArcana.TABARCANA;
+import static hu.frontrider.arcana.ThaumicArcana.INSTANCE;
 import static hu.frontrider.arcana.items.CreatureEnchanter.createEnchantedItem;
 
 public class EnchantmentUpgradePowder extends ItemBase {
@@ -71,7 +71,7 @@ public class EnchantmentUpgradePowder extends ItemBase {
     @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (tab == TABARCANA) {
+        if (tab == INSTANCE.getTABARCANA()) {
             items.add(new ItemStack(this));
             registry.getValuesCollection().forEach(enchant -> items.add(createEnchantedItem(this, new EnchantmentData(enchant, level))));
         }
