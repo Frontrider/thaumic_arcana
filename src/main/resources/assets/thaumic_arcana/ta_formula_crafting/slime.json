@@ -1,8 +1,7 @@
 {
-  "research":"CREATURES",
-  "location":"thaumic_arcana:smile-craft",
+  "research":"BIOMANCY_BASICS",
+  "location":"thaumic_arcana:slime_craft",
   "result":"minecraft:slime_ball;9;1",
-  "required":"",
   "block":"thaumcraft:flesh_block",
   "consume_block":true,
   "consume_formula":true,

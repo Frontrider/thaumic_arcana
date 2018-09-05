@@ -22,4 +22,8 @@ object FormulaRecipes {
         return recipes.values
     }
 
+    fun init(){
+
+    }
+
 }

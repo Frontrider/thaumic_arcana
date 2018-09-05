@@ -16,50 +16,66 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
     val research: String
     val block: Block
     val formula: AspectList
-    var required: ItemStack?=null
+    var required: ItemStack? = null
 
-    val result: ItemStack
+    val result: ItemStack?
     val vis: Int
     val pollution: Int
     val isConsumeFormula: Boolean
     val isConsumeBlock: Boolean
 
-    constructor(research: String, block: ResourceLocation, formula: AspectList, result: ResourceLocation, consumeFormula: Boolean) : this(research, block, formula, null, result, 0, 0, consumeFormula, true) {}
-
-    constructor(research: String, block: ResourceLocation, formula: AspectList, item: ResourceLocation, result: ResourceLocation, consumeFormula: Boolean, vis: Int, pollution: Int) : this(research, block, formula, item, result, vis, pollution, consumeFormula, false) {}
-
-    constructor(research: String, block: Block, formula: AspectList, result: ItemStack, vis: Int, pollution: Int, consumeFormula: Boolean) : this(research, block, formula, null, result, vis, pollution, consumeFormula, true) {}
-
-    constructor(research: String, block: Block, formula: AspectList, item: ItemStack, result: ItemStack, vis: Int, pollution: Int, consumeFormula: Boolean) : this(research, block, formula, item, result, vis, pollution, consumeFormula, true) {}
-
-    constructor(research: String, block: ResourceLocation, formula: AspectList, result: ResourceLocation, vis: Int, pollution: Int) : this(research, block, formula, null, result, vis, pollution, true, true) {}
-
-    constructor(research: String, block: ResourceLocation, formula: AspectList, item: ResourceLocation, result: ResourceLocation, vis: Int, pollution: Int) : this(research, block, formula, item, result, vis, pollution, true, true) {}
-
-    constructor(research: String, block: Block, formula: AspectList, result: ItemStack, vis: Int, pollution: Int) : this(research, block, formula, null, result, vis, pollution, true, true) {}
-
-    constructor(research: String, block: Block, formula: AspectList, item: ItemStack, result: ItemStack, vis: Int, pollution: Int) : this(research, block, formula, item, result, vis, pollution, true, true) {}
-
-    constructor(research: String, blockResource: ResourceLocation, formula: AspectList, itemResource: ResourceLocation?, resultresource: ResourceLocation, vis: Int=0, pollution: Int=0, consumeFormula: Boolean=true, consumeBlock: Boolean= false) {
+    constructor(research: String, blockResource: ResourceLocation? = null, formula: AspectList, itemResource: String? = null, resultResource: String? = null, vis: Int = 0, pollution: Int = 0, consumeFormula: Boolean = true, consumeBlock: Boolean = false) {
         this.research = research
 
         val blockRegistry = GameRegistry.findRegistry(Block::class.java)
         val itemRegistry = GameRegistry.findRegistry(Item::class.java)
-        if (blockRegistry.containsKey(blockResource)) {
-            block = blockRegistry.getValue(resultresource)!!
-        } else
-            throw MissingResourceException(blockResource, this.javaClass, "invalid block")
 
 
-        if (itemRegistry.containsKey(itemResource)) {
-            required = ItemStack(itemRegistry.getValue(itemResource)!!)
-        } else
-            throw MissingResourceException(itemResource, this.javaClass, "invalid required item")
+        block = when {
+            blockResource == null -> experimentTable
+            blockRegistry.containsKey(blockResource) -> blockRegistry.getValue(blockResource)!!
+            else -> throw MissingResourceException(blockResource, this.javaClass, "invalid block")
+        }
 
-        if (itemRegistry.containsKey(resultresource)) {
-            result = ItemStack(itemRegistry.getValue(resultresource)!!)
-        } else
-            throw MissingResourceException(resultresource, this.javaClass, "invalid required item")
+
+        if(itemResource == null){
+            required = null
+        }else{
+            val split = itemResource.split(";")
+            val resourceLocation = ResourceLocation(split[0])
+            if(itemRegistry.containsKey(resourceLocation)){
+                required = if(split.size>2) {
+                    ItemStack(itemRegistry.getValue(resourceLocation)!!,Integer.valueOf(split[2]))
+                }
+                else {
+                    ItemStack(itemRegistry.getValue(resourceLocation)!!)
+                }
+                if(split.size>1)
+                    required!!.count = Integer.valueOf(split[1])
+            }else{
+                throw MissingResourceException(resourceLocation, this.javaClass, "invalid required item")
+            }
+        }
+
+        if(resultResource == null){
+            result = null
+        }else{
+            val split = resultResource.split(";")
+            val resourceLocation = ResourceLocation(split[0])
+            if(itemRegistry.containsKey(resourceLocation)){
+                result = if(split.size>2) {
+                    ItemStack(itemRegistry.getValue(resourceLocation)!!,Integer.valueOf(split[2]))
+                }
+                else {
+                    ItemStack(itemRegistry.getValue(resourceLocation)!!)
+                }
+
+                if(split.size>1)
+                    result.count = Integer.valueOf(split[1])
+            }else{
+                throw MissingResourceException(resourceLocation, this.javaClass, "invalid required item")
+            }
+        }
 
         this.formula = formula
         this.vis = vis
@@ -68,7 +84,7 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
         this.isConsumeBlock = consumeBlock
     }
 
-    constructor(research: String, block: Block= experimentTable, formula: AspectList, required: ItemStack?, result: ItemStack, vis: Int =0, pollution: Int=0, consumeFormula: Boolean=true, consumeBlock: Boolean=false) {
+    constructor(research: String, block: Block = experimentTable, formula: AspectList, required: ItemStack? = null, result: ItemStack, vis: Int = 0, pollution: Int = 0, consumeFormula: Boolean = true, consumeBlock: Boolean = false) {
         this.research = research
         this.block = block
         this.formula = formula
@@ -82,7 +98,7 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
 
 
     fun canCraft(block: Block, formula: AspectList, item: ItemStack): Boolean {
-        var equal = this.block === block && AspectUtil.aspectListEquals(formula, this.formula!!)
+        var equal = this.block === block && AspectUtil.aspectListEquals(formula, this.formula)
 
         if (this.required != null)
             equal = equal and ItemStack.areItemStacksEqual(this.required!!, item)
@@ -90,16 +106,16 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
         return equal
     }
 
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o == null || javaClass != o.javaClass) return false
-        val that = o as FormulaApplicationRecipe?
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || javaClass != other.javaClass) return false
+        val that = other as FormulaApplicationRecipe?
 
-        return AspectUtil.aspectListEquals(formula!!, that!!.formula!!)
+        return AspectUtil.aspectListEquals(formula, that!!.formula)
     }
 
     override fun hashCode(): Int {
-        return AspectUtil.hashAspectList(formula!!)
+        return AspectUtil.hashAspectList(formula)
     }
 
     override fun toString(): String {
