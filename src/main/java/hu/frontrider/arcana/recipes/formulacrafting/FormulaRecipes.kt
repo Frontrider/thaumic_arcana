@@ -25,5 +25,4 @@ object FormulaRecipes {
     fun init(){
 
     }
-
 }
