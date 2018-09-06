@@ -31,7 +31,13 @@ types:
 * speed
 * vitality (regen)
 * spider limbs
-* + modifiers
+modifiers:
+* negation: turns the enchant to it's opposite (if makes sense), or disables it.
+
+foci that can be used to manipulate them:
+* effect selection
+* enable
+* disable
 
 ### Misc
 
