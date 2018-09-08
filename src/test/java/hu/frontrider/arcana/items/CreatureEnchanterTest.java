@@ -52,7 +52,7 @@ class CreatureEnchanterTest {
         mockentityLiving = mock(EntityLivingBase.class);
 
         entityItemFrame = mock(EntityItemFrame.class);
-        enchantedItem = CreatureEnchanter.createEnchantedItem(new CreatureEnchanter.EnchantmentData(new FertileEnchant(), 1));
+        enchantedItem = CreatureEnchanter.Companion.createEnchantedItem(new CreatureEnchanter.EnchantmentData(new FertileEnchant(), 1));
         blockPos = spy(new BlockPos(0, 0, 0));
 
         world = mock(World.class);

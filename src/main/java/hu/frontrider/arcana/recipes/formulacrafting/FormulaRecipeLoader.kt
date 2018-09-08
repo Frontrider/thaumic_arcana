@@ -60,19 +60,19 @@ object FormulaRecipeLoader {
 
                 val json = it.readText()
                 val recipe = gson.fromJson(json, RecipePlaceholder::class.java)
-
-                FormulaRecipes.addRecipe(
-                        FormulaApplicationRecipe(
-                                research = recipe.research,
-                                blockResource = ResourceLocation(recipe.block),
-                                formula = recipe.getAspects(),
-                                itemResource = recipe.required_item,
-                                resultResource = recipe.result,
-                                vis = recipe.vis,
-                                pollution = recipe.pollution,
-                                consumeFormula = recipe.consume_formula,
-                                consumeBlock = recipe.consume_block
-                        ))
+                val applicationRecipe = FormulaApplicationRecipe(
+                        research = recipe.research,
+                        blockResource = ResourceLocation(recipe.block),
+                        formula = recipe.getAspects(),
+                        itemResource = recipe.required_item,
+                        resultResource = recipe.result,
+                        vis = recipe.vis,
+                        pollution = recipe.pollution,
+                        consumeFormula = recipe.consume_formula,
+                        consumeBlock = recipe.consume_block
+                )
+                applicationRecipe.location = ResourceLocation(recipe.location)
+                FormulaRecipes.addRecipe(applicationRecipe)
             }
         }
     }

@@ -31,9 +31,9 @@ public class FormulaCraftingRecipes {
     static void initEnchantingRecipes(){
         IForgeRegistry<CreatureEnchant> registry = GameRegistry.findRegistry(CreatureEnchant.class);
         for (CreatureEnchant enchant : registry) {
-            InitEnchaningFormula(enchant, ItemRegistry.enchanting_powder_basic, 1);
-            InitEnchaningFormula(enchant, ItemRegistry.enchanting_powder_advanced, 2);
-            InitEnchaningFormula(enchant, ItemRegistry.enchanting_powder_magical, 3);
+            InitEnchaningFormula(enchant, ItemRegistry.Companion.getEnchanting_powder_basic(), 1);
+            InitEnchaningFormula(enchant, ItemRegistry.Companion.getEnchanting_powder_advanced(), 2);
+            InitEnchaningFormula(enchant, ItemRegistry.Companion.getEnchanting_powder_magical(), 3);
         }
     }
 
@@ -43,7 +43,7 @@ public class FormulaCraftingRecipes {
                 Blocks.ENCHANTING_TABLE,
                 enchant.formula(),
                 new ItemStack(item),
-                CreatureEnchanter.createEnchantedItem(item, new CreatureEnchanter.EnchantmentData(enchant, level)),
+                CreatureEnchanter.Companion.createEnchantedItem(item, new CreatureEnchanter.EnchantmentData(enchant, level)),
                 2, 0, true, false
         ));
     }

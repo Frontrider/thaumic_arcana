@@ -2,6 +2,7 @@ package hu.frontrider.arcana.items.formula.text;
 
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.util.AspectUtil;
+import hu.frontrider.arcana.util.StringUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -12,8 +13,6 @@ import thaumcraft.api.aspects.AspectList;
 
 import javax.annotation.Nullable;
 import java.util.List;
-
-import static hu.frontrider.arcana.util.StringUtil.swappedDescription;
 
 /**
  * @author Kis András Gábor
@@ -30,9 +29,9 @@ public class EnchantText implements FormulaText {
     public void addText(ItemStack stack, NBTTagCompound tagCompound, @Nullable World worldIn, List<String> tooltip) {
         AspectList aspectList = new AspectList();
         aspectList.readFromNBT(tagCompound);
-        swappedDescription(tooltip)
+        StringUtil.INSTANCE.swappedDescription(tooltip)
                 .permanent(description -> creatureEnchantIForgeRegistry.getValuesCollection().forEach(creatureEnchant -> {
-                    if (AspectUtil.aspectListEquals(aspectList, creatureEnchant.formula())) {
+                    if (AspectUtil.INSTANCE.aspectListEquals(aspectList, creatureEnchant.formula())) {
                         description.add(I18n.format("enchant.creature_enchant.helper.enchant") + ": " + I18n.format(creatureEnchant.getUnlocalizedName()));
                     }
                 }))

@@ -13,8 +13,7 @@ import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.crafting.InfusionRecipe;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.enchanting_powder_advanced;
-import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.enchanting_powder_basic;
+import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion;
 import static net.minecraft.init.Items.DYE;
 import static thaumcraft.api.items.ItemsTC.salisMundus;
 
@@ -30,10 +29,10 @@ public class InfusionRecipes {
     static void registerCreatureEnchants() {
 
         {
-            ItemStack source = new ItemStack(enchanting_powder_basic);
+            ItemStack source = new ItemStack(Companion.getEnchanting_powder_basic());
             source.setTagCompound(null);
 
-            ItemStack itemStack = new ItemStack(enchanting_powder_advanced);
+            ItemStack itemStack = new ItemStack(Companion.getEnchanting_powder_advanced());
             ThaumcraftApi.addInfusionCraftingRecipe(
                     new ResourceLocation(MODID, "enchant_powder_advanced"),
                     new InfusionRecipe("CREATURE_ENCHANT_ADVANCED",
@@ -55,7 +54,7 @@ public class InfusionRecipes {
         {
             ItemStack itemStack = new ItemStack(modifier);
 
-            ItemStack source = new ItemStack(enchanting_powder_advanced);
+            ItemStack source = new ItemStack(Companion.getEnchanting_powder_advanced());
             ThaumcraftApi.addInfusionCraftingRecipe(
                     new ResourceLocation(MODID, "enchant_modifier_base"),
                     new InfusionRecipe("CREATURE_ENCHANT_MODIFICATION",

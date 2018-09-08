@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.recipes;
 
+import hu.frontrider.arcana.Configuration;
 import hu.frontrider.arcana.creatureenchant.backend.CreatureEnchant;
 import hu.frontrider.arcana.creatureenchant.backend.EnchantingBaseCircle;
 import hu.frontrider.arcana.items.Formula;
@@ -22,9 +23,7 @@ import thaumcraft.api.crafting.CrucibleRecipe;
 
 import java.util.List;
 
-import static hu.frontrider.arcana.Configuration.enablePlatinum;
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.enchanting_powder_basic;
 import static net.minecraft.init.Items.*;
 
 public class AlchemyRecipes {
@@ -115,7 +114,7 @@ public class AlchemyRecipes {
             }
         }
 
-        if (enablePlatinum && OreDictionary.doesOreNameExist("ingotPlatinum")) {
+        if (Configuration.INSTANCE.getEnablePlatinum() && OreDictionary.doesOreNameExist("ingotPlatinum")) {
             NonNullList<ItemStack> platinum = OreDictionary.getOres("nuggetPlatinum");
             if (platinum.size() > 0) {
                 ItemStack itemStack = platinum.get(0);
@@ -220,7 +219,7 @@ public class AlchemyRecipes {
 
     private static void initGrowingAdvanced() {
         String KEY = "PLANT_GROWTH_ADVANCED";
-        PlantBall ball = (PlantBall) ItemRegistry.plant_ball;
+        PlantBall ball = (PlantBall) ItemRegistry.Companion.getPlant_ball();
 
         List<ItemStack> treeItems = PlantBall.getTreeItems();
         int index = 0;
@@ -307,7 +306,7 @@ public class AlchemyRecipes {
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     KEY,
-                    new ItemStack(ItemRegistry.nutrient_mix),
+                    new ItemStack(ItemRegistry.Companion.getNutrient_mix()),
                     new ItemStack(Items.SUGAR),
                     new AspectList().add(Aspect.LIFE, 3).add(Aspect.PLANT, 2).add(Aspect.MAGIC, 2)
             );
@@ -351,7 +350,7 @@ public class AlchemyRecipes {
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     "ARCANE_FERTILIZER",
-                    new ItemStack(ItemRegistry.fertiliser, 16),
+                    new ItemStack(ItemRegistry.Companion.getFertiliser(), 16),
                     ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1),
                     new AspectList().add(Aspect.LIGHT, 4).merge(Aspect.EARTH, 4).merge(Aspect.WATER, 4).merge(Aspect.CRAFT, 4).add(Aspect.PLANT, 10)
             );
@@ -361,7 +360,7 @@ public class AlchemyRecipes {
         {
             CrucibleRecipe recipe = new CrucibleRecipe(
                     "INCUBATED_EGG",
-                    new ItemStack(ItemRegistry.incubated_egg, 1),
+                    new ItemStack(ItemRegistry.Companion.getIncubated_egg(), 1),
                     new ItemStack(EGG),
                     new AspectList().add(Aspect.FIRE, 2).merge(Aspect.LIFE, 2)
             );
@@ -428,7 +427,7 @@ public class AlchemyRecipes {
 
             CrucibleRecipe recipe = new CrucibleRecipe(
                     "CREATURE_ENCHANT",
-                    new ItemStack(enchanting_powder_basic, 1, 0),
+                    new ItemStack(ItemRegistry.Companion.getEnchanting_powder_basic(), 1, 0),
                     new ItemStack(Items.DYE, 1, 4),
                     new AspectList()
                             .add(Aspect.MAGIC, 10)

@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.recipes.formulacrafting
 
 import hu.frontrider.arcana.recipes.MissingResourceException
-import hu.frontrider.arcana.registrationhandlers.BlockRegistry.experimentTable
+import hu.frontrider.arcana.registrationhandlers.BlockRegistry.Companion.experimentTable
 import hu.frontrider.arcana.util.AspectUtil
 import net.minecraft.block.Block
 import net.minecraft.item.Item
@@ -23,6 +23,8 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
     val pollution: Int
     val isConsumeFormula: Boolean
     val isConsumeBlock: Boolean
+
+    lateinit var location:ResourceLocation
 
     constructor(research: String, blockResource: ResourceLocation? = null, formula: AspectList, itemResource: String? = null, resultResource: String? = null, vis: Int = 0, pollution: Int = 0, consumeFormula: Boolean = true, consumeBlock: Boolean = false) {
         this.research = research
@@ -95,6 +97,7 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
         this.isConsumeFormula = consumeFormula
         this.isConsumeBlock = consumeBlock
     }
+
 
 
     fun canCraft(block: Block, formula: AspectList, item: ItemStack): Boolean {

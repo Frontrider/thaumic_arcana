@@ -18,7 +18,7 @@ class AspectUtilTest {
         Aspect earth = Aspect.EARTH;
         Aspect aspect = Aspect.EARTH;
 
-        assertTrue(AspectUtil.aspectEquals(earth, aspect));
+        assertTrue(AspectUtil.INSTANCE.aspectEquals(earth, aspect));
     }
 
     @Nested
@@ -37,7 +37,7 @@ class AspectUtilTest {
                     .merge(Aspect.EXCHANGE, 2)
                     .merge(Aspect.DESIRE, 3);
 
-            assertTrue(AspectUtil.aspectListEquals(aspectList, aspectList1));
+            assertTrue(AspectUtil.INSTANCE.aspectListEquals(aspectList, aspectList1));
         }
 
         @Test
@@ -51,7 +51,7 @@ class AspectUtilTest {
                     .merge(Aspect.EXCHANGE, 2)
                     .merge(Aspect.DESIRE, 4);
 
-            assertFalse(AspectUtil.aspectListEquals(aspectList, aspectList1));
+            assertFalse(AspectUtil.INSTANCE.aspectListEquals(aspectList, aspectList1));
         }
 
         @Test
@@ -66,7 +66,7 @@ class AspectUtilTest {
                     .merge(Aspect.DESIRE, 3)
                     .merge(Aspect.SOUL,12);
 
-            assertFalse(AspectUtil.aspectListEquals(aspectList, aspectList1));
+            assertFalse(AspectUtil.INSTANCE.aspectListEquals(aspectList, aspectList1));
         }
         @Test
         @DisplayName("not equals when the lists are different")
@@ -80,7 +80,7 @@ class AspectUtilTest {
                     .merge(Aspect.DESIRE, 3)
                     .merge(Aspect.SOUL,12);
 
-            assertFalse(AspectUtil.aspectListEquals(aspectList, aspectList1));
+            assertFalse(AspectUtil.INSTANCE.aspectListEquals(aspectList, aspectList1));
         }
     }
 }

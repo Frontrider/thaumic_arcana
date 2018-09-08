@@ -193,7 +193,7 @@ public class ExperimentTable extends BlockCage<TileEntityExperimentTable> {
         if (rat.getCount() == 1) {
             ItemStack food = capability.getStackInSlot(1);
             if (food.getCount() > 0) {
-                if (!((Rodent) rat.getItem()).isDead(rat, worldIn)) {
+                if (!((Rodent) rat.getItem()).Companion.isDead(rat, worldIn)) {
                     food.shrink(1);
                     NBTTagCompound tagCompound = rat.getTagCompound();
                     tagCompound.setLong("lastFed", worldIn.getTotalWorldTime());

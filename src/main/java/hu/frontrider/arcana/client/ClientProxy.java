@@ -39,13 +39,13 @@ public class ClientProxy extends CommonProxy {
 
     @SideOnly(Side.CLIENT)
     public static void initClient(ItemModelMesher mesher) {
-        for (Item item : ItemRegistry.items) {
+        for (Item item : ItemRegistry.Companion.getItems()) {
             ModelResourceLocation model = new ModelResourceLocation(Objects.requireNonNull(item.getRegistryName()).toString(), "inventory");
             ModelLoader.registerItemVariants(item, model);
             mesher.register(item, 0, model);
         }
-        StringUtil.initialise();
-        MinecraftForge.EVENT_BUS.register(StringUtil.getStringUtilKeyboardHandler());
+        StringUtil.INSTANCE.initialise();
+        MinecraftForge.EVENT_BUS.register(StringUtil.INSTANCE.getStringUtilKeyboardHandler());
     }
 
     @Override

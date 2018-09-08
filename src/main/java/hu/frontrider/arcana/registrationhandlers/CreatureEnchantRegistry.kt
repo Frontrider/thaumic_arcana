@@ -9,20 +9,21 @@ import hu.frontrider.arcana.creatureenchant.effect.*
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.RegistryEvent
-import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.registries.RegistryBuilder
 
+class CreatureEnchantRegistry {
 
-@Mod.EventBusSubscriber
-object CreatureEnchantRegistry {
-    val STRENGTH_ENCHANT =StrengthEnchant()
-    val FERTILE_ENCHANT =FertileEnchant()
-    val PROTECTION_ENCHANT =ProtectionEnchant()
-    val RESPIRATION_ENCHANT =RespirationEnchant()
-    val SPIDERFINGERS_ENCHANT =SpiderFingers()
-    val SPEED_ENCHANT =Speed()
-    val VITALITY_ENCHANT =Vitality()
+    companion object {
+
+        var STRENGTH_ENCHANT: CreatureEnchant = StrengthEnchant()
+        var FERTILE_ENCHANT: CreatureEnchant = FertileEnchant()
+        var PROTECTION_ENCHANT: CreatureEnchant = ProtectionEnchant()
+        var RESPIRATION_ENCHANT: CreatureEnchant = RespirationEnchant()
+        var SPIDERFINGERS_ENCHANT: CreatureEnchant = SpiderFingers()
+        var SPEED_ENCHANT: CreatureEnchant = Speed()
+        var VITALITY_ENCHANT: CreatureEnchant = Vitality()
+    }
 
     @SubscribeEvent
     fun register(newRegistry: RegistryEvent.NewRegistry) {
@@ -38,6 +39,8 @@ object CreatureEnchantRegistry {
                 .setIDRange(0, 100)
                 .setName(ResourceLocation(MODID, "enchanting_base_circle"))
                 .create()
+
+        println("called registry creation events")
     }
 
     @SubscribeEvent

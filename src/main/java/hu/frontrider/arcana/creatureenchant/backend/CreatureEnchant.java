@@ -83,7 +83,7 @@ public abstract class CreatureEnchant extends IForgeRegistryEntry.Impl<CreatureE
 
     public static CreatureEnchant getForFormula(AspectList formula){
         for (CreatureEnchant enchant : GameRegistry.findRegistry(CreatureEnchant.class).getValuesCollection()) {
-            if (AspectUtil.aspectListEquals(enchant.formula(), formula))
+            if (AspectUtil.INSTANCE.aspectListEquals(enchant.formula(), formula))
                 return enchant;
         }
         return null;

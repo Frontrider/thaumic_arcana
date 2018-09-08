@@ -18,6 +18,8 @@ import hu.frontrider.arcana.recipes.InfusionRecipes
 import hu.frontrider.arcana.recipes.formulacrafting.FormulaCraftingHandler
 import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipeLoader
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry
+import hu.frontrider.arcana.registrationhandlers.CreatureEnchantRegistry
+import hu.frontrider.arcana.registrationhandlers.FocusRegistry
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
 import hu.frontrider.arcana.research.ResearchEventManager
 import hu.frontrider.arcana.research.ResearchRegistry
@@ -57,7 +59,12 @@ object ThaumicArcana {
     fun preInit(event: FMLPreInitializationEvent) {
         logger = event.modLog
         val suggestedConfigurationFile = event.suggestedConfigurationFile
+        println("adding registration handlers")
+
         MinecraftForge.EVENT_BUS.register(BlockRegistry())
+        MinecraftForge.EVENT_BUS.register(ItemRegistry())
+
+        MinecraftForge.EVENT_BUS.register(CreatureEnchantRegistry())
 
         ConfigDirectory = File(suggestedConfigurationFile.parent + "/" + MODID + "/")
 
@@ -85,6 +92,7 @@ object ThaumicArcana {
         InfusionRecipes.register()
         ArcaneCraftingRecipes().register()
         ResearchRegistry.init()
+        FocusRegistry.init()
 
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object : BehaviorDefaultDispenseItem() {
             private val dispenseBehavior = BehaviorDefaultDispenseItem()
@@ -97,19 +105,20 @@ object ThaumicArcana {
                 val d2 = source.z + (enumfacing.frontOffsetZ.toFloat() * 1.125f).toDouble()
                 val blockpos = source.blockPos.offset(enumfacing)
                 val material = world.getBlockState(blockpos).material
-                val d3: Double
 
-                if (Material.WATER == material) {
-                    d3 = 1.0
+                val d3 = if (Material.WATER == material) {
+                    1.0
                 } else {
                     if (Material.AIR != material || Material.WATER != world.getBlockState(blockpos.down()).material) {
                         return this.dispenseBehavior.dispense(source, stack)
                     }
 
-                    d3 = 0.0
+                    0.0
                 }
+
                 val chicken = EntityChicken(world)
                 chicken.rotationYaw = enumfacing.horizontalAngle
+                chicken.growingAge = -24000
 
                 chicken.posX = d0
                 chicken.posY = d1 + d3

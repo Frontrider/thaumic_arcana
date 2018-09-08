@@ -31,8 +31,8 @@ class FormulaTest {
         AspectList aspectList = new AspectList().merge(Aspect.SENSES, 10);
         ItemStack itemStack = formula.getItemStack(aspectList);
         assertTrue(itemStack.hasTagCompound());
-        AspectList storedAspects = AspectUtil.getStoredAspects(itemStack);
+        AspectList storedAspects = AspectUtil.INSTANCE.getStoredAspects(itemStack);
 
-        assertTrue(AspectUtil.aspectListEquals(storedAspects,aspectList));
+        assertTrue(AspectUtil.INSTANCE.aspectListEquals(storedAspects,aspectList));
     }
 }

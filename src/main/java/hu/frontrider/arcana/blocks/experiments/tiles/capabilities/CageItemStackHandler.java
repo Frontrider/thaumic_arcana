@@ -65,7 +65,7 @@ public class CageItemStackHandler implements IItemHandler, IItemHandlerModifiabl
         }
         String name = stack.getItem().getRegistryName().toString();
         boolean isInList = Arrays
-                .stream(Configuration.rodentFoodWhitelist)
+                .stream(Configuration.INSTANCE.getRodentFoodWhitelist())
                 .anyMatch((name::equals));
 
         if(slot ==1 &&!isInList)

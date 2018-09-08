@@ -3,20 +3,15 @@ package hu.frontrider.arcana.items.formula;
 import hu.frontrider.arcana.items.formula.text.EnchantText;
 import hu.frontrider.arcana.items.formula.text.FormulaText;
 import hu.frontrider.arcana.items.formula.text.ModifierText;
-import hu.frontrider.arcana.util.AspectUtil;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import thaumcraft.api.aspects.AspectList;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import static hu.frontrider.arcana.util.StringUtil.swappedDescription;
 
 /**
  * @author Kis András Gábor

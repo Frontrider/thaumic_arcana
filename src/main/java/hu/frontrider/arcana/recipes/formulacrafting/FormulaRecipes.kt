@@ -1,7 +1,6 @@
 package hu.frontrider.arcana.recipes.formulacrafting
 
 import net.minecraft.block.Block
-
 import java.util.*
 
 object FormulaRecipes {
@@ -13,7 +12,6 @@ object FormulaRecipes {
             recipes[recipe.block]!!.plus(recipe)
         } else {
             val formulaApplicationRecipeArrayList = LinkedList<FormulaApplicationRecipe>()
-            formulaApplicationRecipeArrayList.add(recipe)
             recipes[recipe.block] = formulaApplicationRecipeArrayList
         }
     }

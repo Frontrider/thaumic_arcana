@@ -71,6 +71,6 @@ class CreatureEnchantCapability : ICreatureEnchant {
     companion object {
 
         @GameRegistry.ObjectHolder("$MODID:normal")
-        private val baseCircle: EnchantingBaseCircle? = null
+        private var baseCircle: EnchantingBaseCircle? = null
     }
 }

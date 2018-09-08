@@ -1,7 +1,6 @@
 package hu.frontrider.arcana.eventhandlers;
 
 import hu.frontrider.arcana.items.EnchantmentUpgradePowder;
-import hu.frontrider.arcana.registrationhandlers.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -22,7 +21,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import thaumcraft.api.aura.AuraHelper;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
-import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.creature_enchanter;
+import static hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion;
 
 @SuppressWarnings("ConstantConditions")
 public class FunctionEventManager {
@@ -60,7 +59,7 @@ public class FunctionEventManager {
                 EntityPlayer player = event.getEntityPlayer();
                 ItemStack itemStack = player.getHeldItemMainhand();
                 Item item = itemStack.getItem();
-                if (item.equals(ItemRegistry.nutrient_mix)) {
+                if (item.equals(Companion.getNutrient_mix())) {
                     itemStack.shrink(1);
                     ((EntityAgeable) target).addGrowth(30000);
                 }
@@ -114,7 +113,7 @@ public class FunctionEventManager {
 
         if (world.getBlockState(event.getPos()).getBlock() == enchanting_table &&
                 itemMainhand.getItem() instanceof EnchantmentUpgradePowder &&
-                itemOffhand.getItem() == creature_enchanter) {
+                itemOffhand.getItem() == enchant_book) {
 
             BlockPos pos = event.getPos().up();
 
@@ -156,7 +155,7 @@ public class FunctionEventManager {
         EntityPlayer player = event.getEntityPlayer();
         ItemStack itemMainhand = player.getHeldItemMainhand();
 
-        if(itemMainhand.getItem() == creature_enchanter) {
+        if(itemMainhand.getItem() == enchant_book) {
             event.setUseBlock(Event.Result.DENY);
         }
 

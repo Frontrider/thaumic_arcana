@@ -40,7 +40,7 @@ public class LifecycleEventManager {
         Entity object = event.getObject();
         if (object instanceof EntityLiving) {
 
-            for (String entry : Configuration.entityBlacklist) {
+            for (String entry : Configuration.INSTANCE.getEntityBlacklist()) {
                 EntityEntry entityEntry = ForgeRegistries.ENTITIES.getValue(new ResourceLocation(entry));
                 if (entityEntry != null) {
                     if (entityEntry.getEntityClass() == object.getClass())
