@@ -1,11 +1,10 @@
 package hu.frontrider.arcana.util
 
-import com.google.common.base.Function
 
 
 /**
  * This class is used to make it easier to fill up lists.
- * Mostly for reccipes.
+ * Mostly for recipes.
  */
 class ListBuilder<T>(private val list: MutableList<T>) {
 
@@ -19,9 +18,12 @@ class ListBuilder<T>(private val list: MutableList<T>) {
         return list
     }
 
-    fun print(printer: Function<T, String>): ListBuilder<T> {
+    /**
+     * Function that converts the elements to string, than prints it
+     * */
+    fun print(printer: (T)-> String): ListBuilder<T> {
 
-        list.forEach { t -> println(printer.apply(t)) }
+        list.forEach { t -> println(printer(t)) }
 
         return this
     }

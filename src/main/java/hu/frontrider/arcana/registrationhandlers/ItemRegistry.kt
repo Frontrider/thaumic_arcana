@@ -3,7 +3,8 @@ package hu.frontrider.arcana.registrationhandlers
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER
 import hu.frontrider.arcana.ThaumicArcana.TABARCANA
-import hu.frontrider.arcana.items.*
+import hu.frontrider.arcana.content.items.*
+import hu.frontrider.arcana.content.items.*
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry.Companion.blockArcaneCage
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry.Companion.experimentTable
 import hu.frontrider.arcana.util.Initialisable
@@ -31,19 +32,39 @@ class ItemRegistry {
         var creature_enchanter: Item = CreatureEnchanter(NETWORK_WRAPPER)
         var plant_ball: Item = PlantBall()
         var formula: Item = Formula()
-        val items = arrayOf(fertiliser, incubated_egg, creature_enchanter, nutrient_mix, plant_ball, enchanting_powder_basic, enchanting_powder_advanced, enchanting_powder_magical, formula, Rodent(), EnchantModifierDust(NETWORK_WRAPPER), ItemBlock(experimentTable).setRegistryName(experimentTable.registryName!!).setCreativeTab(TABARCANA), ItemBlock(blockArcaneCage).setRegistryName(blockArcaneCage.registryName!!).setCreativeTab(TABARCANA))
+
+        val rodent = Rodent()
+        val enchantModifier =EnchantModifierDust(NETWORK_WRAPPER)
 
 
+        val items: Array<out Item> = arrayOf(
+                fertiliser,
+                incubated_egg,
+                creature_enchanter,
+                nutrient_mix,
+                plant_ball,
+                enchanting_powder_basic,
+                enchanting_powder_advanced,
+                enchanting_powder_magical,
+                formula,
+                rodent,
+                enchantModifier,
+                ItemBlock(experimentTable).setRegistryName(experimentTable.registryName!!).setCreativeTab(TABARCANA),
+                ItemBlock(blockArcaneCage).setRegistryName(blockArcaneCage.registryName!!).setCreativeTab(TABARCANA)
+        )
     }
     @SubscribeEvent
     fun init(event: RegistryEvent.Register<Item>) {
 
         Arrays.stream(items).forEach { item ->
             if (item is Initialisable) {
-                (item as Initialisable).init()
+                item.init()
             }
         }
 
-        event.registry.registerAll(*items)
+        items.iterator().forEachRemaining{
+            event.registry.registerAll(it as Item?)
+        }
+
     }
 }

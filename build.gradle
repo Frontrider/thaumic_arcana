@@ -1,26 +1,33 @@
 buildscript {
+    ext.kotlin_version = '1.2.41'
     repositories {
         jcenter()
         maven { url = "http://files.minecraftforge.net/maven" }
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
 apply plugin: "idea"
+apply plugin: "kotlin"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-
-
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
-repositories{
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+repositories {
     jcenter()
     maven {
         url "http://maven.shadowfacts.net/"
@@ -38,28 +45,40 @@ repositories{
 }
 
 minecraft {
-    version = "$mc_version-14.23.4.2705"
+    version = "1.12.2-14.23.4.2705"
     runDir = "run"
+    
+    // the mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   snapshot are built nightly.
+    // stable_#            stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not always work.
+    // simply re-run your setup task after changing the mappings to update your workspace.
     mappings = "snapshot_20171003"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 dependencies {
-    compile group: "net.shadowfacts", name: "Forgelin", version: "1.7.3"
-    apiCompileOnly project(":thaumcraftApi")
-    implementation files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA23-deobf.jar")
-
-    testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
-    testCompile group: 'org.mockito', name: 'mockito-all', version: '2.0.2-beta'
-    // Enable use of the JUnitPlatform Runner within the IDE
-    testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
-    //testCompile("hu.frontrider.minecrafttestkit:minecrafttestkit:0.1")
 
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
     // at runtime, use the full JEI jar
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+    compile group: "net.shadowfacts", name: "Forgelin", version: "1.7.3"
+    compileOnly project(":thaumcraftApi")
+    runtime files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA23-deobf.jar")
+
+
+    testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junit_version
+    testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
+
+    testCompile group: 'org.mockito', name: 'mockito-all', version: mockito_version
+
+    testCompile("com.jayway.jsonpath:json-path:$json_path_version")
+    testCompile group: 'org.apache.commons', name: 'commons-text', version: commons_text_version
+
+
 }
 
 processResources {
@@ -80,8 +99,7 @@ processResources {
         exclude 'mcmod.info'
     }
 }
-jar {
-    manifest {
-        attributes 'FMLAT': "${modid}.cfg"
-    }
+
+test{
+    useJUnitPlatform()
 }

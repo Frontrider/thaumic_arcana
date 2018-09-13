@@ -1,29 +1,30 @@
 package hu.frontrider.arcana
 
-import hu.frontrider.arcana.capabilities.CreatureEnchantCapability
-import hu.frontrider.arcana.capabilities.CreatureEnchantStorage
-import hu.frontrider.arcana.capabilities.ICreatureEnchant
-import hu.frontrider.arcana.client.gui.GuiHandler
-import hu.frontrider.arcana.eventhandlers.FunctionEventManager
-import hu.frontrider.arcana.eventhandlers.LifecycleEventManager
-import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessage
-import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSyncMessageHandler
-import hu.frontrider.arcana.network.creatureenchants.CreatureEnchantSynchroniser
-import hu.frontrider.arcana.network.falldamage.FalldamageSyncMessage
-import hu.frontrider.arcana.network.falldamage.FalldamageSyncMessageHandler
-import hu.frontrider.arcana.recipes.AlchemyRecipes
-import hu.frontrider.arcana.recipes.ArcaneCraftingRecipes
-import hu.frontrider.arcana.recipes.FormulaCraftingRecipes
-import hu.frontrider.arcana.recipes.InfusionRecipes
-import hu.frontrider.arcana.recipes.formulacrafting.FormulaCraftingHandler
-import hu.frontrider.arcana.recipes.formulacrafting.FormulaRecipeLoader
+import hu.frontrider.arcana.core.eventhandlers.FunctionEventManager
+import hu.frontrider.arcana.core.eventhandlers.LifecycleEventManager
+import hu.frontrider.arcana.content.items.formula.FormulaTextManager
+import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
+import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler
+import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSynchroniser
+import hu.frontrider.arcana.sided.network.falldamage.FalldamageSyncMessage
+import hu.frontrider.arcana.sided.network.falldamage.FalldamageSyncMessageHandler
+import hu.frontrider.arcana.registrationhandlers.recipes.AlchemyRecipes
+import hu.frontrider.arcana.registrationhandlers.recipes.ArcaneCraftingRecipes
+import hu.frontrider.arcana.registrationhandlers.recipes.FormulaCraftingRecipes
+import hu.frontrider.arcana.registrationhandlers.recipes.InfusionRecipes
+import hu.frontrider.arcana.core.formulacrafting.FormulaCraftingHandler
+import hu.frontrider.arcana.core.formulacrafting.FormulaRecipeLoader
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry
 import hu.frontrider.arcana.registrationhandlers.CreatureEnchantRegistry
 import hu.frontrider.arcana.registrationhandlers.FocusRegistry
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
-import hu.frontrider.arcana.research.ResearchEventManager
-import hu.frontrider.arcana.research.ResearchRegistry
+import hu.frontrider.arcana.content.research.ResearchEventManager
+import hu.frontrider.arcana.content.research.ResearchRegistry
+import hu.frontrider.arcana.core.capabilities.CreatureEnchantCapability
+import hu.frontrider.arcana.core.capabilities.CreatureEnchantStorage
+import hu.frontrider.arcana.core.capabilities.ICreatureEnchant
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
+import hu.frontrider.arcana.sided.client.gui.GuiHandler
 import hu.frontrider.arcana.util.CreativeTabArcana
 import net.minecraft.block.BlockDispenser
 import net.minecraft.block.material.Material
@@ -50,7 +51,8 @@ import java.io.File
 @Mod(
         modid = ThaumicArcana.MODID,
         name = ThaumicArcana.NAME,
-        version = ThaumicArcana.VERSION, dependencies = "required-after:thaumcraft;required-after:forgelin;",
+        version = ThaumicArcana.VERSION,
+        dependencies = "required-after:thaumcraft;required-after:forgelin",
         modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter"
 )
 object ThaumicArcana {
@@ -68,17 +70,18 @@ object ThaumicArcana {
 
         ConfigDirectory = File(suggestedConfigurationFile.parent + "/" + MODID + "/")
 
-        proxy!!.preInit(event)
+        proxy.preInit(event)
         CapabilityManager.INSTANCE.register<ICreatureEnchant>(ICreatureEnchant::class.java, CreatureEnchantStorage()) { CreatureEnchantCapability() }
 
         NETWORK_WRAPPER.registerMessage<CreatureEnchantSyncMessage, IMessage>(CreatureEnchantSyncMessageHandler::class.java, CreatureEnchantSyncMessage::class.java, 0, Side.CLIENT)
         NETWORK_WRAPPER.registerMessage<FalldamageSyncMessage, IMessage>(FalldamageSyncMessageHandler::class.java, FalldamageSyncMessage::class.java, 1, Side.SERVER)
+
         NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler())
     }
 
     @EventHandler
     fun init(event: FMLInitializationEvent) {
-        proxy!!.init(event)
+        proxy.init(event)
 
         MinecraftForge.EVENT_BUS.register(CreatureEnchantSynchroniser())
         MinecraftForge.EVENT_BUS.register(FunctionEventManager())
@@ -135,7 +138,7 @@ object ThaumicArcana {
 
     @EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
-
+        FormulaTextManager.registerFormulaTexts()
     }
 
     @EventHandler
@@ -145,15 +148,14 @@ object ThaumicArcana {
 
     const val MODID = "thaumic_arcana"
     const val NAME = "Thaumic Arcana"
-    const val VERSION = "0.2.2"
+    const val VERSION = "0.3.0"
 
     lateinit var ConfigDirectory: File
     lateinit var logger: Logger
     var TABARCANA: CreativeTabs = CreativeTabArcana(CreativeTabs.getNextID(), MODID)
     val NETWORK_WRAPPER = NetworkRegistry.INSTANCE.newSimpleChannel(MODID)
 
-
-    @SidedProxy(clientSide = "hu.frontrider.arcana.client.ClientProxy", serverSide = "hu.frontrider.arcana.CommonProxy")
-    var proxy: CommonProxy? = null
+    @SidedProxy(clientSide = "hu.frontrider.arcana.sided.client.ClientProxy", serverSide = "hu.frontrider.arcana.CommonProxy")
+    lateinit var proxy: CommonProxy
 
 }

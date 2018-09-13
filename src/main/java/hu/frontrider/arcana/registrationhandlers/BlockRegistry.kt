@@ -1,11 +1,11 @@
 package hu.frontrider.arcana.registrationhandlers
 
-import hu.frontrider.arcana.blocks.BlockTileEntity
-import hu.frontrider.arcana.blocks.experiments.BlockArcaneCage
-import hu.frontrider.arcana.blocks.experiments.ExperimentTable
-import hu.frontrider.arcana.blocks.taintwine.mushroom.TaintWineCap
-import hu.frontrider.arcana.blocks.taintwine.mushroom.TaintWineFlower
-import hu.frontrider.arcana.blocks.taintwine.mushroom.TaintWineTrunk
+import hu.frontrider.arcana.content.blocks.BlockTileEntity
+import hu.frontrider.arcana.content.blocks.experiments.BlockArcaneCage
+import hu.frontrider.arcana.content.blocks.experiments.ExperimentTable
+import hu.frontrider.arcana.content.blocks.taintwine.mushroom.TaintWineCap
+import hu.frontrider.arcana.content.blocks.taintwine.mushroom.TaintWineFlower
+import hu.frontrider.arcana.content.blocks.taintwine.mushroom.TaintWineTrunk
 import net.minecraft.block.Block
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.event.RegistryEvent

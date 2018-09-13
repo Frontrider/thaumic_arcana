@@ -1,3 +1,11 @@
+0.3.0:
+ - json formula recipes implemented
+ - fixed a bug where the mod breaks breeding.
+ - added foci effect to turn enchants on and off
+ - added foci modifier to select enchants
+ - enchant modifiers are now craftable
+
+=======
 0.2.1:
  - fixed fatal errors in research file
  - internal cleanup

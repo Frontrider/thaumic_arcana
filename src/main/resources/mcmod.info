@@ -13,6 +13,8 @@
     "credits": "The MMD Discord",
     "logoFile": "/assets/thaumic_arcana/logo.png",
     "screenshots": [],
-    "dependencies": ["thaumcraft"]
+    "useDependencyInformation":true,
+
+    "dependencies": ["thaumcraft","forgelin"]
   }
 ]

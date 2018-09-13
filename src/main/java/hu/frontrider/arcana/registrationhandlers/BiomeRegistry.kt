@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.registrationhandlers
 
-import hu.frontrider.arcana.worldgen.biome.TaintedLand
+import hu.frontrider.arcana.content.worldgen.biome.TaintedLand
 import net.minecraftforge.common.BiomeDictionary
 import net.minecraftforge.common.BiomeDictionary.Type.*
 import net.minecraftforge.common.BiomeManager
