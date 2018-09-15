@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.content.items;
 
 import hu.frontrider.arcana.content.items.formula.BaseFormula;
+import hu.frontrider.arcana.content.items.formula.Formula;
 import hu.frontrider.arcana.util.AspectUtil;
 import hu.frontrider.minecrafttestkit.MineCraftTest;
 import hu.frontrider.minecrafttestkit.RegistrationHelper;

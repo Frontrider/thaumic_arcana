@@ -28,3 +28,7 @@ class ListBuilder<T>(private val list: MutableList<T>) {
         return this
     }
 }
+
+fun<T> List<T>.add(element: T){
+
+}

@@ -4,7 +4,7 @@ import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER
 import hu.frontrider.arcana.ThaumicArcana.TABARCANA
 import hu.frontrider.arcana.content.items.*
-import hu.frontrider.arcana.content.items.*
+import hu.frontrider.arcana.content.items.formula.Formula
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry.Companion.blockArcaneCage
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry.Companion.experimentTable
 import hu.frontrider.arcana.util.Initialisable

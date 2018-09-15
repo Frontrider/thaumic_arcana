@@ -36,7 +36,7 @@ public class ResearchTester {
 
     @DisplayName("testing the research files")
     @ParameterizedTest(name = "research : {0}")
-    @ValueSource(strings = {"biomancy", "metal_transmutation"})
+    @ValueSource(strings = {"biomancy", "metal_transmutation","biomancy/animalproducts","biomancy/enchanting","biomancy/plantproducts"})
     void testingResearch(String researchFile) throws IOException {
 
         Properties language = new Properties();
@@ -65,8 +65,8 @@ public class ResearchTester {
                 String[] validnameSpaces = new String[]{"minecraft","thaumcraft","thaumic_arcana"};
                 assertions.add(()->assertTrue(ArrayUtils.contains(validnameSpaces,split[0]),split[0]));
 
-                assertions.add(()->assertFalse(split[0].contains("-"),split[0]));
-                assertions.add(()->assertFalse(split[1].contains("-"),split[1]));
+                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[0].contains("-"),split[0]),"invalid item entry "+itemStringValue));
+                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[1].contains("-"),split[1]),"invalid item entry "+itemStringValue));
             }
         });
 
@@ -114,7 +114,7 @@ public class ResearchTester {
 
         location.forEach(entry->{
             String s = entry.toString();
-            assertions.add(()->Integer.valueOf(s));
+            assertions.add(()->assertDoesNotThrow(()->Integer.valueOf(s),"location is not a number"));
         });
 
         //checking if all names are correct.

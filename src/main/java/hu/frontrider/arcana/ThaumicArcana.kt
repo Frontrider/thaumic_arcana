@@ -2,7 +2,7 @@ package hu.frontrider.arcana
 
 import hu.frontrider.arcana.core.eventhandlers.FunctionEventManager
 import hu.frontrider.arcana.core.eventhandlers.LifecycleEventManager
-import hu.frontrider.arcana.content.items.formula.FormulaTextManager
+import hu.frontrider.arcana.sided.client.gui.formula.FormulaTextManager
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSynchroniser

@@ -1,10 +1,10 @@
-package hu.frontrider.arcana.content.items.formula
+package hu.frontrider.arcana.sided.client.gui.formula
 
-import hu.frontrider.arcana.content.items.formula.text.EnchantText
-import hu.frontrider.arcana.content.items.formula.text.FormulaText
-import hu.frontrider.arcana.content.items.formula.text.ModifierText
+import hu.frontrider.arcana.sided.client.gui.formula.text.EnchantText
+import hu.frontrider.arcana.sided.client.gui.formula.text.FormulaText
+import hu.frontrider.arcana.sided.client.gui.formula.text.ModifierText
 
-import hu.frontrider.arcana.content.items.formula.text.RecipeText
+import hu.frontrider.arcana.sided.client.gui.formula.text.RecipeText
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
 import net.minecraft.world.World
@@ -16,19 +16,20 @@ import java.util.LinkedList
  * 2018.08.28.
  */
 object FormulaTextManager {
-    val texts: MutableList<FormulaText>
+    private val texts: MutableList<FormulaText>
 
     init {
         texts = LinkedList()
     }
 
-    fun addText(stack: ItemStack, worldIn: World?, tooltip: List<String>, flagIn: ITooltipFlag) {
+    fun addText(stack: ItemStack, worldIn: World?, tooltip: MutableList<String>, flagIn: ITooltipFlag) {
         if (!stack.hasTagCompound())
             return
-        val tagCompound = stack.tagCompound
+        val tagCompound = stack.tagCompound!!
         for (formulaText in texts) {
             formulaText.addText(stack, tagCompound, worldIn, tooltip)
         }
+
     }
 
     fun registerFormulaTexts() {

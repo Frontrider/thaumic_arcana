@@ -5,18 +5,14 @@ import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
 import hu.frontrider.arcana.sided.client.commands.ReloadOffsetsCommand
 import hu.frontrider.arcana.sided.client.rendering.EnchantRenderer
-import hu.frontrider.arcana.util.StringUtil
+import hu.frontrider.arcana.util.strings.StringUtil
 import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.ItemModelMesher
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.client.renderer.color.IItemColor
-import net.minecraft.client.renderer.entity.Render
 import net.minecraft.client.renderer.entity.RenderLivingBase
-import net.minecraft.client.renderer.entity.RenderPlayer
 import net.minecraft.entity.Entity
 import net.minecraft.item.Item
-import net.minecraft.item.ItemStack
-import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.ClientCommandHandler
 import net.minecraftforge.client.model.ModelLoader
@@ -26,7 +22,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
-import net.minecraftforge.registries.IForgeRegistry
 
 import java.awt.*
 import java.util.Objects

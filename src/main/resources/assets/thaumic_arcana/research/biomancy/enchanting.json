@@ -27,7 +27,6 @@
           "text": "research.thaumic_arcana.creature_enchant.stage.1",
           "required_item": [
             "minecraft:enchanted_book",
-            "",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}"

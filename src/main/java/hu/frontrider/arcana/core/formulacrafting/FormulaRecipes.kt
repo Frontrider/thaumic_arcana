@@ -5,13 +5,16 @@ import java.util.*
 
 object FormulaRecipes {
 
-    val recipes: MutableMap<Block, List<FormulaApplicationRecipe>> = LinkedHashMap()
+    val recipes: MutableMap<Block, LinkedList<FormulaApplicationRecipe>> = LinkedHashMap()
 
     fun addRecipe(recipe: FormulaApplicationRecipe) {
         if (recipes.containsKey(recipe.block)) {
-            recipes[recipe.block]!!.plus(recipe)
+            if(recipes[recipe.block] == null)
+                recipes[recipe.block] = LinkedList()
+            recipes[recipe.block]!!.add(recipe)
         } else {
             val formulaApplicationRecipeArrayList = LinkedList<FormulaApplicationRecipe>()
+            formulaApplicationRecipeArrayList.add(recipe)
             recipes[recipe.block] = formulaApplicationRecipeArrayList
         }
     }

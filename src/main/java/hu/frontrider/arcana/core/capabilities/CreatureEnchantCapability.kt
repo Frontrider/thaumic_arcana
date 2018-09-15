@@ -8,7 +8,7 @@ import java.util.*
 
 class CreatureEnchantCapability : ICreatureEnchant {
     override fun setEnabledStatus(enchant: CreatureEnchant, status: Boolean) {
-        if(enabled.containsKey(enchant))
+        if (enabled.containsKey(enchant))
             enabled[enchant] = status
     }
 
@@ -43,10 +43,9 @@ class CreatureEnchantCapability : ICreatureEnchant {
     }
 
     override fun hasEnchant(): Boolean {
-        return enabled.values.stream().reduce(false) {
-            buffer,current->
-            buffer || current
-        }
+        if(enchants.isEmpty())
+            return false
+        return if (enabled.values.isEmpty()) true else enabled.values.contains(true)
     }
 
     override fun hasEnchant(enchant: CreatureEnchant): Boolean {

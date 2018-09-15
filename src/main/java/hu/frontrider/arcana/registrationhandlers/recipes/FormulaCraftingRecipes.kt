@@ -20,14 +20,14 @@ import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 object FormulaCraftingRecipes {
 
     @GameRegistry.ObjectHolder("$MODID:enchant_modifier")
-    internal var modifier: Item? = null
+    internal lateinit var modifier: Item
 
     fun initRecipes() {
         initEnchantingRecipes()
         initbaseCircleFormula()
     }
 
-    internal fun initEnchantingRecipes() {
+    private fun initEnchantingRecipes() {
         val registry = GameRegistry.findRegistry<CreatureEnchant>(CreatureEnchant::class.java)
         for (enchant in registry) {
             InitEnchaningFormula(enchant, ItemRegistry.enchanting_powder_basic, 1)
@@ -50,18 +50,20 @@ object FormulaCraftingRecipes {
     internal fun initbaseCircleFormula() {
         val registry = GameRegistry.findRegistry<EnchantingBaseCircle>(EnchantingBaseCircle::class.java)
         for (enchantingBaseCircle in registry) {
-            InitEnchaningFormula(enchantingBaseCircle, modifier)
+            initModifiers(enchantingBaseCircle, modifier)
         }
     }
 
-    internal fun InitEnchaningFormula(enchant: EnchantingBaseCircle, item: Item?) {
+
+
+    internal fun initModifiers(modifier:EnchantingBaseCircle,item:Item){
         FormulaRecipes.addRecipe(FormulaApplicationRecipe(
-                enchant.getResearch(),
-                Blocks.ENCHANTING_TABLE,
-                enchant.getFormula(),
-                ItemStack(item!!),
-                hu.frontrider.arcana.content.items.EnchantModifierDust.createItem(item, enchant),
-                2, 0, true, false
+                modifier.research,
+                Blocks.LAPIS_BLOCK,
+                modifier.formula,
+                null,
+                hu.frontrider.arcana.content.items.EnchantModifierDust.createItem(item, modifier),
+                20, 3, true, true
         ))
     }
 }

@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.content.items.formula;
 
 import hu.frontrider.arcana.content.items.ItemWithAspects
+import hu.frontrider.arcana.sided.client.gui.formula.FormulaTextManager
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
@@ -32,8 +33,11 @@ open class BaseFormula(resourceLocation: ResourceLocation) : ItemWithAspects(res
         return false
     }
 
-    override fun addInformation(stack: ItemStack?, worldIn: World?, tooltip: List<String>?, flagIn: ITooltipFlag?) {
+    override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: MutableList<String>, flagIn: ITooltipFlag) {
         super.addInformation(stack, worldIn, tooltip, flagIn)
-        FormulaTextManager.addText(stack!!, worldIn, tooltip!!, flagIn!!)
+        FormulaTextManager.addText(stack, worldIn, tooltip, flagIn)
+        run{
+
+        }
     }
 }

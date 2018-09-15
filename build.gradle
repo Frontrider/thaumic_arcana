@@ -64,9 +64,11 @@ dependencies {
     // at runtime, use the full JEI jar
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     compile group: "net.shadowfacts", name: "Forgelin", version: "1.7.3"
-    compileOnly project(":thaumcraftApi")
-    runtime files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA23-deobf.jar")
+    apiCompile project(":thaumcraftApi")
+    implementation files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA23-deobf.jar")
 
+    testCompileOnly project(":thaumcraftApi")
+    testRuntime files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA23-deobf.jar")
 
     testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
@@ -74,10 +76,9 @@ dependencies {
     testCompile("org.junit.platform:junit-platform-runner:$junit_platform_version")
 
     testCompile group: 'org.mockito', name: 'mockito-all', version: mockito_version
-
+    testCompile(files("lib/MinecraftTestKit-0.1-SNAPSHOT.jar"))
     testCompile("com.jayway.jsonpath:json-path:$json_path_version")
     testCompile group: 'org.apache.commons', name: 'commons-text', version: commons_text_version
-
 
 }
 

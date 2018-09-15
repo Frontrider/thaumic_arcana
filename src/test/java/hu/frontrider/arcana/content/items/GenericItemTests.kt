@@ -14,6 +14,7 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
 import hu.frontrider.arcana.ThaumicArcana.TABARCANA
+import hu.frontrider.arcana.content.items.formula.Formula
 import net.minecraft.item.ItemStack
 
 @Disabled

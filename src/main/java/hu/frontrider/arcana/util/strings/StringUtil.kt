@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.util
+package hu.frontrider.arcana.util.strings
 
 import net.minecraft.client.settings.KeyBinding
 import net.minecraftforge.fml.client.registry.ClientRegistry
@@ -87,4 +87,6 @@ object StringUtil {
             }
         }
     }
+
+
 }

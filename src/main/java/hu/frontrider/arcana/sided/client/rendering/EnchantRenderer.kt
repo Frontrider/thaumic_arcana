@@ -65,12 +65,14 @@ class EnchantRenderer : LayerRenderer<EntityLivingBase> {
         }
         val entry = EntityRegistry.getEntry(entity.javaClass)
         GlStateManager.pushMatrix()
-        var name = "null"
-        if (entry != null) {
-            name = entry.registryName!!.toString()
+
+        val name = when {
+                entry != null -> entry.registryName!!.toString()
+                else ->""
         }
 
         val offset = creatureEnchantOffsetManager.getForEntity(name, entity)
+
         GlStateManager.translate(offset.left, offset.middle, offset.right)
         GlStateManager.rotate(180f, 0f, 1f, 1f)
         GlStateManager.scale(0.6, 0.6, 0.6)
@@ -118,7 +120,6 @@ class EnchantRenderer : LayerRenderer<EntityLivingBase> {
         val values = creatureEnchants.values
         var index = 1
         for ((creatureEnchant, level) in values) {
-
 
             textureManager.bindTexture(creatureEnchant.icon)
 

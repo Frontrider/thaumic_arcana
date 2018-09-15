@@ -39,7 +39,6 @@ class FormulaCraftingHandler {
 
             val aspectFormula = AspectList()
             aspectFormula.readFromNBT(formulaStack.tagCompound!!)
-
             for (block in recipeHashMap.keys) {
                 if (world.getBlockState(event.pos).block !== block)
                     continue
