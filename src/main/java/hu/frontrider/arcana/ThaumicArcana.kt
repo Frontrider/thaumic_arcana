@@ -74,6 +74,7 @@ object ThaumicArcana {
         NETWORK_WRAPPER.registerMessage<FalldamageSyncMessage, IMessage>(FalldamageSyncMessageHandler::class.java, FalldamageSyncMessage::class.java, 1, Side.SERVER)
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler())
+
     }
 
     @EventHandler

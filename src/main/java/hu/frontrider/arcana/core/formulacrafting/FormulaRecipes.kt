@@ -1,7 +1,9 @@
 package hu.frontrider.arcana.core.formulacrafting
 
 import net.minecraft.block.Block
+import net.minecraft.item.ItemStack
 import java.util.*
+import kotlin.streams.toList
 
 object FormulaRecipes {
 
@@ -21,6 +23,15 @@ object FormulaRecipes {
 
     fun getRecipesCollection(): Collection<List<FormulaApplicationRecipe>> {
         return recipes.values
+    }
+
+    fun getForResult(result: ItemStack):List<FormulaApplicationRecipe>{
+       return getRecipesCollection()
+                .stream()
+                .flatMap { it.stream() }
+                .filter {
+                    it.result.isItemEqual(result)
+                }.toList()
     }
 
     fun init(){

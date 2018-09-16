@@ -18,7 +18,7 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
     val formula: AspectList
     var required: ItemStack? = null
 
-    val result: ItemStack?
+    lateinit var result: ItemStack
     val vis: Int
     val pollution: Int
     val isConsumeFormula: Boolean
@@ -26,7 +26,7 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
 
     lateinit var location:ResourceLocation
 
-    constructor(research: String, blockResource: ResourceLocation? = null, formula: AspectList, itemResource: String? = null, resultResource: String? = null, vis: Int = 0, pollution: Int = 0, consumeFormula: Boolean = true, consumeBlock: Boolean = false) {
+    constructor(research: String, blockResource: ResourceLocation? = null, formula: AspectList, itemResource: String? = null, resultResource: String, vis: Int = 0, pollution: Int = 0, consumeFormula: Boolean = true, consumeBlock: Boolean = false) {
         this.research = research
 
         val blockRegistry = GameRegistry.findRegistry(Block::class.java)
@@ -59,9 +59,7 @@ class FormulaApplicationRecipe : IForgeRegistryEntry.Impl<FormulaApplicationReci
             }
         }
 
-        if(resultResource == null){
-            result = null
-        }else{
+        run{
             val split = resultResource.split(";")
             val resourceLocation = ResourceLocation(split[0])
             if(itemRegistry.containsKey(resourceLocation)){
