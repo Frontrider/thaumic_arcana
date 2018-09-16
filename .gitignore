@@ -1,0 +1,49 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+keystore/
+logs/
+stuff/Baubles-1.12-1.5.2.jar
+stuff/Thaumcraft-1.12.2-6.1.BETA19-deobf.jar
+stuff/alchemy.json
+stuff/arcane_brick_stone.png
+stuff/cat_alchemy.png
+stuff/cat_artifice.png
+stuff/cat_auromancy.png
+stuff/cat_eldritch.png
+stuff/cat_golemancy.png
+stuff/cat_infusion.png
+stuff/enchantEffect.dxf
+stuff/enchantEffect.png
+stuff/enchantEffect.xcf
+stuff/gui_research_back_1.jpg
+stuff/gui_research_back_2.jpg
+stuff/gui_research_back_3.jpg
+stuff/gui_research_back_4.jpg
+stuff/gui_research_back_5.jpg
+stuff/gui_research_back_6.jpg
+stuff/gui_research_back_7.jpg
+stuff/particles.jpg
+stuff/particles.ora
+stuff/plank_greatwood.png
+stuff/sounds.json

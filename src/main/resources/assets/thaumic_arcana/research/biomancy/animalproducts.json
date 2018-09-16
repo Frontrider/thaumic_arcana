@@ -1,0 +1,158 @@
+{
+  "entries":[
+    {
+      "key": "FLESH_GROWTH",
+      "name": "research.thaumic_arcana.flesh_growth.title",
+      "icons": [
+        "minecraft:porkchop",
+        "minecraft:chicken",
+        "minecraft:mutton",
+        "minecraft:beef"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "BIOMANCY_BASICS"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "location": [
+        2,
+        0
+      ],
+      "required_knowledge": [
+        "THEORY;ALCHEMY;2",
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.flesh_growth.stage.1",
+          "required_item": [
+            "minecraft:egg",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ignis'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "OBSERVATION;BASICS;2",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.flesh_growth.stage.2",
+          "required_item": [
+            "minecraft:beef",
+            "minecraft:porkchop",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;1"
+          ],
+          "recipes": [
+            "thaumic_arcana:incubated_egg_recipe"
+          ],
+          "warp": 2
+        },
+        {
+          "text": "research.thaumic_arcana.flesh_growth.stage.3",
+          "recipes": [
+            "thaumic_arcana:incubated_egg_recipe",
+            "thaumic_arcana:grow_beef",
+            "thaumic_arcana:grow_chicken",
+            "thaumic_arcana:grow_mutton",
+            "thaumic_arcana:grow_pork"
+          ],
+          "warp": 2
+        }
+      ]
+    },
+    {
+      "key": "FLESH_TO_LEATHER",
+      "name": "research.thaumic_arcana.leather.title",
+      "icons": [
+        "minecraft:leather"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "FLESH_GROWTH"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        5,
+        -1
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.leather.stage.1",
+          "required_item": [
+            "minecraft:beef",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'perditio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'permutatio'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;1",
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;2"
+          ],
+          "warp": 0
+        },
+        {
+          "text": "research.thaumic_arcana.leather.stage.2",
+          "recipes": [
+            "thaumic_arcana:beef_to_leather",
+            "thaumic_arcana:pork_to_leather",
+            "thaumic_arcana:mutton_to_leather"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUTRINET_MIX",
+      "name": "research.thaumic_arcana.nutrient_mix.title",
+      "icons": [
+        "thaumic_arcana:nutrient_mix"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "FLESH_GROWTH"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        6,
+        0
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.nutrient_mix.stage.1",
+          "required_item": [
+            "minecraft:beef",
+            "minecraft:sugar",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;1",
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;2"
+          ],
+          "warp": 0
+        },
+        {
+          "text": "research.thaumic_arcana.nutrient_mix.stage.2",
+          "recipes": [
+            "thaumic_arcana:nutrient_mix"
+          ]
+        }
+      ]
+    }
+  ]
+}

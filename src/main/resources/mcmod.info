@@ -2,7 +2,7 @@
   {
     "modid": "thaumic_arcana",
     "name": "Thaumic Arcana",
-    "description": "A thaumcraft addon extending on biothaumaturgy, and the manipulation of the environment",
+    "description": "A thaumcraft addon creating the arcane arts of biomancy (the application of magic to living creatures), and terramancy (large scale manipulation of the world around you)",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "",
@@ -11,8 +11,10 @@
       "Frontrider"
     ],
     "credits": "The MMD Discord",
-    "logoFile": "",
+    "logoFile": "/assets/thaumic_arcana/logo.png",
     "screenshots": [],
-    "dependencies": []
+    "useDependencyInformation":true,
+
+    "dependencies": ["thaumcraft","forgelin"]
   }
 ]

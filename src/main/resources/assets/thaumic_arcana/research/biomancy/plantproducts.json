@@ -1,0 +1,316 @@
+{
+  "entries":[
+    {
+      "key": "PLANT_GROWTH",
+      "name": "research.thaumic_arcana.wheat.title",
+      "icons": [
+        "minecraft:wheat",
+        "minecraft:potato",
+        "minecraft:carrot",
+        "minecraft:beetroot"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "BIOMANCY_BASICS"
+      ],
+      "meta": [
+        "SPIKY"
+      ],
+      "location": [
+        0,
+        4
+      ],
+      "required_knowledge": [
+        "THEORY;ALCHEMY;2",
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.wheat.stage.1",
+          "required_item": [
+            "minecraft:seeds",
+            "minecraft:wheat",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.wheat.stage.2",
+          "recipes": [
+            "thaumic_arcana:grow_wheat"
+          ],
+          "required_item": [
+            "minecraft:potato",
+            "minecraft:carrot",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.wheat.stage.3",
+          "recipes": [
+            "thaumic_arcana:grow_wheat",
+            "thaumic_arcana:grow_potato",
+            "thaumic_arcana:grow_carrot"
+          ],
+          "required_item": [
+            "minecraft:reeds",
+            "minecraft:melon",
+            "minecraft:pumpkin",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.wheat.stage.4",
+          "recipes": [
+            "thaumic_arcana:grow_wheat",
+            "thaumic_arcana:grow_potato",
+            "thaumic_arcana:grow_carrot",
+            "thaumic_arcana:grow_reeds",
+            "thaumic_arcana:grow_melon",
+            "thaumic_arcana:grow_pumpkin"
+          ],
+          "required_item": [
+            "minecraft:beetroot_seeds",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.wheat.stage.5",
+          "recipes": [
+            "thaumic_arcana:grow_wheat",
+            "thaumic_arcana:grow_potato",
+            "thaumic_arcana:grow_carrot",
+            "thaumic_arcana:grow_beetroot",
+            "thaumic_arcana:grow_reeds",
+            "thaumic_arcana:grow_melon",
+            "thaumic_arcana:grow_pumpkin"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PLANT_GROWTH_ADVANCED",
+      "name": "research.thaumic_arcana.tree.title",
+      "icons": [
+        "minecraft:sapling"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "PLANT_GROWTH"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "location": [
+        0,
+        5
+      ],
+      "required_knowledge": [
+        "THEORY;ALCHEMY;2",
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.tree.stage.1",
+          "required_item": [
+            "minecraft:sapling",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;4"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.tree.stage.2",
+          "required_item": [
+            "minecraft:seeds",
+            "minecraft:beetroot_seeds",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;4"
+          ],
+          "recipes": [
+            "thaumic_arcana:tree_0",
+            "thaumic_arcana:tree_1",
+            "thaumic_arcana:tree_2",
+            "thaumic_arcana:tree_3",
+            "thaumic_arcana:tree_4",
+            "thaumic_arcana:tree_5",
+            "thaumic_arcana:tree_6",
+            "thaumic_arcana:tree_7"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.tree.stage.3",
+          "recipes": [
+            "thaumic_arcana:tree_0",
+            "thaumic_arcana:tree_1",
+            "thaumic_arcana:tree_2",
+            "thaumic_arcana:tree_3",
+            "thaumic_arcana:tree_4",
+            "thaumic_arcana:tree_5",
+            "thaumic_arcana:tree_6",
+            "thaumic_arcana:tree_7",
+            "thaumic_arcana:seed_10",
+            "thaumic_arcana:seed_11"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ARCANE_FERTILIZER",
+      "name": "research.thaumic_arcana.fertiliser.title",
+      "icons": [
+        "thaumic_arcana:fertiliser"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "PLANT_GROWTH"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "location": [
+        2,
+        3
+      ],
+      "required_knowledge": [
+        "THEORY;ALCHEMY;2",
+        "THEORY;BIOMANCY;1",
+        "OBSERVATION:BASIC:2"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.fertiliser.stage.1",
+          "required_item": [
+            "minecraft:bone_meal",
+            "minecraft:seeds",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.fertiliser.stage.2",
+          "recipes": [
+            "thaumic_arcana:fertilizer_recipe"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PLANT_PRODUCTS",
+      "name": "research.thaumic_arcana.plantproducts.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        2,
+        5
+      ],
+      "parents": [
+        "PLANT_GROWTH",
+        "HEDGEALCHEMY",
+        "PLANT_GROWTH_ADVANCED"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.plantproducts.stage.1",
+          "required_item": [
+            "minecraft:log",
+            "minecraft:sugarcane",
+            "minecraft:paper",
+            "minecraft:wheat",
+            "minecraft:grass",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'perditio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'fabrico'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ordo'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BASIC;1"
+          ],
+          "warp": 0
+        },
+        {
+          "text": "research.thaumic_arcana.plantproducts.stage.2",
+          "required_item": [
+            "minecraft:dye;1;1",
+            "minecraft:dye;1;11",
+            "minecraft:dye;1;2",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+          ],
+          "recipes": [
+            "thaumic_arcana:paper"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BASIC;1"
+          ],
+          "warp": 0
+        },
+        {
+          "text": "research.thaumic_arcana.plantproducts.stage.3",
+          "recipes": [
+            "thaumic_arcana:paper",
+            "thaumic_arcana:dye_red",
+            "thaumic_arcana:dye_yellow",
+            "thaumic_arcana:dye_green"
+          ]
+        }
+      ]
+    }
+  ]
+}

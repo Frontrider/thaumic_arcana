@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "thaumic_arcana:blocks/taint_wine_cap"
+  }
+}

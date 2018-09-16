@@ -1,5 +1,30 @@
+0.3.2:
+ -fixed a bug where loading formula recipes would crash the game on startup
+
+======
+0.3.1:
+ - Fixed a bug where forge would crash guis on servers
+ - fixed a bug where the mod would break breeding
+ - enchant selector foci modifiers can not be used
+ - recipes now display on the formulas
+
+======
+0.3.0:
+ - requires forgelin
+ - json formula recipes implemented
+ - fixed a bug where the mod breaks breeding.
+ - added foci effect to turn enchants on and off
+ - added foci modifier to select enchants
+ - enchant modifiers are now craftable
+
+ foci modifiers are in an experimental status, unlocked with biomancy.
+
+=======
 0.2.1:
- - fixed errors in research file, now adding a
+ - fixed fatal errors in research file
+ - internal cleanup
+ - added groundwork for terramancy
+ 
 =======
 0.2.0:
  - added animal experiments.
