@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.casters
+package hu.frontrider.arcana.content.casters
 
 import hu.frontrider.arcana.content.casters.backend.EnchantSelectorEffect
 import hu.frontrider.arcana.registrationhandlers.CreatureEnchantRegistry.Companion.FERTILE_ENCHANT

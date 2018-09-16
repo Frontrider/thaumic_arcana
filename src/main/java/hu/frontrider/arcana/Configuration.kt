@@ -28,4 +28,10 @@ object Configuration {
             "$MODID:research/biomancy/animalproducts",
 
             "$MODID:research/terramancy")
+
+    @Config.Comment("Display the different crafts in the lore of the formulas. "
+                    ,"thaumcraft can work without JEI, it is there to keep it that way.")
+
+    @Config.Name("add formula recipes to the formula items")
+    var addFormulaRecipesToItems=false
 }

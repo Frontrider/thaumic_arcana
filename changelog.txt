@@ -1,3 +1,7 @@
+0.3.2:
+ -fixed a bug where loading formula recipes would crash the game on startup
+
+======
 0.3.1:
  - Fixed a bug where forge would crash guis on servers
  - fixed a bug where the mod would break breeding

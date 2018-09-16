@@ -14,15 +14,12 @@ import hu.frontrider.arcana.registrationhandlers.recipes.FormulaCraftingRecipes
 import hu.frontrider.arcana.registrationhandlers.recipes.InfusionRecipes
 import hu.frontrider.arcana.core.formulacrafting.FormulaCraftingHandler
 import hu.frontrider.arcana.core.formulacrafting.FormulaRecipeLoader
-import hu.frontrider.arcana.registrationhandlers.BlockRegistry
-import hu.frontrider.arcana.registrationhandlers.CreatureEnchantRegistry
-import hu.frontrider.arcana.registrationhandlers.FocusRegistry
-import hu.frontrider.arcana.registrationhandlers.ItemRegistry
 import hu.frontrider.arcana.content.research.ResearchEventManager
 import hu.frontrider.arcana.content.research.ResearchRegistry
 import hu.frontrider.arcana.core.capabilities.CreatureEnchantCapability
 import hu.frontrider.arcana.core.capabilities.CreatureEnchantStorage
 import hu.frontrider.arcana.core.capabilities.ICreatureEnchant
+import hu.frontrider.arcana.registrationhandlers.*
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
 import hu.frontrider.arcana.sided.client.gui.GuiHandler
 import hu.frontrider.arcana.util.CreativeTabArcana
@@ -96,6 +93,7 @@ object ThaumicArcana {
         ArcaneCraftingRecipes().register()
         ResearchRegistry.init()
         FocusRegistry.init()
+        GolemRegistry.init()
 
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object : BehaviorDefaultDispenseItem() {
             private val dispenseBehavior = BehaviorDefaultDispenseItem()
@@ -148,7 +146,7 @@ object ThaumicArcana {
 
     const val MODID = "thaumic_arcana"
     const val NAME = "Thaumic Arcana"
-    const val VERSION = "0.3.0"
+    const val VERSION = "0.3.2"
 
     lateinit var ConfigDirectory: File
     lateinit var logger: Logger

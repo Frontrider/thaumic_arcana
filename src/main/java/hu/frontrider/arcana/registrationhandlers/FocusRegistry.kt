@@ -2,6 +2,7 @@ package hu.frontrider.arcana.registrationhandlers
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.casters.*
+import hu.frontrider.arcana.content.casters.*
 import net.minecraft.util.ResourceLocation
 import thaumcraft.api.casters.FocusEngine
 

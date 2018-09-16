@@ -22,8 +22,8 @@ open class SetEnchantStatus(private val researchName:String, private val name:St
 
         supplyTargets().iterator().forEachRemaining { traceResult ->
             val entityHit = traceResult.entityHit
-            if (entityHit != null && entityHit.hasCapability(CREATURE_ENCHANT_CAPABILITY!!, null)) {
-                val capability = entityHit.getCapability(CREATURE_ENCHANT_CAPABILITY!!, null)!!
+            if (entityHit != null && entityHit.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
+                val capability = entityHit.getCapability(CREATURE_ENCHANT_CAPABILITY, null)!!
                 selectors.forEach {
                     capability.setEnabledStatus(it.enchant, status)
                 }

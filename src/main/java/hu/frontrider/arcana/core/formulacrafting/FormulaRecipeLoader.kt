@@ -84,7 +84,7 @@ object FormulaRecipeLoader {
 
         return if (url != null) {
             val path = url.path
-            File(path).listFiles().toList()
+            File(path).listFiles()?.toList() ?: emptyList()
         } else
             emptyList()
     }

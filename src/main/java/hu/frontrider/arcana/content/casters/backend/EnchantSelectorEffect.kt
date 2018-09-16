@@ -6,7 +6,7 @@ import thaumcraft.api.casters.FocusMod
 open class EnchantSelectorEffect(val enchant: CreatureEnchant, private val research: String) : FocusMod() {
 
     override fun execute(): Boolean {
-        return false
+        return true
     }
 
     override fun getComplexity(): Int {

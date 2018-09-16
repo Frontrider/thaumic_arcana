@@ -168,3 +168,8 @@ rendering.thaumic_arcana.reload.failed=Failed to reload rendering. Check the con
 
 commands.thaumic_arcana.spawn_structure.usage=spawnArcanaStructure x y z <structure_name>
 commands.thaumic_arcana.spawn_structure.invalid_name=Invaliid structure name
+
+#####
+#JEI#
+#####
+thaumic_arcana.jei.formulacrafting.title=Formula Crafting

@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.sided.client.gui.formula
 
+import hu.frontrider.arcana.Configuration
 import hu.frontrider.arcana.sided.client.gui.formula.text.EnchantText
 import hu.frontrider.arcana.sided.client.gui.formula.text.FormulaText
 import hu.frontrider.arcana.sided.client.gui.formula.text.ModifierText
@@ -35,6 +36,8 @@ object FormulaTextManager {
     fun registerFormulaTexts() {
         texts.add(EnchantText())
         texts.add(ModifierText())
-        texts.add(RecipeText())
+
+        if (Configuration.addFormulaRecipesToItems)
+            texts.add(RecipeText())
     }
 }
