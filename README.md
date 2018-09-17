@@ -1,7 +1,7 @@
 # Thaumic Arcana
 
 discord: https://discord.gg/UvzmEfx
-curseforge: https://minecraft.curseforge.com/projects/thaumic-arcana
+
 
 A thaumcraft addon, currently featuring a school of biomancy, containign ways to apply magic to living organisms.
 
