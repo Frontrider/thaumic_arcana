@@ -1,3 +1,7 @@
+0.4.0:
+ - added flesh and straw golems
+
+======
 0.3.2:
  -fixed a bug where loading formula recipes would crash the game on startup
 

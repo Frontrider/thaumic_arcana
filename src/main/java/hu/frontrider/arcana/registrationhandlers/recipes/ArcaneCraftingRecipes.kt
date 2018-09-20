@@ -9,13 +9,13 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.crafting.CraftingHelper
 import net.minecraftforge.fml.common.registry.GameRegistry
 import thaumcraft.api.ThaumcraftApi
-import thaumcraft.api.ThaumcraftApiHelper
 import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.crafting.ShapedArcaneRecipe
 import thaumcraft.api.crafting.ShapelessArcaneRecipe
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
+import net.minecraft.init.Items
 
 
 class ArcaneCraftingRecipes {
@@ -28,32 +28,7 @@ class ArcaneCraftingRecipes {
     }
 
     private fun initRecipes() {
-        run {
-            val cagePrimer = CraftingHelper.ShapedPrimer()
-            cagePrimer.height = 3
-            cagePrimer.width = 3
 
-            cagePrimer.input = ListBuilder(NonNullList.create<Ingredient>())
-                    .add(Ingredient.fromItem(plank_greatwood!!))
-                    .add(Ingredient.fromItem(plank_greatwood!!))
-                    .add(Ingredient.fromItem(plank_greatwood!!))
-                    .add(Ingredient.fromItem(bowl!!))
-                    .add(Ingredient.fromItem(plank_greatwood!!))
-                    .add(Ingredient.fromItem(bowl!!))
-                    .add(Ingredient.fromItem(arcane_stone_brick!!))
-                    .add(Ingredient.fromItem(arcane_stone_brick!!))
-                    .add(Ingredient.fromItem(arcane_stone_brick!!))
-                    .build() as NonNullList<Ingredient>
-
-            ThaumcraftApi.addArcaneCraftingRecipe(
-                    ResourceLocation(MODID, "create_cage"),
-                    ShapedArcaneRecipe(defaultGroup,
-                            "BIOMANCY_BASICS",
-                            30,
-                            AspectList().add(Aspect.EARTH, 1).add(Aspect.AIR, 1).add(Aspect.ORDER, 1),
-                            ItemStack(arcane_cage!!),
-                            cagePrimer))
-        }
         run {
             val cagePrimer = CraftingHelper.ShapedPrimer()
             cagePrimer.height = 3
@@ -80,37 +55,36 @@ class ArcaneCraftingRecipes {
                             ItemStack(experiment_table!!),
                             cagePrimer))
         }
+
         run {
-            val formulaRecipe = ListBuilder(NonNullList.create<Ingredient>())
-                    .add(Ingredient.fromStacks(ThaumcraftApiHelper.makeCrystal(Aspect.LIFE)))
-                    .add(Ingredient.fromStacks(ThaumcraftApiHelper.makeCrystal(Aspect.LIFE)))
-                    .add(Ingredient.fromStacks(ThaumcraftApiHelper.makeCrystal(Aspect.LIFE)))
-                    .add(Ingredient.fromItem(bottle!!))
+            val book = ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.fromItem(Items.BOOK!!))
                     .add(Ingredient.fromItem(sal_mundi!!))
-                    .build()
+                    .add(Ingredient.fromItem(sal_mundi!!))
+                    .add(Ingredient.fromItem(sal_mundi!!))
+                    .add(Ingredient.fromItem(sal_mundi!!))
+                    .build() as NonNullList<Ingredient>
 
             ThaumcraftApi.addArcaneCraftingRecipe(
-                    ResourceLocation(MODID, "create_formula"),
+                    ResourceLocation(MODID, "create_book"),
                     ShapelessArcaneRecipe(defaultGroup,
                             "BIOMANCY_BASICS",
                             30,
-                            AspectList().add(Aspect.WATER, 1).add(Aspect.ENTROPY, 1),
-                            formulaRecipe as NonNullList<Ingredient>,
-                            ItemStack(formula!!)
-                    ))
+                            AspectList().add(Aspect.ORDER, 3),
+                            ItemStack(enchanter!!),
+                            book.toArray()))
         }
     }
 
     companion object {
 
-        @GameRegistry.ObjectHolder("$MODID:arcane_cage")
-        var arcane_cage: Item? = null
 
         @GameRegistry.ObjectHolder("$MODID:experiment_table")
         var experiment_table: Item? = null
 
-        @GameRegistry.ObjectHolder("$MODID:formula")
-        var formula: Item? = null
+        @GameRegistry.ObjectHolder("$MODID:creature_enchanter")
+        var enchanter: Item? = null
+
 
         @GameRegistry.ObjectHolder("thaumcraft:salis_mundus")
         var sal_mundi: Item? = null
@@ -118,8 +92,7 @@ class ArcaneCraftingRecipes {
         @GameRegistry.ObjectHolder("thaumcraft:plank_greatwood")
         var plank_greatwood: Item? = null
 
-        @GameRegistry.ObjectHolder("thaumcraft:stone_arcane_brick")
-        var arcane_stone_brick: Item? = null
+
 
         @GameRegistry.ObjectHolder("minecraft:bowl")
         var bowl: Item? = null

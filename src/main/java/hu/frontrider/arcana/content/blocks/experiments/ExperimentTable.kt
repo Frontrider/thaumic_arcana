@@ -2,7 +2,6 @@ package hu.frontrider.arcana.content.blocks.experiments
 
 import hu.frontrider.arcana.ThaumicArcana
 import hu.frontrider.arcana.content.blocks.BlockCage
-import hu.frontrider.arcana.content.blocks.experiments.tiles.TileEntityExperimentTable
 import hu.frontrider.arcana.content.items.Rodent
 import hu.frontrider.arcana.sided.client.gui.GuiHandler
 import net.minecraft.block.material.Material
@@ -14,15 +13,14 @@ import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.init.Items
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
-import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.*
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraftforge.fml.common.registry.GameRegistry
-import net.minecraftforge.items.IItemHandler
 import java.util.Random
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
+import hu.frontrider.arcana.content.blocks.experiments.tiles.TileEntityExperimentTable
 import net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY
 
 class ExperimentTable : BlockCage<TileEntityExperimentTable>(Material.WOOD, "experiment_table") {

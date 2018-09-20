@@ -10,23 +10,24 @@ import thaumcraft.api.golems.parts.GolemMaterial
 import thaumcraft.api.items.ItemsTC
 
 class MaterialHay: GolemMaterial(
-        MODID+":hay",
+        MODID+".hay",
         arrayOf("TA_HAY_STUDIES"),
-        ResourceLocation(MODID,"textures/entity/golem/mat_hay"),
+        ResourceLocation(MODID,"textures/entity/golem/mat_hay.png"),
         convertToIntColor(240,255,127),
-        10,0,0,
+        3,0,0,
         ItemStack(Items.WHEAT,10),
         ItemStack(ItemsTC.mechanismSimple,2),
         arrayOf(FRAGILE,DEFT,LIGHT)
 )
 
 class MaterialFlesh: GolemMaterial(
-        MODID+":hay",
+        MODID+".flesh",
         arrayOf("TA_FLESH_STUDIES"),
-        ResourceLocation(MODID,"textures/entity/golem/mat_flesh"),
+        ResourceLocation(MODID,"textures/entity/golem/mat_flesh.png"),
         convertToIntColor(255,127,195),
-        20,0,0,
-        ItemStack(Items.WHEAT,10),
-        ItemStack(ItemsTC.mechanismSimple,2),
-        arrayOf(FRAGILE,LIGHT)
+        5,0,0,
+        ItemStack(Items.ROTTEN_FLESH,10),
+        ItemStack(ItemsTC.brain,2),
+
+        arrayOf(FRAGILE,LIGHT,REPAIR,SMART)
 )

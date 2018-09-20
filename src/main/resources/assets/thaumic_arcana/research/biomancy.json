@@ -58,10 +58,7 @@
         {
           "text": "research.thaumic_arcana.biomancy.stage.3",
          "recipes":[
-           "thaumic_arcana:create_cage",
-           "thaumic_arcana:create_table",
-           "thaumic_arcana:create_formula",
-           "thaumic_arcana:slime_craft"
+           "thaumic_arcana:create_table"
          ]
         }
 
