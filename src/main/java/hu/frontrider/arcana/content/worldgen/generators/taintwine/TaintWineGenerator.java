@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.content.worldgen.generators;
+package hu.frontrider.arcana.content.worldgen.generators.taintwine;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

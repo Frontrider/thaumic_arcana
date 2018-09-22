@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.content.worldgen.generators;
+package hu.frontrider.arcana.content.worldgen.generators.taintwine;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

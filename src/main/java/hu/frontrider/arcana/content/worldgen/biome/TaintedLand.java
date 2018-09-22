@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.content.worldgen.biome;
 
-import hu.frontrider.arcana.content.worldgen.generators.TaintGenerator;
-import hu.frontrider.arcana.content.worldgen.generators.TaintWineGenerator;
+import hu.frontrider.arcana.content.worldgen.generators.taintwine.TaintGenerator;
+import hu.frontrider.arcana.content.worldgen.generators.taintwine.TaintWineGenerator;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;

@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.content.blocks.taintwine.mushroom;
+package hu.frontrider.arcana.content.blocks.plants.taintwine.mushroom;
 
 import hu.frontrider.arcana.content.blocks.BlockTaintBase;
 import net.minecraft.block.material.Material;
