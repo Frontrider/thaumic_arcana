@@ -15,18 +15,32 @@ import java.util.*
 
 class MagicTreeSapling(val generator:WorldGenAbstractTree): BlockBush(),IGrowable {
 
-    val STAGE = PropertyInteger.create("stage", 0, 1)
-    protected val SAPLING_AABB = AxisAlignedBB(0.09999999403953552, 0.0, 0.09999999403953552, 0.8999999761581421, 0.800000011920929, 0.8999999761581421)
-
-    init{
+    companion object {
+        val STAGE = PropertyInteger.create("stage", 0, 1)
+        protected val SAPLING_AABB = AxisAlignedBB(0.09999999403953552, 0.0, 0.09999999403953552, 0.8999999761581421, 0.800000011920929, 0.8999999761581421)
     }
 
-    override fun getBlockState(): BlockStateContainer {
+    init{
+        this.defaultState = this.defaultState.withProperty(STAGE, Integer.valueOf(0)!!)
+    }
+
+    override fun createBlockState(): BlockStateContainer {
         return BlockStateContainer(this,STAGE)
     }
 
     override fun canUseBonemeal(worldIn: World, rand: Random, pos: BlockPos, state: IBlockState): Boolean {
         return worldIn.rand.nextFloat().toDouble() < 0.45
+    }
+
+    override fun updateTick(worldIn: World, pos: BlockPos, state: IBlockState, rand: Random) {
+        if (!worldIn.isRemote) {
+            super.updateTick(worldIn, pos, state, rand)
+
+            if (!worldIn.isAreaLoaded(pos, 1)) return  // Forge: prevent loading unloaded chunks when checking neighbor's light
+            if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && rand.nextInt(7) == 0) {
+                this.grow(worldIn,rand, pos, state)
+            }
+        }
     }
 
     override fun grow(worldIn: World, rand: Random, pos: BlockPos, state: IBlockState) {
@@ -38,7 +52,7 @@ class MagicTreeSapling(val generator:WorldGenAbstractTree): BlockBush(),IGrowabl
     }
 
     override fun isReplaceable(worldIn: IBlockAccess, pos: BlockPos): Boolean {
-        return true
+        return false
     }
 
     override fun getBoundingBox(state: IBlockState, source: IBlockAccess, pos: BlockPos): AxisAlignedBB {
