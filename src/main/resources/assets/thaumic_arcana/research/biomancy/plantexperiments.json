@@ -1,0 +1,23 @@
+{
+  "entries": [
+    {
+      "key": "PLANT_EXPERIMENTS",
+      "name": "research.thaumic_arcana.plant_experiments.title",
+      "icons": [
+        "thaumcraft:silver_wood_sapling",
+        "thaumcraft:great_wood_sapling"
+      ],
+      "stages":[
+        {
+          "text":"research.thaumic_arcana.plant_experiments.stage1",
+          "required_item":[
+            "minecraft:oak_sapling",
+            "thaumcraft:salis_mundus",
+            ""
+          ]
+        }
+      ]
+
+    }
+  ]
+}

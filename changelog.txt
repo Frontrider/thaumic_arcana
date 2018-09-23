@@ -1,3 +1,7 @@
+0.4.0:
+ - added flesh and straw golems
+
+======
 0.3.2:
  -fixed a bug where loading formula recipes would crash the game on startup
 
@@ -63,7 +67,7 @@ features:
   -metal transmutation
   -fertiliser made out of herba, that acts like bonemeal
   
-WARNING: this build might be (surely) completly broken in some way!
+WARNING: this buildAnnotations might be (surely) completly broken in some way!
 
 known issues:
  -formula damage values not fully implemented (required for later recipes)

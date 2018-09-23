@@ -10,7 +10,7 @@ research.thaumic_arcana.metal_transmutation.stage.2=I DID IT! Iron is the most s
 research.thaumic_arcana.biomancy.title=Biomancy
 research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a major success at harnessing organic substances to create new devices. Ever since then, I was toying with the idea of applying more magic to organic matter. <LINE> I prepared some materials form some very basic experiments. Based on my current theories and experience, it should not be too hard.
 research.thaumic_arcana.biomancy.stage.2=There's a difference between theory, and reality. The magic that I'm trying to apply causes a heavy amount of scarring in booth plants and animals, something that I did not experienced while making the biothaumic mind.  I prepared for a second experiment, now attempting to use some victus, to mitigate the effects of the magic.
-research.thaumic_arcana.biomancy.stage.3=I think I might be onto something. Reducing the strength of the spell, or reducing the amount of essentia touching the tissue allows me to finish the procedure whitout major damage. With it, I created a special mixture of victus, and salis mundus that can be used to infuse living creatures. To fully use this formula, I will need special tooling, so I've drawn up plans for a table that has the correct equipment. I also added a small cage to the bottom, so I could keep test subjects at hand. The table can also be used for a variety of different crafting releated to this branch of alchemy. It should also help me create new theories. <LINE>Speaking of test subjects, I have designed arcane trap, that can catch small animals that I can use in future experiments. I will need to add some bait, then leave it out in a 10x10 area of grass for it to catch some small rodents. <LINE> Booth the arcane cage, and the experiment table needs supplies, to catch and nurture the subjects. <LINE> I also tweaked my thaumatorium, so it can do more gentle crafts. That should enable me to use traditional alchemy, when applicable.
+research.thaumic_arcana.biomancy.stage.3=I think I might be onto something. Reducing the strength of the spell, or reducing the amount of essentia touching the tissue allows me to finish the procedure whitout major damage. I tweaked my thaumatorium accordingly.
 
 research.thaumic_arcana.wheat.title=Plant growth
 research.thaumic_arcana.wheat.stage.1=I believe that the aspects creating the elements that plants need to grow should be able to create a reaction that grows the plant instantaneously... or explode on the spot.
@@ -49,8 +49,7 @@ research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertilit
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
 research.thaumic_arcana.creature_enchant.creature_enchanter_respiration=The respiration enchantment allows the enchanted creature to breath underwater.
 research.thaumic_arcana.creature_enchant.creature_enchanter_strength=The strength enchanter multiplies the attack damage of the enchanted entity.
-research.thaumic_arcana.creature_enchant.creature_enchanter_none=To create the book that serves as a base for any further creature enchanting, I need to cast a special binding by using salis mundus above an enchanting table. <LINE> I need to right click an enchanting table with salis mundus in my main hand while holding a book in my offhand. <LINE> To create the enchantment, first I need to cook up the correct formula, that I apply it to the enchanting powder.
-research.thaumic_arcana.creature_enchant.powder=To safely apply this kind of magic, I also need an another substance. My new enchanting powder can store the enchantment more safely before I apply it to the book. it also helps to bind the magic to the creature.
+research.thaumic_arcana.creature_enchant.powder=To apply this magic, I need to create a special book that holds the spell, and a special enchantment. To enchant the book, I need to get a special binding agent that can link it to the creature. To apply the enchant to the book, I need to right click an enchanting table with the enchanted powder in my main hand, and the book in my offhand. <LINE> from this point, I can simply right click the book on any creature to apply the enchantment.
 
 research.thaumic_arcana.self_enchantment.title=Self Enchantment
 research.thaumic_arcana.self_enchantment.stage.1=I can put enchantments on all kinds of creatures. But what if I could put them on myself? I must try it out!
@@ -150,9 +149,29 @@ item.thaumic_arcana.rodent.dead.name=Dead Rodent
 ########
 #Blocks#
 ########
-
 tile.thaumic_arcana.experiment_table.name=Experiment Table
 tile.thaumic_arcana.arcane_cage.name=Arcane Cage
+
+###########
+#MATERIALS#
+###########
+research.thaumic_arcana.hay_studies.title=Material studies: Hay
+research.thaumic_arcana.hay_studies.stage.1=I found mentions of using hay to make golems. Not exactly a prime material for me tough. Still, after trying it I found an interesting property. I can use it to fill the gaps of a skeletal frame, which allows me to make a golem that is fragile, but can move really well.
+
+research.thaumic_arcana.flesh_studies.title=Material studies: Flesh
+research.thaumic_arcana.flesh_studies.stage.1=Golems can be made out of flesh and brains, now that I have a deeper understanding of the living. The golem is practically an artifical zombie, with no real vital sings, but with enough machina it can still work.
+
+research.thaumic_arcana.flesh_golems.title=Flesh Golems
+research.thaumic_arcana.flesh_golems.stage.1=Do I really want to do this?<LINE> My current understanding of the living should allow me to create a golem out of organic materials. Question is, do I really want to do this?
+research.thaumic_arcana.flesh_golems.stage.2=Good, the flesh is being perforated and burnt inside the press. I have to find a possible treatment that would prevent this from happening.
+research.thaumic_arcana.flesh_golems.stage.3=I tweaked my press. The flesh golem is now complete. Because the golem uses a primitive nervious system that I salvaged from brains, it will be "smart" whitout any additions.
+
+golem.material.thaumic_arcana.hay=Straw Golem
+golem.material.thaumic_arcana.flesh=Flesh Golem
+
+
+golem.material.text.thaumic_arcana.hay=The golem is a mechanical skeleton coated with straws.Increased dexterity, low durability
+golem.material.text.thaumic_arcana.flesh=The golem is a artifical zombie.
 
 ######
 #Keys#

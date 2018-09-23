@@ -115,7 +115,7 @@
       ]
     },
     {
-      "key": "NUTRINET_MIX",
+      "key": "NUTRIENT_MIX",
       "name": "research.thaumic_arcana.nutrient_mix.title",
       "icons": [
         "thaumic_arcana:nutrient_mix"

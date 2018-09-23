@@ -14,11 +14,11 @@ open class EnchantSelectorEffect(val enchant: CreatureEnchant, private val resea
     }
 
     override fun mustBeSupplied(): Array<EnumSupplyType?> {
-        return arrayOfNulls(0)
+        return arrayOf(EnumSupplyType.TARGET)
     }
 
     override fun willSupply(): Array<EnumSupplyType?> {
-        return arrayOfNulls(0)
+        return arrayOf(EnumSupplyType.TARGET)
     }
 
     override fun getKey(): String {

@@ -8,7 +8,7 @@ open class CommonProxy {
 
     }
 
-    fun preInit(event: FMLPreInitializationEvent) {
+    open fun preInit(event: FMLPreInitializationEvent) {
 
     }
 }

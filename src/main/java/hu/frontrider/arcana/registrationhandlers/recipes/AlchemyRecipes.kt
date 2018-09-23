@@ -1,15 +1,16 @@
 package hu.frontrider.arcana.registrationhandlers.recipes
 
 import hu.frontrider.arcana.Configuration
-import hu.frontrider.arcana.content.items.formula.Formula
+import hu.frontrider.arcana.ThaumicArcana.MODID
+import hu.frontrider.arcana.content.items.CreatureEnchanter
+import hu.frontrider.arcana.content.items.EnchantmentUpgradePowder
 import hu.frontrider.arcana.content.items.PlantBall
 import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
-import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
 import net.minecraft.init.Items
+import net.minecraft.init.Items.*
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
-import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.oredict.OreDictionary
@@ -19,13 +20,8 @@ import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.crafting.CrucibleRecipe
 
-import hu.frontrider.arcana.ThaumicArcana.MODID
-import net.minecraft.init.Items.*
-
 object AlchemyRecipes {
 
-    @GameRegistry.ObjectHolder("thaumic_arcana:formula")
-    internal var formula: Formula? = null
 
     fun register() {
         initMetalTransmutation()
@@ -430,44 +426,22 @@ object AlchemyRecipes {
             )
             ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "enchant_powder_basic"), recipe)
         }
-        run {
+        val registry = GameRegistry.findRegistry(CreatureEnchant::class.java)
+
+        for (it in arrayOf(ItemRegistry.enchanting_powder_basic,ItemRegistry.enchanting_powder_advanced,ItemRegistry.enchanting_powder_magical)) {
             //getting all the creature enchants
-            val registry = GameRegistry.findRegistry(CreatureEnchant::class.java)
-            for (enchant in registry) {
-                val aspectList = enchant.formula()
-                val enchantedFormula = ItemStack(formula!!)
+            for (enchant in registry.valuesCollection) {
+                val enchantedItem = CreatureEnchanter.createEnchantedItem(it, CreatureEnchanter.EnchantmentData(enchant, (it as EnchantmentUpgradePowder).level))
 
-                val nbtTagCompound = NBTTagCompound()
-                aspectList.writeToNBT(nbtTagCompound)
-
-                enchantedFormula.tagCompound = nbtTagCompound
                 val recipe = CrucibleRecipe(
                         enchant.research,
-                        enchantedFormula,
-                        ItemStack(formula!!),
-                        aspectList
+                        enchantedItem,
+                        ItemStack(it),
+                        enchant.formula()
                 )
-                ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "ce_" + enchant.registryName!!.resourcePath), recipe)
+                ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "ce_" + enchant.registryName!!.resourcePath+"_"+it.registryName!!.resourcePath), recipe)
             }
-        }
-        run {
-            val registry = GameRegistry.findRegistry(EnchantingBaseCircle::class.java)
-            for (enchant in registry) {
-                val aspectList = enchant.formula
-                val enchantedFormula = ItemStack(formula!!)
 
-                val nbtTagCompound = NBTTagCompound()
-                aspectList.writeToNBT(nbtTagCompound)
-
-                enchantedFormula.tagCompound = nbtTagCompound
-                val recipe = CrucibleRecipe(
-                        enchant.research,
-                        enchantedFormula,
-                        ItemStack(formula!!),
-                        aspectList
-                )
-                ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "ce_circle_" + enchant.registryName!!.resourcePath), recipe)
-            }
         }
     }
 }

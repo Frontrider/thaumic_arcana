@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 import net.minecraftforge.registries.IForgeRegistry
 
-class EnchantmentUpgradePowder(private val level: Int, resourceLocation: ResourceLocation) : ItemBase(resourceLocation) {
+class EnchantmentUpgradePowder(val level: Int, resourceLocation: ResourceLocation) : ItemBase(resourceLocation) {
 
 
     override fun isEnchantable(stack: ItemStack): Boolean {

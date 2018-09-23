@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "thaumic_arcana:blocks/sapling_magic_oak"
+  }
+}

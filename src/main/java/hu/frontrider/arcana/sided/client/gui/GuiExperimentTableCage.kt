@@ -1,17 +1,15 @@
 package hu.frontrider.arcana.sided.client.gui
 
-import hu.frontrider.arcana.content.blocks.experiments.tiles.TileEntityExperimentTable
-import net.minecraft.block.Block
 import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.inventory.Container
 import net.minecraft.util.ResourceLocation
-import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
+import hu.frontrider.arcana.content.blocks.experiments.tiles.TileEntityExperimentTable
 
 @SideOnly(Side.CLIENT)
 class GuiExperimentTableCage(container: Container, private val playerInv: InventoryPlayer, private val experimentTableTileEntity: TileEntityExperimentTable) : GuiContainer(container) {

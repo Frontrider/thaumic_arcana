@@ -2,7 +2,6 @@ package hu.frontrider.arcana
 
 import hu.frontrider.arcana.core.eventhandlers.FunctionEventManager
 import hu.frontrider.arcana.core.eventhandlers.LifecycleEventManager
-import hu.frontrider.arcana.sided.client.gui.formula.FormulaTextManager
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSynchroniser
@@ -10,16 +9,14 @@ import hu.frontrider.arcana.sided.network.falldamage.FalldamageSyncMessage
 import hu.frontrider.arcana.sided.network.falldamage.FalldamageSyncMessageHandler
 import hu.frontrider.arcana.registrationhandlers.recipes.AlchemyRecipes
 import hu.frontrider.arcana.registrationhandlers.recipes.ArcaneCraftingRecipes
-import hu.frontrider.arcana.registrationhandlers.recipes.FormulaCraftingRecipes
 import hu.frontrider.arcana.registrationhandlers.recipes.InfusionRecipes
-import hu.frontrider.arcana.core.formulacrafting.FormulaCraftingHandler
-import hu.frontrider.arcana.core.formulacrafting.FormulaRecipeLoader
 import hu.frontrider.arcana.content.research.ResearchEventManager
 import hu.frontrider.arcana.content.research.ResearchRegistry
 import hu.frontrider.arcana.core.capabilities.CreatureEnchantCapability
 import hu.frontrider.arcana.core.capabilities.CreatureEnchantStorage
 import hu.frontrider.arcana.core.capabilities.ICreatureEnchant
 import hu.frontrider.arcana.registrationhandlers.*
+import hu.frontrider.arcana.registrationhandlers.recipes.FakeRecipes
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
 import hu.frontrider.arcana.sided.client.gui.GuiHandler
 import hu.frontrider.arcana.util.CreativeTabArcana
@@ -49,7 +46,7 @@ import java.io.File
         modid = ThaumicArcana.MODID,
         name = ThaumicArcana.NAME,
         version = ThaumicArcana.VERSION,
-        dependencies = "required-after:thaumcraft;required-after:forgelin",
+        dependencies = "required-after:thaumcraft;required-after:forgelin,before:jei",
         modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter"
 )
 object ThaumicArcana {
@@ -84,17 +81,15 @@ object ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(CreatureEnchantSynchroniser())
         MinecraftForge.EVENT_BUS.register(FunctionEventManager())
         MinecraftForge.EVENT_BUS.register(LifecycleEventManager())
-        MinecraftForge.EVENT_BUS.register(FormulaCraftingHandler())
 
-        FormulaRecipeLoader.load()
         ResearchEventManager.initHandlers()
-        FormulaCraftingRecipes.initRecipes()
         AlchemyRecipes.register()
         InfusionRecipes.register()
         ArcaneCraftingRecipes().register()
         ResearchRegistry.init()
         FocusRegistry.init()
         GolemRegistry.init()
+        FakeRecipes.init()
 
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object : BehaviorDefaultDispenseItem() {
             private val dispenseBehavior = BehaviorDefaultDispenseItem()
@@ -137,7 +132,6 @@ object ThaumicArcana {
 
     @EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
-        FormulaTextManager.registerFormulaTexts()
     }
 
     @EventHandler
@@ -147,7 +141,7 @@ object ThaumicArcana {
 
     const val MODID = "thaumic_arcana"
     const val NAME = "Thaumic Arcana"
-    const val VERSION = "0.3.2"
+    const val VERSION = "0.4.0"
 
     lateinit var ConfigDirectory: File
     lateinit var logger: Logger
