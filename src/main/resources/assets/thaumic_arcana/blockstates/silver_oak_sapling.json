@@ -1,8 +1,8 @@
 {
   "variants": {
-    "stage=0": { "model": "magic_oak_sapling" },
-    "stage=4": { "model": "magic_oak_sapling" },
-    "stage=3":{ "model": "magic_oak_sapling" },
-    "stage=2": { "model": "magic_oak_sapling" }
+    "stage=0": { "model": "thaumic_arcana:silver_oak_sapling" },
+    "stage=4": { "model": "thaumic_arcana:silver_oak_sapling" },
+    "stage=3": { "model": "thaumic_arcana:silver_oak_sapling" },
+    "stage=2": { "model": "thaumic_arcana:silver_oak_sapling" }
   }
 }

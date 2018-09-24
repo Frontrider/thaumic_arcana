@@ -1,3 +1,12 @@
+0.6.0
+ - depends on the research loader
+
+=====
+0.5.0
+ - added modified trees
+ - fixed a lot of things around creature enchantments
+
+======
 0.4.0:
  - added flesh and straw golems
 

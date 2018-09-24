@@ -13,14 +13,21 @@ import thaumcraft.api.blocks.BlocksTC
 import thaumcraft.api.crafting.InfusionRecipe
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion
+import hu.frontrider.arcana.content.items.EnchantModifierDust
+import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion.enchanting_powder_advanced
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion.enchanting_powder_basic
 import net.minecraft.init.Items.DYE
+import net.minecraft.nbt.NBTTagCompound
 import thaumcraft.api.items.ItemsTC.salisMundus
 
-object InfusionRecipes {
+class InfusionRecipes {
 
-    @GameRegistry.ObjectHolder("$MODID:enchant_modifier")
-    internal var modifier: Item? = null
+    companion object {
+        @GameRegistry.ObjectHolder("$MODID:enchant_modifier")
+        internal lateinit var modifier: Item
+
+    }
 
     fun register() {
         registerCreatureEnchants()
@@ -29,10 +36,10 @@ object InfusionRecipes {
     internal fun registerCreatureEnchants() {
 
         run {
-            val source = ItemStack(Companion.enchanting_powder_basic)
+            val source = ItemStack(enchanting_powder_basic)
             source.tagCompound = null
 
-            val itemStack = ItemStack(Companion.enchanting_powder_advanced)
+            val itemStack = ItemStack(enchanting_powder_advanced)
             ThaumcraftApi.addInfusionCraftingRecipe(
                     ResourceLocation(MODID, "enchant_powder_advanced"),
                     InfusionRecipe("CREATURE_ENCHANT_ADVANCED",
@@ -52,12 +59,14 @@ object InfusionRecipes {
             )
         }
         run {
-            val itemStack = ItemStack(modifier!!)
+            val itemStack = ItemStack(modifier)
 
-            val source = ItemStack(Companion.enchanting_powder_advanced)
+            val source = ItemStack(enchanting_powder_advanced)
+            source.tagCompound = null
+
             ThaumcraftApi.addInfusionCraftingRecipe(
                     ResourceLocation(MODID, "enchant_modifier_base"),
-                    InfusionRecipe("CREATURE_ENCHANT_MODIFICATION",
+                    InfusionRecipe("ENCHANT_MODIFICATION",
                             itemStack,
                             5,
                             AspectList()
@@ -66,10 +75,10 @@ object InfusionRecipes {
                                     .add(Aspect.AURA, 20)
                                     .add(Aspect.BEAST, 100),
                             source,
-                            ItemStack(BlocksTC.nitor[EnumDyeColor.WHITE]),
-                            ItemStack(BlocksTC.nitor[EnumDyeColor.WHITE]),
-                            ItemStack(BlocksTC.nitor[EnumDyeColor.WHITE]),
-                            ItemStack(BlocksTC.nitor[EnumDyeColor.WHITE]),
+                            ItemStack(BlocksTC.nitor[EnumDyeColor.WHITE]!!),
+                            ItemStack(BlocksTC.nitor[EnumDyeColor.WHITE]!!),
+                            ItemStack(BlocksTC.nitor[EnumDyeColor.WHITE]!!),
+                            ItemStack(BlocksTC.nitor[EnumDyeColor.WHITE]!!),
                             ThaumcraftApiHelper.makeCrystal(Aspect.ORDER),
                             ThaumcraftApiHelper.makeCrystal(Aspect.ORDER),
                             ThaumcraftApiHelper.makeCrystal(Aspect.MAGIC),
@@ -77,6 +86,7 @@ object InfusionRecipes {
                     )
             )
         }
+
     }
 
 }

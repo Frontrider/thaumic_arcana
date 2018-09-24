@@ -1,5 +1,6 @@
 package hu.frontrider.arcana
 
+import com.google.gson.Gson
 import hu.frontrider.arcana.core.eventhandlers.FunctionEventManager
 import hu.frontrider.arcana.core.eventhandlers.LifecycleEventManager
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
@@ -20,6 +21,7 @@ import hu.frontrider.arcana.registrationhandlers.recipes.FakeRecipes
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
 import hu.frontrider.arcana.sided.client.gui.GuiHandler
 import hu.frontrider.arcana.util.CreativeTabArcana
+import hu.frontrider.thaumcraft.researchloader.ResearchCategoryJson
 import net.minecraft.block.BlockDispenser
 import net.minecraft.block.material.Material
 import net.minecraft.creativetab.CreativeTabs
@@ -29,6 +31,7 @@ import net.minecraft.entity.passive.EntityChicken
 import net.minecraft.item.ItemStack
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.common.capabilities.CapabilityManager
+import net.minecraftforge.common.config.Config
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.SidedProxy
@@ -40,13 +43,15 @@ import net.minecraftforge.fml.common.network.NetworkRegistry
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage
 import net.minecraftforge.fml.relauncher.Side
 import org.apache.logging.log4j.Logger
+import thaumcraft.api.aspects.Aspect
+import thaumcraft.api.aspects.AspectList
 import java.io.File
 
 @Mod(
         modid = ThaumicArcana.MODID,
         name = ThaumicArcana.NAME,
         version = ThaumicArcana.VERSION,
-        dependencies = "required-after:thaumcraft;required-after:forgelin,before:jei",
+        dependencies = "required-after:thaumcraft;required-after:forgelin,before:jei,required-after:thaumcraftresearchloader",
         modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter"
 )
 object ThaumicArcana {
@@ -71,6 +76,46 @@ object ThaumicArcana {
         NETWORK_WRAPPER.registerMessage<FalldamageSyncMessage, IMessage>(FalldamageSyncMessageHandler::class.java, FalldamageSyncMessage::class.java, 1, Side.SERVER)
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler())
+        val researchFile = File(suggestedConfigurationFile.parent + "/thaumcraftresearchloader/research/$MODID.txt")
+        researchFile.parentFile.mkdirs()
+        if (!researchFile.exists()) {
+            researchFile.createNewFile()
+            val printWriter = researchFile.printWriter(Charsets.UTF_8)
+
+            arrayOf(
+                    "$MODID:research/metal_transmutation",
+
+                    "$MODID:research/biomancy",
+                    "$MODID:research/biomancy/enchanting",
+                    "$MODID:research/biomancy/plantproducts",
+                    "$MODID:research/biomancy/animalproducts",
+                    "$MODID:research/biomancy/golems",
+                    "$MODID:research/biomancy/plantexperiments",
+                    "$MODID:research/scans"
+            ).forEach {
+                printWriter.write(it + "\n")
+            }
+            printWriter.close()
+        }
+        val cathegory = File(suggestedConfigurationFile.parent + "/thaumcraftresearchloader/category/$MODID.json")
+        cathegory.parentFile.mkdirs()
+        if (!cathegory.exists()) {
+            cathegory.createNewFile()
+            val printWriter = cathegory.printWriter(Charsets.UTF_8)
+
+            val category = ResearchCategoryJson()
+                    .setKey("BIOMANCY")
+                    .setRequired_research("MINDBIOTHAUMIC")
+                    .setAspectList(
+                            AspectList().add(Aspect.ALCHEMY, 30).add(Aspect.LIFE, 10).add(Aspect.MAGIC, 10).add(Aspect.LIGHT, 5).add(Aspect.AVERSION, 5).add(Aspect.EARTH, 5).add(Aspect.WATER, 5)
+                    )
+                    .setIcon("$MODID:textures/research/cat_biomancy.png")
+                    .setBackground("thaumcraft:textures/gui/gui_research_back_7.jpg")
+                    .setBackground_overlay("thaumcraft:textures/gui/gui_research_back_over.png")
+
+            printWriter.println(Gson().toJson(category))
+            printWriter.close()
+        }
 
     }
 
@@ -82,14 +127,14 @@ object ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(FunctionEventManager())
         MinecraftForge.EVENT_BUS.register(LifecycleEventManager())
 
-        ResearchEventManager.initHandlers()
-        AlchemyRecipes.register()
-        InfusionRecipes.register()
+        ResearchEventManager().initHandlers()
+        AlchemyRecipes().register()
+        InfusionRecipes().register()
         ArcaneCraftingRecipes().register()
-        ResearchRegistry.init()
-        FocusRegistry.init()
-        GolemRegistry.init()
-        FakeRecipes.init()
+        ResearchRegistry().init()
+        FocusRegistry().init()
+        GolemRegistry().init()
+        //FakeRecipes.init()
 
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object : BehaviorDefaultDispenseItem() {
             private val dispenseBehavior = BehaviorDefaultDispenseItem()
@@ -141,7 +186,7 @@ object ThaumicArcana {
 
     const val MODID = "thaumic_arcana"
     const val NAME = "Thaumic Arcana"
-    const val VERSION = "0.4.0"
+    const val VERSION = "0.5.0"
 
     lateinit var ConfigDirectory: File
     lateinit var logger: Logger

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "thaumic_arcana:blocks/sapling_magic_oak"
+    "cross": "thaumic_arcana:blocks/sapling_tainted_oak"
   }
 }

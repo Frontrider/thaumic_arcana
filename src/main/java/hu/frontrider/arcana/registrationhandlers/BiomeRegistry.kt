@@ -9,7 +9,7 @@ import net.minecraftforge.common.BiomeManager
  * @author Kis András Gábor
  * 2018.08.30.
  */
-object BiomeRegistry {
+class BiomeRegistry {
 
     fun init() {
         val taintedLand = TaintedLand()

@@ -26,8 +26,4 @@ dependencies {
     compile files("lib/Thaumcraft-1.12.2-6.1.BETA24-deobf.jar")
 }
 
-runClient.enabled =false
-runServer.enabled =false
-setupDecompWorkspace.enabled =false
-setupDevWorkspace.enabled =false
-cleanCache.enabled =false
+build.enabled=false

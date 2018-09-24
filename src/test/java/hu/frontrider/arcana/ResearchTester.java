@@ -36,7 +36,13 @@ public class ResearchTester {
 
     @DisplayName("testing the research files")
     @ParameterizedTest(name = "research : {0}")
-    @ValueSource(strings = {"biomancy", "metal_transmutation","biomancy/animalproducts","biomancy/golems","biomancy/enchanting","biomancy/plantproducts"})
+    @ValueSource(strings = {"biomancy",
+            "metal_transmutation",
+            "biomancy/animalproducts",
+            "biomancy/golems",
+            "biomancy/enchanting",
+            "biomancy/plantproducts",
+            "biomancy/plantexperiments"})
     void testingResearch(String researchFile) throws IOException {
 
         Properties language = new Properties();

@@ -29,17 +29,28 @@ class BlockRegistry {
 
     @SubscribeEvent
     fun init(event: RegistryEvent.Register<Block>) {
-        val magc_oak = BlockFactory
+        val magic_oak = BlockFactory
                 .BlockFactoryHelper(MagicTreeSapling(MagicTreeGenerator(BlocksTC.logGreatwood.defaultState, oakLeaves, true)))
                 .setResourourceLocation("magic_oak_sapling")
                 .build()
+        val silver_oak = BlockFactory
+                .BlockFactoryHelper(MagicTreeSapling(MagicTreeGenerator(BlocksTC.logSilverwood.defaultState, oakLeaves, true)))
+                .setResourourceLocation("silver_oak_sapling")
+                .build()
 
-        ItemRegistry.blocks.add(magc_oak)
+        val taint_oak = BlockFactory
+                .BlockFactoryHelper(MagicTreeSapling(MagicTreeGenerator(BlocksTC.taintLog.defaultState, oakLeaves, true)))
+                .setResourourceLocation("tainted_oak_sapling")
+                .build()
+        ItemRegistry.blocks.addAll(arrayOf(magic_oak,silver_oak,taint_oak))
+
         event.registry.registerAll(experimentTable,
                 TaintWineCap(),
                 TaintWineFlower(),
                 TaintWineTrunk(),
-                magc_oak
+                magic_oak,
+                silver_oak,
+                taint_oak
         )
         GameRegistry.registerTileEntity((experimentTable as BlockTileEntity<*>).tileEntityClass, Objects.requireNonNull<ResourceLocation>(experimentTable.registryName))
     }

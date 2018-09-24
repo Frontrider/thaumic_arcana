@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "thaumic_arcana:blocks/sapling_silver_oak"
+    "layer0": "thaumic_arcana:blocks/sapling_tainted_oak"
   }
 }

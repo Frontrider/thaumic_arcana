@@ -6,7 +6,7 @@ import hu.frontrider.arcana.content.casters.*
 import net.minecraft.util.ResourceLocation
 import thaumcraft.api.casters.FocusEngine
 
-object FocusRegistry {
+class FocusRegistry {
 
     fun init(){
         FocusEngine.registerElement(SelectProtection::class.java, ResourceLocation(MODID,"textures/cenchant/protection.png"),49344)

@@ -84,6 +84,12 @@ research.thaumic_arcana.enchant_modification.stage.3=Total failure. I still can 
 research.thaumic_arcana.enchant_modification.negation=The negation modifier will flip the multiplier of the enchantment.
 research.thaumic_arcana.enchant_modification.base=The normal modifier will revert the binding to it's default state.
 
+research.thaumic_arcana.plant_experiments.title=Plant experiments
+research.thaumic_arcana.plant_experiments.stage1=Now that I understand how I can use magic on plants, I want to see if I could make a mundane plant display magical properties. Maybe make some silverwood?
+research.thaumic_arcana.plant_experiments.stage2=No! No! No! <BR> The plant is now currupted, and is completly tainted. It looks like plants don't take it well when you try to change them fundamentally, or my method is wrong.Took a bit to get rid of this thing and fix the damage it caused.<LINE> Next I will try to make a small alteration. Nothing big, maybe change only the trunk. Let's try again like that.
+research.thaumic_arcana.plant_experiments.stage3=Now it works. The sapling is viable,but I'm not sure if it can reproduce. It still might be tainted, which gives me the idea on what if I treated it with only taint? And some victus just to make sure that it survives.
+research.thaumic_arcana.plant_experiments.stage4=Now I think I understand how to make small modifications to a plant. First, I need to pick the basic aspects that are required for the plant to grow,and add it to the sapling. Than I need to soak it in the essence that I can use to slightly modify it. Only stir it gently, since we want to avoid scarring! Than I can get a sapling that is viable, can grow but is unable to reproduce properly. It will always reproduce as if it was a normal oak tree.
+
 research.thaumic_arcana.creature_enchant_negation.title=Creature Enchant Modifier: Negation
 research.thaumic_arcana.creature_enchant_negation.stage.1=To keep myself better organised, I'll note the known effects of negation here. If it's not listed, it will only be disabled.<BR>Only time will tell the horrors I'm about to find...
 
@@ -104,9 +110,6 @@ card.thaumic_arcana.study_flesh.text=Dissecting animals (%1$s) can give you a de
 
 card.thaumic_arcana.study_dead_flesh.name=Dissect remains
 card.thaumic_arcana.study_dead_flesh.text=Dissecting %1$s can give you a deeper understanding of their structure, even though it's a bit more gross than fresh tissue. Gain 25 Biomancy.
-
-card.thaumic_arcana.experiment.name=Experiment on animals
-card.thaumic_arcana.experiment.description=Experimention on animals is the most valuable source of information in the field of biomancy.
 
 ###################
 #Creature Enchants#
@@ -142,15 +145,14 @@ item.thaumic_arcana.enchanting_powder_advanced.name=Advanced Enchant Upgrade Pow
 item.thaumic_arcana.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
 item.thaumic_arcana.enchant_modifier.name=Enchantment Modifier Powder
 
-item.thaumic_arcana.formula.name=Formula
-item.thaumic_arcana.rodent.name=Rodent
-item.thaumic_arcana.rodent.dead.name=Dead Rodent
-
 ########
 #Blocks#
 ########
 tile.thaumic_arcana.experiment_table.name=Experiment Table
-tile.thaumic_arcana.arcane_cage.name=Arcane Cage
+
+tile.thaumic_arcana.magic_oak_sapling.name=Great Oak Sapling
+tile.thaumic_arcana.silver_oak_sapling.name=Silver Oak Sapling
+tile.thaumic_arcana.tainted_oak_sapling.name=Tainted Oak Sapling
 
 ###########
 #MATERIALS#

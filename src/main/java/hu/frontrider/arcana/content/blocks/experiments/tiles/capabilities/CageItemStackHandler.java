@@ -63,13 +63,6 @@ public class CageItemStackHandler implements IItemHandler, IItemHandlerModifiabl
         if(slot ==0 && !(stack.getItem()==rodent)){
             return stack;
         }
-        String name = stack.getItem().getRegistryName().toString();
-        boolean isInList = Arrays
-                .stream(Configuration.INSTANCE.getRodentFoodWhitelist())
-                .anyMatch((name::equals));
-
-        if(slot ==1 &&!isInList)
-            return stack;
 
         ItemStack existing = this.stacks.get(slot);
 

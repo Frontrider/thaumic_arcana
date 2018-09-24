@@ -14,22 +14,18 @@ object Configuration {
     @Config.Name("Enchantable entity blacklist")
     var entityBlacklist = arrayOf("minecraft:slime")
 
-    @Config.Comment("Items that you can use in cages to feed the labrats.")
-    @Config.Name("Labrat food list")
-    var rodentFoodWhitelist = arrayOf("minecraft:carrot", "minecraft:potato")
-
-    @Config.Comment("This segment can be used to load custom research files into thaumcraft.", "Intended to be used by packmakers, to gain access to the thaumonomicon.", "The defaults are also here, so that you can replace them.")
+    @Config.Comment(
+            "This segment can be used to load custom research files into thaumcraft.", "Intended to be used by packmakers, to gain access to the thaumonomicon.", "The defaults are also here, so that you can replace them.",
+            "The defaults are the research files used by Thaumic Arcana, some of the research may need to be reordered/reworded in order to make use of it in your pack."
+    )
     @Config.Name("Research configuration")
-    var research = arrayOf("$MODID:research/metal_transmutation",
+    var research = arrayOf(
+            "$MODID:research/metal_transmutation",
 
             "$MODID:research/biomancy",
             "$MODID:research/biomancy/enchanting",
             "$MODID:research/biomancy/plantproducts",
             "$MODID:research/biomancy/animalproducts",
-            "$MODID:research/biomancy/golems")
-
-    @Config.Comment("Display the different crafts in the lore of the formulas. "
-                    ,"thaumcraft can work without JEI, it is there to keep it that way.")
-    @Config.Name("add formula recipes to the formula items")
-    var addFormulaRecipesToItems=false
+            "$MODID:research/biomancy/golems",
+            "$MODID:research/biomancy/plantexperiments")
 }

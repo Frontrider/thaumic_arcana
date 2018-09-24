@@ -4,16 +4,78 @@
       "key": "PLANT_EXPERIMENTS",
       "name": "research.thaumic_arcana.plant_experiments.title",
       "icons": [
-        "thaumcraft:silver_wood_sapling",
-        "thaumcraft:great_wood_sapling"
+        "thaumcraft:sapling_silverwood",
+        "thaumcraft:sapling_greatwood"
+      ],
+      "category": "BIOMANCY",
+      "parents":["PLANT_GROWTH_ADVANCED"],
+      "location": [
+        0,
+        7
+      ],
+      "meta": [
+        "SPIKY",
+        "HIDDEN"
       ],
       "stages":[
         {
           "text":"research.thaumic_arcana.plant_experiments.stage1",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;2",
+            "OBSERVATION;BIOMANCY;1"
+          ],
           "required_item":[
-            "minecraft:oak_sapling",
+            "minecraft:sapling",
             "thaumcraft:salis_mundus",
-            ""
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}"
+          ]
+        },
+        {
+          "text":"research.thaumic_arcana.plant_experiments.stage2",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;1",
+            "OBSERVATION;BIOMANCY;1"
+          ],
+          "required_item":[
+            "minecraft:sapling",
+            "thaumcraft:salis_mundus",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}"
+          ]
+        },
+        {
+          "text":"research.thaumic_arcana.plant_experiments.stage3",
+          "required_knowledge": [
+            "OBSERVATION;BIOMANCY;1"
+          ],
+          "required_item":[
+            "minecraft:sapling;2",
+            "thaumcraft:salis_mundus;3",
+            "thaumcraft:vis_resonator;2",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vitium'}]}"
+          ],
+          "recipes":[
+            "thaumic_arcana:great_oak_wood",
+            "thaumic_arcana:silver_oak_wood"
+          ]
+        },{
+          "text":"research.thaumic_arcana.plant_experiments.stage4",
+          "recipes":[
+            "thaumic_arcana:great_oak_wood",
+            "thaumic_arcana:silver_oak_wood",
+            "thaumic_arcana:tainted_oak_wood"
           ]
         }
       ]

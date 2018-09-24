@@ -5,12 +5,14 @@ import net.minecraft.init.Blocks
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraft.world.gen.feature.WorldGenAbstractTree
+import thaumcraft.api.blocks.BlocksTC
 import java.util.*
 
 class MagicTreeGenerator(private val LOG: IBlockState,
-                         private val LEAF:IBlockState,
+                         private val LEAF: IBlockState,
                          private val useExtraRandomHeight: Boolean
-) :WorldGenAbstractTree(true){
+) : WorldGenAbstractTree(true) {
+
 
     override fun generate(worldIn: World, rand: Random, position: BlockPos): Boolean {
         var i = rand.nextInt(3) + 5
@@ -89,7 +91,10 @@ class MagicTreeGenerator(private val LOG: IBlockState,
                         val state2 = worldIn.getBlockState(upN)
 
                         if (state2.block.isAir(state2, worldIn, upN) || state2.block.isLeaves(state2, worldIn, upN)) {
-                            this.setBlockAndNotifyAdequately(worldIn, position.up(j2), LOG)
+                            if (rand.nextInt(10) > 8)
+                                this.setBlockAndNotifyAdequately(worldIn, position.up(j2), BlocksTC.taintLog.defaultState)
+                            else
+                                this.setBlockAndNotifyAdequately(worldIn, position.up(j2), LOG)
                         }
                     }
 
