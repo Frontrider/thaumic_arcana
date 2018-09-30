@@ -30,6 +30,7 @@ import net.minecraft.entity.passive.EntityChicken
 import net.minecraft.item.ItemStack
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.common.capabilities.CapabilityManager
+import net.minecraftforge.common.util.EnumHelper
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.SidedProxy
@@ -44,6 +45,7 @@ import org.apache.logging.log4j.Logger
 import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.AspectList
 import java.io.File
+
 
 @Mod(
         modid = ThaumicArcana.MODID,
@@ -142,6 +144,7 @@ object ThaumicArcana {
             public override fun dispenseStack(source: IBlockSource, stack: ItemStack): ItemStack {
                 val enumfacing = source.blockState.getValue(BlockDispenser.FACING)
                 val world = source.world
+
                 val d0 = source.x + (enumfacing.frontOffsetX.toFloat() * 1.125f).toDouble()
                 val d1 = source.y + (enumfacing.frontOffsetY.toFloat() * 1.125f).toDouble()
                 val d2 = source.z + (enumfacing.frontOffsetZ.toFloat() * 1.125f).toDouble()
@@ -195,5 +198,7 @@ object ThaumicArcana {
 
     @SidedProxy(clientSide = "hu.frontrider.arcana.sided.client.ClientProxy", serverSide = "hu.frontrider.arcana.CommonProxy")
     lateinit var proxy: CommonProxy
+
+    val TOOL_MATERIAL_LIVIUM = EnumHelper.addToolMaterial("TA:LIVIUM", 3, 1024, 6.0f, 2.0f, 2)!!
 
 }

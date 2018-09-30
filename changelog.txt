@@ -13,6 +13,9 @@
  - the enchanting book is now used to remove enchants.
  - added organic curiosity, dropping from mobs, when killed by a player, who has unlocked the biomancy research.
  - reworked research costs.
+ - fixed a bug where the fertility enchant crashes when applied to villagers
+ - fixed a crash, caused by the mod not warning about it's dependencies
+ - creature enchant, haste
 
 
 Break and replace experiment tables before clicking on them!

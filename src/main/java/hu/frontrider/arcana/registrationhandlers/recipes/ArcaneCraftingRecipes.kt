@@ -21,12 +21,11 @@ import thaumcraft.api.ThaumcraftApiHelper
 
 
 class ArcaneCraftingRecipes {
-
-
-    private val defaultGroup = ResourceLocation("biomancy")
+    private val defaultGroup = ResourceLocation(MODID,"biomancy")
 
     fun register() {
         initRecipes()
+        initLivium()
     }
 
     private fun initRecipes() {
@@ -38,7 +37,7 @@ class ArcaneCraftingRecipes {
 
             cagePrimer.input = ListBuilder(NonNullList.create<Ingredient>())
                     .add(Ingredient.fromItem(bottle!!))
-                    .add(Ingredient.fromItem(stick!!))
+                    .add(Ingredient.fromItem(stick))
                     .add(Ingredient.fromItem(bottle!!))
                     .add(Ingredient.fromItem(plank_greatwood!!))
                     .add(Ingredient.EMPTY)
@@ -131,6 +130,136 @@ class ArcaneCraftingRecipes {
         }
     }
 
+    private fun initLivium(){
+        val liviumGroup = ResourceLocation(MODID,"biomancy_livium")
+        run {
+            val fleshGroup = ResourceLocation(MODID,"biomancy_livium_flesh")
+            for(item in arrayOf(Items.BEEF,Items.MUTTON,Items.PORKCHOP,Items.CHICKEN,Items.FISH)) {
+                val cagePrimer = CraftingHelper.ShapedPrimer()
+                cagePrimer.height = 3
+                cagePrimer.width = 3
+
+                cagePrimer.input = ListBuilder(NonNullList.create<Ingredient>())
+                        .add(Ingredient.fromItem(item))
+                        .build() as NonNullList<Ingredient>
+
+                ThaumcraftApi.addArcaneCraftingRecipe(
+                        ResourceLocation(MODID, "neutered_flesh_${item.registryName!!.resourcePath}"),
+                        ShapedArcaneRecipe(fleshGroup,
+                                "LIVIUM",
+                                30,
+                                AspectList().add(Aspect.ENTROPY, 1).add(Aspect.ORDER, 1),
+                                ItemStack(neutered_flesh),
+                                cagePrimer))
+            }
+        }
+
+        run {
+            val tool = CraftingHelper.ShapedPrimer()
+            tool.height = 3
+            tool.width = 3
+
+            tool.input = ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(stick))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(stick))
+                    .add(Ingredient.EMPTY)
+                    .build() as NonNullList<Ingredient>
+
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "create_livium_pickaxe"),
+                    ShapedArcaneRecipe(liviumGroup,
+                            "LIVIUM",
+                            10,
+                            AspectList().add(Aspect.ORDER, 2).merge(Aspect.EARTH,1).merge(Aspect.WATER,1),
+                            ItemStack(pickaxe_livium),
+                            tool))
+        }
+        run {
+            val tool = CraftingHelper.ShapedPrimer()
+            tool.height = 3
+            tool.width = 3
+
+            tool.input = ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.fromItem(stick))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(stick))
+                    .add(Ingredient.EMPTY)
+                    .build() as NonNullList<Ingredient>
+
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "create_livium_axe"),
+                    ShapedArcaneRecipe(liviumGroup,
+                            "LIVIUM",
+                            10,
+                            AspectList().add(Aspect.ORDER, 2).merge(Aspect.EARTH,1).merge(Aspect.WATER,1),
+                            ItemStack(axe_livium),
+                            tool))
+        }
+        run {
+            val tool = CraftingHelper.ShapedPrimer()
+            tool.height = 3
+            tool.width = 3
+
+            tool.input = ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(stick))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(stick))
+                    .add(Ingredient.EMPTY)
+                    .build() as NonNullList<Ingredient>
+
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "create_livium_shovel"),
+                    ShapedArcaneRecipe(liviumGroup,
+                            "LIVIUM",
+                            10,
+                            AspectList().add(Aspect.ORDER, 2).merge(Aspect.EARTH,1).merge(Aspect.WATER,1),
+                            ItemStack(shovel_livium),
+                            tool))
+        }
+        run {
+            val tool = CraftingHelper.ShapedPrimer()
+            tool.height = 3
+            tool.width = 3
+
+            tool.input = ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromStacks(ItemStack(ingot_livium)))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(stick))
+                    .add(Ingredient.EMPTY)
+                    .build() as NonNullList<Ingredient>
+
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "create_livium_sword"),
+                    ShapedArcaneRecipe(liviumGroup,
+                            "LIVIUM",
+                            10,
+                            AspectList().add(Aspect.ORDER, 2).merge(Aspect.EARTH,1).merge(Aspect.WATER,1),
+                            ItemStack(sword_livium),
+                            tool))
+        }
+
+    }
     companion object {
 
 
@@ -140,6 +269,25 @@ class ArcaneCraftingRecipes {
         @GameRegistry.ObjectHolder("$MODID:creature_enchanter")
         var enchanter: Item? = null
 
+        @GameRegistry.ObjectHolder("$MODID:neutered_flesh")
+        lateinit var neutered_flesh: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:ingot_livium")
+        lateinit var ingot_livium: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:livium_pickaxe")
+        lateinit var pickaxe_livium: Item
+
+        @GameRegistry.ObjectHolder("$MODID:livium_axe")
+        lateinit var axe_livium: Item
+
+        @GameRegistry.ObjectHolder("$MODID:livium_shovel")
+        lateinit var shovel_livium: Item
+
+        @GameRegistry.ObjectHolder("$MODID:livium_sword")
+        lateinit var sword_livium: Item
 
         @GameRegistry.ObjectHolder("$MODID:paving_stone_disable_enchants")
         var disable_enchants: Block? = null
@@ -167,6 +315,6 @@ class ArcaneCraftingRecipes {
         var bottle: Item? = null
 
         @GameRegistry.ObjectHolder("minecraft:stick")
-        var stick: Item? = null
+        lateinit var stick:Item
     }
 }

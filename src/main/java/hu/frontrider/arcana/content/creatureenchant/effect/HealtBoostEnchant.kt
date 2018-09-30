@@ -35,7 +35,7 @@ class HealtBoostEnchant:EffectEnchantBase(MobEffects.HEALTH_BOOST,MobEffects.HEA
 
         if (speedLevel>0) {
             if (entity.getActivePotionEffect(MobEffects.HUNGER) == null || entity.getActivePotionEffect(MobEffects.HUNGER)!!.duration < 30)
-                entity.addPotionEffect(PotionEffect(MobEffects.HUNGER, 240, speedLevel, true, false))
+                entity.addPotionEffect(PotionEffect(MobEffects.HUNGER, 240, speedLevel*3, true, false))
         }
 
         if (enchantLevel>0) {

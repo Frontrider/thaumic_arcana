@@ -6,7 +6,9 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.event.entity.living.LivingEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
-abstract class EffectEnchantBase(private val positive: Potion, private val negative: Potion, private val negativeMultiplier: Double, resourceLocation: ResourceLocation, unlocalisedName: String) : CreatureEnchant(resourceLocation, unlocalisedName) {
+abstract class EffectEnchantBase(private val positive: Potion, private val negative: Potion, private val negativeMultiplier: Double,resourceLocation: ResourceLocation, unlocalisedName: String) : CreatureEnchant(resourceLocation, unlocalisedName) {
+
+    constructor(positive: Potion,negative: Potion,negativeMultiplier: Double, resourceLocation: ResourceLocation):this(positive,negative,negativeMultiplier,resourceLocation,resourceLocation.resourcePath)
 
     @SubscribeEvent
     open fun tick(event: LivingEvent.LivingUpdateEvent) {

@@ -23,8 +23,8 @@ repositories {
 }
 
 dependencies {
-    compile project(":thaumcraftApi")
-    runtime files("lib/Thaumcraft-1.12.2-6.1.BETA24-deobf.jar")
+    compileOnly project(":thaumcraftApi")
+    compileOnly files("lib/Thaumcraft-1.12.2-6.1.BETA24-deobf.jar")
 }
 
 

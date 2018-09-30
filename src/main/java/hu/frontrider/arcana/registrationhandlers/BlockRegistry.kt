@@ -2,7 +2,6 @@ package hu.frontrider.arcana.registrationhandlers
 
 import hu.frontrider.arcana.content.blocks.BlockTileEntity
 import hu.frontrider.arcana.content.blocks.calculator.BlockTallyBox
-import hu.frontrider.arcana.content.blocks.calculator.tiles.TallyBoxInventory
 import hu.frontrider.arcana.content.blocks.effect.BlockArcaneStoneDisableEnchants
 import hu.frontrider.arcana.content.blocks.effect.BlockArcaneStoneEnableEnchants
 import hu.frontrider.arcana.content.blocks.experiments.ExperimentTable
@@ -11,7 +10,7 @@ import hu.frontrider.arcana.content.blocks.plants.taintwine.mushroom.TaintWineCa
 import hu.frontrider.arcana.content.blocks.plants.taintwine.mushroom.TaintWineFlower
 import hu.frontrider.arcana.content.blocks.plants.taintwine.mushroom.TaintWineTrunk
 import hu.frontrider.arcana.content.worldgen.generators.magictree.MagicTreeGenerator
-import hu.frontrider.arcana.core.BlockFactory
+import hu.frontrider.arcana.util.BlockFactory
 import net.minecraft.block.Block
 import net.minecraft.block.BlockOldLeaf
 import net.minecraft.block.BlockPlanks

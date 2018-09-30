@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.core
+package hu.frontrider.arcana.util
 
 import hu.frontrider.arcana.ThaumicArcana
 import hu.frontrider.arcana.ThaumicArcana.MODID

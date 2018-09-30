@@ -4,8 +4,13 @@ import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER
 import hu.frontrider.arcana.ThaumicArcana.TABARCANA
 import hu.frontrider.arcana.content.items.*
+import hu.frontrider.arcana.content.items.tools.LiviumAxe
+import hu.frontrider.arcana.content.items.tools.LiviumPickAxe
+import hu.frontrider.arcana.content.items.tools.LiviumShovel
+import hu.frontrider.arcana.content.items.tools.LiviumSword
 import hu.frontrider.arcana.registrationhandlers.BlockRegistry.Companion.experimentTable
 import hu.frontrider.arcana.util.Initialisable
+import hu.frontrider.arcana.util.ItemFactory
 import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.item.ItemBlock
@@ -45,7 +50,19 @@ class ItemRegistry {
                 enchanting_powder_magical,
                 enchantModifier,
                 ResearchResult(),
-                NaturalCuriosity()
+                NaturalCuriosity(),
+
+                ItemFactory.start(Item())
+                        .setResourourceLocation("livium_ingot")
+                        .build(),
+                ItemFactory.start(Item())
+                        .setResourourceLocation("neutered_flesh")
+                        .build(),
+
+                LiviumPickAxe(),
+                LiviumAxe(),
+                LiviumShovel(),
+                LiviumSword()
         )
     }
 

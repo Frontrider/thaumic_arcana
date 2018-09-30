@@ -45,7 +45,13 @@ research.thaumic_arcana.creature_enchant_advanced.stage.4=Was a little harder th
 research.thaumic_arcana.creature_enchant_advanced.stage.5=Interestingly, it does not. Still needs some getting used to.<LINE> Lastly, I want to see, if increased vitality would be the answer to the fragility problem of strength.
 research.thaumic_arcana.creature_enchant_advanced.stage.6=That's it for now. I need to learn more before I can do more.
 
-research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby.
+research.thaumic_arcana.creature_enchant_advanced.vitality=The vitality enchantment will increase the creature's regenerative abilities.
+research.thaumic_arcana.creature_enchant_advanced.strength=The strength enchantment will increase the power output of the creature's muscles.
+research.thaumic_arcana.creature_enchant_advanced.spider_limbs=The spider limbs enchantment, infuses the creature with the essence of a spider, allowing it to climb up walls, and stick to them.
+research.thaumic_arcana.creature_enchant_advanced.speed=The speed enchantment increases the movement speed of the creature.<LINE> Because they target similar musche groups, the strenght enchant will cause it to increase the fall damage that the creature takes. <LINE> Because of the hardening effects of the protection enchant that is affecting movement to a degree, it will cause the creature to need more enegry to function,
+
+
+research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby. <LINE> Creatures with higher intellect are somewhat unaffected.
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
 research.thaumic_arcana.creature_enchant.creature_enchanter_respiration=The respiration enchantment allows the enchanted creature to breath underwater.
 research.thaumic_arcana.creature_enchant.powder=To apply this magic, I need to create a special book that holds the spell, and a special enchantment. To enchant the book, I need to get a special binding agent that can link it to the creature. To apply the enchant to the book, I need to right click an enchanting table with the enchanted powder in my main hand, and the book in my offhand. <LINE> from this point, I can simply right click the book on any creature to apply the enchantment.
@@ -97,6 +103,9 @@ research.thaumic_arcana.creature_enchant_negation.strength=The Strength enchant 
 research.thaumic_arcana.creature_enchant_negation.speed=The Speed enchant will give slowness instead of speed.
 research.thaumic_arcana.creature_enchant_negation.vitality=The Vitality enchant will wither instead of regenerating.
 research.thaumic_arcana.creature_enchant_negation.protection=The Protection enchant will increase the damage instead of reducing it.
+research.thaumic_arcana.creature_enchant_negation.health_boost=The healt boost enchant will reduce the creature's total health.
+research.thaumic_arcana.creature_enchant_negation.agility=The agility enchant will prevent the creature from jumping.
+research.thaumic_arcana.creature_enchant_negation.haste=The haste enchant will slow down the mining speed of the enchanted creature.
 
 research.thaumic_arcana.enchant_focus.title=Enchantment Focusing
 research.thaumic_arcana.enchant_focus.stage.1=If I understand the relations between creature enchants and the aura, than I should be able to create a foci, that can flip the enchants off. A least if ym theory is correct.
@@ -114,7 +123,12 @@ research.thaumic_arcana.experiment_table.stage.2=Yes. The method is effective. A
 
 research.thaumic_arcana.creature_enchant_advanced2.title=More creature enchants
 research.thaumic_arcana.creature_enchant_advanced2.stage.1=I want to see what I can get, if I can boost the vitality of the creature even more. Prepared some tools for the experiment.
-research.thaumic_arcana.creature_enchant_advanced2.stage.2=The experiment yielded two different enchants.
+research.thaumic_arcana.creature_enchant_advanced2.stage.2=The experiment yielded two different enchants.<LINE> I want to see if I cna modify the agility enchantment to  work on arms instead of legs. Worst case scenarion, it will make the creature pack a punch.
+research.thaumic_arcana.creature_enchant_advanced2.stage.3=I'll see if I gain more ideas on what to try out.
+
+research.thaumic_arcana.creature_enchant_advanced2.agility=The agility enchantment gives increased mobility to the creature in the form of a jump boost.It will also dampen the impact when it falls.<LINE> Because the protection enchant is really obtrusive, it will not allow the enchant to dampen fall damgage.
+research.thaumic_arcana.creature_enchant_advanced2.health_boost=The health boost enchantment will increase the health of the creature.<LINE> Because they put load into the body in a similar fashion, applying it together with the protection enchantment will cause the creature to wither. <LINE> Because the speed enchant targets similar vitals, it will give an additional slowness effect.
+research.thaumic_arcana.creature_enchant_advanced2.haste=The haste enchanment will increase the mining speed of the enchanted creature
 
 research.thaumic_arcana.creature_enchant_removal.title=Removing enchants
 research.thaumic_arcana.creature_enchant_removal.stage.1=I'm close to breaking the bond that I've created. Just a little more.
@@ -130,6 +144,10 @@ research.thaumic_arcana.flesh_golems.title=Flesh Golems
 research.thaumic_arcana.flesh_golems.stage.1=Do I really want to do this?<LINE> My current understanding of the living should allow me to create a golem out of organic materials. Question is, do I really want to do this?
 research.thaumic_arcana.flesh_golems.stage.2=Good, the flesh is being perforated and burnt inside the press. I have to find a possible treatment that would prevent this from happening.
 research.thaumic_arcana.flesh_golems.stage.3=I tweaked my press. The flesh golem is now complete. Because the golem uses a primitive nervious system that I salvaged from brains, it will be "smart" whitout any additions.
+
+research.thaumic_arcana.livium.stage.title=Living metal
+research.thaumic_arcana.livium.stage.1=From the experience of the flesh golem, I learned how to use flesh as a raw material. For the next experiment I prepared a way to "neuter" flesh, so it will not kill foreigh tissue. I'm going to infuse this flesh with the aspects of metal and the properties of iron. It will either turn into an organism that has the properties of a metal, yet behaves like a living organism.
+research.thaumic_arcana.livium.stage.2=The experiment resulted in a special metal that shows sings of life. Tools made of this "material" can leach nutrients from the user's body to repair themselves. It can be triggered by right clicking the tool, it will reclaim 25 durability for each points of hunger used.
 ##########
 #Theories#
 ##########
@@ -154,6 +172,7 @@ enchant.creature_enchant.spider=Spider Limbs
 enchant.creature_enchant.vitality=Vitality
 enchant.creature_enchant.health_boost=Health Boost
 enchant.creature_enchant.agiltiy=Agility
+enchant.creature_enchant.haste=Haste
 
 enchant.modifier.normal=Normal
 enchant.modifier.negation=Negation

@@ -141,5 +141,4 @@ public class ResearchTester {
 
         assertAll(assertions.toArray(new Executable[]{}));
     }
-
 }

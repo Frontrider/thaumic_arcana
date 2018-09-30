@@ -456,6 +456,24 @@
           "required_research": [
             "CREATURE_ENCHANTMENT_NEGATION@1"
           ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.agility",
+          "required_research": [
+            "CREATURE_ENCHANT_ADVANCED2@2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.health_boost",
+          "required_research": [
+            "CREATURE_ENCHANT_ADVANCED2@2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.haste",
+          "required_research": [
+            "CREATURE_ENCHANT_ADVANCED2@3"
+          ]
         }
       ]
     },
@@ -605,8 +623,51 @@
             "thaumic_arcana:ce_health_boost_enchant_powder_magical",
             "thaumic_arcana:ce_agility_enchant_powder_magical"
           ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced2.stage.3",
+          "required_item": [
+            "thaumic_arcana:enchant_modifier",
+            "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:effect_amplifier'}",
+            "minecraft:rabbit_foot"
+          ],
+          "required_knowledge": [
+            "THEORY;BIOMANCY;2"
+          ],
+          "recipes": [
+            "thaumic_arcana:ce_health_boost_enchant_powder_basic",
+            "thaumic_arcana:ce_agility_enchant_powder_basic",
+            "thaumic_arcana:ce_haste_enchant_powder_basic",
+
+            "thaumic_arcana:ce_health_boost_enchant_powder_advanced",
+            "thaumic_arcana:ce_agility_enchant_powder_advanced",
+            "thaumic_arcana:ce_haste_enchant_powder_advanced",
+
+            "thaumic_arcana:ce_health_boost_enchant_powder_magical",
+            "thaumic_arcana:ce_agility_enchant_powder_magical",
+            "thaumic_arcana:ce_haste_enchant_powder_magical"
+          ]
         }
+      ],
+    "addenda":[{
+      "text": "research.thaumic_arcana.creature_enchant_advanced2.agility",
+      "required_research": [
+        "CREATURE_ENCHANT_ADVANCED2@2"
       ]
+    },
+      {
+        "text": "research.thaumic_arcana.creature_enchant_advanced2.health_boost",
+        "required_research": [
+          "CREATURE_ENCHANT_ADVANCED2@2"
+        ]
+      },
+      {
+        "text": "research.thaumic_arcana.creature_enchant_advanced2.haste",
+        "required_research": [
+          "CREATURE_ENCHANT_ADVANCED2@3"
+        ]
+      }
+    ]
     },
     {
       "key": "CREATURE_ENCHANT_REMOVAL",
