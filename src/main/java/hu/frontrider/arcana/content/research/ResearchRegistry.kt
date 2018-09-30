@@ -1,14 +1,8 @@
 package hu.frontrider.arcana.content.research
 
-import hu.frontrider.arcana.Configuration
-import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.content.research.theory.*
 import net.minecraft.entity.passive.EntityAnimal
 import net.minecraft.util.ResourceLocation
-import thaumcraft.api.ThaumcraftApi
-import thaumcraft.api.aspects.Aspect
-import thaumcraft.api.aspects.AspectList
-import thaumcraft.api.research.ResearchCategories
 import thaumcraft.api.research.ScanEntity
 import thaumcraft.api.research.ScanningManager
 import thaumcraft.api.research.theorycraft.TheorycraftManager

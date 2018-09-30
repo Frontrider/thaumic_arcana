@@ -1,0 +1,12 @@
+{
+    "ctm":{
+        "ctm_version": 1,
+        "type":"CTM",
+        "textures":[
+            "thaumic_arcana:blocks/paving_stone_enable_enchants_ctm"
+        ],
+        "extra":{
+        	"ignore_states":"false"
+        }
+    }
+}

@@ -15,7 +15,9 @@ import thaumcraft.api.crafting.ShapedArcaneRecipe
 import thaumcraft.api.crafting.ShapelessArcaneRecipe
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
+import net.minecraft.block.Block
 import net.minecraft.init.Items
+import thaumcraft.api.ThaumcraftApiHelper
 
 
 class ArcaneCraftingRecipes {
@@ -62,7 +64,7 @@ class ArcaneCraftingRecipes {
                     .add(Ingredient.fromItem(sal_mundi!!))
                     .add(Ingredient.fromItem(sal_mundi!!))
                     .add(Ingredient.fromItem(sal_mundi!!))
-                    .add(Ingredient.fromItem(sal_mundi!!))
+                    .add(Ingredient.fromStacks(ThaumcraftApiHelper.makeCrystal(Aspect.LIFE)))
                     .build() as NonNullList<Ingredient>
 
             ThaumcraftApi.addArcaneCraftingRecipe(
@@ -70,9 +72,62 @@ class ArcaneCraftingRecipes {
                     ShapelessArcaneRecipe(defaultGroup,
                             "BIOMANCY_BASICS",
                             30,
-                            AspectList().add(Aspect.ORDER, 3),
+                            AspectList().add(Aspect.ENTROPY, 3).add(Aspect.EARTH, 1).add(Aspect.AIR, 1),
                             ItemStack(enchanter!!),
                             book.toArray()))
+        }
+        run {
+            val cagePrimer = CraftingHelper.ShapedPrimer()
+            cagePrimer.height = 3
+            cagePrimer.width = 3
+
+            cagePrimer.input = ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ThaumcraftApiHelper.makeCrystal(Aspect.AURA)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .build() as NonNullList<Ingredient>
+
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "arcane_stone_enable_enchants"),
+                    ShapedArcaneRecipe(defaultGroup,
+                            "ENCHANT_FOCUS",
+                            20,
+                            AspectList().add(Aspect.ORDER, 2).merge(Aspect.EARTH,1).merge(Aspect.WATER,1),
+                            ItemStack(enable_enchants!!,4),
+                            cagePrimer))
+        }
+
+        run {
+            val cagePrimer = CraftingHelper.ShapedPrimer()
+            cagePrimer.height = 3
+            cagePrimer.width = 3
+
+            cagePrimer.input =ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ThaumcraftApiHelper.makeCrystal(Aspect.FLUX)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
+                    .build() as NonNullList<Ingredient>
+
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "arcane_stone_disable_enchants"),
+                    ShapedArcaneRecipe(defaultGroup,
+                            "ENCHANT_FOCUS",
+                            20,
+                            AspectList().add(Aspect.ENTROPY, 2).merge(Aspect.EARTH,1).merge(Aspect.WATER,1),
+                            ItemStack(disable_enchants!!,4),
+                            cagePrimer))
         }
     }
 
@@ -80,10 +135,20 @@ class ArcaneCraftingRecipes {
 
 
         @GameRegistry.ObjectHolder("$MODID:experiment_table")
-        var experiment_table: Item? = null
+        var experiment_table: Block? = null
 
         @GameRegistry.ObjectHolder("$MODID:creature_enchanter")
         var enchanter: Item? = null
+
+
+        @GameRegistry.ObjectHolder("$MODID:paving_stone_disable_enchants")
+        var disable_enchants: Block? = null
+
+        @GameRegistry.ObjectHolder("$MODID:paving_stone_enable_enchants")
+        var enable_enchants: Block? = null
+
+        @GameRegistry.ObjectHolder("thaumcraft:stone_arcane_brick")
+        var arcane_stone: Block? = null
 
 
         @GameRegistry.ObjectHolder("thaumcraft:salis_mundus")

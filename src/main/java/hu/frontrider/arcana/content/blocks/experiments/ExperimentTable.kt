@@ -31,7 +31,6 @@ class ExperimentTable : BlockCage<TileEntityExperimentTable>(Material.WOOD, "exp
 
     init {
         setHardness(3f)
-        tickRandomly = true
     }
 
     /**
@@ -55,10 +54,8 @@ class ExperimentTable : BlockCage<TileEntityExperimentTable>(Material.WOOD, "exp
 
 
         if (!playerIn.isSneaking) {
-            if (state!!.getValue(FACING).rotateYCCW() == facing) {
                 playerIn.openGui(ThaumicArcana, GuiHandler.EXPERIMENT_TABLE_CAGE, worldIn, pos!!.x, pos.y, pos.z)
                 return true
-            }
         }
 
         if (!worldIn!!.isRemote)
@@ -159,23 +156,6 @@ class ExperimentTable : BlockCage<TileEntityExperimentTable>(Material.WOOD, "exp
 
     override fun createTileEntity(world: World, state: IBlockState): TileEntityExperimentTable? {
         return TileEntityExperimentTable()
-    }
-
-    override fun randomTick(worldIn: World, pos: BlockPos, state: IBlockState, random: Random) {
-        val tileEntity = getTileEntity(worldIn, pos)
-
-        val capability = tileEntity.getCapability(ITEM_HANDLER_CAPABILITY, null)!!
-        val rat = capability.getStackInSlot(0)
-        if (rat.count == 1) {
-            val food = capability.getStackInSlot(1)
-            if (food.count > 0) {
-                if (!Rodent.isDead(rat, worldIn)) {
-                    food.shrink(1)
-                    val tagCompound = rat.tagCompound
-                    tagCompound!!.setLong("lastFed", worldIn.totalWorldTime)
-                }
-            }
-        }
     }
 
     companion object {

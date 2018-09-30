@@ -29,10 +29,10 @@
           "required_item": [
             "minecraft:seeds",
             "minecraft:wheat",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'herba'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'lux'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -48,10 +48,10 @@
           "required_item": [
             "minecraft:potato",
             "minecraft:carrot",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'herba'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'lux'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -69,10 +69,10 @@
             "minecraft:reeds",
             "minecraft:melon",
             "minecraft:pumpkin",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'herba'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'lux'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -91,10 +91,10 @@
           ],
           "required_item": [
             "minecraft:beetroot_seeds",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'herba'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'lux'}]}"
           ],
           "required_knowledge": [
             "THEORY;BIOMANCY;1"
@@ -141,10 +141,10 @@
           "text": "research.thaumic_arcana.tree.stage.1",
           "required_item": [
             "minecraft:sapling",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'herba'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'lux'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -157,10 +157,10 @@
           "required_item": [
             "minecraft:seeds",
             "minecraft:beetroot_seeds",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'herba'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'lux'}]}"
           ],
           "required_knowledge": [
             "OBSERVATION;BIOMANCY;1",
@@ -223,10 +223,10 @@
           "required_item": [
             "minecraft:bone_meal",
             "minecraft:seeds",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'herba'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'lux'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'herba'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -270,10 +270,10 @@
             "minecraft:paper",
             "minecraft:wheat",
             "minecraft:grass",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'perditio'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'fabrico'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ordo'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'perditio'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'fabrico'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'ordo'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -287,9 +287,9 @@
             "minecraft:dye;1;1",
             "minecraft:dye;1;11",
             "minecraft:dye;1;2",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'terra'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'lux'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'lux'}]}"
           ],
           "recipes": [
             "thaumic_arcana:paper"

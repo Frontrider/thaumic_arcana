@@ -13,11 +13,10 @@ import hu.frontrider.arcana.registrationhandlers.recipes.ArcaneCraftingRecipes
 import hu.frontrider.arcana.registrationhandlers.recipes.InfusionRecipes
 import hu.frontrider.arcana.content.research.ResearchEventManager
 import hu.frontrider.arcana.content.research.ResearchRegistry
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantCapability
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantStorage
-import hu.frontrider.arcana.core.capabilities.ICreatureEnchant
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantCapability
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantStorage
+import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant
 import hu.frontrider.arcana.registrationhandlers.*
-import hu.frontrider.arcana.registrationhandlers.recipes.FakeRecipes
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
 import hu.frontrider.arcana.sided.client.gui.GuiHandler
 import hu.frontrider.arcana.util.CreativeTabArcana
@@ -31,7 +30,6 @@ import net.minecraft.entity.passive.EntityChicken
 import net.minecraft.item.ItemStack
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.common.capabilities.CapabilityManager
-import net.minecraftforge.common.config.Config
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.SidedProxy
@@ -51,7 +49,7 @@ import java.io.File
         modid = ThaumicArcana.MODID,
         name = ThaumicArcana.NAME,
         version = ThaumicArcana.VERSION,
-        dependencies = "required-after:thaumcraft;required-after:forgelin,before:jei,required-after:thaumcraftresearchloader",
+        dependencies = "required-after:thaumcraft;required-after:forgelin;before:jei;required-after:thaumcraftresearchloader",
         modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter"
 )
 object ThaumicArcana {
@@ -71,6 +69,8 @@ object ThaumicArcana {
 
         proxy.preInit(event)
         CapabilityManager.INSTANCE.register<ICreatureEnchant>(ICreatureEnchant::class.java, CreatureEnchantStorage()) { CreatureEnchantCapability() }
+
+        LootHandler().init();
 
         NETWORK_WRAPPER.registerMessage<CreatureEnchantSyncMessage, IMessage>(CreatureEnchantSyncMessageHandler::class.java, CreatureEnchantSyncMessage::class.java, 0, Side.CLIENT)
         NETWORK_WRAPPER.registerMessage<FalldamageSyncMessage, IMessage>(FalldamageSyncMessageHandler::class.java, FalldamageSyncMessage::class.java, 1, Side.SERVER)
@@ -97,13 +97,13 @@ object ThaumicArcana {
             }
             printWriter.close()
         }
-        val cathegory = File(suggestedConfigurationFile.parent + "/thaumcraftresearchloader/category/$MODID.json")
-        cathegory.parentFile.mkdirs()
-        if (!cathegory.exists()) {
-            cathegory.createNewFile()
-            val printWriter = cathegory.printWriter(Charsets.UTF_8)
+        val category = File(suggestedConfigurationFile.parent + "/thaumcraftresearchloader/category/$MODID.json")
+        category.parentFile.mkdirs()
+        if (!category.exists()) {
+            category.createNewFile()
+            val printWriter = category.printWriter(Charsets.UTF_8)
 
-            val category = ResearchCategoryJson()
+            val categoryFile = ResearchCategoryJson()
                     .setKey("BIOMANCY")
                     .setRequired_research("MINDBIOTHAUMIC")
                     .setAspectList(
@@ -113,7 +113,7 @@ object ThaumicArcana {
                     .setBackground("thaumcraft:textures/gui/gui_research_back_7.jpg")
                     .setBackground_overlay("thaumcraft:textures/gui/gui_research_back_over.png")
 
-            printWriter.println(Gson().toJson(category))
+            printWriter.println(Gson().toJson(categoryFile))
             printWriter.close()
         }
 
@@ -136,7 +136,7 @@ object ThaumicArcana {
         GolemRegistry().init()
         //FakeRecipes.init()
 
-        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object : BehaviorDefaultDispenseItem() {
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object:BehaviorDefaultDispenseItem() {
             private val dispenseBehavior = BehaviorDefaultDispenseItem()
 
             public override fun dispenseStack(source: IBlockSource, stack: ItemStack): ItemStack {
@@ -186,7 +186,7 @@ object ThaumicArcana {
 
     const val MODID = "thaumic_arcana"
     const val NAME = "Thaumic Arcana"
-    const val VERSION = "0.5.0"
+    const val VERSION = "0.6.0"
 
     lateinit var ConfigDirectory: File
     lateinit var logger: Logger

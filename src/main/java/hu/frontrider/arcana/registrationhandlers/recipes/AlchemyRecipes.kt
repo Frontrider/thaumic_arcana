@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.registrationhandlers.recipes
 
-import hu.frontrider.arcana.Configuration
+import hu.frontrider.arcana.TAConfig
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.content.items.CreatureEnchanter
 import hu.frontrider.arcana.content.items.EnchantModifierDust
@@ -123,7 +123,7 @@ class AlchemyRecipes {
             }
         }
 
-        if (Configuration.enablePlatinum && OreDictionary.doesOreNameExist("ingotPlatinum")) {
+        if (TAConfig.enablePlatinum && OreDictionary.doesOreNameExist("ingotPlatinum")) {
             val platinum = OreDictionary.getOres("nuggetPlatinum")
             if (platinum.size > 0) {
                 val itemStack = platinum[0]

@@ -10,27 +10,19 @@ import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 
 class NegationCircle : EnchantingBaseCircle("negation") {
 
-    override fun getColor(): Color {
-        return color;
-    }
 
-    private val color: Color
+    override val color= Color(255, 0, 0, 255)
 
-    override fun getFormula(): AspectList {
-        return AspectList()
-                .merge(Aspect.BEAST, 300)
-                .merge(Aspect.FLUX, 100)
-                .merge(Aspect.LIFE, 50)
-                .merge(Aspect.ENTROPY, 100)
-    }
+    override val formula =AspectList()
+            .merge(Aspect.BEAST, 300)
+            .merge(Aspect.FLUX, 100)
+            .merge(Aspect.LIFE, 50)
+            .merge(Aspect.ENTROPY, 100)
 
-    override fun getResearch(): String {
-     return "ENCHANT_MODIFICATION"
-    }
+    override val research = "ENCHANT_MODIFICATION"
 
     init {
         setRegistryName(MODID, "negation")
-        color = Color(255, 0, 0, 255)
     }
 
     override fun doEffect(multiplier: Int, entityLiving: EntityLivingBase, enchant: CreatureEnchant): Int {

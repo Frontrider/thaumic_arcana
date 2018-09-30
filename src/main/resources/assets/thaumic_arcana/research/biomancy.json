@@ -30,8 +30,8 @@
             "thaumcraft:phial;2;1;{Aspects:[{amount:10,key:'victus'}]}",
             "thaumcraft:phial;2;1;{Aspects:[{amount:10,key:'bestia'}]}",
             "thaumcraft:phial;2;1;{Aspects:[{amount:10,key:'herba'}]}",
-            "thaumcraft:phial;2;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
-            "thaumcraft:phial;2;1;{Aspects:[{amount:10,key:'auram'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'praecantatio'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'auram'}]}",
             "thaumcraft:vis_resonator;3",
             "minecraft:bottle;4",
             "minecraft:stick;10",
@@ -49,10 +49,10 @@
             "minecraft:wheat",
             "minecraft:apple",
             "minecraft:pork",
-            "thaumcraft:phial;10;1;{Aspects:[{amount:10,key:'victus'}]}",
-            "thaumcraft:phial;2;1;{Aspects:[{amount:10,key:'bestia'}]}",
-            "thaumcraft:phial;2;1;{Aspects:[{amount:10,key:'herba'}]}",
-            "thaumcraft:phial;2;1;{Aspects:[{amount:10,key:'praecantatio'}]}"
+            "thaumcraft:essence_crystal;10;1;{Aspects:[{amount:1,key:'victus'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'bestia'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'herba'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'praecantatio'}]}"
           ]
         },
         {

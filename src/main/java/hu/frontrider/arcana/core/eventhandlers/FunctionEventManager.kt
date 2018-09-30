@@ -1,28 +1,26 @@
 package hu.frontrider.arcana.core.eventhandlers
 
+import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.content.items.EnchantmentUpgradePowder
+import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion.nutrient_mix
 import net.minecraft.block.Block
-import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityAgeable
 import net.minecraft.entity.item.EntityItem
 import net.minecraft.entity.player.EntityPlayer
+import net.minecraft.entity.player.EntityPlayerMP
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.util.EnumParticleTypes
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.SoundCategory
 import net.minecraft.util.SoundEvent
-import net.minecraft.util.math.BlockPos
-import net.minecraft.world.World
+import net.minecraftforge.event.entity.living.LivingDropsEvent
 import net.minecraftforge.event.entity.player.PlayerInteractEvent
 import net.minecraftforge.fml.common.eventhandler.Event
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder
-import thaumcraft.api.aura.AuraHelper
-
-import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion
-import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion.nutrient_mix
+import thaumcraft.api.capabilities.ThaumcraftCapabilities
+import thaumcraft.api.capabilities.ThaumcraftCapabilities.KNOWLEDGE
 
 class FunctionEventManager {
 
@@ -43,39 +41,30 @@ class FunctionEventManager {
         }
     }
 
+    //add the organic curio to the drops.
     @SubscribeEvent
-    fun createBook(event: PlayerInteractEvent.RightClickBlock) {
-        val world = event.world
-        if (world.isRemote)
+    fun entityDrop(event: LivingDropsEvent) {
+        val source = (event.source.trueSource ?: return)
+
+        if(source !is EntityPlayer && source !is EntityPlayer)
             return
+        val knowsResearchStrict = ThaumcraftCapabilities.knowsResearch(source, "BIOMANCY_BASICS@4")
+        if (knowsResearchStrict) {
+            val entity = event.entity
+            val world = entity.world
 
-        val player = event.entityPlayer
+            if(world.rand.nextInt(10)>4){
+                return
+            }
 
-
-        val itemMainhand = player.heldItemMainhand
-        val itemOffhand = player.heldItemOffhand
-
-        if (world.getBlockState(event.pos).block === enchanting_table &&
-                itemMainhand.item === sal_mundi &&
-                itemOffhand.item === book && AuraHelper.drainVis(world, event.pos, 20f, true) == 100f) {
-            itemMainhand.shrink(1)
-            itemOffhand.shrink(1)
-            val pos = event.pos.up()
-
-            val entityItem = EntityItem(world)
-            entityItem.setPosition(pos.x + .5, pos.y + .5, pos.z + .5)
-            entityItem.item = ItemStack(enchant_book!!)
-
-            world.spawnEntity(entityItem)
-
-            val sound = SoundEvent(ResourceLocation("thaumcraft:dust"))
-            world.playSound(null, pos, sound, SoundCategory.AMBIENT, 1f, 1.5f)
-
-            AuraHelper.polluteAura(world, event.pos, 5f, true)
-            event.useBlock = Event.Result.DENY
+            val item = EntityItem(world, entity.posX, entity.posY, entity.posZ)
+            val itemStack = ItemStack(organic_curio, world.rand.nextInt(2))
+            item.item = itemStack
+            world.spawnEntity(item)
         }
     }
 
+    //create the disenchanter
     @SubscribeEvent
     fun createEnchantedBook(event: PlayerInteractEvent.RightClickBlock) {
         val world = event.world
@@ -83,7 +72,6 @@ class FunctionEventManager {
             return
 
         val player = event.entityPlayer
-
 
         val itemMainhand = player.heldItemMainhand
         val itemOffhand = player.heldItemOffhand
@@ -97,11 +85,10 @@ class FunctionEventManager {
             val entityItem = EntityItem(world)
             entityItem.setPosition(pos.x + .5, pos.y + .5, pos.z + .5)
             val itemStack = ItemStack(enchant_book!!)
+            entityItem.item = itemStack
 
             world.spawnEntity(entityItem)
             (itemMainhand.item as EnchantmentUpgradePowder).transferEnchants(itemMainhand, itemStack)
-
-            entityItem.item = itemStack
 
             val sound = SoundEvent(ResourceLocation("thaumcraft:dust"))
             world.playSound(null, pos, sound, SoundCategory.AMBIENT, 1f, 1.5f)
@@ -114,13 +101,8 @@ class FunctionEventManager {
                         0.0, 0.0, 0.0
                 )
             }
-            itemMainhand.shrink(1)
-            itemOffhand.shrink(1)
-
-            event.useBlock = Event.Result.DENY
         }
     }
-
 
     //must deny this event, in order to be able to use the book on it
     @SubscribeEvent
@@ -132,7 +114,10 @@ class FunctionEventManager {
         val player = event.entityPlayer
         val itemMainhand = player.heldItemMainhand
 
-        if (itemMainhand.item === enchant_book) {
+        if (itemMainhand.item === enchant_book
+                || itemMainhand.item == enchant_basic
+                || itemMainhand.item == enchant_advanced
+                || itemMainhand.item == enchant_magical) {
             event.useBlock = Event.Result.DENY
         }
 
@@ -140,28 +125,40 @@ class FunctionEventManager {
 
     companion object {
 
+        @ObjectHolder("thaumic_arcana:enchanting_powder_basic")
+        private lateinit var enchant_basic: Item
+
+        @ObjectHolder("thaumic_arcana:enchanting_powder_advanced")
+        private lateinit var enchant_advanced: Item
+
+        @ObjectHolder("thaumic_arcana:enchanting_powder_magical")
+        private lateinit var enchant_magical: Item
+
+        @ObjectHolder("$MODID:organic_curiosity")
+        private lateinit var organic_curio: Item
+
         @ObjectHolder("thaumcraft:salis_mundus")
-        private val sal_mundi: Item? = null
+        private lateinit var sal_mundi: Item
 
         @ObjectHolder("minecraft:book")
-        private val book: Item? = null
+        private lateinit var book: Item
 
         @ObjectHolder("thaumic_arcana:creature_enchanter")
-        private val enchant_book: Item? = null
+        private lateinit var enchant_book: Item
 
         @ObjectHolder("minecraft:enchanting_table")
-        private val enchanting_table: Block? = null
+        private lateinit var enchanting_table: Block
 
         @ObjectHolder("thaumcraft:plank_greatwood")
-        private val greatwood_planks: Block? = null
+        private lateinit var greatwood_planks: Block
 
         @ObjectHolder("minecraft:glass_bottle")
-        private val glass_bottle: Item? = null
+        private lateinit var glass_bottle: Item
 
         @ObjectHolder("minecraft:stick")
-        private val stick: Item? = null
+        private lateinit var stick: Item
 
         @ObjectHolder("$MODID:experiment_table")
-        private val experiment_table: Block? = null
+        private lateinit var experiment_table: Block
     }
 }

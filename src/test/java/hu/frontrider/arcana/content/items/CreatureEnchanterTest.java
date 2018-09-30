@@ -1,8 +1,7 @@
 package hu.frontrider.arcana.content.items;
 
 import hu.frontrider.arcana.content.creatureenchant.effect.FertileEnchant;
-import hu.frontrider.arcana.content.items.CreatureEnchanter;
-import hu.frontrider.arcana.core.capabilities.ICreatureEnchant;
+import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant;
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,7 +20,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import org.junit.jupiter.api.*;
 import thaumcraft.api.items.ItemsTC;
 

@@ -1,16 +1,31 @@
 package hu.frontrider.arcana.content.creatureenchant.effect
 
-import net.minecraft.init.MobEffects
+import hu.frontrider.arcana.ThaumicArcana.MODID
+import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.event.entity.living.LivingHurtEvent
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.AspectList
 
-import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.core.creatureenchant.EffectEnchantBase
+class ProtectionEnchant : CreatureEnchant(ResourceLocation(MODID, "protection"), "protection") {
 
-class ProtectionEnchant : EffectEnchantBase(MobEffects.RESISTANCE, MobEffects.RESISTANCE, 1.0, ResourceLocation(MODID, "protection"), "protection") {
+
     override val research: String
         get() = "CREATURE_ENCHANT"
+
+    @SubscribeEvent
+    fun entityHurt(event: LivingHurtEvent) {
+        val entity = event.entityLiving
+
+        val enchantLevel = this.getEnchantLevel(entity, this)
+        if (enchantLevel != 0) {
+            if (enchantLevel > 0)
+                event.amount = event.amount / (enchantLevel/2)
+            if (enchantLevel < 0)
+                event.amount = event.amount * (enchantLevel/2)
+        }
+    }
 
     override fun formula(): AspectList {
         return AspectList()

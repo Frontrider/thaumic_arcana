@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.sided.network.creatureenchants
 
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantCapability
-import hu.frontrider.arcana.core.capabilities.ICreatureEnchant
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantCapability
+import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant
 import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import io.netty.buffer.ByteBuf
@@ -44,11 +44,12 @@ class CreatureEnchantSyncMessage() : IMessage {
         val count = readVarInt(buf, byteLength)
 
         for (i in 0 until count) {
+            val enabled = buf.readBoolean()
             val enchantIndex = readUTF8String(buf)
             val level = readVarInt(buf, byteLength)
             val usedTo = readVarInt(buf, byteLength)
             val creatureEnchant = registry.getValue(ResourceLocation(enchantIndex))
-            enchant!!.putEnchant(CreatureEnchantCapability.CreatureEnchantContainer(creatureEnchant!!, level, usedTo))
+            enchant!!.putEnchant(CreatureEnchantCapability.CreatureEnchantContainer(creatureEnchant!!, level, usedTo,enabled))
         }
     }
 
@@ -58,7 +59,8 @@ class CreatureEnchantSyncMessage() : IMessage {
         writeUTF8String(buf, enchant!!.circle.registryName!!.toString())
 
         writeVarInt(buf, store.size, byteLength)
-        store.forEach { (creatureEnchant, level, usedTo) ->
+        store.forEach { (creatureEnchant, level, usedTo,enabled) ->
+            buf.writeBoolean(enabled)
             writeUTF8String(buf, creatureEnchant.registryName!!.toString())
             writeVarInt(buf, level, byteLength)
             writeVarInt(buf, usedTo, byteLength)

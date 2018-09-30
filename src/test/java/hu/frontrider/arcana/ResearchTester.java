@@ -63,7 +63,7 @@ public class ResearchTester {
         //all phials are valid
         read.forEach(item -> {
             String itemStringValue = item.toString();
-            if (itemStringValue.startsWith("thaumcraft:phial;1;1;")) {
+            if (itemStringValue.startsWith("thaumcraft:phial;1;1;")|| itemStringValue.startsWith("thaumcraft:essence_crystal;1;1;")) {
                 String aspect = itemStringValue.substring(47).replaceAll("'}]}", "");
                 assertions.add(() -> assertAspectNameValid(aspect));
             }else{
@@ -71,8 +71,8 @@ public class ResearchTester {
                 String[] validnameSpaces = new String[]{"minecraft","thaumcraft","thaumic_arcana"};
                 assertions.add(()->assertTrue(ArrayUtils.contains(validnameSpaces,split[0]),split[0]));
 
-                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[0].contains("-"),split[0]),"invalid item entry "+itemStringValue));
-                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[1].contains("-"),split[1]),"invalid item entry "+itemStringValue));
+                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[0].contains("-"),split[0]),"invalid item magical_powder "+itemStringValue));
+                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[1].contains("-"),split[1]),"invalid item magical_powder "+itemStringValue));
             }
         });
 

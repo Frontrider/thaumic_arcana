@@ -1,5 +1,22 @@
 0.6.0
  - depends on the research loader
+ - added focus to disable and enable all enchants
+ - added paving stone to disable and enable all enchants
+ - enchant modifier: effect amplifier.
+ - speed and protection enchant together will cause hunger
+ - speed and strength enchant together will cause increased fall damage
+ - creature enchant, agility: jump boost and no fall damage.
+ - agility with protection will not have fall damage protection.
+ - creature enchant, health boost
+ - health boost and protection together will cause slowness
+ - enchant powders are now used to apply enchants
+ - the enchanting book is now used to remove enchants.
+ - added organic curiosity, dropping from mobs, when killed by a player, who has unlocked the biomancy research.
+ - reworked research costs.
+
+
+Break and replace experiment tables before clicking on them!
+Creature enchant crafting is still a little problematic, not all enchats are available on all tiers.
 
 =====
 0.5.0

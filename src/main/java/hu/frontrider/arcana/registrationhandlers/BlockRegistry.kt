@@ -1,6 +1,10 @@
 package hu.frontrider.arcana.registrationhandlers
 
 import hu.frontrider.arcana.content.blocks.BlockTileEntity
+import hu.frontrider.arcana.content.blocks.calculator.BlockTallyBox
+import hu.frontrider.arcana.content.blocks.calculator.tiles.TallyBoxInventory
+import hu.frontrider.arcana.content.blocks.effect.BlockArcaneStoneDisableEnchants
+import hu.frontrider.arcana.content.blocks.effect.BlockArcaneStoneEnableEnchants
 import hu.frontrider.arcana.content.blocks.experiments.ExperimentTable
 import hu.frontrider.arcana.content.blocks.plants.magictree.MagicTreeSapling
 import hu.frontrider.arcana.content.blocks.plants.taintwine.mushroom.TaintWineCap
@@ -42,7 +46,12 @@ class BlockRegistry {
                 .BlockFactoryHelper(MagicTreeSapling(MagicTreeGenerator(BlocksTC.taintLog.defaultState, oakLeaves, true)))
                 .setResourourceLocation("tainted_oak_sapling")
                 .build()
-        ItemRegistry.blocks.addAll(arrayOf(magic_oak,silver_oak,taint_oak))
+
+        val enableEnchants= BlockArcaneStoneEnableEnchants()
+        val disableEnchants= BlockArcaneStoneDisableEnchants()
+        val tallyBox = BlockTallyBox()
+
+        ItemRegistry.blocks.addAll(arrayOf(experimentTable,magic_oak,silver_oak,taint_oak,enableEnchants,disableEnchants))
 
         event.registry.registerAll(experimentTable,
                 TaintWineCap(),
@@ -50,9 +59,13 @@ class BlockRegistry {
                 TaintWineTrunk(),
                 magic_oak,
                 silver_oak,
-                taint_oak
+                taint_oak,
+                enableEnchants,
+                disableEnchants
         )
         GameRegistry.registerTileEntity((experimentTable as BlockTileEntity<*>).tileEntityClass, Objects.requireNonNull<ResourceLocation>(experimentTable.registryName))
+        GameRegistry.registerTileEntity((tallyBox as BlockTileEntity<*>).tileEntityClass, Objects.requireNonNull<ResourceLocation>(tallyBox.registryName))
+
     }
 
     companion object {
