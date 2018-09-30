@@ -63,8 +63,12 @@ public class ResearchTester {
         //all phials are valid
         read.forEach(item -> {
             String itemStringValue = item.toString();
-            if (itemStringValue.startsWith("thaumcraft:phial;1;1;")|| itemStringValue.startsWith("thaumcraft:essence_crystal;1;1;")) {
+            if (itemStringValue.startsWith("thaumcraft:phial;1;1;")) {
                 String aspect = itemStringValue.substring(47).replaceAll("'}]}", "");
+                assertions.add(() -> assertAspectNameValid(aspect));
+            }
+            if(itemStringValue.startsWith("thaumcraft:essence_crystal;1;1;")){
+                String aspect = itemStringValue.substring(56).replaceAll("'}]}", "");
                 assertions.add(() -> assertAspectNameValid(aspect));
             }else{
                 String[] split = itemStringValue.split(":");
