@@ -89,6 +89,8 @@ dependencies {
     shadow group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     // https://mvnrepository.com/artifact/org.webjars.bower/js-beautify
     shadow group: 'org.webjars.bower', name: 'js-beautify', version: '1.6.12'
+
+    compile project(":thaumcraftresearchloader")
 }
 jar {
     if (shadow_deps > 0) {
@@ -119,4 +121,12 @@ processResources {
 
 test {
     useJUnitPlatform()
+}
+
+subprojects{
+    runClient.enabled =false
+    runServer.enabled =false
+    setupDecompWorkspace.enabled =false
+    setupDevWorkspace.enabled =false
+    cleanCache.enabled =false
 }

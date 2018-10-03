@@ -79,7 +79,7 @@ class CreatureEnchantOffsetManager {
         properties.setProperty("minecraft:cow", "0,1.5,0")
         properties.setProperty("minecraft:chicken", "0,1.5,0")
         properties.setProperty("minecraft:shulker", "0,1.5,0")
-        properties.setProperty("minecraft:wither_skeleton", "0,1.5,0")
+        properties.setProperty("minecraft:witherSkeleton", "0,1.5,0")
 
         properties.setProperty("minecraft:guardian", "0,1.4,0")
     }

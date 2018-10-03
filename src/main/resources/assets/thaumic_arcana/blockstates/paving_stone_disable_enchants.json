@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "defaults":
+  {
+    "transform": "forge:default-block",
+    "model": "thaumic_arcana:paving_stone_disable_enchants"
+  },
+  "variants": {
+    "normal": [{}], "inventory": [{}]
+  }
+}

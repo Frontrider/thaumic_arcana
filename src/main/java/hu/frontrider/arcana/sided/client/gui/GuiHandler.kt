@@ -24,7 +24,7 @@ class GuiHandler : IGuiHandler {
         return when (ID) {
             EXPERIMENT_TABLE_CAGE -> {
                 val experimentTable = world.getTileEntity(BlockPos(x, y, z))
-                GuiExperimentTableCage(getServerGuiElement(ID, player, world, x, y, z) as Container, player.inventory, experimentTable as TileEntityExperimentTable)
+                GuiExperimentTable(getServerGuiElement(ID, player, world, x, y, z) as Container, player.inventory, experimentTable as TileEntityExperimentTable)
             }
             else -> null
         }

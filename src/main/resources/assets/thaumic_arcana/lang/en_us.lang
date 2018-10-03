@@ -10,7 +10,7 @@ research.thaumic_arcana.metal_transmutation.stage.2=I DID IT! Iron is the most s
 research.thaumic_arcana.biomancy.title=Biomancy
 research.thaumic_arcana.biomancy.stage.1=The biothaumic mind was a major success at harnessing organic substances to create new devices. Ever since then, I was toying with the idea of applying more magic to organic matter. <LINE> I prepared some materials form some very basic experiments. Based on my current theories and experience, it should not be too hard.
 research.thaumic_arcana.biomancy.stage.2=There's a difference between theory, and reality. The magic that I'm trying to apply causes a heavy amount of scarring in booth plants and animals, something that I did not experienced while making the biothaumic mind.  I prepared for a second experiment, now attempting to use some victus, to mitigate the effects of the magic.
-research.thaumic_arcana.biomancy.stage.3=I think I might be onto something. Reducing the strength of the spell, or reducing the amount of essentia touching the tissue allows me to finish the procedure whitout major damage. I tweaked my thaumatorium accordingly.
+research.thaumic_arcana.biomancy.stage.3=I think I might be onto something. Reducing the strength of the spell, or reducing the amount of essentia touching the tissue allows me to finish the procedure whitout major damage. I tweaked my thaumatorium accordingly.<LINE> I should also be more observant of the cratures around me. I should be able to get more knowledge just by studying the creatures I slay.
 
 research.thaumic_arcana.wheat.title=Plant growth
 research.thaumic_arcana.wheat.stage.1=I believe that the aspects creating the elements that plants need to grow should be able to create a reaction that grows the plant instantaneously... or explode on the spot.
@@ -45,10 +45,15 @@ research.thaumic_arcana.creature_enchant_advanced.stage.4=Was a little harder th
 research.thaumic_arcana.creature_enchant_advanced.stage.5=Interestingly, it does not. Still needs some getting used to.<LINE> Lastly, I want to see, if increased vitality would be the answer to the fragility problem of strength.
 research.thaumic_arcana.creature_enchant_advanced.stage.6=That's it for now. I need to learn more before I can do more.
 
-research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby.
+research.thaumic_arcana.creature_enchant_advanced.vitality=The vitality enchantment will increase the creature's regenerative abilities.
+research.thaumic_arcana.creature_enchant_advanced.strength=The strength enchantment will increase the power output of the creature's muscles.
+research.thaumic_arcana.creature_enchant_advanced.spider_limbs=The spider limbs enchantment, infuses the creature with the essence of a spider, allowing it to climb up walls, and stick to them.
+research.thaumic_arcana.creature_enchant_advanced.speed=The speed enchantment increases the movement speed of the creature.<LINE> Because they target similar musche groups, the strenght enchant will cause it to increase the fall damage that the creature takes. <LINE> Because of the hardening effects of the protection enchant that is affecting movement to a degree, it will cause the creature to need more enegry to function,
+
+
+research.thaumic_arcana.creature_enchant.creature_enchanter_fertile=The fertility enchantment allows enchanted animals to give birth to additional offspring. Each enchanted parent provides one extra baby. <LINE> Creatures with higher intellect are somewhat unaffected.
 research.thaumic_arcana.creature_enchant.creature_enchanter_protection=The protection enchantment is very straightforward: every level will divide the damage that the enchanted creature will take.
 research.thaumic_arcana.creature_enchant.creature_enchanter_respiration=The respiration enchantment allows the enchanted creature to breath underwater.
-research.thaumic_arcana.creature_enchant.creature_enchanter_strength=The strength enchanter multiplies the attack damage of the enchanted entity.
 research.thaumic_arcana.creature_enchant.powder=To apply this magic, I need to create a special book that holds the spell, and a special enchantment. To enchant the book, I need to get a special binding agent that can link it to the creature. To apply the enchant to the book, I need to right click an enchanting table with the enchanted powder in my main hand, and the book in my offhand. <LINE> from this point, I can simply right click the book on any creature to apply the enchantment.
 
 research.thaumic_arcana.self_enchantment.title=Self Enchantment
@@ -84,6 +89,12 @@ research.thaumic_arcana.enchant_modification.stage.3=Total failure. I still can 
 research.thaumic_arcana.enchant_modification.negation=The negation modifier will flip the multiplier of the enchantment.
 research.thaumic_arcana.enchant_modification.base=The normal modifier will revert the binding to it's default state.
 
+research.thaumic_arcana.plant_experiments.title=Plant experiments
+research.thaumic_arcana.plant_experiments.stage1=Now that I understand how I can use magic on plants, I want to see if I could make a mundane plant display magical properties. Maybe make some silverwood?
+research.thaumic_arcana.plant_experiments.stage2=No! No! No! <BR> The plant is now currupted, and is completly tainted. It looks like plants don't take it well when you try to change them fundamentally, or my method is wrong.Took a bit to get rid of this thing and fix the damage it caused.<LINE> Next I will try to make a small alteration. Nothing big, maybe change only the trunk. Let's try again like that.
+research.thaumic_arcana.plant_experiments.stage3=Now it works. The sapling is viable,but I'm not sure if it can reproduce. It still might be tainted, which gives me the idea on what if I treated it with only taint? And some victus just to make sure that it survives.
+research.thaumic_arcana.plant_experiments.stage4=Now I think I understand how to make small modifications to a plant. First, I need to pick the basic aspects that are required for the plant to grow,and add it to the sapling. Than I need to soak it in the essence that I can use to slightly modify it. Only stir it gently, since we want to avoid scarring! Than I can get a sapling that is viable, can grow but is unable to reproduce properly. It will always reproduce as if it was a normal oak tree.
+
 research.thaumic_arcana.creature_enchant_negation.title=Creature Enchant Modifier: Negation
 research.thaumic_arcana.creature_enchant_negation.stage.1=To keep myself better organised, I'll note the known effects of negation here. If it's not listed, it will only be disabled.<BR>Only time will tell the horrors I'm about to find...
 
@@ -92,7 +103,51 @@ research.thaumic_arcana.creature_enchant_negation.strength=The Strength enchant 
 research.thaumic_arcana.creature_enchant_negation.speed=The Speed enchant will give slowness instead of speed.
 research.thaumic_arcana.creature_enchant_negation.vitality=The Vitality enchant will wither instead of regenerating.
 research.thaumic_arcana.creature_enchant_negation.protection=The Protection enchant will increase the damage instead of reducing it.
+research.thaumic_arcana.creature_enchant_negation.health_boost=The healt boost enchant will reduce the creature's total health.
+research.thaumic_arcana.creature_enchant_negation.agility=The agility enchant will prevent the creature from jumping.
+research.thaumic_arcana.creature_enchant_negation.haste=The haste enchant will slow down the mining speed of the enchanted creature.
 
+research.thaumic_arcana.enchant_focus.title=Enchantment Focusing
+research.thaumic_arcana.enchant_focus.stage.1=If I understand the relations between creature enchants and the aura, than I should be able to create a foci, that can flip the enchants off. A least if ym theory is correct.
+research.thaumic_arcana.enchant_focus.stage.2=Yes. Just as I tought. <BR>The binder actually embeds the creature into the local aura, than turns some of it's life energies into vis. One last thing. Can I apply something similar to my understanding of paving stones, so I don't need to use a focus to get the effects?
+research.thaumic_arcana.enchant_focus.stage.3=Now I truly understand how the binding actually works, and I can manipulate it with ease.
+research.thaumic_arcana.enchant_focus.paving=The paving stones will
+
+research.thaumic_arcana.enchant_effect_amplification.title=Effect enchant amplification
+research.thaumic_arcana.enchant_effect_amplification.stage.1=Some enchantments apply their powers in a similar manner to potions, or beacons. I want to see if selectively boosting some of the creature's metabolism can have a positive effect on the effects themselves.
+research.thaumic_arcana.enchant_effect_amplification.stage.2=Yes it can. this special binding will increase the power level of all effect based enchants by one.
+
+research.thaumic_arcana.experiment_table.title=Experiment Table
+research.thaumic_arcana.experiment_table.stage.1=Sometimes I need more than standard research to form theories. Sometimes I need to try things out in order to gain more ideas. I've drawn up plans for an experiment table, but I need to do some additional research to figure how effective it could be.
+research.thaumic_arcana.experiment_table.stage.2=Yes. The method is effective. Altough, I have to find more and more new items in order for it to work effectively. Repeating the same experiments over and over again will not yield any result.
+
+research.thaumic_arcana.creature_enchant_advanced2.title=More creature enchants
+research.thaumic_arcana.creature_enchant_advanced2.stage.1=I want to see what I can get, if I can boost the vitality of the creature even more. Prepared some tools for the experiment.
+research.thaumic_arcana.creature_enchant_advanced2.stage.2=The experiment yielded two different enchants.<LINE> I want to see if I cna modify the agility enchantment to  work on arms instead of legs. Worst case scenarion, it will make the creature pack a punch.
+research.thaumic_arcana.creature_enchant_advanced2.stage.3=I'll see if I gain more ideas on what to try out.
+
+research.thaumic_arcana.creature_enchant_advanced2.agility=The agility enchantment gives increased mobility to the creature in the form of a jump boost.It will also dampen the impact when it falls.<LINE> Because the protection enchant is really obtrusive, it will not allow the enchant to dampen fall damgage.
+research.thaumic_arcana.creature_enchant_advanced2.health_boost=The health boost enchantment will increase the health of the creature.<LINE> Because they put load into the body in a similar fashion, applying it together with the protection enchantment will cause the creature to wither. <LINE> Because the speed enchant targets similar vitals, it will give an additional slowness effect.
+research.thaumic_arcana.creature_enchant_advanced2.haste=The haste enchanment will increase the mining speed of the enchanted creature
+
+research.thaumic_arcana.creature_enchant_removal.title=Removing enchants
+research.thaumic_arcana.creature_enchant_removal.stage.1=I'm close to breaking the bond that I've created. Just a little more.
+research.thaumic_arcana.creature_enchant_removal.stage.2=My theory was correct. by applying a special incantation, I can break the bond.<LINE> this book can be used to disenchant creatures, but needs to be attuned to the enchantment. That can be done by right clicking an enchantment table with the book in my offhand.
+
+research.thaumic_arcana.hay_studies.title=Material studies: Hay
+research.thaumic_arcana.hay_studies.stage.1=I found mentions of using hay to make golems. Not exactly a prime material for me tough. Still, after trying it I found an interesting property. I can use it to fill the gaps of a skeletal frame, which allows me to make a golem that is fragile, but can move really well.
+
+research.thaumic_arcana.flesh_studies.title=Material studies: Flesh
+research.thaumic_arcana.flesh_studies.stage.1=Golems can be made out of flesh and brains, now that I have a deeper understanding of the living. The golem is practically an artifical zombie, with no real vital sings, but with enough machina it can still work.
+
+research.thaumic_arcana.flesh_golems.title=Flesh Golems
+research.thaumic_arcana.flesh_golems.stage.1=Do I really want to do this?<LINE> My current understanding of the living should allow me to create a golem out of organic materials. Question is, do I really want to do this?
+research.thaumic_arcana.flesh_golems.stage.2=Good, the flesh is being perforated and burnt inside the press. I have to find a possible treatment that would prevent this from happening.
+research.thaumic_arcana.flesh_golems.stage.3=I tweaked my press. The flesh golem is now complete. Because the golem uses a primitive nervious system that I salvaged from brains, it will be "smart" whitout any additions.
+
+research.thaumic_arcana.livium.stage.title=Living metal
+research.thaumic_arcana.livium.stage.1=From the experience of the flesh golem, I learned how to use flesh as a raw material. For the next experiment I prepared a way to "neuter" flesh, so it will not kill foreigh tissue. I'm going to infuse this flesh with the aspects of metal and the properties of iron. It will either turn into an organism that has the properties of a metal, yet behaves like a living organism.
+research.thaumic_arcana.livium.stage.2=The experiment resulted in a special metal that shows sings of life. Tools made of this "material" can leach nutrients from the user's body to repair themselves. It can be triggered by right clicking the tool, it will reclaim 25 durability for each points of hunger used.
 ##########
 #Theories#
 ##########
@@ -105,9 +160,6 @@ card.thaumic_arcana.study_flesh.text=Dissecting animals (%1$s) can give you a de
 card.thaumic_arcana.study_dead_flesh.name=Dissect remains
 card.thaumic_arcana.study_dead_flesh.text=Dissecting %1$s can give you a deeper understanding of their structure, even though it's a bit more gross than fresh tissue. Gain 25 Biomancy.
 
-card.thaumic_arcana.experiment.name=Experiment on animals
-card.thaumic_arcana.experiment.description=Experimention on animals is the most valuable source of information in the field of biomancy.
-
 ###################
 #Creature Enchants#
 ###################
@@ -118,8 +170,13 @@ enchant.creature_enchant.strength=Strength
 enchant.creature_enchant.speed=Speed
 enchant.creature_enchant.spider=Spider Limbs
 enchant.creature_enchant.vitality=Vitality
+enchant.creature_enchant.health_boost=Health Boost
+enchant.creature_enchant.agiltiy=Agility
+enchant.creature_enchant.haste=Haste
+
 enchant.modifier.normal=Normal
 enchant.modifier.negation=Negation
+enchant.modifier.effect_amplifier=Status Effect Amplifier
 
 enchant.creature_enchant.helper.enchant=Enchant
 enchant.creature_enchant.helper.modifier=Enchant Modifier
@@ -129,7 +186,7 @@ enchant.creature_enchant.helper.modifier=Enchant Modifier
 ########
 itemGroup.thaumic_arcana=Thaumic Arcana
 
-item.thaumic_arcana.creature_enchanter.name=Creature Enchanter
+item.thaumic_arcana.creature_enchanter.name=Creature Disenchanter
 item.thaumic_arcana.incubated_egg.name=Incubated Egg
 item.thaumic_arcana.fertiliser.name=Arcane Fertilizer
 item.thaumic_arcana.relief_item.name=Raw Relief
@@ -137,34 +194,30 @@ item.thaumic_arcana.nutrient_mix.name=Nutrient Mix
 item.thaumic_arcana.plant_ball.name=Plant Ball
 item.thaumic_arcana.plant_ball.contains=Contains:
 item.thaumic_arcana.enchanting_powder.name=Enchanting Powder
-item.thaumic_arcana.enchanting_powder_basic.name=Basic Enchant Upgrade Powder
-item.thaumic_arcana.enchanting_powder_advanced.name=Advanced Enchant Upgrade Powder
-item.thaumic_arcana.enchanting_powder_magical.name=Magical Enchant Upgrade Powder
+item.thaumic_arcana.enchanting_powder_basic.name=Basic Enchanting Powder
+item.thaumic_arcana.enchanting_powder_advanced.name=Advanced Enchanting Powder
+item.thaumic_arcana.enchanting_powder_magical.name=Magical Enchanting Powder
 item.thaumic_arcana.enchant_modifier.name=Enchantment Modifier Powder
 
-item.thaumic_arcana.formula.name=Formula
-item.thaumic_arcana.rodent.name=Rodent
-item.thaumic_arcana.rodent.dead.name=Dead Rodent
+#curios
+item.thaumic_arcana.research_result.name=Research Results
+item.thaumic_arcana.organic_curiosity.name=Organic Curiosity
 
 ########
 #Blocks#
 ########
 tile.thaumic_arcana.experiment_table.name=Experiment Table
-tile.thaumic_arcana.arcane_cage.name=Arcane Cage
+
+tile.thaumic_arcana.magic_oak_sapling.name=Great Oak Sapling
+tile.thaumic_arcana.silver_oak_sapling.name=Silver Oak Sapling
+tile.thaumic_arcana.tainted_oak_sapling.name=Tainted Oak Sapling
+
+tile.thaumic_arcana.paving_stone_enable_enchants.name=Paving stone of binding empowerment
+tile.thaumic_arcana.paving_stone_disable_enchants.name=Paving stone of binding disempowerment
 
 ###########
 #MATERIALS#
 ###########
-research.thaumic_arcana.hay_studies.title=Material studies: Hay
-research.thaumic_arcana.hay_studies.stage.1=I found mentions of using hay to make golems. Not exactly a prime material for me tough. Still, after trying it I found an interesting property. I can use it to fill the gaps of a skeletal frame, which allows me to make a golem that is fragile, but can move really well.
-
-research.thaumic_arcana.flesh_studies.title=Material studies: Flesh
-research.thaumic_arcana.flesh_studies.stage.1=Golems can be made out of flesh and brains, now that I have a deeper understanding of the living. The golem is practically an artifical zombie, with no real vital sings, but with enough machina it can still work.
-
-research.thaumic_arcana.flesh_golems.title=Flesh Golems
-research.thaumic_arcana.flesh_golems.stage.1=Do I really want to do this?<LINE> My current understanding of the living should allow me to create a golem out of organic materials. Question is, do I really want to do this?
-research.thaumic_arcana.flesh_golems.stage.2=Good, the flesh is being perforated and burnt inside the press. I have to find a possible treatment that would prevent this from happening.
-research.thaumic_arcana.flesh_golems.stage.3=I tweaked my press. The flesh golem is now complete. Because the golem uses a primitive nervious system that I salvaged from brains, it will be "smart" whitout any additions.
 
 golem.material.thaumic_arcana.hay=Straw Golem
 golem.material.thaumic_arcana.flesh=Flesh Golem
@@ -188,7 +241,10 @@ rendering.thaumic_arcana.reload.failed=Failed to reload rendering. Check the con
 commands.thaumic_arcana.spawn_structure.usage=spawnArcanaStructure x y z <structure_name>
 commands.thaumic_arcana.spawn_structure.invalid_name=Invaliid structure name
 
-#####
-#JEI#
-#####
-thaumic_arcana.jei.formulacrafting.title=Formula Crafting
+##########
+#Research#
+##########
+thaumic_arcana.research.focused_on=Focusing on:
+thaumic_arcana.research.values=Possible results:
+thaumic_arcana.research.expected_result=Expected_result
+thaumic_arcana.research.counts_in_as=%s% of the result will be considered

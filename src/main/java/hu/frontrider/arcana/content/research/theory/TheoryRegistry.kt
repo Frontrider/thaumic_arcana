@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack
 import thaumcraft.api.items.ItemsTC
 import java.util.*
 
-object TheoryRegistry {
+class TheoryRegistry {
 
     fun init() {
         val itemStacks = ArrayList<ItemStack>()

@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.sided.network.creatureenchants
 
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
-import hu.frontrider.arcana.core.capabilities.ICreatureEnchant
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant
 import net.minecraft.client.Minecraft
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler

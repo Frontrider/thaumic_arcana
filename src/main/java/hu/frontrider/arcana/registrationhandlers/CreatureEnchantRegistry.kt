@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.registrationhandlers
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
+import hu.frontrider.arcana.content.creatureenchant.base.EffectAmplifierCircle
 import hu.frontrider.arcana.content.creatureenchant.base.NegationCircle
 import hu.frontrider.arcana.content.creatureenchant.base.NormalCircle
 import hu.frontrider.arcana.content.creatureenchant.effect.*
@@ -31,7 +32,9 @@ class CreatureEnchantRegistry {
     fun registryEventCreatureEnchant(event: RegistryEvent.Register<CreatureEnchant>) {
         event.registry.registerAll(
                 STRENGTH_ENCHANT, SPEED_ENCHANT, SPIDERFINGERS_ENCHANT,
-                PROTECTION_ENCHANT, FERTILE_ENCHANT, RESPIRATION_ENCHANT, VITALITY_ENCHANT
+                PROTECTION_ENCHANT, FERTILE_ENCHANT, RESPIRATION_ENCHANT, VITALITY_ENCHANT,
+                HealtBoostEnchant(),
+                AgilityEnchant()
         )
     }
 
@@ -39,7 +42,8 @@ class CreatureEnchantRegistry {
     fun registryEventEnchantingBaseCircle(event: RegistryEvent.Register<EnchantingBaseCircle>) {
         event.registry.registerAll(
                 NormalCircle(),
-                NegationCircle()
+                NegationCircle(),
+                EffectAmplifierCircle()
         )
     }
 

@@ -1,7 +1,6 @@
 package hu.frontrider.arcana.core.creatureenchant
 
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantCapability
-import hu.frontrider.arcana.core.capabilities.ICreatureEnchant
+import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant
 import hu.frontrider.arcana.util.AspectUtil
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityLivingBase
@@ -10,10 +9,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.registries.IForgeRegistryEntry
 import thaumcraft.api.aspects.AspectList
 
-import java.util.Collections
-
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantCapability
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
 
 abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val unlocalizedName: String) : IForgeRegistryEntry.Impl<CreatureEnchant>() {
 
@@ -30,13 +28,12 @@ abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val u
         return "enchant.creature_enchant.$unlocalizedName"
     }
 
-    fun getEnchantLevel(entity: EntityLivingBase, enchantment: CreatureEnchant): Int {
+    open fun getEnchantLevel(entity: EntityLivingBase, enchantment: CreatureEnchant): Int {
         if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null)
-            val level = capability!!.getLevel(enchantment)
+            val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null)!!
+            val level = capability.getLevel(enchantment)
             if (capability.hasEnchant(enchantment))
                 return capability.circle.doEffect(level, entity, enchantment)
-
         }
         return 0
     }
@@ -101,3 +98,4 @@ abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val u
         }
     }
 }
+

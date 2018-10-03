@@ -39,7 +39,6 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.2",
           "recipes": [
-            "thaumic_arcana:create_book",
             "thaumic_arcana:enchant_powder_basic",
             "thaumic_arcana:ce_fertile"
           ],
@@ -58,10 +57,9 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.3",
           "recipes": [
-            "thaumic_arcana:create_book",
             "thaumic_arcana:enchant_powder_basic",
-            "thaumic_arcana:ce_fertile_",
-            "thaumic_arcana:ce_protection"
+            "thaumic_arcana:ce_fertile_enchant_powder_basic",
+            "thaumic_arcana:ce_protection_enchant_powder_basic"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -79,11 +77,7 @@
         {
           "text": "research.thaumic_arcana.creature_enchant.stage.4",
           "recipes": [
-            "thaumic_arcana:create_book",
             "thaumic_arcana:enchant_powder_basic",
-            "thaumic_arcana:ce_fertile",
-            "thaumic_arcana:ce_protection",
-            "thaumic_arcana:ce_respiration",
             "thaumic_arcana:ce_fertile_enchant_powder_basic",
             "thaumic_arcana:ce_protection_enchant_powder_basic",
             "thaumic_arcana:ce_respiration_enchant_powder_basic"
@@ -191,10 +185,11 @@
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.4",
           "recipes": [
             "thaumic_arcana:enchant_powder_advanced",
-            "thaumic_arcana:ce_strength",
-            "thaumic_arcana:ce_speed",
             "thaumic_arcana:ce_strength_enchant_powder_basic",
-            "thaumic_arcana:ce_speed_enchant_powder_basic"
+            "thaumic_arcana:ce_speed_enchant_powder_basic",
+
+            "thaumic_arcana:ce_strength_enchant_powder_advanced",
+            "thaumic_arcana:ce_speed_enchant_powder_advanced"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -216,13 +211,13 @@
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.5",
           "recipes": [
             "thaumic_arcana:enchant_powder_advanced",
-
-            "thaumic_arcana:ce_strength",
-            "thaumic_arcana:ce_speed",
-            "thaumic_arcana:ce_spider",
+            "thaumic_arcana:ce_spider_enchant_powder_basic",
             "thaumic_arcana:ce_strength_enchant_powder_basic",
             "thaumic_arcana:ce_speed_enchant_powder_basic",
-            "thaumic_arcana:ce_spider_enchant_powder_basic"
+            "thaumic_arcana:ce_strength_enchant_powder_advanced",
+            "thaumic_arcana:ce_speed_enchant_powder_advanced",
+            "thaumic_arcana:ce_spider_enchant_powder_advanced"
+
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -242,16 +237,15 @@
         },
         {
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.6",
-          "recipes": [
-            "thaumic_arcana:enchant_powder_advanced",
-            "thaumic_arcana:ce_strength",
-            "thaumic_arcana:ce_speed",
-            "thaumic_arcana:ce_spider",
-            "thaumic_arcana:ce_vitality",
+          "recipes": [ "thaumic_arcana:enchant_powder_advanced",
+            "thaumic_arcana:ce_spider_enchant_powder_basic",
             "thaumic_arcana:ce_strength_enchant_powder_basic",
             "thaumic_arcana:ce_speed_enchant_powder_basic",
-            "thaumic_arcana:ce_spider_enchant_powder_basic",
-            "thaumic_arcana:ce_vitality_enchant_powder_basic"
+            "thaumic_arcana:ce_strength_enchant_powder_advanced",
+            "thaumic_arcana:ce_speed_enchant_powder_advanced",
+            "thaumic_arcana:ce_spider_enchant_powder_advanced",
+            "thaumic_arcana:ce_vitality_enchant_powder_basic",
+            "thaumic_arcana:ce_vitality_enchant_powder_advanced"
           ]
         }
       ],
@@ -462,8 +456,260 @@
           "required_research": [
             "CREATURE_ENCHANTMENT_NEGATION@1"
           ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.agility",
+          "required_research": [
+            "CREATURE_ENCHANT_ADVANCED2@2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.health_boost",
+          "required_research": [
+            "CREATURE_ENCHANT_ADVANCED2@2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_negation.haste",
+          "required_research": [
+            "CREATURE_ENCHANT_ADVANCED2@3"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ENCHANT_FOCUS",
+      "name": "research.thaumic_arcana.enchant_focus.title",
+      "icons": [
+        "thaumcraft:focus_1",
+        "thaumcraft:caster_basic",
+        "thaumcraft:vis_resonator"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        3,
+        -5
+      ],
+      "parents": [
+        "ENCHANT_MODIFICATION"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.enchant_focus.stage.1",
+          "required_item": [
+            "thaumic_arcana:enchanting_powder_advanced",
+            "thaumcraft:focus_1",
+            "thaumcraft:caster_basic",
+            "thaumcraft:vis_resonator",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1",
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;2",
+            "OBSERVATION;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.enchant_focus.stage.2",
+          "required_item": [
+            "thaumic_arcana:enchanting_powder_advanced",
+            "thaumcraft:focus_1",
+            "thaumcraft:arcane_stone",
+            "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:normal'}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'permutatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vitium'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1",
+            "THEORY;BIOMANCY;2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.enchant_focus.stage.3",
+          "recipes": [
+            "thaumic_arcana:arcane_stone_disable_enchants",
+            "thaumic_arcana:arcane_stone_enable_enchants"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ENCHANT_EFFECT_AMPLIFICATION",
+      "name": "research.thaumic_arcana.enchant_effect_amplification.title",
+      "icons": [
+        "minecraft:potion"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        5,
+        -5
+      ],
+      "parents": [
+        "ENCHANT_FOCUS"
+      ],
+      "meta": [
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.enchant_effect_amplification.stage.1",
+          "required_item": [
+            "thaumic_arcana:enchant_modifier",
+            "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:normal'}",
+            "minecraft:potion",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'alkimia'}]}"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.enchant_effect_amplification.stage.2",
+          "recipes": [
+            "thaumic_arcana:ce_circle_effect_amplifier"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CREATURE_ENCHANT_ADVANCED2",
+      "name": "research.thaumic_arcana.creature_enchant_advanced2.title",
+      "icons": [
+        "thaumic_arcana:creature_enchanter"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        5,
+        -7
+      ],
+      "parents": [
+        "ENCHANT_FOCUS"
+      ],
+      "meta": [
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced2.stage.1",
+          "required_item": [
+            "thaumic_arcana:enchant_modifier",
+            "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:effect_amplifier'}",
+            "minecraft:potion",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'motus'}]}"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;2"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced2.stage.2",
+          "recipes": [
+            "thaumic_arcana:ce_health_boost_enchant_powder_basic",
+            "thaumic_arcana:ce_agility_enchant_powder_basic",
+
+            "thaumic_arcana:ce_health_boost_enchant_powder_advanced",
+            "thaumic_arcana:ce_agility_enchant_powder_advanced",
+
+            "thaumic_arcana:ce_health_boost_enchant_powder_magical",
+            "thaumic_arcana:ce_agility_enchant_powder_magical"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced2.stage.3",
+          "required_item": [
+            "thaumic_arcana:enchant_modifier",
+            "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:effect_amplifier'}",
+            "minecraft:rabbit_foot"
+          ],
+          "required_knowledge": [
+            "THEORY;BIOMANCY;2"
+          ],
+          "recipes": [
+            "thaumic_arcana:ce_health_boost_enchant_powder_basic",
+            "thaumic_arcana:ce_agility_enchant_powder_basic",
+            "thaumic_arcana:ce_haste_enchant_powder_basic",
+
+            "thaumic_arcana:ce_health_boost_enchant_powder_advanced",
+            "thaumic_arcana:ce_agility_enchant_powder_advanced",
+            "thaumic_arcana:ce_haste_enchant_powder_advanced",
+
+            "thaumic_arcana:ce_health_boost_enchant_powder_magical",
+            "thaumic_arcana:ce_agility_enchant_powder_magical",
+            "thaumic_arcana:ce_haste_enchant_powder_magical"
+          ]
+        }
+      ],
+    "addenda":[{
+      "text": "research.thaumic_arcana.creature_enchant_advanced2.agility",
+      "required_research": [
+        "CREATURE_ENCHANT_ADVANCED2@2"
+      ]
+    },
+      {
+        "text": "research.thaumic_arcana.creature_enchant_advanced2.health_boost",
+        "required_research": [
+          "CREATURE_ENCHANT_ADVANCED2@2"
+        ]
+      },
+      {
+        "text": "research.thaumic_arcana.creature_enchant_advanced2.haste",
+        "required_research": [
+          "CREATURE_ENCHANT_ADVANCED2@3"
+        ]
+      }
+    ]
+    },
+    {
+      "key": "CREATURE_ENCHANT_REMOVAL",
+      "name": "research.thaumic_arcana.creature_enchant_removal.title",
+      "icons": [
+        "thaumic_arcana:creature_enchanter"
+      ],
+      "category": "BIOMANCY",
+      "location": [
+        3,
+        -7
+      ],
+      "parents": [
+        "ENCHANT_FOCUS"
+      ],
+      "meta": [
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.creature_enchant_removal.stage.1",
+          "required_item": [
+            "thaumic_arcana:enchant_modifier",
+            "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:negation'}",
+            "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:normal'}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ordo'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'perditio'}]}"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BASIC;1",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_removal.stage.2",
+          "recipes": [
+            "thaumic_arcana:create_book"
+          ]
         }
       ]
     }
+
+
   ]
 }

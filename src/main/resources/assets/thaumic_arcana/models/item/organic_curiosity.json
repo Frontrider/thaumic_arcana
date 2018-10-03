@@ -1,0 +1,8 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumcraft:items/enchanted_placeholder",
+    "layer1": "minecraft:items/rotten_flesh",
+    "layer2": "minecraft:items/bone"
+  }
+}

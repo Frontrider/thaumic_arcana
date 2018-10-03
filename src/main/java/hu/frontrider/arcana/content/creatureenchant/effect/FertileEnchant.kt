@@ -17,25 +17,26 @@ class FertileEnchant : CreatureEnchant(ResourceLocation(MODID, "fertile"), "fert
 
     @SubscribeEvent
     fun handleEvent(event: BabyEntitySpawnEvent) {
-        val parentA = event.parentA as EntityAnimal
-        val parentB = event.parentB as EntityAnimal
+        if(event.parentA is EntityAnimal && event.parentB is EntityAnimal) {
+            val parentA = event.parentA as EntityAnimal
+            val parentB = event.parentB as EntityAnimal
 
+            val parentAlevel = getEnchantLevel(parentA, this)
+            if (parentAlevel > 0) {
+                createChild(parentA, parentB)
+            } else {
 
-        val parentAlevel = getEnchantLevel(parentA, this)
-        if (parentAlevel > 0) {
-            createChild(parentA, parentB)
-        } else {
-
-            if (parentA.entityWorld.rand.nextBoolean() && parentAlevel < 0) {
-                event.isCanceled = true
+                if (parentA.entityWorld.rand.nextBoolean() && parentAlevel < 0) {
+                    event.isCanceled = true
+                }
             }
-        }
-        val parentBlevel = getEnchantLevel(parentB, this)
-        if (parentBlevel > 0) {
-            createChild(parentB, parentA)
-        } else {
-            if (parentB.entityWorld.rand.nextBoolean() && parentBlevel < 0) {
-                event.isCanceled = true
+            val parentBlevel = getEnchantLevel(parentB, this)
+            if (parentBlevel > 0) {
+                createChild(parentB, parentA)
+            } else {
+                if (parentB.entityWorld.rand.nextBoolean() && parentBlevel < 0) {
+                    event.isCanceled = true
+                }
             }
         }
     }

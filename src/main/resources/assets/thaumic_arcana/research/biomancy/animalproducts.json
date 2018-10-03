@@ -46,8 +46,8 @@
           "required_item": [
             "minecraft:beef",
             "minecraft:porkchop",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'victus'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'bestia'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;2",
@@ -94,8 +94,8 @@
           "text": "research.thaumic_arcana.leather.stage.1",
           "required_item": [
             "minecraft:beef",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'perditio'}]}",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'permutatio'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'perditio'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'permutatio'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;1",
@@ -137,7 +137,7 @@
           "required_item": [
             "minecraft:beef",
             "minecraft:sugar",
-            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'victus'}]}"
           ],
           "required_knowledge": [
             "THEORY;ALCHEMY;1",

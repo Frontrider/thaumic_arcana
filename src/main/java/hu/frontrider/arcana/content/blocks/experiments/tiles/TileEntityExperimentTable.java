@@ -1,10 +1,10 @@
 package hu.frontrider.arcana.content.blocks.experiments.tiles;
 
-import hu.frontrider.arcana.content.blocks.experiments.tiles.capabilities.CageItemStackHandler;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
 
@@ -12,7 +12,7 @@ import static net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABI
 
 public class TileEntityExperimentTable extends TileEntity {
 
-    private CageItemStackHandler cage = new CageItemStackHandler();
+    private ItemStackHandler cage = new ItemStackHandler(8);
 
     public TileEntityExperimentTable() {
 

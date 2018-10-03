@@ -24,7 +24,6 @@ public class AidTable implements ITheorycraftAid {
                 CardGrow.class,
                 CardDissect.class,
                 CardDissectDead.class,
-                CardExperiment.class,
                 CardGrow.class,
                 CardDissect.class,
                 CardGrow.class,

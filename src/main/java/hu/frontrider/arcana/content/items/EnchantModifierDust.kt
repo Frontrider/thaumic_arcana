@@ -1,10 +1,8 @@
 package hu.frontrider.arcana.content.items
 
 import hu.frontrider.arcana.ThaumicArcana
-import hu.frontrider.arcana.core.capabilities.ICreatureEnchant
 import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
-import net.minecraft.block.state.IBlockState
 import net.minecraft.client.resources.I18n
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.creativetab.CreativeTabs
@@ -24,12 +22,11 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
-import net.minecraftforge.registries.*
 import thaumcraft.api.aura.AuraHelper
 import thaumcraft.api.items.ItemsTC
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
 import net.minecraft.util.EnumActionResult.FAIL
 import net.minecraft.util.EnumActionResult.SUCCESS
 

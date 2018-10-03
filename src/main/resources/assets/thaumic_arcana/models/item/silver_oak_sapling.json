@@ -1,3 +1,6 @@
 {
-  "parent": "thaumic_arcana:block/arcane_cage_open"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumic_arcana:blocks/sapling_silver_oak"
+  }
 }

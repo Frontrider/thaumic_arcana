@@ -36,7 +36,13 @@ public class ResearchTester {
 
     @DisplayName("testing the research files")
     @ParameterizedTest(name = "research : {0}")
-    @ValueSource(strings = {"biomancy", "metal_transmutation","biomancy/animalproducts","biomancy/golems","biomancy/enchanting","biomancy/plantproducts"})
+    @ValueSource(strings = {"biomancy",
+            "metal_transmutation",
+            "biomancy/animalproducts",
+            "biomancy/golems",
+            "biomancy/enchanting",
+            "biomancy/plantproducts",
+            "biomancy/plantexperiments"})
     void testingResearch(String researchFile) throws IOException {
 
         Properties language = new Properties();
@@ -60,13 +66,17 @@ public class ResearchTester {
             if (itemStringValue.startsWith("thaumcraft:phial;1;1;")) {
                 String aspect = itemStringValue.substring(47).replaceAll("'}]}", "");
                 assertions.add(() -> assertAspectNameValid(aspect));
+            }
+            if(itemStringValue.startsWith("thaumcraft:essence_crystal;1;1;")){
+                String aspect = itemStringValue.substring(56).replaceAll("'}]}", "");
+                assertions.add(() -> assertAspectNameValid(aspect));
             }else{
                 String[] split = itemStringValue.split(":");
                 String[] validnameSpaces = new String[]{"minecraft","thaumcraft","thaumic_arcana"};
                 assertions.add(()->assertTrue(ArrayUtils.contains(validnameSpaces,split[0]),split[0]));
 
-                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[0].contains("-"),split[0]),"invalid item entry "+itemStringValue));
-                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[1].contains("-"),split[1]),"invalid item entry "+itemStringValue));
+                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[0].contains("-"),split[0]),"invalid item magical_powder "+itemStringValue));
+                assertions.add(()->assertDoesNotThrow(()->assertFalse(split[1].contains("-"),split[1]),"invalid item magical_powder "+itemStringValue));
             }
         });
 
@@ -131,5 +141,4 @@ public class ResearchTester {
 
         assertAll(assertions.toArray(new Executable[]{}));
     }
-
 }

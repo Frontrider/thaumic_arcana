@@ -1,8 +1,9 @@
 package hu.frontrider.arcana.content.items
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantCapability
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantCapability
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
 import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
@@ -44,19 +45,18 @@ class CreatureEnchanter(private val networkWrapper: SimpleNetworkWrapper) : Item
 
         if (!tagCompound.hasKey("creature_enchants")) return false
 
-        if (entity!!.hasCapability(CREATURE_ENCHANT_CAPABILITY!!, null)) {
+        if (entity!!.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
             if (!playerIn!!.entityWorld.isRemote) {
-                val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY!!, null) ?: return false
+                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY!!, null) ?: return false
 
                 val creature_enchants = tagCompound.getTag("creature_enchants")
 
                 (creature_enchants as NBTTagList).iterator().forEachRemaining { enchant ->
                     if (capability.store.size <= 6 && AuraHelper.drainVis(entity.world, entity.position, 30f, true) >= 30) {
                         AuraHelper.drainVis(entity.world, entity.position, 30f, false)
-                        val enchantmentData = nbtToEnchantment(enchant as NBTTagCompound)
+                        val enchantmentData = CreatureEnchanter.nbtToEnchantment(enchant as NBTTagCompound)
 
-                        val creatureEnchantContainer = CreatureEnchantCapability.CreatureEnchantContainer(enchantmentData.enchantment, enchantmentData.level, 0)
-                        capability.putEnchant(creatureEnchantContainer)
+                        capability.removeEnchant(enchantmentData.enchantment)
 
                         AuraHelper.polluteAura(entity.entityWorld, entity.position, 5f, true)
                         if (entity is EntityPlayer) {
@@ -86,10 +86,12 @@ class CreatureEnchanter(private val networkWrapper: SimpleNetworkWrapper) : Item
         val blockState = worldIn!!.getBlockState(pos!!)
         return if (blockState.block === Blocks.ENCHANTING_TABLE &&
                 gauntlet.item == ItemsTC.casterBasic &&
-                player.getActivePotionEffect(warpWard!!) != null) {
-            if (applyEntity(player, player, stack)) SUCCESS else FAIL
-        } else FAIL
+                player.getActivePotionEffect(CreatureEnchanter.warpWard!!) != null) {
+            if (applyEntity(player, player, stack)) EnumActionResult.SUCCESS else EnumActionResult.FAIL
+        } else EnumActionResult.FAIL
     }
+
+
 
     override fun isEnchantable(stack: ItemStack): Boolean {
         return false

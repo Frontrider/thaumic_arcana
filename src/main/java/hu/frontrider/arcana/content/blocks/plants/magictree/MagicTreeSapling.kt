@@ -3,6 +3,7 @@ package hu.frontrider.arcana.content.blocks.plants.magictree
 import net.minecraft.block.BlockBush
 import net.minecraft.block.BlockPlanks
 import net.minecraft.block.IGrowable
+import net.minecraft.block.material.Material
 import net.minecraft.block.properties.PropertyInteger
 import net.minecraft.block.state.BlockStateContainer
 import net.minecraft.block.state.IBlockState
@@ -13,7 +14,7 @@ import net.minecraft.world.World
 import net.minecraft.world.gen.feature.WorldGenAbstractTree
 import java.util.*
 
-class MagicTreeSapling(val generator:WorldGenAbstractTree): BlockBush(),IGrowable {
+class MagicTreeSapling(val generator:WorldGenAbstractTree): BlockBush(Material.LEAVES),IGrowable {
 
     companion object {
         val STAGE = PropertyInteger.create("stage", 0, 1)

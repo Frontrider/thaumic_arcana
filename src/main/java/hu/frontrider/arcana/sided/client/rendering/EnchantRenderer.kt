@@ -1,7 +1,6 @@
 package hu.frontrider.arcana.sided.client.rendering
 
 import hu.frontrider.arcana.client.rendering.CreatureEnchantOffsetManager
-import hu.frontrider.arcana.core.capabilities.CreatureEnchantCapability
 import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import net.minecraft.client.Minecraft
@@ -60,9 +59,11 @@ class EnchantRenderer : LayerRenderer<EntityLivingBase> {
     }
 
     internal fun doRender(entity: EntityLivingBase, limbSwing: Float, limbSwingAmount: Float, partialTicks: Float, ageInTicks: Float, netHeadYaw: Float, headPitch: Float, scale: Float) {
-        if (!CreatureEnchant.isEnchanted(entity)) {
-            return
+        val enchanted = CreatureEnchant.isEnchanted(entity)
+        if (!enchanted) {
+            return@doRender
         }
+
         val entry = EntityRegistry.getEntry(entity.javaClass)
         GlStateManager.pushMatrix()
 

@@ -1,18 +1,23 @@
 package hu.frontrider.arcana.registrationhandlers.recipes
 
-import hu.frontrider.arcana.Configuration
+import hu.frontrider.arcana.TAConfig
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.content.items.CreatureEnchanter
+import hu.frontrider.arcana.content.items.EnchantModifierDust
 import hu.frontrider.arcana.content.items.EnchantmentUpgradePowder
 import hu.frontrider.arcana.content.items.PlantBall
 import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
+import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
+import net.minecraft.block.Block
+import net.minecraft.init.Blocks
 import net.minecraft.init.Items
 import net.minecraft.init.Items.*
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.common.registry.GameRegistry
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder
 import net.minecraftforge.oredict.OreDictionary
 import thaumcraft.api.ThaumcraftApi
 import thaumcraft.api.ThaumcraftApiHelper
@@ -20,7 +25,18 @@ import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.crafting.CrucibleRecipe
 
-object AlchemyRecipes {
+class AlchemyRecipes {
+
+    companion object {
+        @ObjectHolder(MODID + ":magic_oak_sapling")
+        lateinit var magic_oak_sapling: Block
+        @ObjectHolder(MODID + ":silver_oak_sapling")
+        lateinit var silver_oak_sapling: Block
+        @ObjectHolder(MODID + ":tainted_oak_sapling")
+        lateinit var tainted_oak_sapling: Block
+        @ObjectHolder("$MODID:enchant_modifier")
+        internal lateinit var modifier: Item
+    }
 
 
     fun register() {
@@ -32,6 +48,7 @@ object AlchemyRecipes {
         initGrowingFlesh()
         initPlantProducts()
         initEnchanting()
+        initPlantExperiments()
     }
 
     private fun initMetalTransmutation() {
@@ -106,7 +123,7 @@ object AlchemyRecipes {
             }
         }
 
-        if (Configuration.enablePlatinum && OreDictionary.doesOreNameExist("ingotPlatinum")) {
+        if (TAConfig.enablePlatinum && OreDictionary.doesOreNameExist("ingotPlatinum")) {
             val platinum = OreDictionary.getOres("nuggetPlatinum")
             if (platinum.size > 0) {
                 val itemStack = platinum[0]
@@ -426,22 +443,84 @@ object AlchemyRecipes {
             )
             ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "enchant_powder_basic"), recipe)
         }
-        val registry = GameRegistry.findRegistry(CreatureEnchant::class.java)
+        run {
+            val registry = GameRegistry.findRegistry(CreatureEnchant::class.java)
 
-        for (it in arrayOf(ItemRegistry.enchanting_powder_basic,ItemRegistry.enchanting_powder_advanced,ItemRegistry.enchanting_powder_magical)) {
+            for (it in arrayOf(ItemRegistry.enchanting_powder_basic, ItemRegistry.enchanting_powder_advanced, ItemRegistry.enchanting_powder_magical)) {
+                //getting all the creature enchants
+                for (enchant in registry.valuesCollection) {
+                    val enchantedItem = CreatureEnchanter.createEnchantedItem(it, CreatureEnchanter.EnchantmentData(enchant, (it as EnchantmentUpgradePowder).level))
+
+                    val recipe = CrucibleRecipe(
+                            enchant.research,
+                            enchantedItem,
+                            ItemStack(it),
+                            enchant.formula().merge(Aspect.ENERGY, it.level * 10)
+                    )
+                    ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "ce_" + enchant.registryName!!.resourcePath + "_" + it.registryName!!.resourcePath), recipe)
+                }
+            }
+        }
+
+        run {
+            val registry = GameRegistry.findRegistry(EnchantingBaseCircle::class.java)
+
             //getting all the creature enchants
             for (enchant in registry.valuesCollection) {
-                val enchantedItem = CreatureEnchanter.createEnchantedItem(it, CreatureEnchanter.EnchantmentData(enchant, (it as EnchantmentUpgradePowder).level))
+                val enchantedItem = EnchantModifierDust.createItem(modifier, enchant)
 
                 val recipe = CrucibleRecipe(
                         enchant.research,
                         enchantedItem,
-                        ItemStack(it),
-                        enchant.formula()
+                        ItemStack(modifier),
+                        enchant.formula
                 )
-                ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "ce_" + enchant.registryName!!.resourcePath+"_"+it.registryName!!.resourcePath), recipe)
+                ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "ce_circle_" + enchant.registryName!!.resourcePath), recipe)
             }
+        }
+    }
 
+    private fun initPlantExperiments() {
+        val KEY = "PLANT_EXPERIMENTS"
+        run {
+            val recipe = CrucibleRecipe(
+                    KEY,
+                    ItemStack(magic_oak_sapling, 1, 0),
+                    ItemStack(Blocks.SAPLING, 1, 0),
+                    AspectList()
+                            .add(Aspect.LIGHT, 2)
+                            .merge(Aspect.EARTH, 2)
+                            .merge(Aspect.WATER, 2)
+                            .merge(Aspect.MAGIC, 20)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "great_oak_wood"), recipe)
+        }
+        run {
+            val recipe = CrucibleRecipe(
+                    KEY,
+                    ItemStack(silver_oak_sapling, 1, 0),
+                    ItemStack(Blocks.SAPLING, 1, 0),
+                    AspectList()
+                            .add(Aspect.LIGHT, 2)
+                            .merge(Aspect.EARTH, 2)
+                            .merge(Aspect.WATER, 2)
+                            .merge(Aspect.AURA, 20)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "silver_oak_wood"), recipe)
+        }
+        run {
+            val recipe = CrucibleRecipe(
+                    KEY,
+                    ItemStack(tainted_oak_sapling, 1, 0),
+                    ItemStack(Blocks.SAPLING, 1, 0),
+                    AspectList()
+                            .add(Aspect.LIGHT, 2)
+                            .merge(Aspect.EARTH, 2)
+                            .merge(Aspect.WATER, 2)
+                            .merge(Aspect.FLUX, 20)
+                            .merge(Aspect.LIFE, 30)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "tainted_oak_wood"), recipe)
         }
     }
 }
