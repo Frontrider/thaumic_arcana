@@ -17,6 +17,5 @@ public class TAConfig {
     @Config.Name("Enchantable entity blacklist")
     public static String[] entityBlacklist = new String[]{("minecraft:slime")};
 
-    @Config.Comment("The number of times a single item can be repeated in the experiment table before it is unusable.")
-    public static int useCap = 20;
+
 }

@@ -2,6 +2,7 @@ package hu.frontrider.arcana.content.research
 
 import hu.frontrider.arcana.content.research.researchevents.PlantExperiments
 import hu.frontrider.arcana.content.research.researchevents.StartingFires
+import hu.frontrider.arcana.content.research.researchevents.TheScar
 import net.minecraftforge.common.MinecraftForge
 
 /**
@@ -13,6 +14,7 @@ class ResearchEventManager {
     fun initHandlers() {
         registerhandler(StartingFires())
         registerhandler(PlantExperiments())
+        registerhandler(TheScar())
     }
 
     internal fun registerhandler(handler: Any) {

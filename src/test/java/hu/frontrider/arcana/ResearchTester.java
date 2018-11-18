@@ -37,7 +37,6 @@ public class ResearchTester {
     @DisplayName("testing the research files")
     @ParameterizedTest(name = "research : {0}")
     @ValueSource(strings = {"biomancy",
-            "metal_transmutation",
             "biomancy/animalproducts",
             "biomancy/golems",
             "biomancy/enchanting",

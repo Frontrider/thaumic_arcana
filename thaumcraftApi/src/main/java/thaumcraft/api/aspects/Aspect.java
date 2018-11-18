@@ -151,7 +151,6 @@ public class Aspect {
 	public void setChatcolor(String chatcolor) {
 		this.chatcolor = chatcolor;
 	}
-	
 
 	///////////////////////////////
 	public static LinkedHashMap<String,Aspect> aspects = new LinkedHashMap<String,Aspect>();

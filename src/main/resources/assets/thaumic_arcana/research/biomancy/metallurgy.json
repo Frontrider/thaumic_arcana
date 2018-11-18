@@ -14,12 +14,8 @@
         "HIDDEN"
       ],
       "location": [
-        6,
-        4
-      ],
-      "required_knowledge": [
-        "THEORY;BIOMANCY;2",
-        "THEORY;INFUSION;2"
+        8,
+        5
       ],
       "stages": [
         {
@@ -27,15 +23,12 @@
           "required_item": [
             "minecraft:iron_ingot",
             "thaumic_arcana:neutered_flesh",
+            "minecraft:slime",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'metallum'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
           ],
           "recipes": [
-            "thaumic_arcana:neutered_flesh_beef",
-            "thaumic_arcana:neutered_flesh_chicken",
-            "thaumic_arcana:neutered_flesh_mutton",
-            "thaumic_arcana:neutered_flesh_fish",
-            "thaumic_arcana:neutered_flesh_porkchop"
+            "thaumic_arcana:neutered_flesh"
           ],
           "required_knowledge": [
             "THEORY;BIOMANCY;2",
@@ -46,17 +39,63 @@
         {
           "text": "research.thaumic_arcana.livium.stage.2",
           "recipes": [
-            "thaumic_arcana:neutered_flesh_beef",
-            "thaumic_arcana:neutered_flesh_chicken",
-            "thaumic_arcana:neutered_flesh_mutton",
-            "thaumic_arcana:neutered_flesh_fish",
-            "thaumic_arcana:neutered_flesh_porkchop",
-            "thaumic_arcana:neutered_flesh_porkchop",
+            "thaumic_arcana:neutered_flesh",
             "thaumic_arcana:create_livium",
             "thaumic_arcana:create_livium_sword",
             "thaumic_arcana:create_livium_shovel",
             "thaumic_arcana:create_livium_axe",
             "thaumic_arcana:create_livium_pickaxe"
+          ]
+        }
+      ]
+    },{
+      "key": "METAL_TRANSMUTATION",
+      "name": "research.thaumic_arcana.metal_transmutation.title",
+      "icons": [
+        "minecraft:iron_ingot",
+        "minecraft:gold_ingot"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "LIVIUM"
+      ],
+      "meta": [
+        "SPIKY"
+      ],
+      "location": [
+        8,
+        6
+      ],
+      "required_knowledge": [
+        "THEORY;ALCHEMY;2"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.metal_transmutation.stage.1",
+          "required_item": [
+            "minecraft:iron_ingot",
+            "minecraft:iron_nugget",
+            "minecraft:gold_ingot",
+            "minecraft:gold_nugget",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'metallum'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'desiderium'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vitreus'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;ALCHEMY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.metal_transmutation.stage.2",
+          "recipes": [
+            "thaumic_arcana:transmutation_gold",
+            "thaumic_arcana:transmutation_lead",
+            "thaumic_arcana:transmutation_silver",
+            "thaumic_arcana:transmutation_copper",
+            "thaumic_arcana:transmutation_tin",
+            "thaumic_arcana:transmutation_nickel",
+            "thaumic_arcana:transmutation_platinum"
           ]
         }
       ]

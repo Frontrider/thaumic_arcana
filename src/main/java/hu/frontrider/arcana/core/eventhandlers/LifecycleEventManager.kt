@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.core.capabilities.scar.ScarProvider
 
 class LifecycleEventManager {
 
@@ -47,12 +48,14 @@ class LifecycleEventManager {
         }
         if (`object` is EntityPlayer) {
             event.addCapability(CREATURE_ENCHANT, CreatureEnchantProvider())
+            event.addCapability(SCAR,ScarProvider())
         }
     }
 
     companion object {
 
         private val CREATURE_ENCHANT = ResourceLocation(MODID, "creature_enchant")
+        private val SCAR = ResourceLocation(MODID, "scar")
     }
 
 }

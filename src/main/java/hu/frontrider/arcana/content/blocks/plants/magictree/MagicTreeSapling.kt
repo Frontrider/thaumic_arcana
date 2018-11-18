@@ -17,16 +17,12 @@ import java.util.*
 class MagicTreeSapling(val generator:WorldGenAbstractTree): BlockBush(Material.LEAVES),IGrowable {
 
     companion object {
-        val STAGE = PropertyInteger.create("stage", 0, 1)
         protected val SAPLING_AABB = AxisAlignedBB(0.09999999403953552, 0.0, 0.09999999403953552, 0.8999999761581421, 0.800000011920929, 0.8999999761581421)
     }
 
-    init{
-        this.defaultState = this.defaultState.withProperty(STAGE, Integer.valueOf(0)!!)
-    }
 
     override fun createBlockState(): BlockStateContainer {
-        return BlockStateContainer(this,STAGE)
+        return BlockStateContainer(this)
     }
 
     override fun canUseBonemeal(worldIn: World, rand: Random, pos: BlockPos, state: IBlockState): Boolean {
@@ -60,19 +56,5 @@ class MagicTreeSapling(val generator:WorldGenAbstractTree): BlockBush(Material.L
         return SAPLING_AABB
     }
 
-
-    /**
-     * Convert the given metadata into a BlockState for this Block
-     */
-    override fun getStateFromMeta(meta: Int): IBlockState {
-        return this.defaultState.withProperty(STAGE, Integer.valueOf(meta))
-    }
-
-    /**
-     * Convert the BlockState into the correct metadata value
-     */
-    override fun getMetaFromState(state: IBlockState): Int {
-        return state.getValue(STAGE) as Int
-    }
 
 }

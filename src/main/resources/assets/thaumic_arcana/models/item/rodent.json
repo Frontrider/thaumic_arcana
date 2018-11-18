@@ -1,0 +1,9 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumic_arcana:items/rodent_outline",
+    "layer1": "thaumic_arcana:items/rodent_body",
+    "layer2": "thaumic_arcana:items/rodent_belly",
+    "layer3": "thaumic_arcana:items/rodent_eyes"
+  }
+}

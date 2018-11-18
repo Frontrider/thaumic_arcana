@@ -1,4 +1,3 @@
-
 package hu.frontrider.arcana.registrationhandlers
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
@@ -12,12 +11,19 @@ import net.minecraftforge.common.MinecraftForge
 
 class LootHandler {
 
-    fun init(){
-        MinecraftForge.EVENT_BUS.register(magical_powder)
+    fun init() {
+        MinecraftForge.EVENT_BUS.register(this)
     }
+
     var magical_powder: LootEntry = LootEntryItem(
             ItemRegistry.enchanting_powder_magical, 5, 1, arrayOfNulls(0), arrayOfNulls(0), "$MODID:magical_enchant_powder")
 
+    var aura_curio: LootEntry = LootEntryItem(
+            ItemRegistry.enchanting_powder_magical, 3, 1, arrayOfNulls(0), arrayOfNulls(0), "$MODID:vaporous_curiosoitx")
+    var animated_curio: LootEntry = LootEntryItem(
+            ItemRegistry.enchanting_powder_magical, 3, 1, arrayOfNulls(0), arrayOfNulls(0), "$MODID:animated_curiosity")
+    var infused_curio: LootEntry = LootEntryItem(
+            ItemRegistry.enchanting_powder_magical, 3, 1, arrayOfNulls(0), arrayOfNulls(0), "$MODID:infused_curiosity")
     @SubscribeEvent
     fun onLootTableLoad(event: LootTableLoadEvent) {
 
@@ -27,7 +33,19 @@ class LootHandler {
                 name == LootTableList.CHESTS_DESERT_PYRAMID ||
                 name == LootTableList.ENTITIES_ENDER_DRAGON ||
                 name == LootTableList.CHESTS_JUNGLE_TEMPLE) {
-            event.table.getPool("main").addEntry(magical_powder)
+            try {
+                val pool = event.table.getPool("main");
+                pool.addEntry(magical_powder)
+
+            } catch (e: NullPointerException) {
+
+            }
+        }
+        if (name == LootTableList.CHESTS_VILLAGE_BLACKSMITH) {
+            val pool = event.table.getPool("main")
+            pool.addEntry(aura_curio)
+            pool.addEntry(animated_curio)
+            pool.addEntry(infused_curio)
         }
     }
 

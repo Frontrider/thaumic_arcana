@@ -5,7 +5,6 @@ import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
 import hu.frontrider.arcana.sided.client.commands.ReloadOffsetsCommand
 import hu.frontrider.arcana.sided.client.rendering.EnchantRenderer
-import hu.frontrider.arcana.util.strings.StringUtil
 import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.ItemModelMesher
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
@@ -27,7 +26,13 @@ import java.awt.*
 import java.util.Objects
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
+import hu.frontrider.arcana.content.blocks.effect.tiles.TileEssentiaMine
+import hu.frontrider.arcana.sided.client.rendering.implantmodel.ImplantRenderer
+import net.minecraft.block.Block
+import net.minecraft.client.renderer.color.IBlockColor
 import net.minecraft.entity.EntityLivingBase
+import net.minecraft.entity.player.EntityPlayer
+import thaumcraft.api.aspects.Aspect
 
 class ClientProxy : CommonProxy() {
 
@@ -46,8 +51,8 @@ class ClientProxy : CommonProxy() {
         }
 
         for (playerRender in Minecraft.getMinecraft().renderManager.skinMap.values) {
-
             playerRender.addLayer<EntityLivingBase, EnchantRenderer>(enchantRenderer)
+            playerRender.addLayer<EntityPlayer, ImplantRenderer>(ImplantRenderer())
         }
 
         MinecraftForge.EVENT_BUS.register(enchantRenderer)
@@ -57,7 +62,7 @@ class ClientProxy : CommonProxy() {
         val registry = GameRegistry.findRegistry(EnchantingBaseCircle::class.java)
 
         Minecraft.getMinecraft().itemColors.registerItemColorHandler(
-                IItemColor { stack, tintIndex ->
+                IItemColor { stack, _ ->
                     val tagCompound = stack.tagCompound ?: return@IItemColor 0
 
                     if (!tagCompound.hasKey("modifier"))
@@ -70,11 +75,34 @@ class ClientProxy : CommonProxy() {
 
                     Color(color.r, color.g, color.b).rgb
                 }, enchantModifier!!)
+
+        Minecraft.getMinecraft().itemColors.registerItemColorHandler(
+                IItemColor { stack, _ ->
+                    val tagCompound = stack.tagCompound ?: return@IItemColor 0
+
+                    if (!tagCompound.hasKey("aspect"))
+                        return@IItemColor 0
+
+                    Aspect.getAspect(tagCompound.getString("aspect"))!!.color
+                }, infusedSlime)
+
+        Minecraft.getMinecraft().blockColors.registerBlockColorHandler(
+                IBlockColor { state, access, pos, tintindex ->
+                    val tile = access!!.getTileEntity(pos!!)
+                    (tile as? TileEssentiaMine)?.aspect?.color ?: 0
+                }, essentia_mine)
     }
 
     companion object {
         @GameRegistry.ObjectHolder("$MODID:enchant_modifier")
         internal var enchantModifier: Item? = null
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slime")
+        internal lateinit var infusedSlime: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:essentia_mine")
+        internal lateinit var essentia_mine: Block
 
         @SideOnly(Side.CLIENT)
         fun initClient(mesher: ItemModelMesher) {
@@ -83,8 +111,7 @@ class ClientProxy : CommonProxy() {
                 ModelLoader.registerItemVariants(item, model)
                 mesher.register(item, 0, model)
             }
-            StringUtil.initialise()
-            MinecraftForge.EVENT_BUS.register(StringUtil.stringUtilKeyboardHandler)
+
         }
     }
 }

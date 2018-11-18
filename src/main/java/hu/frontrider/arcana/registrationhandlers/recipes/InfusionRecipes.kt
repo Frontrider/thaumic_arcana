@@ -18,6 +18,7 @@ import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion.enchanting_powder_advanced
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion.enchanting_powder_basic
 import net.minecraft.init.Items.DYE
+import net.minecraft.init.Items.IRON_INGOT
 import net.minecraft.nbt.NBTTagCompound
 import thaumcraft.api.items.ItemsTC.salisMundus
 
@@ -27,10 +28,18 @@ class InfusionRecipes {
         @GameRegistry.ObjectHolder("$MODID:enchant_modifier")
         internal lateinit var modifier: Item
 
+
+        @GameRegistry.ObjectHolder("$MODID:ingot_livium")
+        lateinit var ingot_livium: Item
+
+        @GameRegistry.ObjectHolder("$MODID:neutered_flesh")
+        lateinit var neutered_flesh: Item
+
     }
 
     fun register() {
         registerCreatureEnchants()
+        initLivium()
     }
 
     internal fun registerCreatureEnchants() {
@@ -89,4 +98,24 @@ class InfusionRecipes {
 
     }
 
+    fun initLivium(){
+        run {
+            val source = ItemStack(neutered_flesh)
+
+            val itemStack = ItemStack(ingot_livium)
+            ThaumcraftApi.addInfusionCraftingRecipe(
+                    ResourceLocation(MODID, "create_livium"),
+                    InfusionRecipe("LIVIUM",
+                            itemStack,
+                            2, AspectList()
+                            .add(Aspect.METAL, 30)
+                            .add(Aspect.LIFE, 50),
+                            source,
+                            ItemStack(IRON_INGOT),
+                            ItemStack(IRON_INGOT),
+                            ItemStack(IRON_INGOT)
+                    )
+            )
+        }
+    }
 }

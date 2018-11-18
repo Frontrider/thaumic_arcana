@@ -1,0 +1,210 @@
+{
+  "entries": [
+    {
+      "key": "TA_SLIME",
+      "name": "research.thaumic_arcana.slime.title",
+      "icons": [
+        "minecraft:slime_ball"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "PLANT_EXPERIMENTS",
+        "LIVIUM"
+      ],
+      "location": [
+        3,
+        8
+      ],
+      "meta": [
+        "SPIKY",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.slime.stage.1",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;2",
+            "OBSERVATION;BIOMANCY;1"
+          ],
+          "required_item": [
+            "minecraft:sapling",
+            "minecraft:slime_ball",
+            "minecraft:mushroom",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'herba'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'victus'}]}"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.slime.stage.2",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;2",
+            "OBSERVATION;BIOMANCY;1"
+          ],
+          "required_item": [
+            "minecraft:beef",
+            "minecraft:rotten_flesh",
+            "minecraft:slime_ball",
+            "thaumic_arcana:nutrient_mix",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'bestia'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'motus'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'victus'}]}"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.slime.stage.3",
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "THEORY;BIOMANCY;2",
+            "OBSERVATION;BIOMANCY;1"
+          ],
+          "required_item": [
+            "minecraft:magma",
+            "minecraft:magma_cream",
+            "thaumcraft:salis_mundus"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.slime.stage.4",
+          "recipes": [
+            "thaumic_arcana:create_slimy_shovel",
+            "thaumic_arcana:create_slimy_pickaxe",
+            "thaumic_arcana:create_slimy_axe",
+            "thaumic_arcana:create_slimy_hoe",
+            "thaumic_arcana:create_slimy_sword",
+            "thaumic_arcana:magma_to_cream",
+            "thaumic_arcana:cream_to_slime",
+            "thaumic_arcana:cream_to_powder"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TA_SLIME_MEAT",
+      "name": "research.thaumic_arcana.slime_meat.title",
+      "icons": [
+        "thaumic_arcana:slime_meat_raw"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "TA_SLIME"
+      ],
+      "location": [
+        5,
+        10
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.slime_meat.stage.1",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;2"
+          ],
+          "required_item": [
+            "minecraft:beef",
+            "minecraft:slime_ball",
+            "thaumic_arcana:nutrient_mix",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'ordo'}]}"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.slime_meat.stage.2",
+         "recipes": [
+          "thaumic_arcana:make_slime_beef",
+           "thaumic_arcana:make_slime_mutton",
+           "thaumic_arcana:make_slime_pork",
+           "thaumic_arcana:smelt_slime_meat"
+        ]
+
+        }
+      ]
+    },
+    {
+      "key": "TA_SLIME_ANIMATION",
+      "name": "research.thaumic_arcana.slime_animation.title",
+      "icons": [
+        "minecraft:slime",
+        "minecraft:slime_ball"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "TA_SLIME"
+      ],
+      "location": [
+        7,
+        10
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.slime_animation.stage.1",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;2"
+          ],
+          "required_item": [
+            "minecraft:slime_ball",
+            "thaumic_arcana:nutrient_mix",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'ordo'}]}",
+            "thaumcraft:essence_crystal;3;1;{Aspects:[{amount:1,key:'victus'}]}"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.slime_animation.stage.2",
+        "recipes": [
+          "thaumic_arcana:make_slime_spawner",
+          "thaumic_arcana:make_magma_slime_spawner"
+        ]
+
+        }
+      ]
+    },
+    {
+      "key": "TA_SLIME_INFUSION",
+      "name": "research.thaumic_arcana.slime_infusion.title",
+      "icons": [
+        "thaumic_arcana:infused_slime"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "TA_SLIME_MEAT",
+        "TA_SLIME_ANIMATION"
+      ],
+      "location": [
+        6,
+        12
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.slime_infusion.stage.1",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "THEORY;ALCHEMY;1"
+          ],
+          "required_item": [
+            "minecraft:slime_ball",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'praecantatio'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'alienis'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'fabrico'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'ordo'}]}"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.slime_infusion.stage.2",
+          "recipes": [
+            "thaumic_arcana:slime_infuse_ordo",
+            "thaumic_arcana:slime_infuse_ordo_fabric"
+          ]
+        }
+      ]
+    }
+  ]
+}

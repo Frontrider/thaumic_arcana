@@ -1,3 +1,14 @@
+1.0.0
+ - creature enchant recipes are now showing in the thaumonomicon (hurray)
+ - added slime tools
+ - added slime golems
+ - added custom potion brewing.
+ - added "essentia mines"
+ - groundworks for a future feature
+ - removed the experiment table until further notice
+ - creature enchant: productivity. improves the items dropped
+
+=============
 0.6.0
  - depends on the research loader
  - added focus to disable and enable all enchants
@@ -16,7 +27,8 @@
  - fixed a bug where the fertility enchant crashes when applied to villagers
  - fixed a crash, caused by the mod not warning about it's dependencies
  - creature enchant, haste
-
+ - added livium, a metal that is at least partially alive.
+ - magical enchanting powder can now be found in chests.
 
 Break and replace experiment tables before clicking on them!
 Creature enchant crafting is still a little problematic, not all enchats are available on all tiers.

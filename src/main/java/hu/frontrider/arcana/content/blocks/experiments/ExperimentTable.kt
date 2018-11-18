@@ -1,9 +1,7 @@
 package hu.frontrider.arcana.content.blocks.experiments
 
 import hu.frontrider.arcana.ThaumicArcana
-import hu.frontrider.arcana.content.blocks.BlockCage
-import hu.frontrider.arcana.content.items.Rodent
-import hu.frontrider.arcana.sided.client.gui.GuiHandler
+import hu.frontrider.arcana.sided.GuiHandler
 import net.minecraft.block.material.Material
 import net.minecraft.block.properties.PropertyDirection
 import net.minecraft.block.state.BlockStateContainer
@@ -17,13 +15,12 @@ import net.minecraft.util.*
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraftforge.fml.common.registry.GameRegistry
-import java.util.Random
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
+import hu.frontrider.arcana.content.blocks.BlockTileEntity
 import hu.frontrider.arcana.content.blocks.experiments.tiles.TileEntityExperimentTable
-import net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY
 
-class ExperimentTable : BlockCage<TileEntityExperimentTable>(Material.WOOD, "experiment_table") {
+class ExperimentTable : BlockTileEntity<TileEntityExperimentTable>(Material.WOOD, "experiment_table") {
 
 
     override val tileEntityClass: Class<TileEntityExperimentTable>
@@ -45,6 +42,7 @@ class ExperimentTable : BlockCage<TileEntityExperimentTable>(Material.WOOD, "exp
 
         return this.defaultState.withProperty(FACING, enumfacing)
     }
+
 
     override fun onBlockActivated(worldIn: World?, pos: BlockPos?, state: IBlockState?, playerIn: EntityPlayer?, hand: EnumHand?, facing: EnumFacing?, hitX: Float, hitY: Float, hitZ: Float): Boolean {
 

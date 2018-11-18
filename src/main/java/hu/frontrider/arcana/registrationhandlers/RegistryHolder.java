@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.registrationhandlers;
 
+import hu.frontrider.arcana.core.capabilities.implants.IImplant;
 import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant;
 import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle;
 import net.minecraft.util.ResourceLocation;
@@ -28,6 +29,11 @@ public class RegistryHolder {
                 .setIDRange(0, 100)
                 .setName(new ResourceLocation(MODID, "enchanting_base_circle"))
                 .create();
-
+        new RegistryBuilder<IImplant>()
+                .setType(IImplant.class)
+                .setIDRange(0,100)
+                .setName(new ResourceLocation(MODID, "implant"))
+                .add((owner, stage, id, obj, oldObj) -> MinecraftForge.EVENT_BUS.register(obj))
+                .create();
     }
 }

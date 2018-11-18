@@ -15,6 +15,7 @@ import net.minecraft.init.Items
 import net.minecraft.init.Items.*
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder
@@ -28,14 +29,16 @@ import thaumcraft.api.crafting.CrucibleRecipe
 class AlchemyRecipes {
 
     companion object {
-        @ObjectHolder(MODID + ":magic_oak_sapling")
+        @ObjectHolder("$MODID:magic_oak_sapling")
         lateinit var magic_oak_sapling: Block
-        @ObjectHolder(MODID + ":silver_oak_sapling")
+        @ObjectHolder("$MODID:silver_oak_sapling")
         lateinit var silver_oak_sapling: Block
-        @ObjectHolder(MODID + ":tainted_oak_sapling")
+        @ObjectHolder("$MODID:tainted_oak_sapling")
         lateinit var tainted_oak_sapling: Block
         @ObjectHolder("$MODID:enchant_modifier")
         internal lateinit var modifier: Item
+        @ObjectHolder("$MODID:nutrient_mix")
+        internal lateinit var nutrientMix: Item
     }
 
 
@@ -49,6 +52,7 @@ class AlchemyRecipes {
         initPlantProducts()
         initEnchanting()
         initPlantExperiments()
+        initSlime()
     }
 
     private fun initMetalTransmutation() {
@@ -313,7 +317,7 @@ class AlchemyRecipes {
         run {
             val recipe = CrucibleRecipe(
                     KEY,
-                    ItemStack(ItemRegistry.nutrient_mix),
+                    ItemStack(nutrientMix),
                     ItemStack(Items.SUGAR),
                     AspectList().add(Aspect.LIFE, 3).add(Aspect.PLANT, 2).add(Aspect.MAGIC, 2)
             )
@@ -457,7 +461,7 @@ class AlchemyRecipes {
                             ItemStack(it),
                             enchant.formula().merge(Aspect.ENERGY, it.level * 10)
                     )
-                    ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "ce_" + enchant.registryName!!.resourcePath + "_" + it.registryName!!.resourcePath), recipe)
+                    ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, enchant.registryName!!.resourcePath + "_" + it.registryName!!.resourcePath), recipe)
                 }
             }
         }
@@ -522,6 +526,76 @@ class AlchemyRecipes {
             )
             ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "tainted_oak_wood"), recipe)
         }
+    }
+
+    private fun initSlime(){
+        run {
+            val recipe = CrucibleRecipe(
+                    "TA_SLIME@4",
+                    ItemStack(Items.MAGMA_CREAM, 4),
+                    Blocks.MAGMA,
+                    AspectList().add(Aspect.ENTROPY, 4).add(Aspect.FIRE,2)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "magma_to_cream"), recipe)
+        }
+        run {
+            val recipe = CrucibleRecipe(
+                    "TA_SLIME@4",
+                    ItemStack(Items.SLIME_BALL, 1),
+                    Items.MAGMA_CREAM,
+                    AspectList().add(Aspect.CRAFT, 2).add(Aspect.WATER,2)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "cream_to_slime"), recipe)
+        }
+
+        run {
+            val recipe = CrucibleRecipe(
+                    "TA_SLIME@4",
+                    ItemStack(Items.BLAZE_POWDER, 1),
+                    Items.MAGMA_CREAM,
+                    AspectList().add(Aspect.CRAFT, 2).add(Aspect.FIRE,2)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "cream_to_powder"), recipe)
+        }
+        run {
+
+            val entityTag = NBTTagCompound()
+            entityTag.setString("id","minecraft:slime")
+
+            val result = ItemStack(Items.SPAWN_EGG, 1)
+            val compound = NBTTagCompound()
+
+            compound.setTag("EntityTag",entityTag)
+
+            result.tagCompound = compound
+            val recipe = CrucibleRecipe(
+                    "TA_SLIME_ANIMATION",
+                    result,
+                    Blocks.SLIME_BLOCK,
+                    AspectList().add(Aspect.LIFE, 5).add(Aspect.ORDER,2)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "make_slime_spawner"), recipe)
+        }
+        run {
+
+            val entityTag = NBTTagCompound()
+            entityTag.setString("id","minecraft:magma_cube")
+
+            val result = ItemStack(Items.SPAWN_EGG, 1)
+            val compound = NBTTagCompound()
+
+            compound.setTag("EntityTag",entityTag)
+
+            result.tagCompound = compound
+            val recipe = CrucibleRecipe(
+                    "TA_SLIME_ANIMATION",
+                    result,
+                    Blocks.SLIME_BLOCK,
+                    AspectList().add(Aspect.LIFE, 5).add(Aspect.ORDER,2).add(Aspect.FIRE,20)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "make_magma_slime_spawner"), recipe)
+        }
+
     }
 }
 

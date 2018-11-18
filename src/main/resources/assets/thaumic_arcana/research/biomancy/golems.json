@@ -6,6 +6,11 @@
       "meta": [ "HIDDEN", "REVERSE","ROUND" ], "stages": [ { "text": "research.thaumic_arcana.hay_studies.stage.1" } ]
     },
     {
+      "key": "TA_SLIME_STUDIES", "name": "research.thaumic_arcana.slime_studies.title",
+      "icons": [ "minecraft:slime" ], "category": "BIOMANCY", "location": [ 3, 10 ],"parents":["TA_SLIME"],
+      "meta": [ "HIDDEN", "REVERSE","ROUND" ], "stages": [ { "text": "research.thaumic_arcana.slime_studies.stage.1" } ]
+    },
+    {
       "key": "TA_FLESH_STUDIES", "name": "research.thaumic_arcana.flesh_studies.title",
       "icons": [ "thaumcraft:flesh_block" ], "category": "BIOMANCY", "location": [ 6, 4 ],"parents":["FLESH_GOLEMS"],
       "meta": [ "HIDDEN", "REVERSE","ROUND" ], "stages": [ { "text": "research.thaumic_arcana.flesh_studies.stage.1" } ]

@@ -1,6 +1,8 @@
 package hu.frontrider.arcana
 
 import com.google.gson.Gson
+import hu.frontrider.arcana.content.AspectEffectMap
+import hu.frontrider.arcana.content.BrewSlime
 import hu.frontrider.arcana.core.eventhandlers.FunctionEventManager
 import hu.frontrider.arcana.core.eventhandlers.LifecycleEventManager
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
@@ -13,12 +15,20 @@ import hu.frontrider.arcana.registrationhandlers.recipes.ArcaneCraftingRecipes
 import hu.frontrider.arcana.registrationhandlers.recipes.InfusionRecipes
 import hu.frontrider.arcana.content.research.ResearchEventManager
 import hu.frontrider.arcana.content.research.ResearchRegistry
+
+import hu.frontrider.arcana.sided.server.commands.ScarHelperCommand
 import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantCapability
 import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantStorage
 import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.core.capabilities.scar.IScarred
+import hu.frontrider.arcana.core.capabilities.scar.ScarredCapability
+import hu.frontrider.arcana.core.capabilities.scar.ScarredStorage
+import hu.frontrider.arcana.core.eventhandlers.CurioDropEvents
+import hu.frontrider.arcana.core.eventhandlers.ToolEvents
 import hu.frontrider.arcana.registrationhandlers.*
+import hu.frontrider.arcana.registrationhandlers.recipes.FakeRecipes
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
-import hu.frontrider.arcana.sided.client.gui.GuiHandler
+import hu.frontrider.arcana.sided.GuiHandler
 import hu.frontrider.arcana.util.CreativeTabArcana
 import hu.frontrider.thaumcraft.researchloader.ResearchCategoryJson
 import net.minecraft.block.BlockDispenser
@@ -27,8 +37,12 @@ import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem
 import net.minecraft.dispenser.IBlockSource
 import net.minecraft.entity.passive.EntityChicken
+import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.minecraft.item.crafting.FurnaceRecipes
+import net.minecraft.potion.PotionHelper
 import net.minecraftforge.common.MinecraftForge
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry
 import net.minecraftforge.common.capabilities.CapabilityManager
 import net.minecraftforge.common.util.EnumHelper
 import net.minecraftforge.fml.common.Mod
@@ -40,6 +54,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent
 import net.minecraftforge.fml.common.network.NetworkRegistry
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage
+import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.Side
 import org.apache.logging.log4j.Logger
 import thaumcraft.api.aspects.Aspect
@@ -64,15 +79,19 @@ object ThaumicArcana {
 
         MinecraftForge.EVENT_BUS.register(BlockRegistry())
         MinecraftForge.EVENT_BUS.register(ItemRegistry())
-
         MinecraftForge.EVENT_BUS.register(CreatureEnchantRegistry())
+        MinecraftForge.EVENT_BUS.register(ToolEvents())
+
 
         ConfigDirectory = File(suggestedConfigurationFile.parent + "/" + MODID + "/")
 
         proxy.preInit(event)
         CapabilityManager.INSTANCE.register<ICreatureEnchant>(ICreatureEnchant::class.java, CreatureEnchantStorage()) { CreatureEnchantCapability() }
+        CapabilityManager.INSTANCE.register<IScarred>(IScarred::class.java, ScarredStorage()) { ScarredCapability() }
 
-        LootHandler().init();
+//CapabilityManager.INSTANCE.register<ITAImplants>(ITAImplants::class.java, ImplantStorage()) { TAImplants() }
+
+        LootHandler().init()
 
         NETWORK_WRAPPER.registerMessage<CreatureEnchantSyncMessage, IMessage>(CreatureEnchantSyncMessageHandler::class.java, CreatureEnchantSyncMessage::class.java, 0, Side.CLIENT)
         NETWORK_WRAPPER.registerMessage<FalldamageSyncMessage, IMessage>(FalldamageSyncMessageHandler::class.java, FalldamageSyncMessage::class.java, 1, Side.SERVER)
@@ -85,14 +104,15 @@ object ThaumicArcana {
             val printWriter = researchFile.printWriter(Charsets.UTF_8)
 
             arrayOf(
-                    "$MODID:research/metal_transmutation",
-
                     "$MODID:research/biomancy",
                     "$MODID:research/biomancy/enchanting",
                     "$MODID:research/biomancy/plantproducts",
                     "$MODID:research/biomancy/animalproducts",
                     "$MODID:research/biomancy/golems",
                     "$MODID:research/biomancy/plantexperiments",
+                    "$MODID:research/biomancy/metallurgy",
+                    "$MODID:research/biomancy/slime",
+                    "$MODID:research/research",
                     "$MODID:research/scans"
             ).forEach {
                 printWriter.write(it + "\n")
@@ -124,11 +144,14 @@ object ThaumicArcana {
     @EventHandler
     fun init(event: FMLInitializationEvent) {
         proxy.init(event)
+        AspectEffectMap.init()
 
         MinecraftForge.EVENT_BUS.register(CreatureEnchantSynchroniser())
         MinecraftForge.EVENT_BUS.register(FunctionEventManager())
         MinecraftForge.EVENT_BUS.register(LifecycleEventManager())
+        MinecraftForge.EVENT_BUS.register(CurioDropEvents())
 
+        OreDictionaryRegistry().init()
         ResearchEventManager().initHandlers()
         AlchemyRecipes().register()
         InfusionRecipes().register()
@@ -136,7 +159,7 @@ object ThaumicArcana {
         ResearchRegistry().init()
         FocusRegistry().init()
         GolemRegistry().init()
-        //FakeRecipes.init()
+        FakeRecipes().init()
 
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object:BehaviorDefaultDispenseItem() {
             private val dispenseBehavior = BehaviorDefaultDispenseItem()
@@ -180,11 +203,15 @@ object ThaumicArcana {
 
     @EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
+        FurnaceRecipes.instance().addSmelting(slimeMeat, ItemStack(slimeSteak),.1f)
+        BrewingRecipeRegistry.addRecipe(BrewSlime())
     }
 
     @EventHandler
     fun serverLoad(event: FMLServerStartingEvent) {
         event.registerServerCommand(StructureSpawnerCommand())
+        event.registerServerCommand(ScarHelperCommand())
+
     }
 
     const val MODID = "thaumic_arcana"
@@ -199,6 +226,8 @@ object ThaumicArcana {
     @SidedProxy(clientSide = "hu.frontrider.arcana.sided.client.ClientProxy", serverSide = "hu.frontrider.arcana.CommonProxy")
     lateinit var proxy: CommonProxy
 
-    val TOOL_MATERIAL_LIVIUM = EnumHelper.addToolMaterial("TA:LIVIUM", 3, 1024, 6.0f, 2.0f, 2)!!
-
+    @GameRegistry.ObjectHolder("$MODID:slime_meat_raw")
+    lateinit var slimeMeat: Item
+    @GameRegistry.ObjectHolder("$MODID:slime_meat_cooked")
+    lateinit var slimeSteak: Item
 }

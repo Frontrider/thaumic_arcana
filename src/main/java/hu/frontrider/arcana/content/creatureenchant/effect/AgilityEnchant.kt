@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.AspectList
 
-class AgilityEnchant :EffectEnchantBase(MobEffects.JUMP_BOOST,MobEffects.JUMP_BOOST,-2.0, ResourceLocation(MODID,"agiltiy"),"agility") {
+class AgilityEnchant :EffectEnchantBase(MobEffects.JUMP_BOOST,MobEffects.JUMP_BOOST,-2.0, ResourceLocation(MODID,"agility"),"agility") {
 
     companion object {
         @GameRegistry.ObjectHolder("$MODID:protection")
