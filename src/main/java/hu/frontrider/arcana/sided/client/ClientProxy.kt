@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.sided.client
 
 import hu.frontrider.arcana.CommonProxy
-import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
+import hu.frontrider.arcana.creatureenchant.EnchantingBaseCircle
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
 import hu.frontrider.arcana.sided.client.commands.ReloadOffsetsCommand
 import hu.frontrider.arcana.sided.client.rendering.EnchantRenderer
@@ -26,13 +26,13 @@ import java.awt.*
 import java.util.Objects
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.content.blocks.effect.tiles.TileEssentiaMine
+import hu.frontrider.arcana.blocks.effect.tiles.TileEssentiaMine
+import hu.frontrider.arcana.supportedAspects
 import hu.frontrider.arcana.sided.client.rendering.implantmodel.ImplantRenderer
 import net.minecraft.block.Block
 import net.minecraft.client.renderer.color.IBlockColor
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.entity.player.EntityPlayer
-import thaumcraft.api.aspects.Aspect
 
 class ClientProxy : CommonProxy() {
 
@@ -78,12 +78,8 @@ class ClientProxy : CommonProxy() {
 
         Minecraft.getMinecraft().itemColors.registerItemColorHandler(
                 IItemColor { stack, _ ->
-                    val tagCompound = stack.tagCompound ?: return@IItemColor 0
 
-                    if (!tagCompound.hasKey("aspect"))
-                        return@IItemColor 0
-
-                    Aspect.getAspect(tagCompound.getString("aspect"))!!.color
+                supportedAspects[stack.metadata].color
                 }, infusedSlime)
 
         Minecraft.getMinecraft().blockColors.registerBlockColorHandler(

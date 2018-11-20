@@ -1,8 +1,8 @@
 package hu.frontrider.arcana.registrationhandlers;
 
-import hu.frontrider.arcana.core.capabilities.implants.IImplant;
-import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant;
-import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle;
+import hu.frontrider.arcana.capabilities.implants.IImplant;
+import hu.frontrider.arcana.creatureenchant.CreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.EnchantingBaseCircle;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;

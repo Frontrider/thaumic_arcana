@@ -1,10 +1,10 @@
 package hu.frontrider.arcana
 
 import com.google.gson.Gson
-import hu.frontrider.arcana.content.AspectEffectMap
-import hu.frontrider.arcana.content.BrewSlime
-import hu.frontrider.arcana.core.eventhandlers.FunctionEventManager
-import hu.frontrider.arcana.core.eventhandlers.LifecycleEventManager
+import hu.frontrider.arcana.AspectEffectMap
+import hu.frontrider.arcana.BrewSlime
+import hu.frontrider.arcana.eventhandlers.FunctionEventManager
+import hu.frontrider.arcana.eventhandlers.LifecycleEventManager
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSynchroniser
@@ -13,18 +13,18 @@ import hu.frontrider.arcana.sided.network.falldamage.FalldamageSyncMessageHandle
 import hu.frontrider.arcana.registrationhandlers.recipes.AlchemyRecipes
 import hu.frontrider.arcana.registrationhandlers.recipes.ArcaneCraftingRecipes
 import hu.frontrider.arcana.registrationhandlers.recipes.InfusionRecipes
-import hu.frontrider.arcana.content.research.ResearchEventManager
-import hu.frontrider.arcana.content.research.ResearchRegistry
+import hu.frontrider.arcana.research.ResearchEventManager
+import hu.frontrider.arcana.research.ResearchRegistry
 
 import hu.frontrider.arcana.sided.server.commands.ScarHelperCommand
-import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantCapability
-import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantStorage
-import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant
-import hu.frontrider.arcana.core.capabilities.scar.IScarred
-import hu.frontrider.arcana.core.capabilities.scar.ScarredCapability
-import hu.frontrider.arcana.core.capabilities.scar.ScarredStorage
-import hu.frontrider.arcana.core.eventhandlers.CurioDropEvents
-import hu.frontrider.arcana.core.eventhandlers.ToolEvents
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantCapability
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantStorage
+import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.capabilities.scar.IScarred
+import hu.frontrider.arcana.capabilities.scar.ScarredCapability
+import hu.frontrider.arcana.capabilities.scar.ScarredStorage
+import hu.frontrider.arcana.eventhandlers.CurioDropEvents
+import hu.frontrider.arcana.eventhandlers.ToolEvents
 import hu.frontrider.arcana.registrationhandlers.*
 import hu.frontrider.arcana.registrationhandlers.recipes.FakeRecipes
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
@@ -40,11 +40,9 @@ import net.minecraft.entity.passive.EntityChicken
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.crafting.FurnaceRecipes
-import net.minecraft.potion.PotionHelper
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry
 import net.minecraftforge.common.capabilities.CapabilityManager
-import net.minecraftforge.common.util.EnumHelper
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.SidedProxy

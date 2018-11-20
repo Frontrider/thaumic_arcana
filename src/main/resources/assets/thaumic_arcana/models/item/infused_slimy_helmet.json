@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "thaumic_arcana:items/infused_slimy_helmet"
+  }
+}

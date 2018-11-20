@@ -200,8 +200,102 @@
         {
           "text": "research.thaumic_arcana.slime_infusion.stage.2",
           "recipes": [
-            "thaumic_arcana:slime_infuse_ordo",
-            "thaumic_arcana:slime_infuse_ordo_fabric"
+            "thaumic_arcana:fabric_slime",
+            "thaumic_arcana:slime_infuse_ordo"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TA_INFUSE_SLIME_TOOLS",
+      "name": "research.thaumic_arcana.slime_infusion_tools.title",
+      "icons": [
+
+        "thaumic_arcana:infused_slimy_sword",
+        "thaumic_arcana:infused_slimy_hoe",
+        "thaumic_arcana:infused_slimy_pickaxe",
+        "thaumic_arcana:infused_slimy_shovel",
+        "thaumic_arcana:infused_slimy_axe"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "TA_SLIME_INFUSION","TA_SLIME"
+      ],
+      "location": [
+        4,
+        12
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.slime_infusion_tools.stage.1",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;1",
+            "THEORY;ALCHEMY;1"
+          ],
+          "required_item": [
+            "thaumic_arcana:slimy_sword",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'ordo'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'vinculum'}]}"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.slime_infusion_tools.stage.2",
+          "recipes": [
+            "thaumic_arcana:infuse_slime_tool_sword",
+            "thaumic_arcana:infuse_slime_tool_hoe",
+            "thaumic_arcana:infuse_slime_tool_pickaxe",
+            "thaumic_arcana:infuse_slime_tool_shovel",
+            "thaumic_arcana:infuse_slime_tool_axe"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TA_SLIME_ARMOR",
+      "name": "research.thaumic_arcana.slime_armor.title",
+      "icons": [
+
+        "thaumic_arcana:infused_slimy_chestplate",
+        "thaumic_arcana:infused_slimy_leggings",
+        "thaumic_arcana:infused_slimy_helmet"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "TA_INFUSE_SLIME_TOOLS"
+      ],
+      "location": [
+        4,
+        14
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.slime_armor.stage.1",
+          "required_knowledge": [
+            "THEORY;BIOMANCY;1",
+            "THEORY;ALCHEMY;1"
+          ],
+          "required_item": [
+            "minecraft:diamond_chestplate",
+            "thaumic_arcana:infused_slimy_pickaxe",
+            "minecraft:slime_ball",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'metallum'}]}",
+            "thaumcraft:essence_crystal;2;1;{Aspects:[{amount:1,key:'praemunio'}]}"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.slime_armor.stage.2",
+          "recipes": [
+            "thaumic_arcana:infuse_slime_armor_chestplate",
+            "thaumic_arcana:infuse_slime_armor_leggings",
+            "thaumic_arcana:infuse_slime_armor_helmet"
           ]
         }
       ]

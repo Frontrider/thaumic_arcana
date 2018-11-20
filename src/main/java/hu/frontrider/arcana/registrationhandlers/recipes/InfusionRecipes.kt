@@ -13,13 +13,12 @@ import thaumcraft.api.blocks.BlocksTC
 import thaumcraft.api.crafting.InfusionRecipe
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.content.items.EnchantModifierDust
-import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion.enchanting_powder_advanced
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry.Companion.enchanting_powder_basic
+import net.minecraft.init.Blocks
+import net.minecraft.init.Items
 import net.minecraft.init.Items.DYE
 import net.minecraft.init.Items.IRON_INGOT
-import net.minecraft.nbt.NBTTagCompound
 import thaumcraft.api.items.ItemsTC.salisMundus
 
 class InfusionRecipes {
@@ -35,11 +34,57 @@ class InfusionRecipes {
         @GameRegistry.ObjectHolder("$MODID:neutered_flesh")
         lateinit var neutered_flesh: Item
 
+        @GameRegistry.ObjectHolder("$MODID:infused_slimy_pickaxe")
+        lateinit var pickaxe_slime_infused: Item
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slimy_axe")
+        lateinit var axe_slime_infused: Item
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slimy_shovel")
+        lateinit var shovel_slime_infused: Item
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slimy_sword")
+        lateinit var sword_slime_infused: Item
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slimy_hoe")
+        lateinit var hoe_slime_infused: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:slimy_pickaxe")
+        lateinit var pickaxe_slime: Item
+
+        @GameRegistry.ObjectHolder("$MODID:slimy_axe")
+        lateinit var axe_slime: Item
+
+        @GameRegistry.ObjectHolder("$MODID:slimy_shovel")
+        lateinit var shovel_slime: Item
+
+        @GameRegistry.ObjectHolder("$MODID:slimy_sword")
+        lateinit var sword_slime: Item
+
+        @GameRegistry.ObjectHolder("$MODID:slimy_hoe")
+        lateinit var hoe_slime: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slimy_chestplate")
+        lateinit var infused_slimy_chestplate: Item
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slimy_leggings")
+        lateinit var infused_slimy_leggings: Item
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slimy_helmet")
+        lateinit var infused_slimy_helmet: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slime")
+        lateinit var infused_slime: Item
     }
 
     fun register() {
         registerCreatureEnchants()
         initLivium()
+        initInfusedSlimeTools()
+        initInfusedSlimeArmor()
     }
 
     internal fun registerCreatureEnchants() {
@@ -98,7 +143,7 @@ class InfusionRecipes {
 
     }
 
-    fun initLivium(){
+    fun initLivium() {
         run {
             val source = ItemStack(neutered_flesh)
 
@@ -117,5 +162,71 @@ class InfusionRecipes {
                     )
             )
         }
+    }
+
+    fun initInfusedSlimeTools() {
+        fun createTool(sourceItem:Item,targetItem:Item,name:String,aspects:AspectList){
+            val source = ItemStack(sourceItem)
+
+            val itemStack = ItemStack(targetItem)
+            ThaumcraftApi.addInfusionCraftingRecipe(
+                    ResourceLocation(MODID, "infuse_slime_tool_$name"),
+                    InfusionRecipe("TA_INFUSE_SLIME_TOOLS",
+                            itemStack,
+                            1, aspects
+                            .add(Aspect.LIFE, 30)
+                            .add(Aspect.TOOL, 40)
+                            .add(Aspect.ALCHEMY, 50),
+                            source,
+                            ItemStack(ingot_livium),
+                            ItemStack(ingot_livium),
+                            ItemStack(Items.DIAMOND),
+                            ItemStack(Items.DIAMOND),
+                            ItemStack(Items.BLAZE_ROD),
+                            ItemStack(Items.SPECKLED_MELON),
+                            ItemStack(Items.GOLDEN_APPLE),
+                            ItemStack(Items.DRAGON_BREATH)
+                    )
+            )
+        }
+
+        createTool(axe_slime,axe_slime_infused,"axe",AspectList().merge(Aspect.METAL,10))
+        createTool(hoe_slime,hoe_slime_infused,"hoe",AspectList().merge(Aspect.PLANT,10))
+        createTool(shovel_slime,shovel_slime_infused,"shovel",AspectList().merge(Aspect.EARTH,10))
+        createTool(pickaxe_slime,pickaxe_slime_infused,"pickaxe",AspectList().merge(Aspect.TOOL,10))
+        createTool(sword_slime,sword_slime_infused,"sword",AspectList().merge(Aspect.AVERSION,10))
+
+    }
+    fun initInfusedSlimeArmor() {
+        fun createArmor(sourceItem:Item,targetItem:Item,name:String,aspects:AspectList){
+            val source = ItemStack(sourceItem)
+
+            val itemStack = ItemStack(targetItem)
+            ThaumcraftApi.addInfusionCraftingRecipe(
+                    ResourceLocation(MODID, "infuse_slime_armor_$name"),
+                    InfusionRecipe("TA_SLIME_ARMOR",
+                            itemStack,
+                            1, aspects
+                            .add(Aspect.LIFE, 30)
+                            .add(Aspect.TOOL, 40)
+                            .add(Aspect.PROTECT,50)
+                            .add(Aspect.ALCHEMY, 50),
+                            source,
+                            ItemStack(ingot_livium),
+                            ItemStack(ingot_livium),
+                            ItemStack(Items.IRON_INGOT),
+                            ItemStack(Items.IRON_INGOT),
+                            ItemStack(Blocks.SLIME_BLOCK),
+                            ItemStack(Blocks.SLIME_BLOCK),
+                            ItemStack(Items.BLAZE_ROD),
+                            ItemStack(Items.SPECKLED_MELON),
+                            ItemStack(Items.GOLDEN_APPLE),
+                            ItemStack(Items.DRAGON_BREATH)
+                    )
+            )
+        }
+        createArmor(Items.DIAMOND_HELMET, infused_slimy_helmet,"helmet",AspectList())
+        createArmor(Items.DIAMOND_CHESTPLATE, infused_slimy_chestplate,"chestplate",AspectList())
+        createArmor(Items.DIAMOND_LEGGINGS, infused_slimy_leggings,"leggings",AspectList())
     }
 }

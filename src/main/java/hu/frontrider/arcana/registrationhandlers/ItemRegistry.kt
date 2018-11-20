@@ -3,12 +3,17 @@ package hu.frontrider.arcana.registrationhandlers
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER
 import hu.frontrider.arcana.ThaumicArcana.TABARCANA
-import hu.frontrider.arcana.content.items.*
-import hu.frontrider.arcana.content.items.curio.*
-import hu.frontrider.arcana.content.items.tools.*
+import hu.frontrider.arcana.items.*
+import hu.frontrider.arcana.items.curio.*
+import hu.frontrider.arcana.items.tools.*
+import hu.frontrider.arcana.items.IncubatedEgg
+import hu.frontrider.arcana.items.ItemFertiliser
+import hu.frontrider.arcana.items.PlantBall
+import hu.frontrider.arcana.items.armor.SlimiumArmor
 import hu.frontrider.arcana.util.Initialisable
 import hu.frontrider.arcana.util.items.ItemFactory
 import net.minecraft.block.Block
+import net.minecraft.inventory.EntityEquipmentSlot
 import net.minecraft.item.Item
 import net.minecraft.item.ItemBlock
 import net.minecraft.item.ItemFood
@@ -66,10 +71,24 @@ class ItemRegistry {
                 SlimiumSword(),
                 SlimiumShovel(),
                 SlimiumHoe(),
-                ItemFactory.start(ItemFood(3,.3f,false))
+                InfusedSlimiumAxe(),
+                InfusedSlimiumPickAxe(),
+                InfusedSlimiumSword(),
+                InfusedSlimiumHoe(),
+                InfusedSlimiumShovel(),
+                ItemFactory.start(SlimiumArmor(EntityEquipmentSlot.CHEST))
+                        .setResourourceLocation("infused_slimy_chestplate")
+                        .build(),
+                ItemFactory.start(SlimiumArmor(EntityEquipmentSlot.LEGS))
+                        .setResourourceLocation("infused_slimy_leggings")
+                        .build(),
+                ItemFactory.start(SlimiumArmor(EntityEquipmentSlot.HEAD))
+                        .setResourourceLocation("infused_slimy_helmet")
+                        .build(),
+                ItemFactory.start(ItemFood(3, .3f, false))
                         .setResourourceLocation("slime_meat_raw")
                         .build(),
-                ItemFactory.start(ItemFood(10,.9f,false))
+                ItemFactory.start(ItemFood(10, .9f, false))
                         .setResourourceLocation("slime_meat_cooked")
                         .build(),
                 ItemFactory.start(ItemInfusedSlime())
@@ -97,3 +116,4 @@ class ItemRegistry {
         }
     }
 }
+

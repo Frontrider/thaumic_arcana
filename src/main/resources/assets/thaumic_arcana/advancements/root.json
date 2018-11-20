@@ -9,7 +9,7 @@
   },
   "criteria": {
     "research": {
-      "trigger": "thaumcraftresearchloader:BIOMANCY_BASICS_0"
+      "trigger": "thaumcraftresearchloader:TA_INFUSE_SLIME_TOOLS_1"
     }
   }
 }

@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.server.commands
 
-import hu.frontrider.arcana.content.worldgen.generators.taintwine.TaintWineGenerator
+import hu.frontrider.arcana.worldgen.generators.taintwine.TaintWineGenerator
 import net.minecraft.command.CommandBase
 import net.minecraft.command.CommandException
 import net.minecraft.command.ICommandSender

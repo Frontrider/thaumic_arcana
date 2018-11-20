@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 
-import hu.frontrider.arcana.content.blocks.experiments.tiles.TileEntityExperimentTable
+import hu.frontrider.arcana.blocks.experiments.tiles.TileEntityExperimentTable
 
 @SideOnly(Side.CLIENT)
 class GuiExperimentTable(container: Container, private val playerInv: InventoryPlayer, private val experimentTableTileEntity: TileEntityExperimentTable) : GuiContainer(container) {

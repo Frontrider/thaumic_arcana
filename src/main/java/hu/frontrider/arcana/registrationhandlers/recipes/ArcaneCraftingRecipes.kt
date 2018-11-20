@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.registrationhandlers.recipes
 
+import hu.frontrider.arcana.InfuseSlimiumTool
 import hu.frontrider.arcana.util.ListBuilder
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
@@ -16,7 +17,9 @@ import thaumcraft.api.crafting.ShapelessArcaneRecipe
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.ThaumicArcana.TABARCANA
-import hu.frontrider.arcana.content.items.ItemInfusedSlime
+import hu.frontrider.arcana.items.ItemInfusedSlime
+import hu.frontrider.arcana.supportedAspects
+import hu.frontrider.arcana.util.items.NbtAwareIngredient
 import net.minecraft.block.Block
 import net.minecraft.enchantment.EnchantmentHelper
 import net.minecraft.init.Enchantments
@@ -64,7 +67,7 @@ class ArcaneCraftingRecipes {
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
-                    .add(Ingredient.fromStacks(ThaumcraftApiHelper.makeCrystal(Aspect.AURA)))
+                    .add(NbtAwareIngredient(ThaumcraftApiHelper.makeCrystal(Aspect.AURA)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
@@ -90,7 +93,7 @@ class ArcaneCraftingRecipes {
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
-                    .add(Ingredient.fromStacks(ThaumcraftApiHelper.makeCrystal(Aspect.FLUX)))
+                    .add(NbtAwareIngredient(ThaumcraftApiHelper.makeCrystal(Aspect.FLUX)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
                     .add(Ingredient.fromStacks(ItemStack(arcane_stone!!)))
@@ -409,41 +412,33 @@ class ArcaneCraftingRecipes {
         infused_slime.getSubItems(TABARCANA, variants)
 
         variants.forEach {
-            val aspectTag = it.tagCompound!!.getString("aspect")
+            val aspect = supportedAspects[it.metadata]
 
-            val crystal = ThaumcraftApiHelper.makeCrystal(Aspect.getAspect(aspectTag))
-            val normal = ListBuilder(NonNullList.create<Ingredient>())
-                    .add(Ingredient.fromItem(Items.SLIME_BALL!!))
-                    .add(Ingredient.fromItem(Items.SLIME_BALL!!))
-                    .add(Ingredient.fromStacks(crystal))
-                    .build() as NonNullList<Ingredient>
+            val crystal = ThaumcraftApiHelper.makeCrystal(aspect)
 
-            ThaumcraftApi.addArcaneCraftingRecipe(
-                    ResourceLocation(MODID, "slime_infuse_$aspectTag"),
-                    ShapelessArcaneRecipe(defaultGroup,
-                            "TA_SLIME_INFUSION",
-                            5,
-                            AspectList().add(Aspect.WATER, 1),
-                            it,
-                            normal.toArray()))
 
             val fabric = ItemInfusedSlime.createSlimeFor(Aspect.CRAFT,infused_slime)
             val fabrico = ListBuilder(NonNullList.create<Ingredient>())
-                    .add(Ingredient.fromItem(Items.SLIME_BALL!!))
-                    .add(Ingredient.fromStacks(crystal))
+                    .add(NbtAwareIngredient(crystal))
                     .add(Ingredient.fromStacks(fabric))
                     .build() as NonNullList<Ingredient>
 
-            it.count =3
+
+            val fabricitem = ItemInfusedSlime.createSlimeFor(aspect,it.item)
+
             ThaumcraftApi.addArcaneCraftingRecipe(
-                    ResourceLocation(MODID, "slime_infuse_${aspectTag}_fabric"),
+                    ResourceLocation(MODID, "slime_infuse_${aspect.tag}"),
                     ShapelessArcaneRecipe(defaultGroup,
                             "TA_SLIME_INFUSION",
                             5,
                             AspectList().add(Aspect.WATER, 1),
-                            it,
+                            fabricitem,
                             fabrico.toArray()))
         }
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "infuse_tool"),
+                    InfuseSlimiumTool()
+            )
     }
 
     companion object {

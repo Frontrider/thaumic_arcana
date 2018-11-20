@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.sided
 
-import hu.frontrider.arcana.content.blocks.experiments.tiles.TileEntityExperimentTable
-import hu.frontrider.arcana.content.containers.ContainerExperimentTableCage
+import hu.frontrider.arcana.blocks.experiments.tiles.TileEntityExperimentTable
+import hu.frontrider.arcana.containers.ContainerExperimentTableCage
 import hu.frontrider.arcana.sided.client.gui.GuiExperimentTable
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.inventory.Container

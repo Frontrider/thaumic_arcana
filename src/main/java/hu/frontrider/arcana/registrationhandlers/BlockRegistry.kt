@@ -1,15 +1,14 @@
 package hu.frontrider.arcana.registrationhandlers
 
-import hu.frontrider.arcana.content.blocks.BlockTileEntity
-import hu.frontrider.arcana.content.blocks.effect.BlockArcaneStoneDisableEnchants
-import hu.frontrider.arcana.content.blocks.effect.BlockArcaneStoneEnableEnchants
-import hu.frontrider.arcana.content.blocks.effect.EssentiaMine
-import hu.frontrider.arcana.content.blocks.experiments.ExperimentTable
-import hu.frontrider.arcana.content.blocks.plants.magictree.MagicTreeSapling
-import hu.frontrider.arcana.content.blocks.plants.taintwine.mushroom.TaintWineCap
-import hu.frontrider.arcana.content.blocks.plants.taintwine.mushroom.TaintWineFlower
-import hu.frontrider.arcana.content.blocks.plants.taintwine.mushroom.TaintWineTrunk
-import hu.frontrider.arcana.content.worldgen.generators.magictree.MagicTreeGenerator
+import hu.frontrider.arcana.blocks.BlockTileEntity
+import hu.frontrider.arcana.blocks.effect.BlockArcaneStoneDisableEnchants
+import hu.frontrider.arcana.blocks.effect.BlockArcaneStoneEnableEnchants
+import hu.frontrider.arcana.blocks.effect.EssentiaMine
+import hu.frontrider.arcana.blocks.experiments.ExperimentTable
+import hu.frontrider.arcana.blocks.plants.magictree.MagicTreeSapling
+import hu.frontrider.arcana.blocks.plants.taintwine.mushroom.TaintWineCap
+import hu.frontrider.arcana.blocks.plants.taintwine.mushroom.TaintWineTrunk
+import hu.frontrider.arcana.worldgen.generators.magictree.MagicTreeGenerator
 import hu.frontrider.arcana.util.BlockFactory
 import net.minecraft.block.Block
 import net.minecraft.block.BlockOldLeaf
@@ -48,7 +47,7 @@ class BlockRegistry {
 
         val enableEnchants= BlockArcaneStoneEnableEnchants()
         val disableEnchants= BlockArcaneStoneDisableEnchants()
-        ItemRegistry.blocks.addAll(arrayOf(magic_oak,silver_oak,taint_oak,enableEnchants,disableEnchants))
+        ItemRegistry.blocks.addAll(arrayOf<Block>(magic_oak,silver_oak,taint_oak,enableEnchants,disableEnchants))
 
         event.registry.registerAll(
                 //experimentTable,

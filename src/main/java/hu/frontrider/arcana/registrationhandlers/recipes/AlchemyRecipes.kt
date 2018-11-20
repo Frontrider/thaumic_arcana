@@ -2,12 +2,10 @@ package hu.frontrider.arcana.registrationhandlers.recipes
 
 import hu.frontrider.arcana.TAConfig
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.content.items.CreatureEnchanter
-import hu.frontrider.arcana.content.items.EnchantModifierDust
-import hu.frontrider.arcana.content.items.EnchantmentUpgradePowder
-import hu.frontrider.arcana.content.items.PlantBall
-import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
-import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
+import hu.frontrider.arcana.items.*
+import hu.frontrider.arcana.creatureenchant.CreatureEnchant
+import hu.frontrider.arcana.creatureenchant.EnchantingBaseCircle
+import hu.frontrider.arcana.items.PlantBall
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
 import net.minecraft.block.Block
 import net.minecraft.init.Blocks
@@ -39,6 +37,9 @@ class AlchemyRecipes {
         internal lateinit var modifier: Item
         @ObjectHolder("$MODID:nutrient_mix")
         internal lateinit var nutrientMix: Item
+
+        @GameRegistry.ObjectHolder("$MODID:infused_slime")
+        lateinit var infused_slime: Item
     }
 
 
@@ -594,6 +595,18 @@ class AlchemyRecipes {
                     AspectList().add(Aspect.LIFE, 5).add(Aspect.ORDER,2).add(Aspect.FIRE,20)
             )
             ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "make_magma_slime_spawner"), recipe)
+        }
+
+        run {
+            val fabricitem = ItemInfusedSlime.createSlimeFor(Aspect.CRAFT,infused_slime)
+
+            val recipe = CrucibleRecipe(
+                    "TA_SLIME_INFUSION",
+                    fabricitem,
+                    Items.SLIME_BALL,
+                    AspectList().add(Aspect.CRAFT, 5)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "fabric_slime"), recipe)
         }
 
     }

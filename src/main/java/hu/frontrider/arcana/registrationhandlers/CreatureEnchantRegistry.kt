@@ -1,11 +1,11 @@
 package hu.frontrider.arcana.registrationhandlers
 
-import hu.frontrider.arcana.content.creatureenchant.base.EffectAmplifierCircle
-import hu.frontrider.arcana.content.creatureenchant.base.NegationCircle
-import hu.frontrider.arcana.content.creatureenchant.base.NormalCircle
-import hu.frontrider.arcana.content.creatureenchant.effect.*
-import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
-import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
+import hu.frontrider.arcana.creatureenchant.base.EffectAmplifierCircle
+import hu.frontrider.arcana.creatureenchant.base.NegationCircle
+import hu.frontrider.arcana.creatureenchant.base.NormalCircle
+import hu.frontrider.arcana.creatureenchant.effect.*
+import hu.frontrider.arcana.creatureenchant.CreatureEnchant
+import hu.frontrider.arcana.creatureenchant.EnchantingBaseCircle
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 

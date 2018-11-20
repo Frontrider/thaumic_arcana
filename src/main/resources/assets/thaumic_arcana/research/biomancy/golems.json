@@ -16,6 +16,11 @@
       "meta": [ "HIDDEN", "REVERSE","ROUND" ], "stages": [ { "text": "research.thaumic_arcana.flesh_studies.stage.1" } ]
     },
     {
+      "key": "TA_LEATHER_STUDIES", "name": "research.thaumic_arcana.leather_studies.title",
+      "icons": [ "minecraft:leather" ], "category": "BIOMANCY", "location": [ 5, 4 ],"parents":["TA_FLESH_STUDIES"],
+      "meta": [ "HIDDEN", "REVERSE","ROUND" ], "stages": [ { "text": "research.thaumic_arcana.leather_studies.stage.1" } ]
+    },
+    {
       "key": "FLESH_GOLEMS",
       "name": "research.thaumic_arcana.flesh_golems.title",
       "icons": [

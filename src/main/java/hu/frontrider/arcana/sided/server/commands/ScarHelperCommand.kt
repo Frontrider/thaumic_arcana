@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.sided.server.commands
 
-import hu.frontrider.arcana.core.capabilities.scar.ScarProvider
+import hu.frontrider.arcana.capabilities.scar.ScarProvider
 import net.minecraft.command.CommandBase
 import net.minecraft.command.CommandException
 import net.minecraft.command.ICommandSender

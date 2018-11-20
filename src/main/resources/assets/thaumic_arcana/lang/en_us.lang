@@ -132,7 +132,7 @@ research.thaumic_arcana.creature_enchant_advanced2.productivity=The productivity
 
 research.thaumic_arcana.creature_enchant_removal.title=Removing enchants
 research.thaumic_arcana.creature_enchant_removal.stage.1=I'm close to breaking the bond that I've created. Just a little more.
-research.thaumic_arcana.creature_enchant_removal.stage.2=My theory was correct. by applying a special incantation, I can break the bond.<LINE> this book can be used to disenchant creatures, but needs to be attuned to the enchantment. That can be done by right clicking an enchantment table with the book in my offhand.
+research.thaumic_arcana.creature_enchant_removal.stage.2=My theory was correct. by applying a special incantation, I can break the bond.<LINE> this book can be used to disenchant creatures, but needs to be attuned to the enchantment. That can be done by right clicking an enchantment table with the book in my offhand, and the dust in my main hand. The level of the enchantment does not matter.
 
 research.thaumic_arcana.hay_studies.title=Material studies: Hay
 research.thaumic_arcana.hay_studies.stage.1=I found mentions of using hay to make golems. Not exactly a prime material for me tough. Still, after trying it I found an interesting property. I can use it to fill the gaps of a skeletal frame, which allows me to make a golem that is fragile, but can move really well.
@@ -170,7 +170,19 @@ research.thaumic_arcana.slime_meat.stage.2=The slime took up the structure, text
 
 research.thaumic_arcana.slime_infusion.title=Slime infusion
 research.thaumic_arcana.slime_infusion.stage.1=Attempting to make slime fuse with raw magic could answer why it appears only in two variants.
-research.thaumic_arcana.slime_infusion.stage.2=The results are telling. The new substance is not viable for a slime, most likely due to being far less sticky.<BR> Altough, it comes with it's own benefits. <LINE>I can brew it into an awkward potion to get some effects, and I can also brew up to 3 slimes into one potion. Altough the concussion is really unstable and will be ruined if I take it under traditional brewing methods. <LINE> I can also put it down on floors, and it will apply it's effect when someone or something steps on it.<LINE> NOT ALL ASPECTS HAVE AN EFFECT! For example fabrico infused slime can be used to make the process more efficient, yielding more slime than what would be possible normally.
+research.thaumic_arcana.slime_infusion.stage.2=The results are telling. I need to treat it with fabrico, it makes it more mallable and reactive. It is also less sticky than it was, possibly the reason why I could not put int back into a viable slime.Than I can use vis and a shard to infuse it with the appropriate aspect.<BR> Altough, it comes with it's own benefits. <LINE>I can brew it into an awkward potion to get some effects, and I can also brew up to 5 slimes into one potion. Altough the concussion is really unstable and will be ruined if I take it under traditional brewing methods. <LINE> I can also put it down on floors, and it will apply it's effect when someone or something steps on it.<LINE> NOT ALL ASPECTS HAVE AN EFFECT! <LINE> First, I need to create a slime infused with fabrico through alchemy before i can fuse it with any other aspect.
+
+
+research.thaumic_arcana.slime_infusion_tools.title=Infused Slime Tools
+research.thaumic_arcana.slime_infusion_tools.stage.1=Can tools made out of slime be treated the same way as normal slime? The way I fuse it with metal is not as drastic as the infusion with essentia.
+research.thaumic_arcana.slime_infusion_tools.stage.2=The tool needs modifictions to accept more. I have to infuse it with the properties of blaze rods, golden apples and glistening melon, and some dragon's breath to gain alchemical properties, than I have to add diamonds to regain some durability, and livium to retain compatibility between the materials.<BR> The resulting tool needs to be soaked in a thick potion, and than it will absorb the effects, and will slowly inject it into anything I hit.
+
+research.thaumic_arcana.leather_studies.title=Leather Studies
+research.thaumic_arcana.leather_studies.stage.1=Leather is a really good material to make golems out of.The technique is similar to the straw golems, but the sturdiness and flexibility of the material allows me to add an internal packet than allows the golem to carry more items.
+
+research.thaumic_arcana.slime_armor.title=Infused Armor
+research.thaumic_arcana.slime_armor.stage.1=The new tools that I crafted are quite impressive, the way they carry potions is valuable. But, I can't really apply them tpo myself unless I keep hitting myself. I prepared materials for an armor that should be able to do the same, but to the wearer.
+research.thaumic_arcana.slime_armor.stage.2=The armor is completed, used diamonds instead of iron for more protection.The armor can absorb potions than provide a longer lasting effect as long as I have the armor piece on.
 
 ##########
 #Theories#
@@ -241,6 +253,17 @@ item.thaumic_arcana.slimy_pickaxe.name=Slimey Pickaxe
 item.thaumic_arcana.slimy_shovel.name=Slimey Shovel
 item.thaumic_arcana.slimy_sword.name=Slimey Sword
 item.thaumic_arcana.slimy_hoe.name=Slimey Hoe
+
+item.thaumic_arcana.infused_slimy_axe.name=Infused Slimey Axe
+item.thaumic_arcana.infused_slimy_pickaxe.name=Infused Slimey Pickaxe
+item.thaumic_arcana.infused_slimy_shovel.name=Infused Slimey Shovel
+item.thaumic_arcana.infused_slimy_sword.name=Infused Slimey Sword
+item.thaumic_arcana.infused_slimy_hoe.name=Infused Slimey Hoe
+
+item.thaumic_arcana.infused_slimy_chestplate.name=Infused Slimey Chestplate
+item.thaumic_arcana.infused_slimy_leggings.name=Infused Slimey Leggings
+item.thaumic_arcana.infused_slimy_helmet.name=Infused Slimey Helmet
+
 item.thaumic_arcana.infused_slime.name=Infused Slime
 
 #curios
@@ -269,10 +292,13 @@ tile.thaumic_arcana.paving_stone_disable_enchants.name=Paving stone of binding d
 golem.material.thaumic_arcana.hay=Straw
 golem.material.thaumic_arcana.flesh=Flesh
 golem.material.thaumic_arcana.slime=Slime
+golem.material.thaumic_arcana.leather=Leather
+
 
 golem.material.text.thaumic_arcana.hay=The golem is a mechanical skeleton coated with straws.Increased dexterity, low durability
 golem.material.text.thaumic_arcana.flesh=The golem is a artifical zombie.
 golem.material.text.thaumic_arcana.slime=The golem is made out of slime, making it wiggly.
+golem.material.text.thaumic_arcana.leather=The golem is made out of leather, and has increased carrying capacity, due to internal packet.
 
 ######
 #Keys#

@@ -1,6 +1,5 @@
 package hu.frontrider.arcana.items
 
-import hu.frontrider.arcana.content.items.*
 import net.minecraft.init.Bootstrap
 import net.minecraft.item.Item
 import net.minecraft.util.NonNullList

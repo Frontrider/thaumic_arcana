@@ -1,7 +1,8 @@
 package hu.frontrider.arcana.content.items;
 
-import hu.frontrider.arcana.content.creatureenchant.effect.FertileEnchant;
-import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant;
+import hu.frontrider.arcana.creatureenchant.effect.FertileEnchant;
+import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant;
+import hu.frontrider.arcana.items.CreatureEnchanter;
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;

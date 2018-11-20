@@ -1,13 +1,20 @@
 1.0.0
  - creature enchant recipes are now showing in the thaumonomicon (hurray)
  - added slime tools
+ - added infused slime tools
  - added slime golems
  - added custom potion brewing.
  - added "essentia mines"
  - groundworks for a future feature
  - removed the experiment table until further notice
  - creature enchant: productivity. improves the items dropped
+ - fixed a bug where paving stones could be crafted with any kind of crystal.
+ - added leather golems
+ - flesh golem now has an increased attack damage
+ - thaumcraft golems no longer drop curios
+ - corrected some research text
 
+Working but currently unused items are left in for custom maps/packs.
 =============
 0.6.0
  - depends on the research loader
