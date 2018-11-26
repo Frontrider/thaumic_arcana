@@ -1,3 +1,9 @@
+1.1.1
+ - fixed #61 (crash with ftb utils)
+ - fixed #62 (crash with anything that tries to render)
+
+
+=============
 1.1.0
   - fixed #52
   - speed enchant now provides a raw speed increase instead of a potion effect
