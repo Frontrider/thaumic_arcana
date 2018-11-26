@@ -211,7 +211,6 @@ enchant.creature_enchant.agiltiy=Agility
 enchant.creature_enchant.haste=Haste
 enchant.creature_enchant.productivity=Productivity
 
-
 enchant.modifier.normal=Normal
 enchant.modifier.negation=Negation
 enchant.modifier.effect_amplifier=Status Effect Amplifier
@@ -314,6 +313,9 @@ rendering.thaumic_arcana.reload.failed=Failed to reload rendering. Check the con
 
 commands.thaumic_arcana.spawn_structure.usage=spawnArcanaStructure x y z <structure_name>
 commands.thaumic_arcana.spawn_structure.invalid_name=Invaliid structure name
+
+commands.thaumic_arcana.scar.usage=/tascar <player> <check|setdamage> <number>>
+commands.thaumic_arcana.scar.wrong_target= Target can not be scarred!
 
 ##########
 #Research#

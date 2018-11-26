@@ -5,7 +5,7 @@ import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.items.*
 import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.creatureenchant.EnchantingBaseCircle
-import hu.frontrider.arcana.items.PlantBall
+import hu.frontrider.arcana.items.ItemPlantBall
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
 import net.minecraft.block.Block
 import net.minecraft.init.Blocks
@@ -233,10 +233,10 @@ class AlchemyRecipes {
 
     private fun initGrowingAdvanced() {
         val KEY = "PLANT_GROWTH_ADVANCED"
-        val treeItems = PlantBall.getTreeItems()
+        val treeItems = ItemPlantBall.treeItems
         var index = 0
         for (treeItem in treeItems) {
-            val seedItem = PlantBall.getProductByIndex(treeItem, 0)
+            val seedItem = ItemPlantBall.getProductByIndex(treeItem, 0)
 
             val recipe = CrucibleRecipe(
                     KEY,
@@ -253,10 +253,10 @@ class AlchemyRecipes {
             index++
         }
 
-        val seedItems = PlantBall.getSeedItems()
+        val seedItems = ItemPlantBall.seedItems
         index = 0
         for (seedlingItem in seedItems) {
-            val seedItem = PlantBall.getProductByIndex(seedlingItem, 0)
+            val seedItem = ItemPlantBall.getProductByIndex(seedlingItem, 0)
 
             val recipe = CrucibleRecipe(
                     KEY,

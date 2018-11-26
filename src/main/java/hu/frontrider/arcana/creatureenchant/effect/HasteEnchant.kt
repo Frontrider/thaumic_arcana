@@ -16,6 +16,8 @@ class HasteEnchant : EffectEnchantBase(
     override val research: String
         get() = "CREATURE_ENCHANT_ADVANCED2"
 
+
+
     override fun formula(): AspectList {
         return AspectList().merge(Aspect.FLIGHT,200)
                 .merge(Aspect.EARTH,100)

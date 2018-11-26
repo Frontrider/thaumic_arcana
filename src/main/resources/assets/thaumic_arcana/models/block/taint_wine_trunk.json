@@ -3,7 +3,7 @@
 	"parent": "block/block",
 	"textures": {
 		"0": "thaumic_arcana:blocks/taint_wine_side",
-		"1": "thaumic_arcana:blocks/taint_wine_top",
+		"blade": "thaumic_arcana:blocks/taint_wine_top",
 		"particle": "thaumic_arcana:blocks/taint_wine_side"
 	},
 	"elements": [

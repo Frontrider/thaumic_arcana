@@ -47,7 +47,7 @@ object AspectEffectMap {
                 Pair(METAL, EffectEntry(MobEffects.FIRE_RESISTANCE)),
                 Pair(SENSES, EffectEntry(MobEffects.NIGHT_VISION)),
                 Pair(AVERSION, EffectEntry(deathGaze, 1000)),
-                Pair(PROTECT, EffectEntry(MobEffects.RESISTANCE)),
+                Pair(PROTECT, EffectEntry(MobEffects.RESISTANCE,10)),
                 Pair(DESIRE, EffectEntry(MobEffects.LUCK)),
                 Pair(UNDEAD, EffectEntry(unnaturalHunger)),
                 Pair(MAN, EffectEntry(MobEffects.STRENGTH)),

@@ -537,7 +537,7 @@
       "category": "BIOMANCY",
       "location": [
         5,
-        -5
+        -4
       ],
       "parents": [
         "ENCHANT_FOCUS"

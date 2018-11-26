@@ -2,9 +2,6 @@ package hu.frontrider.arcana
 
 import com.google.gson.Gson
 import hu.frontrider.arcana.AspectEffectMap
-import hu.frontrider.arcana.BrewSlime
-import hu.frontrider.arcana.eventhandlers.FunctionEventManager
-import hu.frontrider.arcana.eventhandlers.LifecycleEventManager
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSynchroniser
@@ -23,8 +20,8 @@ import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
 import hu.frontrider.arcana.capabilities.scar.IScarred
 import hu.frontrider.arcana.capabilities.scar.ScarredCapability
 import hu.frontrider.arcana.capabilities.scar.ScarredStorage
-import hu.frontrider.arcana.eventhandlers.CurioDropEvents
-import hu.frontrider.arcana.eventhandlers.ToolEvents
+import hu.frontrider.arcana.eventhandlers.*
+import hu.frontrider.arcana.recipes.BrewSlime
 import hu.frontrider.arcana.registrationhandlers.*
 import hu.frontrider.arcana.registrationhandlers.recipes.FakeRecipes
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
@@ -79,7 +76,8 @@ object ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(ItemRegistry())
         MinecraftForge.EVENT_BUS.register(CreatureEnchantRegistry())
         MinecraftForge.EVENT_BUS.register(ToolEvents())
-
+        MinecraftForge.EVENT_BUS.register(ScarEvents())
+        MinecraftForge.EVENT_BUS.register(UnluckHandler())
 
         ConfigDirectory = File(suggestedConfigurationFile.parent + "/" + MODID + "/")
 
@@ -110,7 +108,7 @@ object ThaumicArcana {
                     "$MODID:research/biomancy/plantexperiments",
                     "$MODID:research/biomancy/metallurgy",
                     "$MODID:research/biomancy/slime",
-                    "$MODID:research/research",
+                    "$MODID:research/gauntlet",
                     "$MODID:research/scans"
             ).forEach {
                 printWriter.write(it + "\n")

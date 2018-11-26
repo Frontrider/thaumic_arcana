@@ -1,6 +1,5 @@
 package hu.frontrider.arcana.registrationhandlers.recipes
 
-import hu.frontrider.arcana.InfuseSlimiumTool
 import hu.frontrider.arcana.util.ListBuilder
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
@@ -18,6 +17,7 @@ import thaumcraft.api.crafting.ShapelessArcaneRecipe
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.ThaumicArcana.TABARCANA
 import hu.frontrider.arcana.items.ItemInfusedSlime
+import hu.frontrider.arcana.recipes.InfuseSlimiumTool
 import hu.frontrider.arcana.supportedAspects
 import hu.frontrider.arcana.util.items.NbtAwareIngredient
 import net.minecraft.block.Block

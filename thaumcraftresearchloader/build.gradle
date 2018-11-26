@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 sourceCompatibility = 1.8
 group="hu.frontrider"
 minecraft {
-    version = "1.12.2-14.23.4.2705"
+    version = forge_version
     runDir = "run"
     mappings = "snapshot_20171003"
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
@@ -23,8 +23,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly project(":thaumcraftApi")
-    compileOnly files("lib/Thaumcraft-1.12.2-6.1.BETA24-deobf.jar")
+    compile files("lib/Thaumcraft-1.12.2-6.1.BETA26-deobf.jar")
 }
 
 

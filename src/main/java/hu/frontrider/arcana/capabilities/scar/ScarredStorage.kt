@@ -12,7 +12,7 @@ class ScarredStorage : Capability.IStorage<IScarred> {
             instance.requiredDamage = getInteger("requiredDamage")
             instance.currentDamage = getFloat("currentDamage")
             instance.severity = getByte("severity")
-            instance.requiresResearch = getBoolean("requiresResearch")
+            instance.limbs.fromNbt(getTag("limbs") as NBTTagCompound)
         }
     }
 
@@ -23,7 +23,7 @@ class ScarredStorage : Capability.IStorage<IScarred> {
             nbtTagCompound.setInteger("requiredDamage", requiredDamage)
             nbtTagCompound.setFloat("currentDamage", currentDamage)
             nbtTagCompound.setByte("severity", severity)
-            nbtTagCompound.setBoolean("requiresResearch",requiresResearch)
+            nbtTagCompound.setTag("limbs",limbs.toNbt())
         }
 
         return nbtTagCompound

@@ -39,7 +39,7 @@ class GenericItemTests {
                     Arguments.of(CreatureEnchanter(null!!)),
                     Arguments.of(IncubatedEgg()),
                     Arguments.of(ItemFertiliser()),
-                    Arguments.of(PlantBall())
+                    Arguments.of(ItemPlantBall())
             )
     }
 

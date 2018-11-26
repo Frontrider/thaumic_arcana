@@ -1,3 +1,11 @@
+1.1.0
+  - fixed #52
+  - speed enchant now provides a raw speed increase instead of a potion effect
+  - strength enchant gives raw damage increase/decrease instead of strength /weakness effect
+  - unluck now randomly reduces the damage dealt by the affected creature, or increases the damage delt to it
+
+
+=============
 1.0.0
  - creature enchant recipes are now showing in the thaumonomicon (hurray)
  - added slime tools

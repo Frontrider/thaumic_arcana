@@ -8,8 +8,10 @@ import hu.frontrider.arcana.items.curio.*
 import hu.frontrider.arcana.items.tools.*
 import hu.frontrider.arcana.items.IncubatedEgg
 import hu.frontrider.arcana.items.ItemFertiliser
-import hu.frontrider.arcana.items.PlantBall
+import hu.frontrider.arcana.items.ItemPlantBall
 import hu.frontrider.arcana.items.armor.SlimiumArmor
+import hu.frontrider.arcana.items.cloning.ItemBabyBottle
+import hu.frontrider.arcana.items.cloning.ItemReproductiveSyringe
 import hu.frontrider.arcana.util.Initialisable
 import hu.frontrider.arcana.util.items.ItemFactory
 import net.minecraft.block.Block
@@ -32,7 +34,7 @@ class ItemRegistry {
         var fertiliser: Item = ItemFertiliser()
         var incubated_egg: Item = IncubatedEgg()
         var creature_enchanter: Item = CreatureEnchanter(NETWORK_WRAPPER)
-        var plant_ball: Item = PlantBall()
+        var plant_ball: Item = ItemPlantBall()
 
         val enchantModifier = EnchantModifierDust(NETWORK_WRAPPER)
         val blocks = ArrayList<Block>()
@@ -93,8 +95,20 @@ class ItemRegistry {
                         .build(),
                 ItemFactory.start(ItemInfusedSlime())
                         .setResourourceLocation("infused_slime")
+                        .build(),
+                ItemFactory.start(ItemReproductiveSyringe())
+                        .setResourourceLocation("reproductive_syringe")
+                        .build(),
+                ItemFactory.start(ItemBabyBottle())
+                        .setResourourceLocation("baby_bottle")
+                        .build(),
+                ItemFactory.start(Item())
+                        .setResourourceLocation("reproductive_material")
+                        .build(),
+                ItemFactory.start(Item())
+                        .setResourourceLocation("fertile_bottle")
                         .build()
-        )
+                )
     }
 
     @SubscribeEvent

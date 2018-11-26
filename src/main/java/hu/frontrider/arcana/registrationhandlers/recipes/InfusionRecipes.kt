@@ -27,7 +27,6 @@ class InfusionRecipes {
         @GameRegistry.ObjectHolder("$MODID:enchant_modifier")
         internal lateinit var modifier: Item
 
-
         @GameRegistry.ObjectHolder("$MODID:ingot_livium")
         lateinit var ingot_livium: Item
 
@@ -49,7 +48,6 @@ class InfusionRecipes {
         @GameRegistry.ObjectHolder("$MODID:infused_slimy_hoe")
         lateinit var hoe_slime_infused: Item
 
-
         @GameRegistry.ObjectHolder("$MODID:slimy_pickaxe")
         lateinit var pickaxe_slime: Item
 
@@ -65,7 +63,6 @@ class InfusionRecipes {
         @GameRegistry.ObjectHolder("$MODID:slimy_hoe")
         lateinit var hoe_slime: Item
 
-
         @GameRegistry.ObjectHolder("$MODID:infused_slimy_chestplate")
         lateinit var infused_slimy_chestplate: Item
 
@@ -74,7 +71,6 @@ class InfusionRecipes {
 
         @GameRegistry.ObjectHolder("$MODID:infused_slimy_helmet")
         lateinit var infused_slimy_helmet: Item
-
 
         @GameRegistry.ObjectHolder("$MODID:infused_slime")
         lateinit var infused_slime: Item
@@ -87,7 +83,7 @@ class InfusionRecipes {
         initInfusedSlimeArmor()
     }
 
-    internal fun registerCreatureEnchants() {
+    fun registerCreatureEnchants() {
 
         run {
             val source = ItemStack(enchanting_powder_basic)
@@ -143,7 +139,7 @@ class InfusionRecipes {
 
     }
 
-    fun initLivium() {
+    private fun initLivium() {
         run {
             val source = ItemStack(neutered_flesh)
 
@@ -164,7 +160,7 @@ class InfusionRecipes {
         }
     }
 
-    fun initInfusedSlimeTools() {
+    private fun initInfusedSlimeTools() {
         fun createTool(sourceItem:Item,targetItem:Item,name:String,aspects:AspectList){
             val source = ItemStack(sourceItem)
 
@@ -197,7 +193,7 @@ class InfusionRecipes {
         createTool(sword_slime,sword_slime_infused,"sword",AspectList().merge(Aspect.AVERSION,10))
 
     }
-    fun initInfusedSlimeArmor() {
+    private fun initInfusedSlimeArmor() {
         fun createArmor(sourceItem:Item,targetItem:Item,name:String,aspects:AspectList){
             val source = ItemStack(sourceItem)
 

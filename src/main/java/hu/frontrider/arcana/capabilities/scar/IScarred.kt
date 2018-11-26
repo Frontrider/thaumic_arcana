@@ -5,5 +5,5 @@ interface IScarred {
     var requiredDamage:Int
     var currentDamage:Float
     var severity:Byte
-    var requiresResearch:Boolean
+    var limbs:Limbs
 }

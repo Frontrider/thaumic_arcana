@@ -33,12 +33,13 @@ class HealtBoostEnchant:EffectEnchantBase(MobEffects.HEALTH_BOOST,MobEffects.HEA
         val enchantLevel = getEnchantLevel(entity, protection)
         val speedLevel = getEnchantLevel(entity, speed)
 
-        if (speedLevel>0) {
+        val thisLevel = getEnchantLevel(entity, this)
+        if (speedLevel>0 && thisLevel != 0) {
             if (entity.getActivePotionEffect(MobEffects.HUNGER) == null || entity.getActivePotionEffect(MobEffects.HUNGER)!!.duration < 30)
                 entity.addPotionEffect(PotionEffect(MobEffects.HUNGER, 240, speedLevel*3, true, false))
         }
 
-        if (enchantLevel>0) {
+        if (enchantLevel>0 && thisLevel != 0) {
             if (entity.getActivePotionEffect(MobEffects.WITHER) == null || entity.getActivePotionEffect(MobEffects.WITHER)!!.duration < 30)
                 entity.addPotionEffect(PotionEffect(MobEffects.WITHER, 240, enchantLevel, true, false))
         }
