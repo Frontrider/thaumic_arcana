@@ -27,7 +27,6 @@ import hu.frontrider.arcana.registrationhandlers.recipes.FakeRecipes
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
 import hu.frontrider.arcana.sided.GuiHandler
 import hu.frontrider.arcana.util.CreativeTabArcana
-import hu.frontrider.thaumcraft.researchloader.ResearchCategoryJson
 import net.minecraft.block.BlockDispenser
 import net.minecraft.block.material.Material
 import net.minecraft.creativetab.CreativeTabs
@@ -52,8 +51,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.Side
 import org.apache.logging.log4j.Logger
-import thaumcraft.api.aspects.Aspect
-import thaumcraft.api.aspects.AspectList
 import java.io.File
 
 
@@ -61,7 +58,7 @@ import java.io.File
         modid = ThaumicArcana.MODID,
         name = ThaumicArcana.NAME,
         version = ThaumicArcana.VERSION,
-        dependencies = "required-after:thaumcraft;required-after:forgelin;before:jei;required-after:thaumcraftresearchloader",
+        dependencies = "required-after:thaumcraft;required-after:forgelin;before:jei;after:thaumcraftresearchloader",
         modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter"
 )
 object ThaumicArcana {
@@ -93,47 +90,8 @@ object ThaumicArcana {
         NETWORK_WRAPPER.registerMessage<FalldamageSyncMessage, IMessage>(FalldamageSyncMessageHandler::class.java, FalldamageSyncMessage::class.java, 1, Side.SERVER)
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler())
-        val researchFile = File(suggestedConfigurationFile.parent + "/thaumcraftresearchloader/research/$MODID.txt")
-        researchFile.parentFile.mkdirs()
-        if (!researchFile.exists()) {
-            researchFile.createNewFile()
-            val printWriter = researchFile.printWriter(Charsets.UTF_8)
 
-            arrayOf(
-                    "$MODID:research/biomancy",
-                    "$MODID:research/biomancy/enchanting",
-                    "$MODID:research/biomancy/plantproducts",
-                    "$MODID:research/biomancy/animalproducts",
-                    "$MODID:research/biomancy/golems",
-                    "$MODID:research/biomancy/plantexperiments",
-                    "$MODID:research/biomancy/metallurgy",
-                    "$MODID:research/biomancy/slime",
-                    "$MODID:research/gauntlet",
-                    "$MODID:research/scans"
-            ).forEach {
-                printWriter.write(it + "\n")
-            }
-            printWriter.close()
-        }
-        val category = File(suggestedConfigurationFile.parent + "/thaumcraftresearchloader/category/$MODID.json")
-        category.parentFile.mkdirs()
-        if (!category.exists()) {
-            category.createNewFile()
-            val printWriter = category.printWriter(Charsets.UTF_8)
-
-            val categoryFile = ResearchCategoryJson()
-                    .setKey("BIOMANCY")
-                    .setRequired_research("MINDBIOTHAUMIC")
-                    .setAspectList(
-                            AspectList().add(Aspect.ALCHEMY, 30).add(Aspect.LIFE, 10).add(Aspect.MAGIC, 10).add(Aspect.LIGHT, 5).add(Aspect.AVERSION, 5).add(Aspect.EARTH, 5).add(Aspect.WATER, 5)
-                    )
-                    .setIcon("$MODID:textures/research/cat_biomancy.png")
-                    .setBackground("thaumcraft:textures/gui/gui_research_back_7.jpg")
-                    .setBackground_overlay("thaumcraft:textures/gui/gui_research_back_over.png")
-
-            printWriter.println(Gson().toJson(categoryFile))
-            printWriter.close()
-        }
+        registerResearchLoader(suggestedConfigurationFile)
 
     }
 

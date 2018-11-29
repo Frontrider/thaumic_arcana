@@ -135,7 +135,7 @@ class ItemPlantBall : ItemBase(ResourceLocation(MODID, "plant_ball")), Initialis
 
     @SideOnly(Side.CLIENT)
     override fun getSubItems(tab: CreativeTabs, items: NonNullList<ItemStack>) {
-        if (tab !== TABARCANA)
+        if (tab !== TABARCANA || tab != CreativeTabs.SEARCH)
             return
         if (treeItems != null)
             items.addAll(treeItems!!)

@@ -1,6 +1,5 @@
 package hu.frontrider.arcana.sided.client.rendering.implantmodel
 
-import hu.frontrider.thaumcraft.researchloader.TCResearchLoader.MODID
 import net.minecraft.client.renderer.Tessellator
 import net.minecraft.client.renderer.entity.layers.LayerRenderer
 import net.minecraft.client.renderer.vertex.VertexFormat

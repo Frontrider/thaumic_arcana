@@ -69,10 +69,9 @@ dependencies {
     // at runtime, use the full JEI jar
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     compile group: "net.shadowfacts", name: "Forgelin", version: "1.7.3"
-//    compile project(":thaumcraftApi")
+    //compile project(":thaumcraftApi")
     compile files("lib/Thaumcraft-1.12.2-6.1.BETA26-deobf.jar")
 
-    compile 'org.javadelight:delight-nashorn-sandbox:0.1.16'
     //testCompileOnly project(":thaumcraftApi")
     //testRuntime files("thaumcraftApi/lib/Thaumcraft-1.12.2-6.1.BETA24-deobf.jar")
 
@@ -86,7 +85,6 @@ dependencies {
     testCompile("com.jayway.jsonpath:json-path:$json_path_version")
     testCompile group: 'org.apache.commons', name: 'commons-text', version: commons_text_version
 
-    runtime project(":thaumcraftresearchloader")
 }
 
 jar {

@@ -95,7 +95,7 @@ class ItemRegistry {
                         .build(),
                 ItemFactory.start(ItemInfusedSlime())
                         .setResourourceLocation("infused_slime")
-                        .build(),
+                        .build()/*,
                 ItemFactory.start(ItemReproductiveSyringe())
                         .setResourourceLocation("reproductive_syringe")
                         .build(),
@@ -107,7 +107,7 @@ class ItemRegistry {
                         .build(),
                 ItemFactory.start(Item())
                         .setResourourceLocation("fertile_bottle")
-                        .build()
+                        .build()*/
                 )
     }
 

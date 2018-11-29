@@ -8,6 +8,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryBuilder;
 
 import static hu.frontrider.arcana.ThaumicArcana.MODID;
@@ -21,7 +22,7 @@ public class RegistryHolder {
                 .setType(CreatureEnchant.class)
                 .setIDRange(0, 100)
                 .setName(new ResourceLocation(MODID, "creature_enchant"))
-                .add((owner, stage, id, obj, oldObj) -> MinecraftForge.EVENT_BUS.register(obj))
+                .add((IForgeRegistry.AddCallback<CreatureEnchant>) (owner, stage, id, obj, oldObj) -> MinecraftForge.EVENT_BUS.register(obj))
                 .create();
 
         new RegistryBuilder<EnchantingBaseCircle>()
@@ -29,11 +30,12 @@ public class RegistryHolder {
                 .setIDRange(0, 100)
                 .setName(new ResourceLocation(MODID, "enchanting_base_circle"))
                 .create();
+
         new RegistryBuilder<IImplant>()
                 .setType(IImplant.class)
                 .setIDRange(0,100)
                 .setName(new ResourceLocation(MODID, "implant"))
-                .add((owner, stage, id, obj, oldObj) -> MinecraftForge.EVENT_BUS.register(obj))
+                .add((IForgeRegistry.AddCallback<IImplant>) (owner, stage, id, obj, oldObj) -> MinecraftForge.EVENT_BUS.register(obj))
                 .create();
     }
 }

@@ -233,7 +233,7 @@ class AlchemyRecipes {
 
     private fun initGrowingAdvanced() {
         val KEY = "PLANT_GROWTH_ADVANCED"
-        val treeItems = ItemPlantBall.treeItems
+        val treeItems = ItemPlantBall.treeItems!!
         var index = 0
         for (treeItem in treeItems) {
             val seedItem = ItemPlantBall.getProductByIndex(treeItem, 0)
@@ -253,7 +253,7 @@ class AlchemyRecipes {
             index++
         }
 
-        val seedItems = ItemPlantBall.seedItems
+        val seedItems = ItemPlantBall.seedItems!!
         index = 0
         for (seedlingItem in seedItems) {
             val seedItem = ItemPlantBall.getProductByIndex(seedlingItem, 0)
