@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.blocks
 
-import hu.frontrider.gearcraft.core.util.data.toBlockPos
-import hu.frontrider.gearcraft.core.util.data.toNBT
+import hu.frontrider.core.util.data.toBlockPos
+import hu.frontrider.core.util.data.toNBT
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.player.EntityPlayer

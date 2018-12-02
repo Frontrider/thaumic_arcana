@@ -1,4 +1,4 @@
-package hu.frontrider.gearcraft.core.util.data
+package hu.frontrider.core.util.data
 
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.math.BlockPos

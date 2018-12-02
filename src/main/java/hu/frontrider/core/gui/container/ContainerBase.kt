@@ -1,4 +1,4 @@
-package hu.frontrider.arcana.containers
+package hu.frontrider.core.gui.container
 
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.entity.player.InventoryPlayer

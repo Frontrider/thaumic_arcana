@@ -1,6 +1,7 @@
 package hu.frontrider.arcana.containers
 
 import hu.frontrider.arcana.blocks.production.tile.TileArcaneSieve
+import hu.frontrider.core.gui.container.ContainerBase
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.inventory.Slot

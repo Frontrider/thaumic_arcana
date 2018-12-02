@@ -3,6 +3,9 @@ package hu.frontrider.arcana.blocks.production.tile
 import hu.frontrider.arcana.api.IArcaneSieveRecipe
 import hu.frontrider.arcana.util.items.BlockedInventory
 import hu.frontrider.arcana.util.items.FilteredItemHandler
+import hu.frontrider.arcana.util.items.insertStack
+import hu.frontrider.core.util.inventory.addItemStackToInventory
+import hu.frontrider.core.util.items.isNotEmpty
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity
@@ -22,6 +25,7 @@ class TileArcaneSieve : TileEntity() {
     private val catalyst = FilteredItemHandler(ItemStackHandler(1))
     private var progress = 0
     private var currentRecipe: IArcaneSieveRecipe? = null
+    private var backlog = ItemStack.EMPTY
 
     val progression: Int
         get() = progress
@@ -30,7 +34,7 @@ class TileArcaneSieve : TileEntity() {
         compound.setTag("catalyst", catalyst.serializeNBT())
         compound.setTag("input", input.serializeNBT())
         compound.setTag("output", output.serializeNBT())
-
+        compound.setTag("backlog", backlog.serializeNBT())
         return super.writeToNBT(compound)
     }
 
@@ -39,6 +43,8 @@ class TileArcaneSieve : TileEntity() {
         input.deserializeNBT(compound.getCompoundTag("input"))
         output.deserializeNBT(compound.getCompoundTag("output"))
 
+        if (compound.hasKey("backlog"))
+            backlog.deserializeNBT(compound.getCompoundTag("backlog"))
         super.readFromNBT(compound)
     }
 
@@ -65,6 +71,10 @@ class TileArcaneSieve : TileEntity() {
                 canCraft
             }
         }
+        if (backlog.isNotEmpty()) {
+            if (!output.addItemStackToInventory(backlog))
+                return
+        }
         if (currentRecipe != null) {
             if (currentRecipe!!.canCraft(input.getStackInSlot(0), input.getStackInSlot(1), catalyst.getStackInSlot(0), world)) {
                 if (AuraHelper.drainVis(world, pos, .4f, true) == .4f) {
@@ -73,20 +83,17 @@ class TileArcaneSieve : TileEntity() {
                 }
             } else {
                 progress = 0
+                currentRecipe =null
             }
             if (progress == 10) {
-                val craft = currentRecipe!!.craft(input.getStackInSlot(0), input.getStackInSlot(1), catalyst.getStackInSlot(0), world)
-                for (i in 0 until output.slots) {
-                    val insertAttemptResult = output.insertItemInternal(i, craft, true)
-                    if (insertAttemptResult.count < craft.count) {
-                        craft.count -= insertAttemptResult.count
-                        output.insertItemInternal(i, craft, false)
-                    }
-                    if (craft.isEmpty) {
-                        break
-                    }
+                val craft = currentRecipe!!.craft(input.getStackInSlot(0), input.getStackInSlot(1), catalyst.getStackInSlot(0), world, true)
+                val remaining = output.addItemStackToInventory(craft)
+                if (remaining) {
+                    currentRecipe!!.craft(input.getStackInSlot(0), input.getStackInSlot(1), catalyst.getStackInSlot(0), world, false)
+                    progress = 0
+                } else {
+                    backlog = craft
                 }
-                progress = 0
             }
         } else {
             progress = 0

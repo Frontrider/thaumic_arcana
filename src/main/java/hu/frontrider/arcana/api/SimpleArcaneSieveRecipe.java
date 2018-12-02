@@ -14,10 +14,10 @@ public class SimpleArcaneSieveRecipe implements IArcaneSieveRecipe {
     private final ItemStack result;
 
     /**
-     * @param source1 The main ingredient, must be set.
-     * @param source2 secondary ingredient, can be null.
+     * @param source1  The main ingredient, must be set.
+     * @param source2  secondary ingredient, can be null.
      * @param catalyst the material in the bottom slot, the stuff that we sieve through
-     * @param result the result of the craft.
+     * @param result   the result of the craft.
      */
     public SimpleArcaneSieveRecipe(ItemStack source1, ItemStack source2, ItemStack catalyst, ItemStack result) {
         this.source1 = source1;
@@ -62,12 +62,14 @@ public class SimpleArcaneSieveRecipe implements IArcaneSieveRecipe {
     }
 
     @Override
-    public ItemStack craft(ItemStack source1, ItemStack source2, ItemStack catalyst, World world) {
+    public ItemStack craft(ItemStack source1, ItemStack source2, ItemStack catalyst, World world, boolean simulate) {
         if (canCraft(source1, source2, catalyst, world)) {
-            source1.setCount(source1.getCount() - this.source1.getCount());
-            source2.setCount(source2.getCount() - this.source2.getCount());
-            catalyst.setCount(source2.getCount() - this.catalyst.getCount());
-            return result;
+            if (!simulate) {
+                source1.setCount(source1.getCount() - this.source1.getCount());
+                source2.setCount(source2.getCount() - this.source2.getCount());
+                catalyst.setCount(source2.getCount() - this.catalyst.getCount());
+            }
+            return result.copy();
         }
         return ItemStack.EMPTY;
     }
