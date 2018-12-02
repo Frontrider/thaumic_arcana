@@ -8,6 +8,7 @@ import hu.frontrider.arcana.blocks.experiments.ExperimentTable
 import hu.frontrider.arcana.blocks.plants.magictree.MagicTreeSapling
 import hu.frontrider.arcana.blocks.plants.taintwine.mushroom.TaintWineCap
 import hu.frontrider.arcana.blocks.plants.taintwine.mushroom.TaintWineTrunk
+import hu.frontrider.arcana.blocks.production.BlockArcaneSieve
 import hu.frontrider.arcana.worldgen.generators.magictree.MagicTreeGenerator
 import hu.frontrider.arcana.util.BlockFactory
 import net.minecraft.block.Block
@@ -23,14 +24,12 @@ import java.util.*
 
 class BlockRegistry {
 
-    val oakLeaves= Blocks.LEAVES.defaultState.withProperty<BlockPlanks.EnumType, BlockPlanks.EnumType>(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK).withProperty<Boolean, Boolean>(BlockOldLeaf.CHECK_DECAY, java.lang.Boolean.valueOf(false));
-    val essentiaMine = EssentiaMine()
-    init {
-        experimentTable = ExperimentTable()
-    }
-
     @SubscribeEvent
     fun init(event: RegistryEvent.Register<Block>) {
+
+        val oakLeaves= Blocks.LEAVES.defaultState.withProperty<BlockPlanks.EnumType, BlockPlanks.EnumType>(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK).withProperty<Boolean, Boolean>(BlockOldLeaf.CHECK_DECAY, java.lang.Boolean.valueOf(false));
+        val essentiaMine = EssentiaMine()
+
         val magic_oak = BlockFactory
                 .BlockFactoryHelper(MagicTreeSapling(MagicTreeGenerator(BlocksTC.logGreatwood.defaultState, oakLeaves, true)))
                 .setResourourceLocation("magic_oak_sapling")
@@ -44,10 +43,11 @@ class BlockRegistry {
                 .BlockFactoryHelper(MagicTreeSapling(MagicTreeGenerator(BlocksTC.taintLog.defaultState, oakLeaves, true)))
                 .setResourourceLocation("tainted_oak_sapling")
                 .build()
+        val sieve=BlockArcaneSieve()
 
         val enableEnchants= BlockArcaneStoneEnableEnchants()
         val disableEnchants= BlockArcaneStoneDisableEnchants()
-        ItemRegistry.blocks.addAll(arrayOf<Block>(magic_oak,silver_oak,taint_oak,enableEnchants,disableEnchants))
+        ItemRegistry.blocks.addAll(arrayOf(magic_oak,silver_oak,taint_oak,enableEnchants,disableEnchants,sieve))
 
         event.registry.registerAll(
                 //experimentTable,
@@ -58,14 +58,13 @@ class BlockRegistry {
                 taint_oak,
                 enableEnchants,
                 disableEnchants,
-                essentiaMine
+                essentiaMine,
+                sieve
         )
 
         GameRegistry.registerTileEntity((essentiaMine as BlockTileEntity<*>).tileEntityClass, Objects.requireNonNull<ResourceLocation>(essentiaMine.registryName))
+        GameRegistry.registerTileEntity((sieve as BlockTileEntity<*>).tileEntityClass, Objects.requireNonNull<ResourceLocation>(sieve.registryName))
        // GameRegistry.registerTileEntity((experimentTable as BlockTileEntity<*>).tileEntityClass, Objects.requireNonNull<ResourceLocation>(experimentTable.registryName))
      }
 
-    companion object {
-        lateinit var experimentTable: ExperimentTable
-    }
 }

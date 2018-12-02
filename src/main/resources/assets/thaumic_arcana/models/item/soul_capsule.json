@@ -1,0 +1,8 @@
+
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumic_arcana:items/soul_flame",
+    "layer1": "thaumic_arcana:items/soul_capsule"
+  }
+}

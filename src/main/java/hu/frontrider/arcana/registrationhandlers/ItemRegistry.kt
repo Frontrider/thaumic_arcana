@@ -95,6 +95,18 @@ class ItemRegistry {
                         .build(),
                 ItemFactory.start(ItemInfusedSlime())
                         .setResourourceLocation("infused_slime")
+                        .build(),
+                ItemFactory.start(ItemExpStore())
+                        .setResourourceLocation("experience_store")
+                        .build(),
+                ItemFactory.start(Item())
+                        .setResourourceLocation("empty_soul_capsule")
+                        .build(),
+                ItemFactory.start(Item())
+                        .setResourourceLocation("soul_capsule")
+                        .build(),
+                ItemFactory.start(Item())
+                        .setResourourceLocation("revival_capsule")
                         .build()/*,
                 ItemFactory.start(ItemReproductiveSyringe())
                         .setResourourceLocation("reproductive_syringe")
@@ -108,7 +120,7 @@ class ItemRegistry {
                 ItemFactory.start(Item())
                         .setResourourceLocation("fertile_bottle")
                         .build()*/
-                )
+        )
     }
 
     @SubscribeEvent

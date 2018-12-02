@@ -88,7 +88,6 @@ abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val u
             return baseCircle
         }
 
-
         fun getForFormula(formula: AspectList): CreatureEnchant? {
             for (enchant in GameRegistry.findRegistry(CreatureEnchant::class.java).valuesCollection) {
                 if (AspectUtil.aspectListEquals(enchant.formula(), formula))

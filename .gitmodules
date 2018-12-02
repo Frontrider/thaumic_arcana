@@ -1,0 +1,3 @@
+[submodule "src/main/resources/assets/thaumic_arcana/lang"]
+	path = src/main/resources/assets/thaumic_arcana/lang
+	url = https://github.com/Frontrider/thaumic-arcana-localisation.git

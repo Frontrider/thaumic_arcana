@@ -17,5 +17,4 @@ public class TAConfig {
     @Config.Name("Enchantable entity blacklist")
     public static String[] entityBlacklist = new String[]{("minecraft:slime")};
 
-
 }

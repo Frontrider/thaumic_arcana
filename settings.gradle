@@ -1,0 +1,5 @@
+include 'thaumcraftApi'
+
+rootProject.name = "Thaumic Arcana"
+include 'thaumcraftresearchloader'
+
