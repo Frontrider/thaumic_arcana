@@ -1,36 +1,44 @@
 package hu.frontrider.arcana
 
 import com.google.gson.Gson
-import hu.frontrider.arcana.core.eventhandlers.FunctionEventManager
-import hu.frontrider.arcana.core.eventhandlers.LifecycleEventManager
+import hu.frontrider.arcana.AspectEffectMap
+import hu.frontrider.arcana.api.ArcaneSieveRecipeRegistryEvent
+import hu.frontrider.arcana.api.IArcaneSieveRecipe
+import hu.frontrider.arcana.blocks.production.tile.TileArcaneSieve
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSynchroniser
 import hu.frontrider.arcana.sided.network.falldamage.FalldamageSyncMessage
 import hu.frontrider.arcana.sided.network.falldamage.FalldamageSyncMessageHandler
-import hu.frontrider.arcana.registrationhandlers.recipes.AlchemyRecipes
-import hu.frontrider.arcana.registrationhandlers.recipes.ArcaneCraftingRecipes
-import hu.frontrider.arcana.registrationhandlers.recipes.InfusionRecipes
-import hu.frontrider.arcana.content.research.ResearchEventManager
-import hu.frontrider.arcana.content.research.ResearchRegistry
-import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantCapability
-import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantStorage
-import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.research.ResearchEventManager
+import hu.frontrider.arcana.research.ResearchRegistry
+
+import hu.frontrider.arcana.sided.server.commands.ScarHelperCommand
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantCapability
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantStorage
+import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.capabilities.scar.IScarred
+import hu.frontrider.arcana.capabilities.scar.ScarredCapability
+import hu.frontrider.arcana.capabilities.scar.ScarredStorage
+import hu.frontrider.arcana.eventhandlers.*
+import hu.frontrider.arcana.recipes.BrewSlime
 import hu.frontrider.arcana.registrationhandlers.*
+import hu.frontrider.arcana.registrationhandlers.recipes.*
 import hu.frontrider.arcana.server.commands.StructureSpawnerCommand
-import hu.frontrider.arcana.sided.client.gui.GuiHandler
+import hu.frontrider.arcana.sided.GuiHandler
 import hu.frontrider.arcana.util.CreativeTabArcana
-import hu.frontrider.thaumcraft.researchloader.ResearchCategoryJson
 import net.minecraft.block.BlockDispenser
 import net.minecraft.block.material.Material
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem
 import net.minecraft.dispenser.IBlockSource
 import net.minecraft.entity.passive.EntityChicken
+import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.minecraft.item.crafting.FurnaceRecipes
 import net.minecraftforge.common.MinecraftForge
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry
 import net.minecraftforge.common.capabilities.CapabilityManager
-import net.minecraftforge.common.util.EnumHelper
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.SidedProxy
@@ -40,10 +48,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent
 import net.minecraftforge.fml.common.network.NetworkRegistry
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage
+import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.Side
 import org.apache.logging.log4j.Logger
-import thaumcraft.api.aspects.Aspect
-import thaumcraft.api.aspects.AspectList
 import java.io.File
 
 
@@ -51,7 +58,7 @@ import java.io.File
         modid = ThaumicArcana.MODID,
         name = ThaumicArcana.NAME,
         version = ThaumicArcana.VERSION,
-        dependencies = "required-after:thaumcraft;required-after:forgelin;before:jei;required-after:thaumcraftresearchloader",
+        dependencies = "required-after:thaumcraft;required-after:forgelin;before:jei;after:thaumcraftresearchloader",
         modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter"
 )
 object ThaumicArcana {
@@ -64,71 +71,39 @@ object ThaumicArcana {
 
         MinecraftForge.EVENT_BUS.register(BlockRegistry())
         MinecraftForge.EVENT_BUS.register(ItemRegistry())
-
         MinecraftForge.EVENT_BUS.register(CreatureEnchantRegistry())
+        MinecraftForge.EVENT_BUS.register(ToolEvents())
+        MinecraftForge.EVENT_BUS.register(ScarEvents())
+        MinecraftForge.EVENT_BUS.register(UnluckHandler())
+        MinecraftForge.EVENT_BUS.register(ArcaneSieveRecipes())
 
         ConfigDirectory = File(suggestedConfigurationFile.parent + "/" + MODID + "/")
 
         proxy.preInit(event)
         CapabilityManager.INSTANCE.register<ICreatureEnchant>(ICreatureEnchant::class.java, CreatureEnchantStorage()) { CreatureEnchantCapability() }
+        CapabilityManager.INSTANCE.register<IScarred>(IScarred::class.java, ScarredStorage()) { ScarredCapability() }
 
-        LootHandler().init();
+        LootHandler().init()
 
         NETWORK_WRAPPER.registerMessage<CreatureEnchantSyncMessage, IMessage>(CreatureEnchantSyncMessageHandler::class.java, CreatureEnchantSyncMessage::class.java, 0, Side.CLIENT)
         NETWORK_WRAPPER.registerMessage<FalldamageSyncMessage, IMessage>(FalldamageSyncMessageHandler::class.java, FalldamageSyncMessage::class.java, 1, Side.SERVER)
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler())
-        val researchFile = File(suggestedConfigurationFile.parent + "/thaumcraftresearchloader/research/$MODID.txt")
-        researchFile.parentFile.mkdirs()
-        if (!researchFile.exists()) {
-            researchFile.createNewFile()
-            val printWriter = researchFile.printWriter(Charsets.UTF_8)
 
-            arrayOf(
-                    "$MODID:research/metal_transmutation",
-
-                    "$MODID:research/biomancy",
-                    "$MODID:research/biomancy/enchanting",
-                    "$MODID:research/biomancy/plantproducts",
-                    "$MODID:research/biomancy/animalproducts",
-                    "$MODID:research/biomancy/golems",
-                    "$MODID:research/biomancy/plantexperiments",
-                    "$MODID:research/scans"
-            ).forEach {
-                printWriter.write(it + "\n")
-            }
-            printWriter.close()
-        }
-        val category = File(suggestedConfigurationFile.parent + "/thaumcraftresearchloader/category/$MODID.json")
-        category.parentFile.mkdirs()
-        if (!category.exists()) {
-            category.createNewFile()
-            val printWriter = category.printWriter(Charsets.UTF_8)
-
-            val categoryFile = ResearchCategoryJson()
-                    .setKey("BIOMANCY")
-                    .setRequired_research("MINDBIOTHAUMIC")
-                    .setAspectList(
-                            AspectList().add(Aspect.ALCHEMY, 30).add(Aspect.LIFE, 10).add(Aspect.MAGIC, 10).add(Aspect.LIGHT, 5).add(Aspect.AVERSION, 5).add(Aspect.EARTH, 5).add(Aspect.WATER, 5)
-                    )
-                    .setIcon("$MODID:textures/research/cat_biomancy.png")
-                    .setBackground("thaumcraft:textures/gui/gui_research_back_7.jpg")
-                    .setBackground_overlay("thaumcraft:textures/gui/gui_research_back_over.png")
-
-            printWriter.println(Gson().toJson(categoryFile))
-            printWriter.close()
-        }
-
+        registerResearchLoader(suggestedConfigurationFile)
     }
 
     @EventHandler
     fun init(event: FMLInitializationEvent) {
         proxy.init(event)
+        AspectEffectMap.init()
 
         MinecraftForge.EVENT_BUS.register(CreatureEnchantSynchroniser())
         MinecraftForge.EVENT_BUS.register(FunctionEventManager())
         MinecraftForge.EVENT_BUS.register(LifecycleEventManager())
+        MinecraftForge.EVENT_BUS.register(CurioDropEvents())
 
+        OreDictionaryRegistry().init()
         ResearchEventManager().initHandlers()
         AlchemyRecipes().register()
         InfusionRecipes().register()
@@ -136,9 +111,11 @@ object ThaumicArcana {
         ResearchRegistry().init()
         FocusRegistry().init()
         GolemRegistry().init()
-        //FakeRecipes.init()
+        FakeRecipes().init()
+        val arcaneSieveRecipeRegistryEvent = ArcaneSieveRecipeRegistryEvent(TileArcaneSieve.recipes)
+        MinecraftForge.EVENT_BUS.post(arcaneSieveRecipeRegistryEvent)
 
-        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object:BehaviorDefaultDispenseItem() {
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object : BehaviorDefaultDispenseItem() {
             private val dispenseBehavior = BehaviorDefaultDispenseItem()
 
             public override fun dispenseStack(source: IBlockSource, stack: ItemStack): ItemStack {
@@ -180,16 +157,20 @@ object ThaumicArcana {
 
     @EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
+        FurnaceRecipes.instance().addSmelting(slimeMeat, ItemStack(slimeSteak), .1f)
+        BrewingRecipeRegistry.addRecipe(BrewSlime())
     }
 
     @EventHandler
     fun serverLoad(event: FMLServerStartingEvent) {
         event.registerServerCommand(StructureSpawnerCommand())
+        event.registerServerCommand(ScarHelperCommand())
+
     }
 
     const val MODID = "thaumic_arcana"
     const val NAME = "Thaumic Arcana"
-    const val VERSION = "0.6.0"
+    const val VERSION = "1.1.1"
 
     lateinit var ConfigDirectory: File
     lateinit var logger: Logger
@@ -199,6 +180,8 @@ object ThaumicArcana {
     @SidedProxy(clientSide = "hu.frontrider.arcana.sided.client.ClientProxy", serverSide = "hu.frontrider.arcana.CommonProxy")
     lateinit var proxy: CommonProxy
 
-    val TOOL_MATERIAL_LIVIUM = EnumHelper.addToolMaterial("TA:LIVIUM", 3, 1024, 6.0f, 2.0f, 2)!!
-
+    @GameRegistry.ObjectHolder("$MODID:slime_meat_raw")
+    lateinit var slimeMeat: Item
+    @GameRegistry.ObjectHolder("$MODID:slime_meat_cooked")
+    lateinit var slimeSteak: Item
 }

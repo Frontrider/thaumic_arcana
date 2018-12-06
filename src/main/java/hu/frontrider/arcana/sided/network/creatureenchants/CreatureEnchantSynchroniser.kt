@@ -1,9 +1,9 @@
 package hu.frontrider.arcana.sided.network.creatureenchants
 
 import hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER
-import hu.frontrider.arcana.core.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
-import hu.frontrider.arcana.core.capabilities.creatureenchant.ICreatureEnchant
-import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler.Companion.enchantmentCache
 import net.minecraft.entity.player.EntityPlayerMP
 import net.minecraftforge.event.entity.EntityJoinWorldEvent

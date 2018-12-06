@@ -40,7 +40,7 @@
           "text": "research.thaumic_arcana.creature_enchant.stage.2",
           "recipes": [
             "thaumic_arcana:enchant_powder_basic",
-            "thaumic_arcana:ce_fertile"
+            "thaumic_arcana:fertile_enchanting_powder_basic"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -58,8 +58,8 @@
           "text": "research.thaumic_arcana.creature_enchant.stage.3",
           "recipes": [
             "thaumic_arcana:enchant_powder_basic",
-            "thaumic_arcana:ce_fertile_enchant_powder_basic",
-            "thaumic_arcana:ce_protection_enchant_powder_basic"
+            "thaumic_arcana:fertile_enchanting_powder_basic",
+            "thaumic_arcana:protection_enchanting_powder_basic"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -78,9 +78,9 @@
           "text": "research.thaumic_arcana.creature_enchant.stage.4",
           "recipes": [
             "thaumic_arcana:enchant_powder_basic",
-            "thaumic_arcana:ce_fertile_enchant_powder_basic",
-            "thaumic_arcana:ce_protection_enchant_powder_basic",
-            "thaumic_arcana:ce_respiration_enchant_powder_basic"
+            "thaumic_arcana:fertile_enchanting_powder_basic",
+            "thaumic_arcana:protection_enchanting_powder_basic",
+            "thaumic_arcana:respiration_enchanting_powder_basic"
           ]
         }
       ],
@@ -166,7 +166,7 @@
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.3",
           "recipes": [
             "thaumic_arcana:enchant_powder_advanced",
-            "thaumic_arcana:ce_strength_"
+            "thaumic_arcana:strength_enchanting_powder_advanced"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -185,11 +185,8 @@
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.4",
           "recipes": [
             "thaumic_arcana:enchant_powder_advanced",
-            "thaumic_arcana:ce_strength_enchant_powder_basic",
-            "thaumic_arcana:ce_speed_enchant_powder_basic",
-
-            "thaumic_arcana:ce_strength_enchant_powder_advanced",
-            "thaumic_arcana:ce_speed_enchant_powder_advanced"
+            "thaumic_arcana:strength_enchanting_powder_advanced",
+            "thaumic_arcana:speed_enchanting_powder_advanced"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -211,13 +208,9 @@
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.5",
           "recipes": [
             "thaumic_arcana:enchant_powder_advanced",
-            "thaumic_arcana:ce_spider_enchant_powder_basic",
-            "thaumic_arcana:ce_strength_enchant_powder_basic",
-            "thaumic_arcana:ce_speed_enchant_powder_basic",
-            "thaumic_arcana:ce_strength_enchant_powder_advanced",
-            "thaumic_arcana:ce_speed_enchant_powder_advanced",
-            "thaumic_arcana:ce_spider_enchant_powder_advanced"
-
+            "thaumic_arcana:spider_enchanting_powder_advanced",
+            "thaumic_arcana:strength_enchanting_powder_advanced",
+            "thaumic_arcana:speed_enchanting_powder_advanced"
           ],
           "required_item": [
             "minecraft:enchanted_book",
@@ -238,14 +231,10 @@
         {
           "text": "research.thaumic_arcana.creature_enchant_advanced.stage.6",
           "recipes": [ "thaumic_arcana:enchant_powder_advanced",
-            "thaumic_arcana:ce_spider_enchant_powder_basic",
-            "thaumic_arcana:ce_strength_enchant_powder_basic",
-            "thaumic_arcana:ce_speed_enchant_powder_basic",
-            "thaumic_arcana:ce_strength_enchant_powder_advanced",
-            "thaumic_arcana:ce_speed_enchant_powder_advanced",
-            "thaumic_arcana:ce_spider_enchant_powder_advanced",
-            "thaumic_arcana:ce_vitality_enchant_powder_basic",
-            "thaumic_arcana:ce_vitality_enchant_powder_advanced"
+            "thaumic_arcana:spider_enchanting_powder_advanced",
+            "thaumic_arcana:strength_enchanting_powder_advanced",
+            "thaumic_arcana:speed_enchanting_powder_advanced",
+            "thaumic_arcana:vitality_enchanting_powder_advanced"
           ]
         }
       ],
@@ -548,7 +537,7 @@
       "category": "BIOMANCY",
       "location": [
         5,
-        -5
+        -4
       ],
       "parents": [
         "ENCHANT_FOCUS"
@@ -613,19 +602,6 @@
         },
         {
           "text": "research.thaumic_arcana.creature_enchant_advanced2.stage.2",
-          "recipes": [
-            "thaumic_arcana:ce_health_boost_enchant_powder_basic",
-            "thaumic_arcana:ce_agility_enchant_powder_basic",
-
-            "thaumic_arcana:ce_health_boost_enchant_powder_advanced",
-            "thaumic_arcana:ce_agility_enchant_powder_advanced",
-
-            "thaumic_arcana:ce_health_boost_enchant_powder_magical",
-            "thaumic_arcana:ce_agility_enchant_powder_magical"
-          ]
-        },
-        {
-          "text": "research.thaumic_arcana.creature_enchant_advanced2.stage.3",
           "required_item": [
             "thaumic_arcana:enchant_modifier",
             "thaumic_arcana:enchant_modifier;1;0;{modifier:'thaumic_arcana:effect_amplifier'}",
@@ -635,17 +611,18 @@
             "THEORY;BIOMANCY;2"
           ],
           "recipes": [
-            "thaumic_arcana:ce_health_boost_enchant_powder_basic",
-            "thaumic_arcana:ce_agility_enchant_powder_basic",
-            "thaumic_arcana:ce_haste_enchant_powder_basic",
+            "thaumic_arcana:health_boost_enchanting_powder_advanced",
+            "thaumic_arcana:agility_enchanting_powder_advanced"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.creature_enchant_advanced2.stage.3",
 
-            "thaumic_arcana:ce_health_boost_enchant_powder_advanced",
-            "thaumic_arcana:ce_agility_enchant_powder_advanced",
-            "thaumic_arcana:ce_haste_enchant_powder_advanced",
-
-            "thaumic_arcana:ce_health_boost_enchant_powder_magical",
-            "thaumic_arcana:ce_agility_enchant_powder_magical",
-            "thaumic_arcana:ce_haste_enchant_powder_magical"
+          "recipes": [
+            "thaumic_arcana:health_boost_enchanting_powder_advanced",
+            "thaumic_arcana:agility_enchanting_powder_magical",
+            "thaumic_arcana:haste_enchanting_powder_advanced",
+            "thaumic_arcana:productivity_enchanting_powder_basic"
           ]
         }
       ],
@@ -663,6 +640,12 @@
       },
       {
         "text": "research.thaumic_arcana.creature_enchant_advanced2.haste",
+        "required_research": [
+          "CREATURE_ENCHANT_ADVANCED2@3"
+        ]
+      },
+      {
+        "text": "research.thaumic_arcana.creature_enchant_advanced2.productivity",
         "required_research": [
           "CREATURE_ENCHANT_ADVANCED2@3"
         ]

@@ -1,10 +1,8 @@
 package hu.frontrider.arcana.sided.client.rendering
 
 import hu.frontrider.arcana.client.rendering.CreatureEnchantOffsetManager
-import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
-import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
+import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import net.minecraft.client.Minecraft
-import net.minecraft.client.entity.EntityPlayerSP
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.client.renderer.entity.layers.LayerRenderer
 import net.minecraft.client.renderer.texture.TextureManager
@@ -13,11 +11,9 @@ import net.minecraft.entity.EntityLivingBase
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.event.RenderWorldLastEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import net.minecraftforge.fml.common.registry.EntityEntry
 import net.minecraftforge.fml.common.registry.EntityRegistry
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.registries.IForgeRegistry
-import org.apache.commons.lang3.tuple.Triple
 import org.lwjgl.opengl.GL11
 
 import hu.frontrider.arcana.ThaumicArcana.MODID

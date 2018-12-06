@@ -3,7 +3,7 @@
   "parent": "block/block",
   "textures": {
     "0": "thaumic_arcana:blocks/instruments",
-    "1": "thaumcraft:blocks/plank_greatwood",
+    "blade": "thaumcraft:blocks/plank_greatwood",
     "particle": "thaumcraft:blocks/plank_greatwood"
   },
   "elements": [

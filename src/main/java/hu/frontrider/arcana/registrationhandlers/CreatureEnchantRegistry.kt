@@ -1,18 +1,13 @@
 package hu.frontrider.arcana.registrationhandlers
 
-import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.content.creatureenchant.base.EffectAmplifierCircle
-import hu.frontrider.arcana.content.creatureenchant.base.NegationCircle
-import hu.frontrider.arcana.content.creatureenchant.base.NormalCircle
-import hu.frontrider.arcana.content.creatureenchant.effect.*
-import hu.frontrider.arcana.core.creatureenchant.CreatureEnchant
-import hu.frontrider.arcana.core.creatureenchant.EnchantingBaseCircle
-import net.minecraft.util.ResourceLocation
-import net.minecraftforge.common.MinecraftForge
+import hu.frontrider.arcana.creatureenchant.base.EffectAmplifierCircle
+import hu.frontrider.arcana.creatureenchant.base.NegationCircle
+import hu.frontrider.arcana.creatureenchant.base.NormalCircle
+import hu.frontrider.arcana.creatureenchant.effect.*
+import hu.frontrider.arcana.creatureenchant.CreatureEnchant
+import hu.frontrider.arcana.creatureenchant.EnchantingBaseCircle
 import net.minecraftforge.event.RegistryEvent
-import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import net.minecraftforge.registries.RegistryBuilder
 
 class CreatureEnchantRegistry {
 
@@ -34,7 +29,9 @@ class CreatureEnchantRegistry {
                 STRENGTH_ENCHANT, SPEED_ENCHANT, SPIDERFINGERS_ENCHANT,
                 PROTECTION_ENCHANT, FERTILE_ENCHANT, RESPIRATION_ENCHANT, VITALITY_ENCHANT,
                 HealtBoostEnchant(),
-                AgilityEnchant()
+                AgilityEnchant(),
+                HasteEnchant(),
+                ProductivityEnchant()
         )
     }
 

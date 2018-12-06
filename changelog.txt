@@ -1,3 +1,34 @@
+1.1.1
+ - fixed #61 (crash with ftb utils)
+ - fixed #62 (crash with anything that tries to render)
+ - the research loader is now an optional dependency
+
+=============
+1.1.0
+  - fixed #52
+  - speed enchant now provides a raw speed increase instead of a potion effect
+  - strength enchant gives raw damage increase/decrease instead of strength /weakness effect
+  - unluck now randomly reduces the damage dealt by the affected creature, or increases the damage delt to it
+
+=============
+1.0.0
+ - creature enchant recipes are now showing in the thaumonomicon (hurray)
+ - added slime tools
+ - added infused slime tools
+ - added slime golems
+ - added custom potion brewing.
+ - added "essentia mines"
+ - groundworks for a future feature
+ - removed the experiment table until further notice
+ - creature enchant: productivity. improves the items dropped
+ - fixed a bug where paving stones could be crafted with any kind of crystal.
+ - added leather golems
+ - flesh golem now has an increased attack damage
+ - thaumcraft golems no longer drop curios
+ - corrected some research text
+
+Working but currently unused items are left in for custom maps/packs.
+=============
 0.6.0
  - depends on the research loader
  - added focus to disable and enable all enchants
@@ -16,7 +47,8 @@
  - fixed a bug where the fertility enchant crashes when applied to villagers
  - fixed a crash, caused by the mod not warning about it's dependencies
  - creature enchant, haste
-
+ - added livium, a metal that is at least partially alive.
+ - magical enchanting powder can now be found in chests.
 
 Break and replace experiment tables before clicking on them!
 Creature enchant crafting is still a little problematic, not all enchats are available on all tiers.
@@ -96,7 +128,7 @@ features:
   -metal transmutation
   -fertiliser made out of herba, that acts like bonemeal
   
-WARNING: this buildAnnotations might be (surely) completly broken in some way!
+WARNING: this build might be (surely) completly broken in some way!
 
 known issues:
  -formula damage values not fully implemented (required for later recipes)

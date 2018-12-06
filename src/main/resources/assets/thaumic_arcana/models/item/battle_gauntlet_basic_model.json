@@ -1,0 +1,76 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"parent":"",
+	"textures": {
+		"blade": "gauntlet_blade_normal"
+	},
+	"elements": [
+		{
+			"from": [9, -3, 9],
+			"to": [9, 2, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 6], "texture": "#missing"},
+				"east": {"uv": [2, 0, 0, 6], "texture": "#blade"},
+				"south": {"uv": [0, 0, 0, 6], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2, 6], "texture": "#blade"},
+				"up": {"uv": [0, 0, 0, 2], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 2], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [8, -3, 9],
+			"to": [8, 2, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 6], "texture": "#missing"},
+				"east": {"uv": [2, 0, 0, 6], "texture": "#blade"},
+				"south": {"uv": [0, 0, 0, 6], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2, 6], "texture": "#blade"},
+				"up": {"uv": [0, 0, 0, 2], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 2], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [7, -3, 9],
+			"to": [7, 2, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 6], "texture": "#missing"},
+				"east": {"uv": [2, 0, 0, 6], "texture": "#blade"},
+				"south": {"uv": [0, 0, 0, 6], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2, 6], "texture": "#blade"},
+				"up": {"uv": [0, 0, 0, 2], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 2], "texture": "#missing"}
+			}
+		}
+	],
+	"display": {
+		"firstperson_righthand": {
+			"translation": [2, -2, 1],
+			"rotation": [130, -230, 25]
+		},
+		"thirdperson_righthand": {
+			"translation": [0, -2, 8],
+			"scale": [1.2, 1.1, 1.2],
+			"rotation": [90, 90, 0]
+		},
+		"gui": {
+			"translation": [-6, -5, 0],
+			"scale": [2, 2, 2],
+			"rotation": [-45, -45, 90]
+		},
+		"ground": {
+			"rotation": [0, 0, 180]
+		},
+		"fixed": {
+			"translation": [0, -8, 0],
+			"scale": [2, 2, 2],
+			"rotation": [0, 0, 180]
+		}
+	},
+	"groups": [
+		{
+			"name": "blade",
+			"children": [0, 1, 2]
+		}
+	]
+}

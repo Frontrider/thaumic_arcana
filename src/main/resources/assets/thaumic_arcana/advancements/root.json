@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": {
+      "item": "thaumic_arcana:creature_enchanter"
+    },
+    "title": "The Biomancer",
+    "description": "Research Biomancy",
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
+  },
+  "criteria": {
+    "research": {
+      "trigger": "thaumcraftresearchloader:TA_INFUSE_SLIME_TOOLS_1"
+    }
+  }
+}

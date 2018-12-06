@@ -1,0 +1,61 @@
+{
+  "entries":[
+    {
+      "key": "TA_GAUNTLET",
+      "name": "research.thaumic_arcana.gauntlet.title",
+      "icons": [
+        "thaumcraft:caster_basic"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "ENCHANT_FOCUS"
+      ],
+      "meta": [
+        "HIDDEN"
+        ],
+      "location": [
+        7,
+        -5
+      ],
+      "required_knowledge": [
+        "THEORY;ALCHEMY;2",
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.gauntlet.stage.1",
+          "required_item": [
+            "minecraft:egg",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ignis'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'bestia'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
+          ],
+          "required_knowledge": [
+            "THEORY;ALCHEMY;2",
+            "OBSERVATION;BIOMANCY;1",
+            "OBSERVATION;BASICS;2",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.gauntlet.stage.2",
+          "required_item": [
+            "minecraft:beef",
+            "minecraft:porkchop",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'victus'}]}",
+            "thaumcraft:essence_crystal;1;1;{Aspects:[{amount:1,key:'bestia'}]}"
+          ],
+          "required_knowledge": [
+          ],
+          "recipes": [
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.gauntlet.stage.3",
+          "recipes": [
+          ]
+        }
+      ]
+    }
+  ]
+}
