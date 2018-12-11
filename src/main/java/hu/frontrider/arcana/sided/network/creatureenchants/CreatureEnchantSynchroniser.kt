@@ -1,8 +1,10 @@
 package hu.frontrider.arcana.sided.network.creatureenchants
 
 import hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER
-import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
 import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider.Companion.INHIBITOR_CAPABILITY
+import hu.frontrider.arcana.capabilities.inhibitor.IInhibitor
 import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler.Companion.enchantmentCache
 import net.minecraft.entity.player.EntityPlayerMP
@@ -22,12 +24,12 @@ class CreatureEnchantSynchroniser {
     fun EntityTrack(event: StartTracking) {
         val target = event.target
 
-        if (target.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
+        if (target.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
             val entityPlayer = event.entityPlayer
 
             val entityId = target.entityId
             NETWORK_WRAPPER.sendTo(CreatureEnchantSyncMessage(
-                    target.getCapability<ICreatureEnchant>(CREATURE_ENCHANT_CAPABILITY, null)!!,
+                    target.getCapability<ICreatureEnchant>(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)!!,
                     entityId
             ), entityPlayer as EntityPlayerMP
             )
@@ -49,8 +51,9 @@ class CreatureEnchantSynchroniser {
 
         val entity = event.player
         val entityId = entity.entityId
+
         NETWORK_WRAPPER.sendTo(CreatureEnchantSyncMessage(
-                entity.getCapability<ICreatureEnchant>(CREATURE_ENCHANT_CAPABILITY, null)!!,
+                entity.getCapability<ICreatureEnchant>(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)!!,
                 entityId
         ), entity as EntityPlayerMP
         )

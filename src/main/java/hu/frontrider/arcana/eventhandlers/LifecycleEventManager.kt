@@ -12,7 +12,9 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider
 import hu.frontrider.arcana.capabilities.scar.ScarProvider
+import hu.frontrider.arcana.entity.ai.peopleList
 
 class LifecycleEventManager {
 
@@ -35,20 +37,30 @@ class LifecycleEventManager {
     fun attachCapability(event: AttachCapabilitiesEvent<Entity>) {
         val `object` = event.getObject()
         if (`object` is EntityLiving) {
-
             for (entry in TAConfig.entityBlacklist) {
                 val entityEntry = ForgeRegistries.ENTITIES.getValue(ResourceLocation(entry))
                 if (entityEntry != null) {
-                    if (entityEntry.entityClass == `object`.javaClass)
-                        return
+                    if (entityEntry.entityClass != `object`.javaClass) {
+                        event.addCapability(CREATURE_ENCHANT, CreatureEnchantProvider())
+
+
+                    }
                 }
             }
+            var isPeople = false;
+            for (entry in peopleList) {
+                val entityEntry = ForgeRegistries.ENTITIES.getValue(ResourceLocation(entry))
+                if (entityEntry != null) {
+                    isPeople = isPeople && entityEntry.entityClass == `object`.javaClass
+                }
+            }
+            if(!isPeople)
+                event.addCapability(INHIBITOR, InhibitorProvider())
 
-            event.addCapability(CREATURE_ENCHANT, CreatureEnchantProvider())
         }
         if (`object` is EntityPlayer) {
             event.addCapability(CREATURE_ENCHANT, CreatureEnchantProvider())
-            event.addCapability(SCAR,ScarProvider())
+            event.addCapability(SCAR, ScarProvider())
         }
     }
 
@@ -56,6 +68,8 @@ class LifecycleEventManager {
 
         private val CREATURE_ENCHANT = ResourceLocation(MODID, "creature_enchant")
         private val SCAR = ResourceLocation(MODID, "scar")
+        private val INHIBITOR = ResourceLocation(MODID, "inhibitor")
+
     }
 
 }

@@ -2,6 +2,7 @@ package hu.frontrider.arcana.sided.network.creatureenchants
 
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantCapability
 import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.capabilities.inhibitor.IInhibitor
 import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.creatureenchant.EnchantingBaseCircle
 import io.netty.buffer.ByteBuf

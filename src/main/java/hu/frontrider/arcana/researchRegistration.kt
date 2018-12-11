@@ -27,6 +27,7 @@ fun registerResearchLoader(suggestedConfigurationFile:File){
             "${ThaumicArcana.MODID}:research/biomancy/plantexperiments",
             "${ThaumicArcana.MODID}:research/biomancy/metallurgy",
             "${ThaumicArcana.MODID}:research/biomancy/slime",
+            "${ThaumicArcana.MODID}:research/biomancy/souls",
             //"${ThaumicArcana.MODID}:research/gauntlet",
             "${ThaumicArcana.MODID}:research/scans"
     )

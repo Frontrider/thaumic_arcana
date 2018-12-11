@@ -3,6 +3,7 @@ package hu.frontrider.arcana.items
 import hu.frontrider.arcana.ThaumicArcana.TABARCANA
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantCapability
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider
 import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import net.minecraft.client.resources.I18n
@@ -38,7 +39,7 @@ class EnchantmentUpgradePowder(val level: Int, resourceLocation: ResourceLocatio
 
         if (entity!!.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
             if (!playerIn!!.entityWorld.isRemote) {
-                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY!!, null) ?: return false
+                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null) ?: return false
 
                 val creature_enchants = tagCompound.getTag("creature_enchants")
 

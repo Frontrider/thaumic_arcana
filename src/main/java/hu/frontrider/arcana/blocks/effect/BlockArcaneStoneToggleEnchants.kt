@@ -1,7 +1,8 @@
 package hu.frontrider.arcana.blocks.effect
 
 
-import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider.Companion.INHIBITOR_CAPABILITY
 import net.minecraft.block.SoundType
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.Entity
@@ -18,8 +19,8 @@ abstract class BlockArcaneStoneEnchants(name:String,val status:Boolean): BlockAr
     }
 
     override fun activate(worldIn: World, pos: BlockPos, entityIn: Entity) {
-        if(entityIn.hasCapability(CREATURE_ENCHANT_CAPABILITY,null)){
-            val capability = entityIn.getCapability(CREATURE_ENCHANT_CAPABILITY, null)!!
+        if(entityIn.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY,null)){
+            val capability = entityIn.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)!!
             if(capability.hasEnchant()== status)
                 return
 

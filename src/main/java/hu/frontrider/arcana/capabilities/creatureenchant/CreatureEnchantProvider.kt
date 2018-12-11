@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.capabilities.creatureenchant
 
+import hu.frontrider.arcana.capabilities.inhibitor.IInhibitor
 import net.minecraft.nbt.NBTBase
 import net.minecraft.util.EnumFacing
 import net.minecraftforge.common.capabilities.Capability
@@ -19,11 +20,11 @@ class CreatureEnchantProvider : ICapabilitySerializable<NBTBase> {
     }
 
     override fun serializeNBT(): NBTBase? {
-        return CREATURE_ENCHANT_CAPABILITY!!.storage.writeNBT(CREATURE_ENCHANT_CAPABILITY, this.instance, null)
+        return CREATURE_ENCHANT_CAPABILITY.storage.writeNBT(CREATURE_ENCHANT_CAPABILITY, this.instance, null)
     }
 
     override fun deserializeNBT(nbt: NBTBase) {
-        CREATURE_ENCHANT_CAPABILITY!!.storage.readNBT(CREATURE_ENCHANT_CAPABILITY, this.instance, null, nbt)
+        CREATURE_ENCHANT_CAPABILITY.storage.readNBT(CREATURE_ENCHANT_CAPABILITY, this.instance, null, nbt)
     }
 
     companion object {

@@ -2,7 +2,8 @@ package hu.frontrider.arcana.casters.backend
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.ThaumicArcana.NETWORK_WRAPPER
-import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider.Companion.INHIBITOR_CAPABILITY
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import net.minecraft.util.math.RayTraceResult
 import net.minecraft.world.World
@@ -16,8 +17,8 @@ open class SetEnchantStatus(private val researchName: String, private val name: 
     override fun execute(rayTraceResult: RayTraceResult, trajectory: Trajectory?, v: Float, i: Int): Boolean {
 
         val entityHit = rayTraceResult.entityHit
-        if (entityHit.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            val capability = entityHit.getCapability(CREATURE_ENCHANT_CAPABILITY, null)!!
+        if (entityHit.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
+            val capability = entityHit.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)!!
             capability.setEnabledStatus(status)
             val entityId = entityHit.entityId
 

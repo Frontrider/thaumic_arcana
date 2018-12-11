@@ -1,0 +1,9 @@
+
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumic_arcana:items/soul_flame_caged",
+    "layer1": "thaumic_arcana:items/soul_capsule",
+    "layer2": "thaumic_arcana:items/revival_capsule_overlay"
+  }
+}

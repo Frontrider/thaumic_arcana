@@ -1,0 +1,166 @@
+{
+  "entries": [
+    {
+      "key": "TA_SOULS",
+      "name": "research.thaumic_arcana.souls.title",
+      "icons": [
+        "thaumic_arcana:textures/items/soul_flame.png"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "BIOMANCY_BASICS"
+      ],
+      "meta": [
+      ],
+      "location": [
+        -2,
+        0
+      ],
+      "required_knowledge": [
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.souls.stage.1",
+          "required_item": [
+            "minecraft:ghast_tear;3",
+            "minecraft:soul_sand;2",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'spiritus'}]}"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BASICS;2",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.souls.stage.2",
+          "recipes": [
+            "thaumic_arcana:create_capsule",
+            "thaumic_arcana:create_sieve"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TA_REVIVAL_CAPSULE",
+      "name": "research.thaumic_arcana.revival_capsule.title",
+      "icons": [
+        "thaumic_arcana:revival_capsule"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "TA_SOULS"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -4,
+        0
+      ],
+      "required_knowledge": [
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.revival_capsule.stage.1",
+          "required_item": [
+            "minecraft:totem_of_undying",
+            "thaumic_arcana:soul_capsule",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'spiritus'}]}"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BASICS;2",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.souls.stage.2",
+          "recipes": [
+            "thaumic_arcana:create_revival_capsule"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TA_INHIBITOR",
+      "name": "research.thaumic_arcana.inhibitor.title",
+      "icons": [
+        "thaumic_arcana:mind_inhibitor"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "TA_EXPERIENCE_STORE"
+      ],
+      "meta": [
+      ],
+      "location": [
+        -6,
+        2
+      ],
+      "required_knowledge": [
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.inhibitor.stage.1",
+          "required_item": [
+            "thaumcraft:brain",
+            "thaumic_arcana:soul_capsule",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'spiritus'}]}",
+            "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1",
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.inhibitor.stage.2",
+          "recipes": [
+            "thaumic_arcana:create_inhibitor"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TA_EXPERIENCE_STORE",
+      "name": "research.thaumic_arcana.experience_store.title",
+      "icons": [
+        "thaumic_arcana:experience_store"
+      ],
+      "category": "BIOMANCY",
+      "parents": [
+        "TA_SOULS"
+      ],
+      "meta": [
+      ],
+      "location": [
+        -4,
+        -2
+      ],
+      "required_knowledge": [
+        "THEORY;BIOMANCY;1"
+      ],
+      "stages": [
+        {
+          "text": "research.thaumic_arcana.experience_store.stage.1",
+          "required_item": [
+            "thaumcraft:brain;2",
+            "thaumic_arcana:soul_capsule",
+            "minecraft:experience_bottle"
+          ],
+          "required_knowledge": [
+            "THEORY;BIOMANCY;1"
+          ]
+        },
+        {
+          "text": "research.thaumic_arcana.experience_store.stage.2",
+          "recipes":[
+            "thaumic_arcana:create_knowledge_infuser"
+          ]
+        }
+      ]
+    }
+  ]
+}

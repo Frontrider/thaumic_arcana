@@ -24,7 +24,7 @@ object AspectEffectMap {
     lateinit var map: Map<Aspect, EffectEntry>
 
     fun init() {
-        map = mapOf(
+        map = mapOf(//26
                 Pair(AIR, EffectEntry(MobEffects.WATER_BREATHING)),
                 Pair(VOID, EffectEntry(MobEffects.UNLUCK)),
                 Pair(LIGHT, EffectEntry(MobEffects.GLOWING)),
@@ -38,7 +38,7 @@ object AspectEffectMap {
                 Pair(AURA, EffectEntry(sunScorned)),
                 Pair(FLUX, EffectEntry(MobEffects.WITHER)),
                 Pair(DARKNESS, EffectEntry(MobEffects.BLINDNESS, 1000)),
-                Pair(ELDRITCH, EffectEntry(thaumarhia)),
+                Pair(ELDRITCH, EffectEntry(MobEffects.INSTANT_DAMAGE)),
                 Pair(FLIGHT, EffectEntry(MobEffects.LEVITATION)),
                 Pair(PLANT, EffectEntry(MobEffects.NAUSEA)),
                 Pair(TOOL, EffectEntry(MobEffects.HASTE)),
@@ -51,7 +51,6 @@ object AspectEffectMap {
                 Pair(DESIRE, EffectEntry(MobEffects.LUCK)),
                 Pair(UNDEAD, EffectEntry(unnaturalHunger)),
                 Pair(MAN, EffectEntry(MobEffects.STRENGTH)),
-                Pair(BEAST, EffectEntry(MobEffects.SATURATION,10)),
                 Pair(MIND, EffectEntry(MobEffects.MINING_FATIGUE))
         )
     }
@@ -60,47 +59,38 @@ object AspectEffectMap {
 
 }
 
-
 /*
 * A list containing all the supported aspects, to generate metadata when required.
 * */
-val supportedAspects = arrayOf(
-        Aspect.AIR,
-        Aspect.EARTH,
-        Aspect.FIRE,
-        Aspect.WATER,
-        Aspect.ORDER,
-        Aspect.ENTROPY,
-        Aspect.VOID,
-        Aspect.LIGHT,
-        Aspect.MOTION,
-        Aspect.COLD,
-        Aspect.CRYSTAL,
-        Aspect.METAL,
-        Aspect.LIFE,
-        Aspect.DEATH,
-        Aspect.ENERGY,
-        Aspect.EXCHANGE,
-        Aspect.MAGIC,
-        Aspect.AURA,
-        Aspect.ALCHEMY,
-        Aspect.FLUX,
-        Aspect.DARKNESS,
-        Aspect.ELDRITCH,
-        Aspect.FLIGHT,
-        Aspect.PLANT,
-        Aspect.TOOL,
-        Aspect.CRAFT,
-        Aspect.MECHANISM,
-        Aspect.TRAP,
-        Aspect.SOUL,
-        Aspect.MIND,
-        Aspect.SENSES,
-        Aspect.AVERSION,
-        Aspect.PROTECT,
-        Aspect.DESIRE,
-        Aspect.UNDEAD,
-        Aspect.BEAST,
-        Aspect.MAN
-
+val supportedAspects = arrayOf(//
+        AIR,
+        VOID,
+        LIGHT,
+        MOTION,
+        COLD,
+        LIFE,
+        DEATH,
+        ENERGY,
+        EXCHANGE,
+        MAGIC,
+        AURA,
+        FLUX,
+        DARKNESS,
+        ELDRITCH,
+        FLIGHT,
+        PLANT,
+        TOOL,
+        TRAP,
+        SOUL,
+        METAL,
+        SENSES,
+        AVERSION,
+        PROTECT,
+        DESIRE,
+        UNDEAD,
+        MAN,
+        MIND,
+        ALCHEMY,
+        ORDER,
+        CRAFT
 )

@@ -40,10 +40,12 @@ class ItemRegistry {
         val blocks = ArrayList<Block>()
 
         val items: MutableList<Item> = mutableListOf(
-                Item()
-                        .setRegistryName(MODID, "nutrient_mix")
-                        .setUnlocalizedName("$MODID.nutrient_mix")
-                        .setCreativeTab(TABARCANA),
+                ItemFactory.start(ItemFood(5, .3f, true))
+                        .setResourourceLocation("nutrient_mix")
+                        .build(),
+                ItemFactory.start(ItemFood(8, .10f, true))
+                        .setResourourceLocation("nutritious_mix")
+                        .build(),
                 fertiliser,
                 incubated_egg,
                 creature_enchanter,
@@ -57,7 +59,6 @@ class ItemRegistry {
                 AuraCuriosity(),
                 InfusedCuriosity(),
                 AnimatedCuriosity(),
-
                 ItemFactory.start(Item())
                         .setResourourceLocation("ingot_livium")
                         .build(),
@@ -98,7 +99,8 @@ class ItemRegistry {
                         .build(),
                 ItemFactory.start(ItemExpStore())
                         .setResourourceLocation("experience_store")
-                        .build(),
+                        .build()
+                        .setMaxStackSize(1),
                 ItemFactory.start(Item())
                         .setResourourceLocation("empty_soul_capsule")
                         .build(),
@@ -107,7 +109,12 @@ class ItemRegistry {
                         .build(),
                 ItemFactory.start(Item())
                         .setResourourceLocation("revival_capsule")
-                        .build()/*,
+                        .build()
+                        .setMaxStackSize(1),
+                ItemFactory.start(ItemInhibitor())
+                        .setResourourceLocation("mind_inhibitor")
+                        .build()
+                        .setMaxStackSize(8)/*,
                 ItemFactory.start(ItemReproductiveSyringe())
                         .setResourourceLocation("reproductive_syringe")
                         .build(),

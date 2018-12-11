@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.registrationhandlers.recipes
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.api.ArcaneSieveRecipeRegistryEvent
+import hu.frontrider.arcana.api.ArcaneSieveRegistryEvent
 import hu.frontrider.arcana.api.SimpleArcaneSieveRecipe
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
@@ -20,7 +20,7 @@ class ArcaneSieveRecipes {
     }
 
     @SubscribeEvent
-    fun registerRecipes(event:ArcaneSieveRecipeRegistryEvent){
+    fun registerRecipes(event:ArcaneSieveRegistryEvent){
         event.registerRecipes(
                 SimpleArcaneSieveRecipe(
                         ItemStack(Items.GHAST_TEAR,5),

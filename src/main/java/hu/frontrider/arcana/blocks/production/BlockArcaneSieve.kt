@@ -10,6 +10,8 @@ import net.minecraft.entity.EntityLivingBase
 import net.minecraft.entity.item.EntityItem
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack
+import net.minecraft.util.BlockRenderLayer
+import net.minecraft.util.EnumBlockRenderType
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.EnumHand
 import net.minecraft.util.math.BlockPos
@@ -50,4 +52,24 @@ class BlockArcaneSieve : BlockTileEntity<TileArcaneSieve>(Material.WOOD, "arcane
             worldIn.spawnEntity(EntityItem(worldIn, pos.x + .5, pos.y + .5, pos.z + .5, it))
         }
     }
+
+    override fun getRenderType(state: IBlockState?): EnumBlockRenderType {
+        return EnumBlockRenderType.MODEL
+    }
+
+    override fun getBlockLayer(): BlockRenderLayer {
+        return BlockRenderLayer.CUTOUT
+    }
+
+    override fun isFullCube(state: IBlockState?): Boolean {
+        return false
+    }
+
+    /**
+     * Used to determine ambient occlusion and culling when rebuilding chunks for render
+     */
+    override fun isOpaqueCube(state: IBlockState?): Boolean {
+        return false
+    }
+
 }

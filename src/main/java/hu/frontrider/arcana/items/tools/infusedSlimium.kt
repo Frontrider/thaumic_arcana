@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly
 
 class InfusedSlimiumPickAxe : PickAxeBase("infused_slimy_pickaxe", TOOL_MATERIAL_INFUSED_SLIMIUM), IInfuseable {
     override fun hasEffect(stack: ItemStack): Boolean {
-        return PotionUtils.getEffectsFromStack(stack).size >0
+        return PotionUtils.getEffectsFromStack(stack).size > 0 || super.hasEffect(stack)
     }
 
     @SideOnly(Side.CLIENT)
@@ -21,9 +21,9 @@ class InfusedSlimiumPickAxe : PickAxeBase("infused_slimy_pickaxe", TOOL_MATERIAL
     }
 }
 
-class InfusedSlimiumAxe : AxeBase("infused_slimy_axe", TOOL_MATERIAL_INFUSED_SLIMIUM) , IInfuseable {
+class InfusedSlimiumAxe : AxeBase("infused_slimy_axe", TOOL_MATERIAL_INFUSED_SLIMIUM), IInfuseable {
     override fun hasEffect(stack: ItemStack): Boolean {
-        return PotionUtils.getEffectsFromStack(stack).size >0
+        return PotionUtils.getEffectsFromStack(stack).size > 0 || super.hasEffect(stack)
     }
 
     @SideOnly(Side.CLIENT)
@@ -34,7 +34,7 @@ class InfusedSlimiumAxe : AxeBase("infused_slimy_axe", TOOL_MATERIAL_INFUSED_SLI
 
 class InfusedSlimiumShovel : ShovelBase("infused_slimy_shovel", TOOL_MATERIAL_INFUSED_SLIMIUM), IInfuseable {
     override fun hasEffect(stack: ItemStack): Boolean {
-        return PotionUtils.getEffectsFromStack(stack).size >0
+        return PotionUtils.getEffectsFromStack(stack).size > 0 || super.hasEffect(stack)
     }
 
     @SideOnly(Side.CLIENT)
@@ -45,7 +45,7 @@ class InfusedSlimiumShovel : ShovelBase("infused_slimy_shovel", TOOL_MATERIAL_IN
 
 class InfusedSlimiumSword : SwordBase("infused_slimy_sword", TOOL_MATERIAL_INFUSED_SLIMIUM), IInfuseable {
     override fun hasEffect(stack: ItemStack): Boolean {
-        return PotionUtils.getEffectsFromStack(stack).size >0
+        return PotionUtils.getEffectsFromStack(stack).size > 0 || super.hasEffect(stack)
     }
 
     @SideOnly(Side.CLIENT)
@@ -56,7 +56,7 @@ class InfusedSlimiumSword : SwordBase("infused_slimy_sword", TOOL_MATERIAL_INFUS
 
 class InfusedSlimiumHoe : HoeBase("infused_slimy_hoe", TOOL_MATERIAL_SLIMIUM), IInfuseable {
     override fun hasEffect(stack: ItemStack): Boolean {
-        return PotionUtils.getEffectsFromStack(stack).size > 0
+        return PotionUtils.getEffectsFromStack(stack).size > 0 || super.hasEffect(stack)
     }
 
     @SideOnly(Side.CLIENT)
@@ -66,7 +66,7 @@ class InfusedSlimiumHoe : HoeBase("infused_slimy_hoe", TOOL_MATERIAL_SLIMIUM), I
 }
 
 
-fun makeInfusedTool(effects:Array<PotionEffect>,tool:ItemStack):ItemStack{
+fun makeInfusedTool(effects: Array<PotionEffect>, tool: ItemStack): ItemStack {
     return PotionUtils.appendEffects(tool, mutableListOf(*effects))
 }
 

@@ -1,9 +1,7 @@
 package hu.frontrider.arcana
 
-import com.google.gson.Gson
-import hu.frontrider.arcana.AspectEffectMap
-import hu.frontrider.arcana.api.ArcaneSieveRecipeRegistryEvent
-import hu.frontrider.arcana.api.IArcaneSieveRecipe
+import hu.frontrider.arcana.api.ArcaneSieveRegistryEvent
+import hu.frontrider.arcana.api.PeopleRegistryEvent
 import hu.frontrider.arcana.blocks.production.tile.TileArcaneSieve
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler
@@ -17,9 +15,14 @@ import hu.frontrider.arcana.sided.server.commands.ScarHelperCommand
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantCapability
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantStorage
 import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.capabilities.inhibitor.IInhibitor
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorCapability
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorStorage
 import hu.frontrider.arcana.capabilities.scar.IScarred
 import hu.frontrider.arcana.capabilities.scar.ScarredCapability
 import hu.frontrider.arcana.capabilities.scar.ScarredStorage
+import hu.frontrider.arcana.entity.ai.InhibitorEvents
+import hu.frontrider.arcana.entity.ai.peopleList
 import hu.frontrider.arcana.eventhandlers.*
 import hu.frontrider.arcana.recipes.BrewSlime
 import hu.frontrider.arcana.registrationhandlers.*
@@ -76,12 +79,14 @@ object ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(ScarEvents())
         MinecraftForge.EVENT_BUS.register(UnluckHandler())
         MinecraftForge.EVENT_BUS.register(ArcaneSieveRecipes())
+        MinecraftForge.EVENT_BUS.register(InhibitorEvents())
 
         ConfigDirectory = File(suggestedConfigurationFile.parent + "/" + MODID + "/")
 
         proxy.preInit(event)
         CapabilityManager.INSTANCE.register<ICreatureEnchant>(ICreatureEnchant::class.java, CreatureEnchantStorage()) { CreatureEnchantCapability() }
         CapabilityManager.INSTANCE.register<IScarred>(IScarred::class.java, ScarredStorage()) { ScarredCapability() }
+        CapabilityManager.INSTANCE.register<IInhibitor>(IInhibitor::class.java, InhibitorStorage()) { InhibitorCapability() }
 
         LootHandler().init()
 
@@ -112,7 +117,7 @@ object ThaumicArcana {
         FocusRegistry().init()
         GolemRegistry().init()
         FakeRecipes().init()
-        val arcaneSieveRecipeRegistryEvent = ArcaneSieveRecipeRegistryEvent(TileArcaneSieve.recipes)
+        val arcaneSieveRecipeRegistryEvent = ArcaneSieveRegistryEvent(TileArcaneSieve.recipes)
         MinecraftForge.EVENT_BUS.post(arcaneSieveRecipeRegistryEvent)
 
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegistry.incubated_egg, object : BehaviorDefaultDispenseItem() {
@@ -153,6 +158,15 @@ object ThaumicArcana {
             }
 
         })
+
+
+        //set up the people list.
+        val arrayList = ArrayList<String>()
+        val peopleRegistryEvent = PeopleRegistryEvent(arrayList)
+        MinecraftForge.EVENT_BUS.post(peopleRegistryEvent)
+        arrayList.addAll(TAConfig.entityPerson)
+
+        peopleList = arrayList
     }
 
     @EventHandler
@@ -170,7 +184,7 @@ object ThaumicArcana {
 
     const val MODID = "thaumic_arcana"
     const val NAME = "Thaumic Arcana"
-    const val VERSION = "1.1.1"
+    const val VERSION = "1.2.0"
 
     lateinit var ConfigDirectory: File
     lateinit var logger: Logger

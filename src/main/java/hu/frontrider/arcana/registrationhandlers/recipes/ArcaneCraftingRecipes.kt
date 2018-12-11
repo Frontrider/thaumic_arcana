@@ -22,9 +22,11 @@ import hu.frontrider.arcana.supportedAspects
 import hu.frontrider.arcana.util.items.NbtAwareIngredient
 import net.minecraft.block.Block
 import net.minecraft.enchantment.EnchantmentHelper
+import net.minecraft.init.Blocks
 import net.minecraft.init.Enchantments
 import net.minecraft.init.Items
 import thaumcraft.api.ThaumcraftApiHelper
+import thaumcraft.api.items.ItemsTC
 
 
 class ArcaneCraftingRecipes {
@@ -36,6 +38,7 @@ class ArcaneCraftingRecipes {
         initSlimyTools()
         initSlimeMeat()
         initSlimeInfusion()
+        initSouls()
     }
 
     private fun initRecipes() {
@@ -441,6 +444,90 @@ class ArcaneCraftingRecipes {
             )
     }
 
+    private fun initSouls(){
+        run {
+            val sieve = ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.fromItem(plank_greatwood))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone)))
+                    .add(Ingredient.fromItem(plank_greatwood))
+                    .add(Ingredient.fromItem(ItemsTC.mechanismSimple))
+                    .add(Ingredient.fromStacks(ItemStack(Blocks.WEB)))
+                    .add(Ingredient.fromItem(ItemsTC.mechanismComplex))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone)))
+                    .add(Ingredient.fromStacks(ItemStack(arcane_stone)))
+                    .build() as NonNullList<Ingredient>
+
+            val primer = CraftingHelper.ShapedPrimer()
+            primer.height =3
+            primer.width =3
+            primer.input = sieve
+
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "create_sieve"),
+                    ShapedArcaneRecipe(defaultGroup,
+                            "TA_SOULS",
+                            10,
+                            AspectList().add(Aspect.EARTH, 2).add(Aspect.ENTROPY,1),
+                            ItemStack(arcane_sieve),
+                            primer))
+        }
+        run {
+            val capsule = ListBuilder(NonNullList.create<Ingredient>())
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(Items.IRON_NUGGET!!))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(Items.IRON_NUGGET!!))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(Items.IRON_NUGGET!!))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItem(Items.IRON_NUGGET!!))
+                    .add(Ingredient.EMPTY)
+                    .build() as NonNullList<Ingredient>
+            val primer = CraftingHelper.ShapedPrimer()
+            primer.height =3
+            primer.width =3
+            primer.input = capsule
+
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "create_capsule"),
+                    ShapedArcaneRecipe(defaultGroup,
+                            "TA_SOULS",
+                            10,
+                            AspectList().add(Aspect.EARTH, 2),
+                            ItemStack(empty_soul_capsule),
+                            primer))
+        }
+        run {
+            val infuser = ListBuilder(NonNullList.create<Ingredient>())
+
+                    .add(Ingredient.fromStacks(ItemStack(ItemsTC.nuggets,1,6)))
+                    .add(Ingredient.fromStacks(ItemStack(ItemsTC.jarBrace)))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItems(soul_capsule))
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.EMPTY)
+                    .add(Ingredient.fromItems(Items.EXPERIENCE_BOTTLE))
+                    .add(Ingredient.fromItem(ItemsTC.mechanismComplex))
+                    .build() as NonNullList<Ingredient>
+            val primer = CraftingHelper.ShapedPrimer()
+            primer.height =3
+            primer.width =3
+            primer.input = infuser
+            ThaumcraftApi.addArcaneCraftingRecipe(
+                    ResourceLocation(MODID, "create_knowledge_infuser"),
+                    ShapedArcaneRecipe(defaultGroup,
+                            "TA_EXPERIENCE_STORE",
+                            30,
+                            AspectList().add(Aspect.EARTH, 2),
+                            ItemStack(experience_store),
+                            primer))
+        }
+
+    }
+
+
     companion object {
 
         @GameRegistry.ObjectHolder("$MODID:experiment_table")
@@ -479,17 +566,30 @@ class ArcaneCraftingRecipes {
         @GameRegistry.ObjectHolder("thaumcraft:stone_arcane_brick")
         var arcane_stone: Block? = null
 
+        @GameRegistry.ObjectHolder("$MODID:arcane_sieve")
+        lateinit var arcane_sieve: Block
+
+
+        @GameRegistry.ObjectHolder("$MODID:empty_soul_capsule")
+        lateinit var empty_soul_capsule: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:soul_capsule")
+        lateinit var soul_capsule: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:experience_store")
+        lateinit var experience_store: Item
+
 
         @GameRegistry.ObjectHolder("thaumcraft:salis_mundus")
         var sal_mundi: Item? = null
 
         @GameRegistry.ObjectHolder("thaumcraft:plank_greatwood")
-        var plank_greatwood: Item? = null
-
+        lateinit var plank_greatwood: Item
 
         @GameRegistry.ObjectHolder("minecraft:bowl")
         var bowl: Item? = null
-
 
         @GameRegistry.ObjectHolder("minecraft:glass_bottle")
         var bottle: Item? = null
@@ -520,5 +620,6 @@ class ArcaneCraftingRecipes {
 
         @GameRegistry.ObjectHolder("$MODID:infused_slime")
         lateinit var infused_slime: Item
+
     }
 }
