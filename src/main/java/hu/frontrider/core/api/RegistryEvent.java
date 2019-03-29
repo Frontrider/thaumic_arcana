@@ -1,6 +1,5 @@
 package hu.frontrider.core.api;
 
-import hu.frontrider.arcana.api.IArcaneSieveRecipe;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 import java.util.Collections;
@@ -11,18 +10,18 @@ import java.util.List;
  */
 public class RegistryEvent<T> extends Event {
 
-    private List<T> recipeList;
+    private List<T> list;
 
-    public RegistryEvent(List<T> recipes) {
-        recipeList = recipes;
+    public RegistryEvent(List<T> items) {
+        list = items;
     }
 
-    public void registerRecipe(T recipe) {
-        recipeList.add(recipe);
+    public void register(T item) {
+        list.add(item);
     }
 
-    public void registerRecipes(T... recipe) {
-        Collections.addAll(recipeList, recipe);
+    public void register(T... item) {
+        Collections.addAll(list, item);
     }
 
 }

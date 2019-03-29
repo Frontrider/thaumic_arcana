@@ -14,7 +14,7 @@ import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
 import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider
 import hu.frontrider.arcana.capabilities.scar.ScarProvider
-import hu.frontrider.arcana.entity.ai.peopleList
+import hu.frontrider.arcana.entity.inhibitor.peopleList
 
 class LifecycleEventManager {
 

@@ -82,7 +82,6 @@ class InfusionRecipes {
         @GameRegistry.ObjectHolder("$MODID:revival_capsule")
         lateinit var revival_capsule: Item
 
-
         @GameRegistry.ObjectHolder("$MODID:experience_store")
         lateinit var experience_store: Item
 

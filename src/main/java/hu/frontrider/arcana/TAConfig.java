@@ -6,6 +6,8 @@ import static hu.frontrider.arcana.ThaumicArcana.MODID;
 
 @Config(modid = MODID)
 public class TAConfig {
+
+    private TAConfig(){}
     @Config.Comment({"Toggles weather or not it should enable the platinum recipe.",
             "This one has a toggle, because it can be truly game breaking.",
             "Turn it on, if metal transmutation is the intended way of getting resources, or if you want this"})

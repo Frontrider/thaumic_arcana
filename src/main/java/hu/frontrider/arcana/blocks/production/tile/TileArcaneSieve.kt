@@ -20,9 +20,29 @@ import java.util.*
 
 class TileArcaneSieve : TileEntity() {
 
-    private val input = FilteredItemHandler(ItemStackHandler(2))
+    private val input = FilteredItemHandler(ItemStackHandler(2)) { slot, stack ->
+        val tempStack = stack.copy()
+        tempStack.count =64
+        for (it in recipes) {
+            if (slot == 0) {
+                if (it.isItem1(tempStack))
+                    return@FilteredItemHandler true
+            } else {
+                if (it.isItem2(tempStack))
+                    return@FilteredItemHandler true
+            }
+        }
+        return@FilteredItemHandler false;
+    }
+
     private val output = BlockedInventory(ItemStackHandler(9))
-    private val catalyst = FilteredItemHandler(ItemStackHandler(1))
+    private val catalyst = FilteredItemHandler(ItemStackHandler(1)) { slot, stack ->
+        for (it in recipes) {
+            if (it.isCatalyst(stack))
+                return@FilteredItemHandler true
+        }
+        return@FilteredItemHandler false;
+    }
     private var progress = 0
     private var currentRecipe: IArcaneSieveRecipe? = null
     private var backlog = ItemStack.EMPTY
@@ -71,10 +91,8 @@ class TileArcaneSieve : TileEntity() {
                 canCraft
             }
         }
-        if (backlog.isNotEmpty()) {
-            if (!output.addItemStackToInventory(backlog))
-                return
-        }
+        if (backlog.isNotEmpty() && !output.addItemStackToInventory(backlog)) return
+
         if (currentRecipe != null) {
             if (currentRecipe!!.canCraft(input.getStackInSlot(0), input.getStackInSlot(1), catalyst.getStackInSlot(0), world)) {
                 if (AuraHelper.drainVis(world, pos, .4f, true) == .4f) {
@@ -83,7 +101,7 @@ class TileArcaneSieve : TileEntity() {
                 }
             } else {
                 progress = 0
-                currentRecipe =null
+                currentRecipe = null
             }
             if (progress == 10) {
                 val craft = currentRecipe!!.craft(input.getStackInSlot(0), input.getStackInSlot(1), catalyst.getStackInSlot(0), world, true)

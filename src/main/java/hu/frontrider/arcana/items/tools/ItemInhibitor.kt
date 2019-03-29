@@ -16,7 +16,6 @@ class ItemInhibitor: Item() {
 
         @GameRegistry.ObjectHolder("${ThaumicArcana.MODID}:experience_store")
         lateinit var experience_store: Item
-
     }
 
     override fun itemInteractionForEntity(stack: ItemStack, playerIn: EntityPlayer, target: EntityLivingBase, hand: EnumHand): Boolean {

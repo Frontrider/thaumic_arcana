@@ -73,4 +73,10 @@ public class SimpleArcaneSieveRecipe implements IArcaneSieveRecipe {
         }
         return ItemStack.EMPTY;
     }
+
+    @Override
+    public ItemStack getOutput() {
+        return result.copy();
+    }
+
 }

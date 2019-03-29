@@ -36,4 +36,7 @@ public interface IArcaneSieveRecipe {
      * @param simulate if true, than the items should not be changed!
      * */
     ItemStack craft(ItemStack source1, ItemStack source2, ItemStack catalyst, World world,boolean simulate);
+
+    ItemStack getOutput();
+
 }

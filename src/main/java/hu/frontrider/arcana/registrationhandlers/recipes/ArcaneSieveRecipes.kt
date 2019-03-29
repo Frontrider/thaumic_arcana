@@ -21,7 +21,7 @@ class ArcaneSieveRecipes {
 
     @SubscribeEvent
     fun registerRecipes(event:ArcaneSieveRegistryEvent){
-        event.registerRecipes(
+        event.register(
                 SimpleArcaneSieveRecipe(
                         ItemStack(Items.GHAST_TEAR,5),
                         ItemStack(emplty_soul_capsule),

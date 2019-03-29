@@ -1,7 +1,8 @@
 package hu.frontrider.arcana.capabilities.inhibitor
 
-import hu.frontrider.arcana.entity.ai.InhibitedAI
-import hu.frontrider.arcana.entity.ai.aiList
+import hu.frontrider.arcana.api.InhibitorAiWrapper
+import hu.frontrider.arcana.entity.inhibitor.InhibitedAI
+import hu.frontrider.arcana.entity.inhibitor.aiList
 import net.minecraft.nbt.NBTBase
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.nbt.NBTTagList
@@ -16,14 +17,15 @@ class InhibitorStorage : Capability.IStorage<IInhibitor> {
         val inhibitedAI = NBTTagList()
         instance.aiList.forEach {
             val ai = NBTTagCompound()
-            it.location.apply {
+            it.id.apply {
                 ai.setString("domain", this.resourceDomain)
                 ai.setString("path", this.resourcePath)
             }
+            ai.setInteger("priority",it.priority)
             inhibitedAI.appendTag(ai)
 
         }
-        storage.setTag("ai", inhibitedAI)
+        storage.setTag("inhibitor", inhibitedAI)
         return storage
     }
 
@@ -31,10 +33,14 @@ class InhibitorStorage : Capability.IStorage<IInhibitor> {
         val nbtTagCompound = nbt as NBTTagCompound
         instance.inhibited = nbtTagCompound.getBoolean("isInhibited")
 
-        (nbt.getTag("ai") as NBTTagList).forEach {
+        (nbt.getTag("inhibitor") as NBTTagList).forEach {
             (it as NBTTagCompound).apply {
+                if(hasKey("priority")){
+
+                }
                 val resourceLocation = ResourceLocation(getString("domain"), getString("path"))
-                val selectedAI = ArrayList<InhibitedAI>()
+                val selectedAI = ArrayList<InhibitorAiWrapper>()
+
                 if (aiList.containsKey(resourceLocation)) {
                     selectedAI.add(aiList[resourceLocation]!!)
                 }
