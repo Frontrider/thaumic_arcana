@@ -446,33 +446,6 @@ class ArcaneCraftingRecipes {
 
     private fun initSouls(){
         run {
-            val sieve = ListBuilder(NonNullList.create<Ingredient>())
-                    .add(Ingredient.fromItem(plank_greatwood))
-                    .add(Ingredient.fromStacks(ItemStack(arcane_stone)))
-                    .add(Ingredient.fromItem(plank_greatwood))
-                    .add(Ingredient.fromItem(ItemsTC.mechanismSimple))
-                    .add(Ingredient.fromStacks(ItemStack(Blocks.WEB)))
-                    .add(Ingredient.fromItem(ItemsTC.mechanismComplex))
-                    .add(Ingredient.fromStacks(ItemStack(arcane_stone)))
-                    .add(Ingredient.fromStacks(ItemStack(arcane_stone)))
-                    .add(Ingredient.fromStacks(ItemStack(arcane_stone)))
-                    .build() as NonNullList<Ingredient>
-
-            val primer = CraftingHelper.ShapedPrimer()
-            primer.height =3
-            primer.width =3
-            primer.input = sieve
-
-            ThaumcraftApi.addArcaneCraftingRecipe(
-                    ResourceLocation(MODID, "create_sieve"),
-                    ShapedArcaneRecipe(defaultGroup,
-                            "TA_SOULS",
-                            10,
-                            AspectList().add(Aspect.EARTH, 2).add(Aspect.ENTROPY,1),
-                            ItemStack(arcane_sieve),
-                            primer))
-        }
-        run {
             val capsule = ListBuilder(NonNullList.create<Ingredient>())
                     .add(Ingredient.EMPTY)
                     .add(Ingredient.fromItem(Items.IRON_NUGGET!!))

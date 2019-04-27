@@ -127,3 +127,18 @@ processResources {
 test {
     useJUnitPlatform()
 }
+
+subprojects {
+    runClient.enabled = false
+    runServer.enabled = false
+    setupDecompWorkspace.enabled = false
+    setupDevWorkspace.enabled = false
+    cleanCache.enabled = false
+    splitServerJar.enabled = false
+    mergeJars.enabled = false
+    extractNatives.enabled = false
+    getAssets.enabled = false
+    deobfCompileDummyTask.enabled = false
+    deobfProvidedDummyTask.enabled = false
+    getVersionJson.enabled = false
+}

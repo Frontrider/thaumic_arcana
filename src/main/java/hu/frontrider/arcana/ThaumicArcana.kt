@@ -1,10 +1,8 @@
 package hu.frontrider.arcana
 
-import hu.frontrider.arcana.api.ArcaneSieveRegistryEvent
 import hu.frontrider.arcana.api.InhibitorAIRegistryEvent
 import hu.frontrider.arcana.api.InhibitorAiWrapper
 import hu.frontrider.arcana.api.PeopleRegistryEvent
-import hu.frontrider.arcana.blocks.production.tile.TileArcaneSieve
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessageHandler
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSynchroniser
@@ -82,7 +80,6 @@ object ThaumicArcana {
         MinecraftForge.EVENT_BUS.register(ToolEvents())
         MinecraftForge.EVENT_BUS.register(ScarEvents())
         MinecraftForge.EVENT_BUS.register(UnluckHandler())
-        MinecraftForge.EVENT_BUS.register(ArcaneSieveRecipes())
         MinecraftForge.EVENT_BUS.register(InhibitorEvents())
         MinecraftForge.EVENT_BUS.register(AIRegistryEvent())
 
@@ -123,8 +120,6 @@ object ThaumicArcana {
         FocusRegistry().init()
         GolemRegistry().init()
         FakeRecipes().init()
-        val arcaneSieveRecipeRegistryEvent = ArcaneSieveRegistryEvent(TileArcaneSieve.recipes)
-        MinecraftForge.EVENT_BUS.post(arcaneSieveRecipeRegistryEvent)
 
         val aiList = ArrayList<InhibitorAiWrapper>()
         val inhibitorAIRegistryEvent = InhibitorAIRegistryEvent(aiList)
@@ -179,6 +174,8 @@ object ThaumicArcana {
         arrayList.addAll(TAConfig.entityPerson)
 
         peopleList = arrayList
+
+
     }
 
     @EventHandler

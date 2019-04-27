@@ -38,6 +38,13 @@ class AlchemyRecipes {
         @ObjectHolder("$MODID:nutrient_mix")
         internal lateinit var nutrientMix: Item
 
+        @GameRegistry.ObjectHolder("$MODID:empty_soul_capsule")
+        lateinit var empty_soul_capsule: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:soul_capsule")
+        lateinit var soul_capsule: Item
+
         @GameRegistry.ObjectHolder("$MODID:infused_slime")
         lateinit var infused_slime: Item
     }
@@ -54,6 +61,7 @@ class AlchemyRecipes {
         initEnchanting()
         initPlantExperiments()
         initSlime()
+        initSouls()
     }
 
     private fun initMetalTransmutation() {
@@ -609,6 +617,21 @@ class AlchemyRecipes {
             ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "fabric_slime"), recipe)
         }
 
+    }
+
+    fun initSouls(){
+        run {
+
+            val recipe = CrucibleRecipe(
+                    "TA_REVIVAL_CAPSULE",
+                   ItemStack(soul_capsule),
+                    empty_soul_capsule,
+                    AspectList().add(Aspect.SOUL, 60)
+                            .add(Aspect.AIR,10)
+                            .add(Aspect.FIRE,20)
+            )
+            ThaumcraftApi.addCrucibleRecipe(ResourceLocation(MODID, "soul_capsule"), recipe)
+        }
     }
 }
 

@@ -2,7 +2,6 @@ package hu.frontrider.arcana.crt
 
 import crafttweaker.annotations.ZenRegister
 import crafttweaker.api.item.IIngredient
-import hu.frontrider.arcana.api.SimpleArcaneSieveRecipe
 import stanhebben.zenscript.annotations.ZenClass
 import stanhebben.zenscript.annotations.ZenMethod
 
