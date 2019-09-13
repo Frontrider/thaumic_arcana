@@ -1,5 +1,6 @@
 package hu.frontrider.arcana.capabilities.creatureenchant
 import hu.frontrider.arcana.ThaumicArcana.MODID
+import hu.frontrider.arcana.capabilities.inhibitor.IInhibitor
 import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.creatureenchant.EnchantingBaseCircle
 import net.minecraft.nbt.NBTBase

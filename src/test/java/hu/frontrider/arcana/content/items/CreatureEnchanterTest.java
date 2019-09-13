@@ -1,7 +1,7 @@
 package hu.frontrider.arcana.content.items;
 
 import hu.frontrider.arcana.creatureenchant.effect.FertileEnchant;
-import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant;
+import hu.frontrider.arcana.capabilities.inhibitor.IInhibitor;
 import hu.frontrider.arcana.items.CreatureEnchanter;
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage;
 import net.minecraft.block.state.IBlockState;
@@ -33,7 +33,7 @@ import static org.mockito.Mockito.*;
 class CreatureEnchanterTest {
     private CreatureEnchanter creature_enchanter;
     private EntityLivingBase mockentityLiving;
-    private ICreatureEnchant capability;
+    private IInhibitor capability;
     private World world;
     private EntityPlayerMP player;
     private BlockPos blockPos;
@@ -64,7 +64,7 @@ class CreatureEnchanterTest {
         //we return something so that it's not null.
 
         when(mockentityLiving.hasCapability(any(), eq(null))).thenReturn(true);
-        capability = mock(ICreatureEnchant.class);
+        capability = mock(IInhibitor.class);
         when(mockentityLiving.getCapability(any(), eq(null))).thenReturn(capability);
     }
 

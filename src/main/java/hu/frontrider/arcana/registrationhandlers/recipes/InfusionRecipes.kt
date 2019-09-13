@@ -19,6 +19,7 @@ import net.minecraft.init.Blocks
 import net.minecraft.init.Items
 import net.minecraft.init.Items.DYE
 import net.minecraft.init.Items.IRON_INGOT
+import thaumcraft.api.items.ItemsTC
 import thaumcraft.api.items.ItemsTC.salisMundus
 
 class InfusionRecipes {
@@ -74,6 +75,23 @@ class InfusionRecipes {
 
         @GameRegistry.ObjectHolder("$MODID:infused_slime")
         lateinit var infused_slime: Item
+
+        @GameRegistry.ObjectHolder("$MODID:soul_capsule")
+        lateinit var soul_capsule: Item
+
+        @GameRegistry.ObjectHolder("$MODID:revival_capsule")
+        lateinit var revival_capsule: Item
+
+        @GameRegistry.ObjectHolder("$MODID:experience_store")
+        lateinit var experience_store: Item
+
+
+        @GameRegistry.ObjectHolder("$MODID:mind_inhibitor")
+        lateinit var mind_inhibitor: Item
+
+
+        @GameRegistry.ObjectHolder("thaumcraft:vishroom")
+        lateinit var vishroom: Item
     }
 
     fun register() {
@@ -81,6 +99,7 @@ class InfusionRecipes {
         initLivium()
         initInfusedSlimeTools()
         initInfusedSlimeArmor()
+        initSouls()
     }
 
     fun registerCreatureEnchants() {
@@ -161,7 +180,7 @@ class InfusionRecipes {
     }
 
     private fun initInfusedSlimeTools() {
-        fun createTool(sourceItem:Item,targetItem:Item,name:String,aspects:AspectList){
+        fun createTool(sourceItem: Item, targetItem: Item, name: String, aspects: AspectList) {
             val source = ItemStack(sourceItem)
 
             val itemStack = ItemStack(targetItem)
@@ -186,15 +205,16 @@ class InfusionRecipes {
             )
         }
 
-        createTool(axe_slime,axe_slime_infused,"axe",AspectList().merge(Aspect.METAL,10))
-        createTool(hoe_slime,hoe_slime_infused,"hoe",AspectList().merge(Aspect.PLANT,10))
-        createTool(shovel_slime,shovel_slime_infused,"shovel",AspectList().merge(Aspect.EARTH,10))
-        createTool(pickaxe_slime,pickaxe_slime_infused,"pickaxe",AspectList().merge(Aspect.TOOL,10))
-        createTool(sword_slime,sword_slime_infused,"sword",AspectList().merge(Aspect.AVERSION,10))
+        createTool(axe_slime, axe_slime_infused, "axe", AspectList().merge(Aspect.METAL, 10))
+        createTool(hoe_slime, hoe_slime_infused, "hoe", AspectList().merge(Aspect.PLANT, 10))
+        createTool(shovel_slime, shovel_slime_infused, "shovel", AspectList().merge(Aspect.EARTH, 10))
+        createTool(pickaxe_slime, pickaxe_slime_infused, "pickaxe", AspectList().merge(Aspect.TOOL, 10))
+        createTool(sword_slime, sword_slime_infused, "sword", AspectList().merge(Aspect.AVERSION, 10))
 
     }
+
     private fun initInfusedSlimeArmor() {
-        fun createArmor(sourceItem:Item,targetItem:Item,name:String,aspects:AspectList){
+        fun createArmor(sourceItem: Item, targetItem: Item, name: String, aspects: AspectList) {
             val source = ItemStack(sourceItem)
 
             val itemStack = ItemStack(targetItem)
@@ -205,7 +225,7 @@ class InfusionRecipes {
                             1, aspects
                             .add(Aspect.LIFE, 30)
                             .add(Aspect.TOOL, 40)
-                            .add(Aspect.PROTECT,50)
+                            .add(Aspect.PROTECT, 50)
                             .add(Aspect.ALCHEMY, 50),
                             source,
                             ItemStack(ingot_livium),
@@ -221,8 +241,61 @@ class InfusionRecipes {
                     )
             )
         }
-        createArmor(Items.DIAMOND_HELMET, infused_slimy_helmet,"helmet",AspectList())
-        createArmor(Items.DIAMOND_CHESTPLATE, infused_slimy_chestplate,"chestplate",AspectList())
-        createArmor(Items.DIAMOND_LEGGINGS, infused_slimy_leggings,"leggings",AspectList())
+        createArmor(Items.DIAMOND_HELMET, infused_slimy_helmet, "helmet", AspectList())
+        createArmor(Items.DIAMOND_CHESTPLATE, infused_slimy_chestplate, "chestplate", AspectList())
+        createArmor(Items.DIAMOND_LEGGINGS, infused_slimy_leggings, "leggings", AspectList())
+    }
+
+    private fun initSouls() {
+        run {
+            val source = ItemStack(soul_capsule)
+
+            val itemStack = ItemStack(revival_capsule)
+            ThaumcraftApi.addInfusionCraftingRecipe(
+                    ResourceLocation(MODID, "create_revival_capsule"),
+                    InfusionRecipe("TA_REVIVAL_CAPSULE",
+                            itemStack,
+                            4, AspectList()
+                            .add(Aspect.LIFE, 50)
+                            .add(Aspect.MAGIC, 50)
+                            .add(Aspect.TOOL, 10)
+                            .add(Aspect.PROTECT, 120)
+                            .add(Aspect.SOUL, 100),
+                            source,
+                            ItemStack(Items.EXPERIENCE_BOTTLE),
+                            ItemStack(ItemsTC.ingots),
+                            ItemStack(Items.GHAST_TEAR),
+                            ItemStack(Items.GOLD_INGOT),
+                            ItemStack(ingot_livium),
+                            ItemStack(Items.EXPERIENCE_BOTTLE),
+                            ItemStack(ItemsTC.ingots),
+                            ItemStack(Items.GHAST_TEAR),
+                            ItemStack(Items.GOLD_INGOT),
+                            ItemStack(ingot_livium)
+                    )
+            )
+        }
+        run {
+            val source = ItemStack(experience_store)
+
+            val itemStack = ItemStack(mind_inhibitor)
+            ThaumcraftApi.addInfusionCraftingRecipe(
+                    ResourceLocation(MODID, "create_inhibitor"),
+                    InfusionRecipe("TA_INHIBITOR",
+                            itemStack,
+                            4, AspectList()
+                            .add(Aspect.MAGIC, 100)
+                            .add(Aspect.AURA, 100)
+                            .add(Aspect.TOOL, 10)
+                            .add(Aspect.ELDRITCH, 30)
+                            .add(Aspect.SOUL, 100),
+                            source,
+                            ItemStack(soul_capsule),
+                            ItemStack(vishroom),
+                            ItemStack(BlocksTC.brainBox),
+                            ItemStack(BlocksTC.condenserlatticeDirty)
+                    )
+            )
+        }
     }
 }

@@ -42,6 +42,15 @@ repositories {
         name = "ModMaven"
         url = "modmaven.k-4u.nl"
     }
+    maven {
+        url 'http://maven.blamejared.com'
+    }
+    repositories {
+        maven {
+            name = "CurseForge"
+            url = "https://minecraft.curseforge.com/api/maven/"
+        }
+    }
 }
 
 configurations {
@@ -66,6 +75,7 @@ dependencies {
 
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
+    deobfCompile "targetingapi:targeting_api:0.12"
     // at runtime, use the full JEI jar
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     compile group: "net.shadowfacts", name: "Forgelin", version: "1.7.3"
@@ -84,7 +94,7 @@ dependencies {
     testCompile(files("lib/MinecraftTestKit-0.1-SNAPSHOT.jar"))
     testCompile("com.jayway.jsonpath:json-path:$json_path_version")
     testCompile group: 'org.apache.commons', name: 'commons-text', version: commons_text_version
-
+    deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:$craft_tweaker_version"
 }
 
 jar {

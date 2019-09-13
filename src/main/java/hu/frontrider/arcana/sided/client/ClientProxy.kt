@@ -81,12 +81,6 @@ class ClientProxy : CommonProxy() {
 
                 supportedAspects[stack.metadata].color
                 }, infusedSlime)
-
-        Minecraft.getMinecraft().blockColors.registerBlockColorHandler(
-                IBlockColor { state, access, pos, tintindex ->
-                    val tile = access!!.getTileEntity(pos!!)
-                    (tile as? TileEssentiaMine)?.aspect?.color ?: 0
-                }, essentia_mine)
     }
 
     companion object {

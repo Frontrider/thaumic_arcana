@@ -1,7 +1,9 @@
 package hu.frontrider.arcana.sided.network.creatureenchants
 
-import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
 import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider.Companion.INHIBITOR_CAPABILITY
+import hu.frontrider.arcana.capabilities.inhibitor.IInhibitor
 import net.minecraft.client.Minecraft
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler
@@ -19,8 +21,8 @@ class CreatureEnchantSyncMessageHandler : IMessageHandler<CreatureEnchantSyncMes
             return null
         }
 
-        if (entityByID.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            val capability = entityByID.getCapability(CREATURE_ENCHANT_CAPABILITY, null)
+        if (entityByID.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
+            val capability = entityByID.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)
             capability!!.store = message.enchant!!.store
             capability.circle = message.enchant!!.circle
         }

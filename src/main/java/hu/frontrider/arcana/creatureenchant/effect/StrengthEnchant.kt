@@ -1,7 +1,6 @@
 package hu.frontrider.arcana.creatureenchant.effect
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
 import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.util.ResourceLocation

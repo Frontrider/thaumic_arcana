@@ -1,3 +1,14 @@
+1.2.0
+  - added revival capsule
+  - added knowledge infuser
+  - added mind inhibitor
+  - fixed a bug, where infused slime tools would have no glow when enchanted
+  - fixed #67
+  - fixed #66?
+  - fixed a bug where invalid infused slime would be available
+  - fixed a bug where the slime brewing recipe would crash with water bottles.
+
+=============
 1.1.1
  - fixed #61 (crash with ftb utils)
  - fixed #62 (crash with anything that tries to render)
@@ -28,6 +39,7 @@
  - corrected some research text
 
 Working but currently unused items are left in for custom maps/packs.
+
 =============
 0.6.0
  - depends on the research loader

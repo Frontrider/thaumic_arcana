@@ -26,7 +26,8 @@ import thaumcraft.api.aura.AuraHelper
 import thaumcraft.api.items.ItemsTC
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
-import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider.Companion.INHIBITOR_CAPABILITY
 import net.minecraft.util.EnumActionResult.FAIL
 import net.minecraft.util.EnumActionResult.SUCCESS
 
@@ -46,7 +47,7 @@ class EnchantModifierDust(private val networkWrapper: SimpleNetworkWrapper) : It
 
         if (!tagCompound.hasKey("modifier")) return false
 
-        if (entity!!.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
+        if (entity!!.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
             if (!playerIn!!.entityWorld.isRemote) {
                 if (AuraHelper.drainVis(entity.world, entity.position, 30f, true) < 30)
                     return false
@@ -54,7 +55,7 @@ class EnchantModifierDust(private val networkWrapper: SimpleNetworkWrapper) : It
                 val modifier = tagCompound.getString("modifier")
                 val baseCircle = registry.getValue(ResourceLocation(modifier))
 
-                val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null)
+                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)
                 capability!!.circle = baseCircle!!
 
                 stack.shrink(1)

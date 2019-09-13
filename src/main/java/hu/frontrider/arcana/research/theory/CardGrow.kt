@@ -9,6 +9,8 @@ import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.text.TextComponentTranslation
 import net.minecraft.util.text.TextFormatting
+import thaumcraft.api.ThaumcraftApi
+import thaumcraft.api.ThaumcraftApiHelper
 import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.items.ItemGenericEssentiaContainer
@@ -35,10 +37,11 @@ class CardGrow : TheorycraftCard() {
     }
 
     override fun getRequiredItems(): Array<ItemStack> {
-        val stack = ItemStack(ItemsTC.phial, 1, 0)
-        (ItemsTC.crystalEssence as ItemGenericEssentiaContainer).setAspects(stack, AspectList().add(Aspect.WATER, 10))
 
-        return arrayOf(ItemStack(itemStack.item, 1), stack)
+        return arrayOf(ItemStack(itemStack.item, 1),
+                ThaumcraftApiHelper.makeCrystal(Aspect.WATER),
+                ThaumcraftApiHelper.makeCrystal(Aspect.EARTH),
+                ThaumcraftApiHelper.makeCrystal(Aspect.LIGHT))
     }
 
     override fun getLocalizedName(): String {

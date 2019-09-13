@@ -14,7 +14,7 @@ import thaumcraft.api.aspects.Aspect
 
 class BrewSlime : IBrewingRecipe {
     override fun isIngredient(ingredient: ItemStack): Boolean {
-        return ingredient.item == infusedSlime
+        return ingredient.item == infusedSlime && supportedAspects[ingredient.metadata] != Aspect.CRAFT
     }
 
     override fun getOutput(input: ItemStack, ingredient: ItemStack): ItemStack {
@@ -97,7 +97,7 @@ class BrewSlime : IBrewingRecipe {
     }
 
     private fun isAwkwardPotion(ingredient: ItemStack): Boolean {
-        ingredient.tagCompound!!.apply {
+        ingredient.tagCompound?.apply {
             return if (hasKey("Potion")) {
                 val type = getString("Potion")
                 type == "minecraft:awkward" || type == "minecraft:thick"

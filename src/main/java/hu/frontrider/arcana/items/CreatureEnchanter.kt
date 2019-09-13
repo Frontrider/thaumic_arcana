@@ -2,6 +2,7 @@ package hu.frontrider.arcana.items
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider
 import hu.frontrider.arcana.creatureenchant.CreatureEnchant
 import hu.frontrider.arcana.sided.network.creatureenchants.CreatureEnchantSyncMessage
 import hu.frontrider.arcana.registrationhandlers.ItemRegistry
@@ -43,7 +44,7 @@ class CreatureEnchanter(private val networkWrapper: SimpleNetworkWrapper) : Item
 
         if (entity!!.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
             if (!playerIn!!.entityWorld.isRemote) {
-                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY!!, null) ?: return false
+                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null) ?: return false
 
                 val creature_enchants = tagCompound.getTag("creature_enchants")
 

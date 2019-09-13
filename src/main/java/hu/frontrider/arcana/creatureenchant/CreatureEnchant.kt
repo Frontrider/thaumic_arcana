@@ -1,6 +1,6 @@
 package hu.frontrider.arcana.creatureenchant
 
-import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.capabilities.inhibitor.IInhibitor
 import hu.frontrider.arcana.util.AspectUtil
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityLivingBase
@@ -11,7 +11,9 @@ import thaumcraft.api.aspects.AspectList
 
 import hu.frontrider.arcana.ThaumicArcana.MODID
 import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantCapability
-import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider.Companion.CREATURE_ENCHANT_CAPABILITY
+import hu.frontrider.arcana.capabilities.creatureenchant.CreatureEnchantProvider
+import hu.frontrider.arcana.capabilities.creatureenchant.ICreatureEnchant
+import hu.frontrider.arcana.capabilities.inhibitor.InhibitorProvider.Companion.INHIBITOR_CAPABILITY
 
 abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val unlocalizedName: String) : IForgeRegistryEntry.Impl<CreatureEnchant>() {
 
@@ -29,8 +31,8 @@ abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val u
     }
 
     open fun getEnchantLevel(entity: EntityLivingBase, enchantment: CreatureEnchant): Int {
-        if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-            val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null)!!
+        if (entity.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
+            val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)!!
             val level = capability.getLevel(enchantment)
             if (capability.hasEnchant(enchantment))
                 return capability.circle.doEffect(level, entity, enchantment)
@@ -54,8 +56,8 @@ abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val u
         private val baseCircle: EnchantingBaseCircle? = null
 
         fun setEnchantment(entity: Entity, enchants: ICreatureEnchant) {
-            if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-                val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null)
+            if (entity.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
+                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)
 
                 capability!!.store = enchants.store
                 capability.circle = enchants.circle
@@ -63,16 +65,16 @@ abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val u
         }
 
         fun isEnchanted(entity: Entity): Boolean {
-            if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-                val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null)
+            if (entity.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
+                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)
                 return capability!!.hasEnchant()
             }
             return false
         }
 
         fun getCreatureEnchants(entity: Entity): Map<CreatureEnchant, CreatureEnchantCapability.CreatureEnchantContainer> {
-            if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-                val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null)
+            if (entity.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
+                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)
                 return capability!!.store
             }
 
@@ -80,8 +82,8 @@ abstract class CreatureEnchant(resourceLocation: ResourceLocation, private val u
         }
 
         fun getBaseCircle(entity: Entity): EnchantingBaseCircle? {
-            if (entity.hasCapability(CREATURE_ENCHANT_CAPABILITY, null)) {
-                val capability = entity.getCapability(CREATURE_ENCHANT_CAPABILITY, null)
+            if (entity.hasCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)) {
+                val capability = entity.getCapability(CreatureEnchantProvider.CREATURE_ENCHANT_CAPABILITY, null)
                 return capability!!.circle
             }
 
