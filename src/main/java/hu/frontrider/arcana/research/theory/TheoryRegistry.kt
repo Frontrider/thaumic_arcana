@@ -35,14 +35,14 @@ class TheoryRegistry {
         itemStacks.add(ItemStack(MUTTON))
         itemStacks.add(ItemStack(PORKCHOP))
 
-        CardGrow.options = itemStacks.toTypedArray()
+        CardDissect.options = itemStacks.toTypedArray()
 
         itemStacks.clear()
         itemStacks.add(ItemStack(ItemsTC.brain))
         itemStacks.add(ItemStack(ROTTEN_FLESH))
         itemStacks.add(ItemStack(BONE))
 
-        CardGrow.options = itemStacks.toTypedArray()
+        CardDissectDead.options = itemStacks.toTypedArray()
 
     }
 }
